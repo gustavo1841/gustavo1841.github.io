@@ -335,6 +335,19 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1617,7 +1630,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/01/14/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-01-shi-da-jing-ji-xue-yuan-li/">
+                <a href="/2025/01/14/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-01-shi-da-jing-ji-xue-yuan-li/">
                     <div class="card-image">
                         
                         
@@ -1887,7 +1900,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">157.8k</span>
+                        class="white-color">162.7k</span>
             
             
             

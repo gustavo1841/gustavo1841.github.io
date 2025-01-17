@@ -16,6 +16,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -261,7 +262,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -318,7 +319,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -334,10 +335,23 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -398,10 +412,25 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    22.6k
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    77 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -1475,7 +1504,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Gustavo</a>
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -1496,9 +1525,9 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                 </span>
                 <span class="reprint-info">
                     本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Gustavo</a>
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
                     !
                 </span>
             </div>
@@ -1550,6 +1579,33 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-01-14T00-15-57',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
 
     
 
@@ -1570,18 +1626,17 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/01/14/qi-ta/jie-zhi-tou-zi-he-zhou-qi-tou-zi/">
+                <a href="/2025/01/14/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-01-shi-da-jing-ji-xue-yuan-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="价值投资和周期投资">
+                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="微观金融初级01：十大经济学原理">
                         
-                        <span class="card-title">价值投资和周期投资</span>
+                        <span class="card-title">微观金融初级01：十大经济学原理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1591,27 +1646,30 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-01-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Quickly-Question-By-ChatGPT/" class="post-category">
-                                    Quickly Question By ChatGPT
+                            <a href="/categories/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                    微观金融
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ChatGPT/">
-                        <span class="chip bg-color">ChatGPT</span>
+                    <a href="/tags/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">微观金融</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                        <span class="chip bg-color">初级</span>
                     </a>
                     
                 </div>
@@ -1625,13 +1683,13 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/01/14/introduce/">
+                <a href="/2025/01/14/qi-ta/2010-nian-de-fang-di-chan-diao-kong-wo-men-shou-huo-liao-shi-me-xie-zai-fang-jie-bao-zhang-qian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="读书笔记导航页">
+                        <img src="/medias/featureimages/62.jpg" class="responsive-img" alt="2010年的房地产调控，我们收获了什么？写在房价暴涨前">
                         
-                        <span class="card-title">读书笔记导航页</span>
+                        <span class="card-title">2010年的房地产调控，我们收获了什么？写在房价暴涨前</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1648,8 +1706,8 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AF%BC%E8%88%AA%E9%A1%B5/" class="post-category">
-                                    导航页
+                            <a href="/categories/%E5%A4%A9%E6%B6%AF%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    天涯博客
                                 </a>
                             
                             
@@ -1659,8 +1717,12 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AF%BC%E8%88%AA%E9%A1%B5/">
-                        <span class="chip bg-color">导航页</span>
+                    <a href="/tags/%E5%A4%A9%E6%B6%AF%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">天涯博客</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%88%BF%E5%9C%B0%E4%BA%A7/">
+                        <span class="chip bg-color">房地产</span>
                     </a>
                     
                 </div>
@@ -1673,6 +1735,43 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1722,7 +1821,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -1799,6 +1898,9 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">171.7k</span>
             
             
             
@@ -1884,7 +1986,7 @@ ChatGPT 说：价值投资和周期投资是两种常见的投资策略，它们
 
 
 
-    <a href="mailto:1142488172@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 

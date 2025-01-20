@@ -99,7 +99,119 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0">
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style>
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
 </head>
@@ -593,7 +705,7 @@
                 </a>
                 <p class="post-description">数学微积分
 微积分01：微积分前置基础
-极限（待更新）
+微积分02：极限
 微分（待更新）
 导数（待更新）
 积分（待更新）
@@ -601,7 +713,7 @@
 微分方程（待更新）
 
 概率论
-一般性理论（待更</p>
+一般性理论（待</p>
                 <a href="/2025/01/13/introduce/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
                     <i class="icon far fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -626,6 +738,62 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/01/20/shu-xue/wei-ji-fen/02-ji-xian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/70.jpg" class="responsive-img" alt="微积分02：极限">
+                            
+                            <span class="card-title">微积分02：极限</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言
+由中学的数学跨入大学数学，有一个最直观的感受便是，由原来研究静态变量关系，变成了动态的了，这个将会贯穿学习微积分的始终。
+
+极限的基本概念极限是描述函数一个定点的行为，极限是指某个变量，不断接近于某个数值，但又不等于这个数值，它始终都
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="post-category">
+                                    微积分
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                            <span class="chip bg-color">数学</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                            <span class="chip bg-color">微积分</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
             
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
@@ -776,9 +944,10 @@
 贸易的开放得失
 国际贸易对生产者剩余与消费者剩余的影响
 关税
+进出口配额
 单边贸易与多边贸易
 
-贸易的比较优势贸易可以对比双方在生产上是否有无优势，它通常可以反应某种物品生产时的机会成本。因为各国的贸易
+贸易的比较优势贸易可以对比双方在生产上是否有无优势，它通常可以反应某种物品生产时的机会成本。因
                             
                         </div>
                         <div class="publish-info">
@@ -936,63 +1105,6 @@ Oliver Wendell Holmes Jr：“税收是我们为文明社会所付出的代价�
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/01/17/li-shi-shi-jian-yu-ren-wu-chuan-ji/wei-shi-me-ming-zhao-tu-ran-fang-qi-zhi-bi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="为什么明朝突然放弃纸币？">
-                            
-                            <span class="card-title">为什么明朝突然放弃纸币？</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                引言
-疑似天涯作者KK本尊的文章，早些年见其文章含量较高，便收藏起来。遗憾的是作者发完此篇文章后，便销声匿迹了！
-
-转载：为什么明朝突然放弃纸币？
- 中国第一代货币是铜钱，盛唐之前中国的主要货币始终是方孔圆钱。经过了宋代原始自由经济大发展，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/" class="post-category">
-                                    历史事件与人物传记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%98%8E%E6%9C%9D/">
-                            <span class="chip bg-color">明朝</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%B4%A7%E5%B8%81/">
-                            <span class="chip bg-color">货币</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -1042,7 +1154,7 @@ Oliver Wendell Holmes Jr：“税收是我们为文明社会所付出的代价�
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">205.8k</span>
+                        class="white-color">207.4k</span>
             
             
             
@@ -1314,10 +1426,6 @@ $(function () {
     <!-- 鼠标星星特效 -->
     
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
     <!-- Baidu Analytics -->

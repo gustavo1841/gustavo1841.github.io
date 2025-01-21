@@ -6,11 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="为什么要学金融, Gustavo">
     <meta name="description" content="引言
-
 转黑猫大佬的投资建议
 
 如何说服投资人获得更多融资？如何结交不同行业的顶尖人才？如何防止被女人/男人掏空家产？如何识别哪些人是想骗你投资，哪些人是想和你共进退？这些有价值的知识是父母言传身教的，是顶层传承的必备技能。
-对于高净值人群">
+对于高净值人群来">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -453,8 +452,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1>引言</h1>
-<blockquote>
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
 <p>转黑猫大佬的投资建议</p>
 </blockquote>
 <p>如何说服投资人获得更多融资？如何结交不同行业的顶尖人才？如何防止被女人/男人掏空家产？如何识别哪些人是想骗你投资，哪些人是想和你共进退？这些有价值的知识是父母言传身教的，是顶层传承的必备技能。</p>
@@ -785,12 +783,6 @@
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
@@ -816,41 +808,6 @@
             }
         });
 
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
     });
 </script>

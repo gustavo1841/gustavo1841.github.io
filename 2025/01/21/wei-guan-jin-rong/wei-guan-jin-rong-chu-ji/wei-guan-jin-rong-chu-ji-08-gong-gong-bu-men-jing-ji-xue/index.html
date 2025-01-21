@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, Gustavo">
-    <meta name="description" content="Gustavo">
+    <meta name="keywords" content="微观金融初级08：公共部门经济学, Gustavo">
+    <meta name="description" content="引言本章学习重点
+
+负外部性与正外部性
+矫正税
+消费中的竞争与排它性
+公共物品成本收益分析
+
+负外部性与正外部性当买者和卖者之间的交易间接影响第三方时，这种影响称为外部性。如果这种影响对第三方不利，我们就称为负外部性，负外部性发生时，某个个">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | Gustavo</title>
+    <title>微观金融初级08：公共部门经济学 | Gustavo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -341,277 +348,243 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Gustavo
-                
-            </div>
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
-            <div class="description center-align">
-                
-                    
-                
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/54.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">微观金融初级08：公共部门经济学</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
+
+
+<main class="post-container content">
+
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 95) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
-
-
-    </div>
-</div>
-<style>
-    .friends-container {
-        margin-top: -100px;
-        margin-bottom: 30px;
-    }
-
-    .friends-container .tag-title {
-        margin-bottom: 10px;
-        color: #3C4858;
-        font-size: 1.75rem;
-        font-weight: 400;
-    }
-
-    .frind-ship img {
-        border-radius: 50%;
-    }
-
-    /* 一下是按钮样式 */
-
-    .frind-ship {
-        padding: 10px 20px;
-    }
-
-    .frind-ship .title {
-        display: flex;
-        align-items: center;
-    }
-
-    .frind-ship .title div {
-        color: #fff;
-        padding-left: 10px;
-    }
-
-    .frind-ship .title img {
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0;
-    }
-
-    .frind-ship .title h1 {
-        padding-bottom: 5px;
-        border-bottom: 2px solid #fff;
-        position: relative;
-        top:-15px;
-        left: 3px;
-    }
-
-    .friend-button {
-        display: flex;
-        justify-content: center;
-        margin-bottom: -27px;
-    }
-
-    .friend-button a {
-        border-radius: 40px;
-    }
-
-    .friend-all .tag-post {
-        margin-bottom: 30px;
-    }
-
-    .button-caution {
-        background-color: #FF4351;
-        border-color: #FF4351;
-        color: #FFF;
-    }
-
-    .button {
-        font-weight: 300;
-        font-size: 16px;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        text-decoration: none;
-        text-align: center;
-        line-height: 40px;
-        height: 40px;
-        padding: 0 40px;
-        margin: 0;
-        display: inline-block;
-        appearance: none;
-        cursor: pointer;
-        border: none;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition-property: all;
-        transition-property: all;
-        -webkit-transition-duration: .3s;
-        transition-duration: .3s;
-    }
-
-    .title {
-        margin-bottom: 0rem !important;
-    }
-
-    .card {
-        margin: 3rem 0 1rem 0 !important;
-    }
-
-    .button-glow.button-caution {
-        -webkit-animation-name: glowing-caution;
-        animation-name: glowing-caution;
-    }
-
-    @-webkit-keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    @keyframes glowing-caution {
-        from {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-
-        50% {
-            -webkit-box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-            box-shadow: 0 0 20px rgba(255, 67, 81, 0.8);
-        }
-
-        to {
-            -webkit-box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-            box-shadow: 0 0 0 rgba(255, 67, 81, 0.3);
-        }
-    }
-
-    .button-caution:hover {
-        background-color: #ff7680;
-        border-color: #ff7680;
-        color: #FFF;
-        text-decoration: none;
-    }
-
-    .frind-card1 {
-        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    }
-
-    .frind-card2 {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .frind-card3 {
-        background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    }
-
-    .frind-card4 {
-        background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    }
-
-    .frind-card5 {
-        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
-    }
-
-    .frind-card6 {
-        background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    }
-
-    .frind-card7 {
-        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-    }
-
-    .frind-card8 {
-        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    }
-
-    .frind-card9 {
-        background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
-    }
-
-    .frind-card10 {
-        background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-    }
-
-    article .card {
-        overflow: visible !important;
-    }
-</style>
-
-<main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-                <article id="friends-link">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
                     
-                    
-                    <div class="row tags-posts friend-all">
+                    <div class="article-tag">
                         
+                            <a href="/tags/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/">
+                                <span class="chip bg-color">微观金融</span>
+                            </a>
                         
-                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card1">
-                                <div class="frind-ship">
-                                    <div class="title">
-                                        <img src="https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31cmsplki0m0g5ng88l1g8c16f9dfh68?imageView2/2/w/540/format/webp|imageMogr2/strip2" alt="img">
-                                        <div>
-                                            <h1 class="friend-name">Gustavo</h1>
-                                            <p style="position: relative;top: -35px;">每天进步一点点</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-button">
-                                        <a href="https://www.xiaohongshu.com/user/profile/668e8bd0000000000f036485" target="_blank"
-                                            class="button button-glow button-rounded button-caution">
-                                            前去学习
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                                <span class="chip bg-color">初级</span>
+                            </a>
                         
                     </div>
                     
-                </article>
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                微观金融
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-01-21
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
+        <hr class="clearfix">
 
         
 
-        <div class="card">
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本章学习重点</p>
+<ul>
+<li>负外部性与正外部性</li>
+<li>矫正税</li>
+<li>消费中的竞争与排它性</li>
+<li>公共物品成本收益分析</li>
+</ul>
+<h1 id="负外部性与正外部性"><a href="#负外部性与正外部性" class="headerlink" title="负外部性与正外部性"></a>负外部性与正外部性</h1><p>当买者和卖者之间的交易间接影响第三方时，这种影响称为<strong>外部性</strong>。如果这种影响对第三方不利，我们就称为<strong>负外部性</strong>，负外部性发生时，某个个体或公司在生产或消费某个商品或服务时，产生了对其他人不利的影响，但这些影响并未反映在商品价格中。比如，工厂排放污染物，尽管污染对周围居民和环境造成了伤害，但生产者在制定价格时并没有将这些成本纳入考虑。由于这些未被考虑的外部成本，市场价格低于社会的真实成本，导致过度生产和过度消费，资源配置效率低下。反之如果有利就称为正外部性。正外部性发生时，某个经济主体的行为对他人产生了有益的影响，然而这些影响未被市场价格所反映。比如，个人接种疫苗不仅保护自己，还能减少他人感染的风险，但个人在决策时只考虑自己的收益，而没有考虑到这一公共健康利益。因此，<strong>市场价格未能反映这些额外的社会效益，可能导致对相关商品或服务的生产和消费不足，从而导致资源配置的低效</strong>。</p>
+<blockquote>
+<p>注意，在存在外部性的市场中，价格机制不能有效地传递社会的总成本或总收益，这就导致了资源的错误配置。负外部性使得过多的资源用于某个活动，而正外部性使得资源投入不足。</p>
+<ul>
+<li><strong>负外部性</strong>导致了“过度生产”或“过度消费”。</li>
+<li><strong>正外部性</strong>导致了“生产或消费不足”。</li>
+</ul>
+<p>为了提高市场效率，可以通过以下几种方法来减少或消除外部性带来的无效率：</p>
+<ul>
+<li><strong>征税</strong>：对产生负外部性的行为进行征税，例如对污染排放征税，使得生产者承担其行为对社会的成本。</li>
+<li><strong>补贴</strong>：对产生正外部性的行为给予补贴，鼓励更多的人参与这些活动，比如对教育、疫苗接种等进行补贴。</li>
+<li><strong>规制</strong>：政府可以通过法律规定限制或规范那些产生负外部性的行为，如设立污染排放标准。</li>
+</ul>
+</blockquote>
+<p>如果一项活动产生了负外部性，例如污染，市场的社会最优量将小于均衡量。如果一项活动产生了正外部性，例如技术溢出效应，社会最优量将大于均衡量。</p>
+<p> 政府用各种政策来解决外部性引起的无效率。有时政府通过管制来防止从社会来看无效率的活动。有时政府通过矫正税来使外部性内部化。还有一种公共政策是发放许可证。例如，政府可以通过发放数量有限的污染许可量来保护环境。这种政策的结果与对污染者征收矫正税的结果大致相同。</p>
+<h1 id="矫正税"><a href="#矫正税" class="headerlink" title="矫正税"></a>矫正税</h1><p>用于纠正负外部性影响的税收被称为矫正税，矫正税与大多数其他税不同。大多数税扭曲了激励，并使资源配置背离社会最优水平。经济福利的减少——消费者剩余和生产者剩余的减少，大于政府收入的增加，引起了无谓损失。与此相反，当存在外部性问题时，社会也关注那些受到影响的旁观者的福利。矫正税改变了激励，使其考虑到外部性的存在，从而使资源配置向社会最优水平移动。因此，矫正税既增加了政府的收入，又提高了经济效率。</p>
+<h1 id="科斯定理"><a href="#科斯定理" class="headerlink" title="科斯定理"></a>科斯定理</h1><p>该定理是指如果私人各方可以无成本地就资源配置进行协商，那么，私人市场就总能解决外部性问题，并有效地配置资源。科斯定理说明，私人经济主体可以解决他们之间的外部性问题。无论最初的权利如何分配，有关各方总可以达成一种协议，在这种协议中，每个人的状况都可以变好，而且，结果是有效率的。<strong>尽管科斯定理的逻辑很吸引人，但私人主体往往不能自己解决外部性所引起的问题。只有当利益各方可以顺利达成和实施协议时，科斯定理才适用，<strong>有时利益各方不能解决外部性问题是因为</strong>交易成本</strong>。</p>
+<blockquote>
+<p>交易成本是各方在达成协议及遵守协议过程中所发生的成本</p>
+</blockquote>
+<p>受外部性影响的人有时可以用私人方法解决问题。例如，当一个企业给另一个企业带来了外部性时，两个企业可以通过合并把外部性内在化。此外，利益各方也可通过签订合约来解决问题。根据科斯定理，如果人们能够无成本地谈判，那么，他们总可以达成一个资源有效配置的协议。但在许多情况下，在许多利益各方间达成协议是很困难的，从而科斯定理并不适用。</p>
+<h1 id="消费中的竞争与排它性"><a href="#消费中的竞争与排它性" class="headerlink" title="消费中的竞争与排它性"></a>消费中的竞争与排它性</h1><p>未完待续..</p>
+
+                
+            </div>
+            <hr/>
 
             
-            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/01/21/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-08-gong-gong-bu-men-jing-ji-xue/">https://gustavo1841.github.io/2025/01/21/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-08-gong-gong-bu-men-jing-ji-xue/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/">
+                                    <span class="chip bg-color">微观金融</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                                    <span class="chip bg-color">初级</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -630,38 +603,250 @@
         repo: 'gustavo1841.github.io',
         owner: 'gustavo1841',
         admin: "gustavo1841",
-        id: '2025-01-13T17-47-46',
+        id: '2025-01-21T21-07-24',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
     gitalk.render('gitalk-container');
 </script>
 
-            
+    
 
-            
+    
 
-            
+    
 
-            
+    
 
-            
+    
 
-            
+    
 
-            
+    
 
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/01/21/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-08-gong-gong-bu-men-jing-ji-xue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/54.jpg" class="responsive-img" alt="微观金融初级08：公共部门经济学">
+                        
+                        <span class="card-title">微观金融初级08：公共部门经济学</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                    微观金融
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">微观金融</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                        <span class="chip bg-color">初级</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
         </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/01/20/shu-xue/wei-ji-fen/02-ji-xian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/70.jpg" class="responsive-img" alt="微积分02：极限">
+                        
+                        <span class="card-title">微积分02：极限</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="post-category">
+                                    微积分
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                        <span class="chip bg-color">微积分</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
-</main>
+</article>
+
+</div>
+
 
 <script>
-    $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
-        });
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
     });
 </script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
 
 
     <footer class="page-footer bg-color">

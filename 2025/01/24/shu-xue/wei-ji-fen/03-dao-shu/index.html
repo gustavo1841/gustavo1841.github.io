@@ -4,16 +4,24 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="会计01-存货, Gustavo">
-    <meta name="description" content="引言本章重点
+    <meta name="keywords" content="微积分02：导数, Gustavo">
+    <meta name="description" content="
+引言
+本章重点
 
-存货的概念
-存货的确认条件
-存货的计量
+连续性
+可导性
+二阶导数与高阶导数
 
-1存货的概念存货：是指企业在日常活动中持有以备出售的产成品或商品（库存商品）、处在生产过程中的在产品、在生产过程或提供劳务过程中耗用的材料和物料等。
+连续的定义点上连续
+双侧极限存在，并且是有极限的：
+函数在点x=a处有定义，即f(a)存在并且是有限的
+以上两个量相等，即
 
-①存货区别于固定资产等非流动资">
+不满足会有什么情况？
+
+
+图1是左极限右极限不相等，所以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +34,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>会计01-存货 | Gustavo</title>
+    <title>微积分02：导数 | Gustavo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -70,7 +78,119 @@
 
 <meta name="generator" content="Hexo 7.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
 </head>
 
 
@@ -366,12 +486,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/87.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/69.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">会计01-存货</h1>
+                    <h1 class="description center-align post-title">微积分02：导数</h1>
                 </div>
             </div>
         </div>
@@ -395,8 +515,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                                <span class="chip bg-color">会计</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">数学</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                                <span class="chip bg-color">微积分</span>
                             </a>
                         
                     </div>
@@ -407,8 +531,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                会计与财管
+                            <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="post-category">
+                                微积分
                             </a>
                         
                     </div>
@@ -420,7 +544,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-01-15
+                    2025-01-24
                 </div>
                 
 
@@ -429,14 +553,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    236
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    1 分
                 </div>
                 
 
@@ -456,175 +580,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本章重点</p>
+                <ol>
+<li><p>引言</p>
+<p>本章重点</p>
 <ul>
-<li>存货的概念</li>
-<li>存货的确认条件</li>
-<li>存货的计量</li>
+<li>连续性</li>
+<li>可导性</li>
+<li>二阶导数与高阶导数</li>
 </ul>
-<h1 id="1存货的概念"><a href="#1存货的概念" class="headerlink" title="1存货的概念"></a>1存货的概念</h1><p>存货：是指企业在日常活动中持有以备出售的产成品或商品（库存商品）、处在生产过程中的在产品、在生产过程或提供劳务过程中耗用的材料和物料等。</p>
-<blockquote>
-<p>①存货区别于固定资产等非流动资产的最基本的特征是，企业持有存货的最终目的是为了出售，存货包括：原材料、在产品、半成品、产成品、商品、周转材料、在途物资、发出商品等。</p>
-<p>②为建造固定资产等各项工程而储备的各种物资，不能作为企业的存货。（“工程物资”）</p>
-<p>③企业接受外来原材料加工制造的代制品和为外单位加工修理的代修品，制造完成或修理验收入库后，应视同企业的产成品。（即企业为加工或修理产品发生的材料、人工费等作为企业存货核算）</p>
-<p>④周转材料符合固定资产定义的，应当作为固定资产。</p>
-<p>⑤房地产开发企业购入的用于建造商品房的土地使用权属于企业的存货。</p>
-<p>⑥委托加工物资。</p>
-<p>⑦在途物资。</p>
-<p>⑧发出商品、委托代销商品。</p>
-<p>⑨受托代销商品：由于受托方未获得相关商品控制权，因而，不能确认为受托方的存货。</p>
-</blockquote>
-<h1 id="2存货的确认条件"><a href="#2存货的确认条件" class="headerlink" title="2存货的确认条件"></a>2存货的确认条件</h1><p>存货同时满足下列条件的，才能予以确认：</p>
-<p>1.与该存货有关的经济利益很可能流入企业；</p>
-<p>2.该存货的成本能够可靠地计量。</p>
-<h1 id="3存货的初始计量"><a href="#3存货的初始计量" class="headerlink" title="3存货的初始计量"></a>3存货的初始计量</h1><table>
-<thead>
-<tr>
-<th>构成</th>
-<th>1.存货应当按照成本进行初始计量。2.存货成本包括采购成本、加工成本和其他成本。（3部分）</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>处理原则</td>
-<td>购买而取得</td>
-<td>原材料、商品、低值易耗品等通过购买而取得的存货的初始成本由采购成本构成。</td>
-</tr>
-<tr>
-<td>进一步加工而取得</td>
-<td>产成品、在产品、半成品和委托加工物资等通过进一步加工而取得的存货的成本由采购成本、加工成本以及为使存货达到目前场所和状态所发生的其他成本构成（如：委托加工物资等）。</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="外购的存货"><a href="#外购的存货" class="headerlink" title="外购的存货"></a>外购的存货</h2><p>1.存货的采购成本</p>
-<table>
-<thead>
-<tr>
-<th>构成项目</th>
-<th>具体内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>价</td>
-<td>购买价款</td>
-</tr>
-<tr>
-<td>税</td>
-<td>应归属于该存货成本的相关税费（关税、消费税、资源税、不能抵扣的增值税等）</td>
-</tr>
-<tr>
-<td>费（入库前的合理支出）</td>
-<td>包括运输费、装卸费、保险费以及其他可归属于存货采购成本的费用。其中：其他可归属于存货采购成本的费用包括：在存货采购过程中发生的仓储费、包装费、运输途中的合理损耗、入库前的挑选整理费用等。</td>
-</tr>
-</tbody></table>
-<p>非合理损耗</p>
-<p>2.不计入存货成本的费用（发生时：计入当期损益）</p>
-<ul>
-<li>（1）非正常消耗的直接材料、直接人工和制造费用；</li>
-<li>（2）仓储费用（不包括在生产过程中为达到下一个生产阶段所必需的仓储费用）是计入当期损益的；</li>
-<li>（3）不能归属于使存货达到目前场所和状态的其他支出。</li>
-</ul>
-<p>3.仓储费、设计费的相关规定</p>
-<ol>
-<li>存货在不同阶段发生的仓储费用，相应的会计核算如下：<ol>
-<li>存货在采购的过程中发生的仓储费用，应计入存货的采购成本。</li>
-<li>存货在采购入库后领用前所发生的仓储费用，应计入当期损益（管理费用）。</li>
-<li>存货在生产过程中为达到下一个生产阶段所必需的仓储费用，应计入生产成本。</li>
+<h1 id="连续的定义"><a href="#连续的定义" class="headerlink" title="连续的定义"></a>连续的定义</h1><h2 id="点上连续"><a href="#点上连续" class="headerlink" title="点上连续"></a>点上连续</h2><ol>
+<li><font style="color:rgb(51, 51, 51);">双侧极限存在，并且是有极限的：</font><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="11.367ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5024.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="munder"><g data-mml-node="mo"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z" transform="translate(278,0)"></path><path data-c="6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z" transform="translate(556,0)"></path></g><g data-mml-node="TeXAtom" transform="translate(1422,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(572,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(1572,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g></g></g><g data-mml-node="mi" transform="translate(3124.3,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(3674.3,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4063.3,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(4635.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
+<li>函数在点x=a处有定义，即f(a)存在并且是有限的</li>
+<li>以上两个量相等，即<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="18.586ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8214.9 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="munder"><g data-mml-node="mo"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z" transform="translate(278,0)"></path><path data-c="6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z" transform="translate(556,0)"></path></g><g data-mml-node="TeXAtom" transform="translate(1422,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(572,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(1572,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g></g></g><g data-mml-node="mi" transform="translate(3124.3,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(3674.3,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4063.3,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(4635.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5302.1,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(6357.9,0)"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(6907.9,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(7296.9,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mo" transform="translate(7825.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
 </ol>
+<p>不满足会有什么情况？</p>
+<p><img src="/../../../images/%E7%82%B9%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%AE%9A%E4%B9%89.jpeg"></p>
+<ul>
+<li>图1是左极限右极限不相等，所以双侧极限不存在。因此函数在x=a处，不连续</li>
+<li>图2左右极限都存在且相等，故而双侧极限存在，然而函数在点x=a处无定义，因此函数在x=a处不连续</li>
+<li>图3双侧极限存在，函数在x=a时有定义，但极限值和函数值不相等，因此函数在店x=a处一次不连续。</li>
+<li>图4双侧极限存在，f(a)存在，并且极限值和函数值相等，因此确定函数x=a处连续</li>
+</ul>
 </li>
-<li>为特定客户设计产品发生的可直接确定的设计费用计入存货成本，一般产品的设计费用则计入当期损益。</li>
 </ol>
-<p>4.商品流通企业的相关费用</p>
-<p>商品流通企业在采购商品过程中发生的运输费、装卸费、保险费以及其他可归属于存货采购成本的费用等：（3种做法）</p>
-<ol>
-<li>应当计入存货采购成本。</li>
-<li>也可以先进行归集，期末根据所购商品的存销情况进行分摊。<ol>
-<li>对于已售商品的进货费用，计入当期损益（主营业务成本）；</li>
-<li>对于未售商品的进货费用，计入期末存货成本。</li>
-</ol>
-</li>
-<li>企业采购商品的进货费用金额较小的，可以在发生时直接计入当期损益（销售费用）。</li>
-</ol>
-<h2 id="通过进一步加工而取得的存货"><a href="#通过进一步加工而取得的存货" class="headerlink" title="通过进一步加工而取得的存货"></a>通过进一步加工而取得的存货</h2><p>3部分：采购成本+加工成本+其他成本</p>
-<p>按照税法规定，企业委托加工的应税消费品，由受托方在向委托方交货时代收代缴税款（除受托加工或翻新改制金银首饰按规定由受托方交纳消费税外）。</p>
-<p>委托外单位加工完成的存货,计入存货成本的包括：</p>
-<ul>
-<li>实际耗用的原材料或者半成品的成本；</li>
-<li>加工费；</li>
-<li>运输费、装卸费等；</li>
-<li>按规定计入成本的税金（不能抵扣的进项税额、应当计入成本的消费税等）。</li>
-</ul>
-<p>自行生产的存货</p>
-<table>
-<thead>
-<tr>
-<th>构成项目</th>
-<th>具体内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>采购成本</td>
-<td>所使用或消耗原材料的采购成本等</td>
-</tr>
-<tr>
-<td>加工成本（材料以外）</td>
-<td>（1）直接人工（2）制造费用：是指企业为生产产品和提供劳务而发生的各项间接费用。包括：①企业生产部门（如生产车间）管理人员的职工薪酬、折旧费、办公费、水电费、机物料损耗、劳动保护费；②季节性和修理期间停工损失；（排除：非正常原因的停工损失）③为生产产品发生的符合资本化条件的借款费用；④产品生产用的自行开发或外购的无形资产摊销等。</td>
-</tr>
-<tr>
-<td>其他成本</td>
-<td>如：可直接认定的产品设计费用等。</td>
-</tr>
-</tbody></table>
-<p>与存货的生产和加工相关的固定资产的后续支出（如：生产车间固定资产的日常修理费用）按照存货成本确认原则进行处理。（计入存货成本：制造费用等）</p>
-<h2 id="其他方式取得的存货"><a href="#其他方式取得的存货" class="headerlink" title="其他方式取得的存货"></a>其他方式取得的存货</h2><p>1.投资者投入存货的成本</p>
-<table>
-<thead>
-<tr>
-<th>基本原则</th>
-<th>应当按照投资合同或协议约定的价值确定。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>特殊情况</td>
-<td>在投资合同或协议约定价值不公允的情况下，按照该项存货的公允价值作为其入账价值。</td>
-</tr>
-<tr>
-<td>会计分录</td>
-<td>借：原材料（约定价值或公允价值）应交税费—应交增值税（进项税额）贷：实收资本（份额）资本公积—资本溢价（倒挤）</td>
-</tr>
-</tbody></table>
-<p>2.通过提供劳务取得的存货</p>
-<p>通过提供劳务取得存货的，所发生的从事劳务提供人员的直接人工和其他直接费用以及可归属于该存货的间接费用，计入存货成本。</p>
-<h1 id="4存货的期末计量"><a href="#4存货的期末计量" class="headerlink" title="4存货的期末计量"></a>4存货的期末计量</h1><p>1.资产负债表日，存货应当按照成本与可变现净值孰低计量。</p>
-<p>其中：</p>
-<table>
-<thead>
-<tr>
-<th>存货成本</th>
-<th>是指期末存货的实际成本。（如采用计划成本法、售价金额核算法等简化核算方法，则成本应为调整后的实际成本）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>可变现净值</td>
-<td>是指在日常活动中，存货的估计售价减去完工时将要发生的成本、估计的销售费用以及相关税费后的金额。（倒推）</td>
-</tr>
-</tbody></table>
-<p>2.存货成本高于其可变现净值的，应当计提存货跌价准备，计入当期损益（资产减值损失）。</p>
-<p>3.企业预计的销售存货现金流量，并不完全等于存货的可变现净值。</p>
-<p>存货在销售过程中可能发生的销售费用和相关税费，以及为达到预定可销售状态还可能发生的加工成本等相关支出，构成现金流入的抵减项目。企业预计的销售存货现金流量，扣除这些抵减项目后，才能确定存货的可变现净值。</p>
-<h2 id="存货减值迹象的判断"><a href="#存货减值迹象的判断" class="headerlink" title="存货减值迹象的判断"></a>存货减值迹象的判断</h2><table>
-<thead>
-<tr>
-<th>需要计提</th>
-<th>存货存在下列情况之一的，通常表明存货的可变现净值低于成本：（1）该存货的市场价格持续下跌，并且在可预见的未来无回升的希望。（2）企业使用该项原材料生产的产品的成本大于产品的销售价格。（3）企业因产品更新换代，原有库存原材料已不适应新产品的需要，而该原材料的市场价格又低于其账面成本。（4）因企业所提供的商品或劳务过时或消费者偏好改变而使市场的需求发生变化，导致市场价格逐渐下跌。（5）其他足以证明该项存货实质上已经发生减值的情形。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>全额计提</td>
-<td>存货存在下列情形之一的，通常表明存货的可变现净值为零。（1）已霉烂变质的存货。（2）已过期且无转让价值的存货。（3）生产中已不再需要，并且无使用价值和转让价值的存货。（4）其他足以证明已无使用价值和转让价值的存货。</td>
-</tr>
-</tbody></table>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>注册会计师（CPA）考试教材</p>
+<p>未完待续….</p>
 
                 
             </div>
@@ -651,7 +630,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gustavo1841.github.io/2025/01/15/hui-ji-yu-cai-guan/hui-ji/hui-ji-01-cun-huo/">https://gustavo1841.github.io/2025/01/15/hui-ji-yu-cai-guan/hui-ji/hui-ji-01-cun-huo/</a>
+                    <a href="https://gustavo1841.github.io/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/">https://gustavo1841.github.io/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -689,8 +668,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                                    <span class="chip bg-color">会计</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">数学</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                                    <span class="chip bg-color">微积分</span>
                                 </a>
                             
                         </div>
@@ -735,7 +718,7 @@
         repo: 'gustavo1841.github.io',
         owner: 'gustavo1841',
         admin: "gustavo1841",
-        id: '2025-01-15T17-32-32',
+        id: '2025-01-24T10-02-30',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -763,17 +746,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2025/01/15/hui-ji-yu-cai-guan/hui-ji/hui-ji-02-gu-ding-zi-chan/">
+                <a href="/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/70.jpg" class="responsive-img" alt="会计02-固定资产">
+                        <img src="/medias/featureimages/69.jpg" class="responsive-img" alt="微积分02：导数">
                         
-                        <span class="card-title">会计02-固定资产</span>
+                        <span class="card-title">微积分02：导数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -783,9 +767,63 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-01-15
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/" class="post-category">
+                                    微积分
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">
+                        <span class="chip bg-color">微积分</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/01/23/hui-ji-yu-cai-guan/hui-ji/hui-ji-14-zheng-fu-bu-zhu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="会计14-政府补助">
+                        
+                        <span class="card-title">会计14-政府补助</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -803,59 +841,6 @@
                     
                     <a href="/tags/%E4%BC%9A%E8%AE%A1/">
                         <span class="chip bg-color">会计</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/01/15/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-02-mao-yi-yi-cun/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="微观金融初级02：贸易依存">
-                        
-                        <span class="card-title">微观金融初级02：贸易依存</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
-                                    微观金融
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/">
-                        <span class="chip bg-color">微观金融</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%88%9D%E7%BA%A7/">
-                        <span class="chip bg-color">初级</span>
                     </a>
                     
                 </div>
@@ -972,6 +957,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

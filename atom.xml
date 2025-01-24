@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-01-24T04:24:37.430Z</updated>
+  <updated>2025-01-24T06:55:42.558Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>微积分02：导数</title>
+    <title>source-data-analysis</title>
+    <link href="https://gustavo1841.github.io/2025/01/24/qi-ta/shu-ju-yuan/source-data-analysis/"/>
+    <id>https://gustavo1841.github.io/2025/01/24/qi-ta/shu-ju-yuan/source-data-analysis/</id>
+    <published>2025-01-24T05:47:34.000Z</published>
+    <updated>2025-01-24T06:55:42.558Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-全球宏观经济数据&quot;&gt;&lt;a href=&quot;#1-全球宏观经济数据&quot; class=&quot;headerlink&quot; title=&quot;1. 全球宏观经济数据&quot;&gt;&lt;/a&gt;1. &lt;strong&gt;全球宏观经济数据&lt;/strong&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Trading</summary>
+        
+      
+    
+    
+    
+    <category term="数据源" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E6%8D%AE%E6%BA%90/"/>
+    
+    
+    <category term="数据源" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/"/>
+    
+    <category term="信息源" scheme="https://gustavo1841.github.io/tags/%E4%BF%A1%E6%81%AF%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微积分03：导数</title>
     <link href="https://gustavo1841.github.io/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/"/>
     <id>https://gustavo1841.github.io/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/</id>
     <published>2025-01-24T02:02:30.000Z</published>
-    <updated>2025-01-24T04:24:37.430Z</updated>
+    <updated>2025-01-24T06:51:15.309Z</updated>
     
     
       
@@ -548,33 +576,6 @@
     
     
     <category term="会计" scheme="https://gustavo1841.github.io/tags/%E4%BC%9A%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么明朝突然放弃纸币？</title>
-    <link href="https://gustavo1841.github.io/2025/01/17/li-shi-shi-jian-yu-ren-wu-chuan-ji/wei-shi-me-ming-zhao-tu-ran-fang-qi-zhi-bi/"/>
-    <id>https://gustavo1841.github.io/2025/01/17/li-shi-shi-jian-yu-ren-wu-chuan-ji/wei-shi-me-ming-zhao-tu-ran-fang-qi-zhi-bi/</id>
-    <published>2025-01-17T13:34:12.000Z</published>
-    <updated>2025-01-18T01:17:10.667Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="历史事件与人物传记" scheme="https://gustavo1841.github.io/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/"/>
-    
-    
-    <category term="明朝" scheme="https://gustavo1841.github.io/tags/%E6%98%8E%E6%9C%9D/"/>
-    
-    <category term="货币" scheme="https://gustavo1841.github.io/tags/%E8%B4%A7%E5%B8%81/"/>
     
   </entry>
   

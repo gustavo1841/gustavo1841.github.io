@@ -5,7 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="顺序表, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="引言顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次
+实现初始化
+#include &amp;lt;iostream&amp;gt;
+using namespace std;
+#define InitSize 2
+#define M">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -423,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-02-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    475
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -452,12 +457,121 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>初始化</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;iostream&gt;
+using namespace std;
+#define InitSize 2
+#define MaxSize 2
+//定义顺序表的结构
+typedef struct {
+    int * data;
+    int capacity,length;
+}SqList;
+//初始化表
+void InitList(SqList &amp;L) {
+    L.data = (int*)malloc(sizeof(int) * InitSize);
+    L.length = 0;
+    L.capacity = MaxSize;
+    for (int i = 0;i &lt; InitSize;i++) {
+        L.data[i] = NULL;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>动态扩容</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">//动态扩容
+bool InCreateSize(SqList &amp;L) {
+    int* p = L.data;
+    int* list = (int*)malloc(sizeof(int) * L.capacity * 2);
+    for (int i = 0;i &lt; L.length;i++) {
+        list[i] = p[i];
+    }
+    cout &lt;&lt; "动态扩容成功！" &lt;&lt;"扩容前容量："&lt;&lt;L.capacity&lt;&lt;"，扩容后："&lt;&lt;L.capacity *2&lt;&lt; endl;
+    L.capacity = L.capacity * 2;
+    L.data = list;
+    free(p);
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>顺序表指定位置插入</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool ListInsert(SqList &amp;L,int i,int data) {
+    //判断指定插入的位置是否合理
+    if (i&lt;1 || i&gt;L.length+1) {
+        return false;
+    }
+    //判断数组长度是否超出最大值
+    if (L.length&gt;=L.capacity) {
+        bool isCreate = InCreateSize(L);
+        if (!isCreate)
+            return false;
+    }
+    //所有元素从指定位置往后挪一步，腾出i的位置
+    for (int j = L.length;j &gt;= i;j--) {
+        L.data[j] = L.data[j - 1];
+    }
+    L.data[i-1] = data;
+    L.length++;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>顺序表删除</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool ListDelete(SqList &amp;L,int i,int &amp;e) {
+    if (i&lt;1 &amp;&amp; i&gt;L.length) {
+        return false;
+    }
+    e = L.data[i - 1];
+    for (int j = i;j &lt;= L.length;j++) {
+        L.data[j - 1] = L.data[j];
+    }
+    L.length--;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>按值查找元素位置</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int get(SqList &amp;L,int data) {
+    for (int i = 0;i &lt; L.length;i++) {
+        if (data==L.data[i]) {
+            return i + 1;
+        }
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>调试</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void printList(SqList L) {
+    for (int i = 0;i &lt; L.length;i++) {
+        cout &lt;&lt; "下标为：" &lt;&lt; i&lt;&lt;"：" &lt;&lt; L.data[i] &lt;&lt; endl;
+    }
+}
+
+int main()
+{
+    SqList L;
+    InitList(L);
+    ListInsert(L, 1, 1);
+    ListInsert(L, 2, 2);
+    ListInsert(L, 3, 3);
+    printList(L);
+    int i;
+    ListDelete(L, 2, i);
+    cout &lt;&lt; "删除的元素："&lt;&lt;i &lt;&lt; endl;
+    cout &lt;&lt; "查找元素：" &lt;&lt; get(L, 3) &lt;&lt; endl;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -751,6 +865,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -832,7 +949,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.1k</span>
+                        class="white-color">881.8k</span>
             
             
             

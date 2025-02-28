@@ -5,7 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="链表, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="引言没啥好说的，双向链表
+实现初始化
+typedef struct DNode{
+    int data;
+    struct DNode* prior,* next;
+}DNode,DLinkList;
+
+//初始化
+DLinkLis">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -423,14 +431,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-02-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    238
                 </div>
                 
 
@@ -452,12 +460,94 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>没啥好说的，双向链表</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>初始化</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef struct DNode{
+    int data;
+    struct DNode* prior,* next;
+}DNode,DLinkList;
+
+//初始化
+DLinkList* init() {
+    DLinkList*  L = (DLinkList*)malloc(sizeof(DLinkList));
+    L-&gt;data = NULL;
+    L-&gt;next = L;
+    L-&gt;prior = L;
+    return L;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>前插法</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool DLinkedListFrontInsert(DLinkList * p,int data) {
+    DNode*s  = (DNode*)malloc(sizeof(DNode));
+    s-&gt;data = data;
+    s-&gt;next = p;
+    s-&gt;prior = p-&gt;prior;
+
+    p-&gt;prior-&gt;next = s;
+    p-&gt;prior = s;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>尾插法</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">DLinkedListBackInsert</span><span class="token punctuation">(</span>DLinkList <span class="token operator">*</span>p<span class="token punctuation">,</span><span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    DNode<span class="token operator">*</span> s <span class="token operator">=</span> <span class="token punctuation">(</span>DNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    s<span class="token operator">-&gt;</span>prior <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    s<span class="token operator">-&gt;</span>next <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+
+    p<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>prior <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    p<span class="token operator">-&gt;</span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>链表节点删除</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">DLDelete</span><span class="token punctuation">(</span>DNode<span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    p<span class="token operator">-&gt;</span>prior<span class="token operator">-&gt;</span>next <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    p<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>prior <span class="token operator">=</span> p<span class="token operator">-&gt;</span>prior<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> p<span class="token operator">-&gt;</span>data<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void PinrtLinkedList(DLinkList *p) {
+    DNode* curr = p-&gt;next;
+    while (curr!=p) {
+        cout &lt;&lt; "输出：" &lt;&lt; curr-&gt;data &lt;&lt; endl;
+        curr = curr-&gt;next;
+    }
+}
+
+int main()
+{
+    DLinkList* L = init();
+    DLinkedListFrontInsert(L, 1);
+    DLinkedListFrontInsert(L, 2);
+    DLinkedListFrontInsert(L, 3);
+    DLinkedListFrontInsert(L, 4);
+    PinrtLinkedList(L);
+    DLDelete(L-&gt;next-&gt;next-&gt;prior);
+    cout&lt;&lt;"=========删除后========="&lt;&lt;endl;
+    PinrtLinkedList(L);
+
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -751,6 +841,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -832,7 +925,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.1k</span>
+                        class="white-color">881.8k</span>
             
             
             

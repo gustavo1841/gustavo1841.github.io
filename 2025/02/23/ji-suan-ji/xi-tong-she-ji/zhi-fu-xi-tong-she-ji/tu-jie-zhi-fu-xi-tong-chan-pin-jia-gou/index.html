@@ -1,0 +1,1329 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="支付系统产品架构, Gustavo">
+    <meta name="description" content="
+在支付行业，系统架构的设计对于确保交易的安全、高效和稳定至关重要。本文将通过图解的方式，详细介绍支付系统的产品架构，包括耦合架构、产品架构、交易系统、客户系统、钱包账户、支付渠道、支付核心、支付引擎、清结算系统和账务核心等关键组成部分。
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>支付系统产品架构 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/90.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">支付系统产品架构</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">系统设计</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">支付系统设计</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-02-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    20 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>在支付行业，系统架构的设计对于确保交易的安全、高效和稳定至关重要。本文将通过图解的方式，详细介绍支付系统的产品架构，包括耦合架构、产品架构、交易系统、客户系统、钱包账户、支付渠道、支付核心、支付引擎、清结算系统和账务核心等关键组成部分。</p>
+</blockquote>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8a7507bc-c40a-11ee-9e19-00163e142b65.png" alt="img"></p>
+<p>关于产品架构和业务架构的区别，一直存在争议。由于产品架构没有固定的标准，许多产品架构借鉴了TOGAF的4A架构理论中的业务架构方法。如果非要区分技术和产品，可以这样理解：产品主要关注用户使用的功能和内在关系的展示，而技术则更侧重于功能实现和技术栈的支持。</p>
+<p>画的产品架构一般遵循三图两表的规范（业务架构图、集成架构图、业务时序图、功能清单、要素清单），限于篇幅我们清单就不罗列了，重点用前面三张图来进行介绍。</p>
+<h2 id="01-两条链路，支付架构"><a href="#01-两条链路，支付架构" class="headerlink" title="01 两条链路，支付架构"></a>01 两条链路，支付架构</h2><p>支付流程从行业内定义上来说，主要是“交易、清分、结算”这三个过程。</p>
+<p>这三个过程在支付系统上就表现为“交易与结算”相结合的耦合架构。</p>
+<h3 id="1-1、耦合架构"><a href="#1-1、耦合架构" class="headerlink" title="1.1、耦合架构"></a>1.1、耦合架构</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/81d95916-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>为了支持买卖双方在线交易，清结算系统采用了耦合架构的设计方案。</p>
+<p>鉴于资金无法如同订单一般直接通过互联网进行流转，本系统结合了交易链路和结算链路，形成了一种独特的清结算模式。</p>
+<p>在此模式中，联机链路负责信息流的传递，而结算链路则承担资金流的转移任务。最终，账务系统通过执行相应的账务处理流程，实现了信息与资金之间的有效转换。</p>
+<h3 id="1-2、产品架构"><a href="#1-2、产品架构" class="headerlink" title="1.2、产品架构"></a>1.2、产品架构</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/82643b9e-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>支付的产品架构问四横一竖，四横代表了“网关层、产品层、交易层、核心层、渠道层”以及相关的基础服务。一竖则是业务支撑系统，包括“客户应用、运营管理、风控管理”等系统。</p>
+<p>在我们的讨论中，最为关键的部分是交易处理与核心层的八个模块。这些模块构成了整个支付系统的核心功能，并且是本文重点介绍的内容。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8307217e-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<h3 id="1-3、两条链路"><a href="#1-3、两条链路" class="headerlink" title="1.3、两条链路"></a>1.3、两条链路</h3><p>这八个核心模块共同协作，通过联机交易链路和结算交易交易链路，完成了线上的交易和资金流转。</p>
+<p><strong>1、联机交易链路</strong></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/85a2c686-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>用户在前端业务系统操作后，订单被发送到交易系统，经过计费和风控检查，再由支付引擎调度，完成内部账务登记和外部渠道支付。</p>
+<p>支付完成后，结果通过回调返回，更新账务和订单信息，并将入账流水推送到清结算系统，最终通知商户支付成功。</p>
+<p><strong>2、日终结算链路</strong></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8636f180-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>日终结算链路，由资金系统和账务系统共同组成。</p>
+<p>资金系统按预设批次处理当天的联机交易，与各渠道对账并清算，然后将待结算款项转入客户账户。</p>
+<p>会计系统汇总这些交易和清算数据，进行总账校验，确保账目准确一致。完成后，系统结束当日的会计日切。</p>
+<p>了解这两条链路和八个模块之后，下面我们就把最核心的7个模块来进行逐一介绍。</p>
+<h2 id="02-四段交互、支付收银"><a href="#02-四段交互、支付收银" class="headerlink" title="02 四段交互、支付收银"></a>02 四段交互、支付收银</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/86f7ca90-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>用户对支付最多的感知来源于收银台。收银台随着移动支付的推广，以及微信/支付宝的长期的市场教育，收银台形成了四段式标准化的交互流程，只要缺少任何一个步骤，交互体验都会出现问题。</p>
+<p><strong>1）交易下单</strong></p>
+<p>用户选择支付方式后提交，系统需要先向支付系统下单提交商品交易信息，同时系统也会上传回调地址作为支付结果的通知。</p>
+<p><strong>2）调用收银台</strong></p>
+<p>下单成功后渠道按照支付方式返回对应的收银台参数到支付系统内，支付系统调用收银台引导用户跳转到渠道侧进行支付。我们平时所看到的各种扫码、小程序的聚合支付就是在这里包装的。</p>
+<p><strong>3）回调通知</strong></p>
+<p>用户在渠道侧支付成功后，渠道侧根据上传的回调地址将支付结果通知到支付系统后台，完成订单的更新。</p>
+<p><strong>4）跳转返回</strong></p>
+<p>客户支付完成后点选返回，渠道根据商家申请的支付产品或者入网时配置的结果页面地址跳回商家收银台完成支付。返回时的跳转方式与下单时的需要匹配，否则就会出现无法跳转回商家收银台的情况。</p>
+<h2 id="03-四句口诀、交易系统"><a href="#03-四句口诀、交易系统" class="headerlink" title="03 四句口诀、交易系统"></a>03 四句口诀、交易系统</h2><h3 id="3-1、四句口诀"><a href="#3-1、四句口诀" class="headerlink" title="3.1、四句口诀"></a>3.1、四句口诀</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8788b23a-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>交易系统为买家和卖家提供支付功能，根据不同的支付场景，它支持收单、充值和付款三类服务。所有交易最终会通过资金系统进行日终对账，并为客户结算资金。虽然交易系统有很多功能，但简单来说可以用四句话概括。</p>
+<p><strong>1、两个范式</strong></p>
+<p>为了保障交易的安全，交易系统采用了收款和付款两种模式，他们分别负责控制支付的流程。</p>
+<p>1）收款范式：先完成渠道扣款，然后再更新本地状态。</p>
+<p>2）付款范式：先扣减客户余额，然后再向渠道完成付款，付款失败则冲回余额。</p>
+<p><strong>2、三态控制</strong></p>
+<p>交易过程有大量的交易节点组成，“成功、失败、处理中”这三类状态来控制每个节点交易的处理。其中成功、失败又被称为终态，而处理中则被称为运行态。</p>
+<p><strong>3、查退合一</strong></p>
+<p>交易过程中有很多的异常情况发生，影响了订单进入终态，因此需要用查询和退款的方式保证本地订单和渠道订单的最终一致。</p>
+<p><strong>4、差错三账</strong></p>
+<p>如果订单在联机交易阶段还没有进入终态，就需要通过日终对账来确认结果。对于账务差错采用了补账、冲正和挂账这三种差错处理方式</p>
+<h3 id="3-2、交易系统"><a href="#3-2、交易系统" class="headerlink" title="3.2、交易系统"></a>3.2、交易系统</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/88233bb6-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>在支付系统中，交易系统起到了承上启下的作用。他内部包含了“交易、充值、付款”三个主要服务，每个服务分别面向不同的交易场景，其中以交易服务场景最为复杂。</p>
+<h3 id="3-3、功能划分"><a href="#3-3、功能划分" class="headerlink" title="3.3、功能划分"></a>3.3、功能划分</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/88b488e6-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>虽然从产品使用上来说会划分出“收单、分账、余额、付款”等多种场景，但是他们都是对“交易、充值、付款”的二次包装而已。</p>
+<p>1）交易服务：除了收单、分账以外，还包含了转账和冻结解冻；</p>
+<p>2）充值服务：相对简单主要是充值、代充和充值退款</p>
+<p>3）付款服务：对账户的出金服务，包含了单笔付款、批量付款以及付款的逆向交易退汇。</p>
+<h3 id="3-4、订单模型"><a href="#3-4、订单模型" class="headerlink" title="3.4、订单模型"></a>3.4、订单模型</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8943231c-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>交易的订单模型核心主链路是”交易订单、支付订单”，交易订单负责记录交易信息，而支付订单把订单信息转化成支付请求，最终通过支付引擎的指令完成内部记账，渠道流水完成跨行支付。</p>
+<p>交易订单记录的信息比较丰富包含了正向的交易订单、逆向的退款订单，以及支持多层级商户分账订单。同时交易订单和支付订单分别对应的商户手续费和渠道成本，这样的方式收入和成本可以记录的更加清晰。</p>
+<h3 id="3-5、支付状态"><a href="#3-5、支付状态" class="headerlink" title="3.5、支付状态"></a>3.5、支付状态</h3><p>支付状态按照收支分离的方式分为收款状态机和付款状态机，他们遵守着三态合一的规范，运行态控制着每个节点，终态负责记录最终的结果。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/89d08fcc-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>1）收单状态：收款状态机包含了收单、充值的两类交易，同时兼具退款功能。针对收单功能还延展出了分账状态。</p>
+<p>2）付款状态：付款状态机对应着付款交易，他没有收款状态那么复杂只要处理付款的三态和退汇结果即可。</p>
+<p>详情参考支付小钢炮，公众号：刚说产品四句口诀，搞懂支付交易设计</p>
+<h2 id="04-三户模型、客户系统"><a href="#04-三户模型、客户系统" class="headerlink" title="04 三户模型、客户系统"></a>04 三户模型、客户系统</h2><h3 id="4-1、三户模型"><a href="#4-1、三户模型" class="headerlink" title="4.1、三户模型"></a>4.1、三户模型</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8a7b1136-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>所谓的三户就是“客户、用户、账户”的简称，其中客户拥有唯一的身份，但是他可以通过不同账号来开通多个用户身份，通过不同的用户身份来使用产品并且开出对应的账户进行交易。</p>
+<p>1）客户：个人或者企业的唯一身份</p>
+<p>2）用户：使用者的登录账号，每个账号都有不同的权限来使用产品。其中商户就是一种特殊身份的用户。</p>
+<p>3）账户：给用户提供存放和支取资金、债务和权益的实体。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8b1f71f4-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>他与组织、渠道、交易、产品共同构成了以客户为中心的服务体系。</p>
+<h3 id="4-2、会员类账户模型"><a href="#4-2、会员类账户模型" class="headerlink" title="4.2、会员类账户模型"></a>4.2、会员类账户模型</h3><p>客户模型按照支付业务类型分为，银行卡收单的商户类模型和移动支付的会员类模型，我们这套系统采用的是面向互联网的会员类模型。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8bba503e-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>互联网支付类场景他们天然认为平台内所有的客户都是他们的用户，因此他们采用会员制，通过线上来开展业务。用户的身份通过开展的业务不同而在会员和商户之间转化。虽然会员系统结构简单，但是他的缺点就是扩展性差，做多只能支持两级商户体系。</p>
+<h3 id="4-3、产品架构"><a href="#4-3、产品架构" class="headerlink" title="4.3、产品架构"></a>4.3、产品架构</h3><p>而我们这里给大家介绍的客户系统采用的是适合于互联网的会员模型体系。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8c4cf7cc-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p><strong>1）对外端到端</strong></p>
+<p>一个客户系统一般包含多类角色，每一类角色都可以是看做一个用户端，这里就包括了面向个人的消费者端、面向企业的商家端、面向技术人员的开发这端，以及负责客户审核与服务的运营端。</p>
+<p><strong>2）对内全流程</strong></p>
+<p>整个客户服务流程包含了“注册、登录、实名、审核、签约、开户、对接”等多个节点，这些节点有贯穿了系统内部的“网关、渠道、认证、产品、交易”等多个系统。每个节点与多个流程有效衔接才能保障客户体验的流程。</p>
+<h3 id="4-4、集成关系"><a href="#4-4、集成关系" class="headerlink" title="4.4、集成关系"></a>4.4、集成关系</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8ce46ed6-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>客户系统与内外部多个系统关联来保障客户的服务流程的顺畅，其中会员管理是核心服务，他通过会员号来管理商户和客户信息。</p>
+<h3 id="4-5、数据模型"><a href="#4-5、数据模型" class="headerlink" title="4.5、数据模型"></a>4.5、数据模型</h3><p>客户数据模型采用了三户模型的结构，并且加上其关联的“产品、绑卡、认证等服务”</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8d7da61e-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>在这个客户领域模型中以会员模型代替了用户模型，但是他依然遵循了统一客户身份，会员多角色、账户与产品关联授权的三户模型关系。</p>
+<h2 id="05-一户多卡，钱包账户"><a href="#05-一户多卡，钱包账户" class="headerlink" title="05 一户多卡，钱包账户"></a>05 一户多卡，钱包账户</h2><p>要做个像支付宝一样的即能存放零钱，又能购买理财，消费时还能先享后付。这类钱包突破了传统的支付账户范畴，需要与更多的金融机构合作。因此需要从采用一户多卡的钱包账户模式。</p>
+<h3 id="5-1、钱包业务架构"><a href="#5-1、钱包业务架构" class="headerlink" title="5.1、钱包业务架构"></a>5.1、钱包业务架构</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8e005eb0-d230-11ef-a0cc-00163e09d72f.jpg" alt="img"></p>
+<p>钱包应用通过对网关和收银台的包装为用户提供了从注册、登录、商业应用、金融产品等一系列的服务。</p>
+<p><strong>5.1.1、钱包应用</strong></p>
+<p>为了构建这样的钱包体系，分为C端和B端都需要在支付体系内开户。</p>
+<p>1）C端应用：用户提供账户和钱包支付能力。</p>
+<p>2）B端应用：为场景提供方，为用户提供营销卡券、生活类应用和金融服务。</p>
+<p><strong>5.1.2、账户体系</strong></p>
+<p>为了实现资金在平台内的流动，就需要开出对应的中间科目。通过这些中间科目清算不同商业主体之间资金流转。</p>
+<p>当然这里的账户之间的清算在我国是监管很严的。现在普遍通过收银台跳转到持牌机构的方式为用户提供金融服务。这样账务中心也就逐步减少这些中间科目了。</p>
+<h3 id="5-2、一户多卡，数据模型"><a href="#5-2、一户多卡，数据模型" class="headerlink" title="5.2、一户多卡，数据模型"></a>5.2、一户多卡，数据模型</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/adadda8c-ca54-11ef-9609-00163e09d72f.png" alt="img"></p>
+<p>如果要实现一个支付宝一样兼具银行卡、账户、理财、分期支付功能的钱包产品呢？这里就要介绍到一户多卡的模式了。</p>
+<p>所谓的一户多卡，定义如下</p>
+<p>1）一户：</p>
+<p>内部的余额账户为“户”，通过一个主账户来保障消费者与平台内商户基本的消费交易。</p>
+<p>2）多卡：</p>
+<p>外部合作账户被称为“卡”，当主账户余额不足时，系统会自动通过已绑定的银行卡进行支付。理财账户和分期账户同样采用绑定银行卡的方式进行管理，并且在支付时会跳转至合作机构的收银台以完成交易。</p>
+<p>3）两种清算方式中间科目清算：持牌机构一般通过购买一系列的牌照，实现账户、银行卡、理财、分期产品的合作，需要支付平台开通多个中间科目来实现金融产品间的清算。合作机构直清：非持牌机构一般与银行的Ⅱ/Ⅲ类户、理财账户、信贷分期产品合作，银行给商家提供给直接清算的服务。由于这种模式需要平台内的商户去银行开户，因此这种模式普遍用于营销活动当中。</p>
+<h2 id="06-三级路由、支付渠道"><a href="#06-三级路由、支付渠道" class="headerlink" title="06 三级路由、支付渠道"></a>06 三级路由、支付渠道</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/afd7d60e-ce42-11ef-bdd0-00163e09d72f.png" alt="img"></p>
+<p>支付渠道作为外部接入系统，承担着与银行及第三方支付平台进行接口对接的任务。而支付路由则负责通过三级路由机制来选择最优的支付通道，以确保用户支付请求能够顺利完成。</p>
+<h3 id="6-1、渠道路由因子"><a href="#6-1、渠道路由因子" class="headerlink" title="6.1、渠道路由因子"></a>6.1、渠道路由因子</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/aef5c520-ce42-11ef-bdd0-00163e09d72f.png" alt="img"></p>
+<p>渠道的路由因子就是对渠道参数的拆分，通过因子的组合可以形成不同的渠道路由规则，最终来确定一条通道。路由因子主要分为以下三类。</p>
+<p>1）基础因子：对应的是渠道基本信息，通过支付订单的拆解匹配产品形态和目标机构符合要求的银行。</p>
+<p>2）特性因子：对应渠道的特殊参数，例如维护、交易限额、黑白名单等需要单独配置的参数，这些因子需要深度的特性匹配，匹配到的渠道实际已经可以支付了。</p>
+<p>3）质量因子：对应的是渠道网关，他主要是匹配渠道的运行状态是否正常，防止渠道异常造成大量的订单积累。</p>
+<h3 id="6-2、渠道集成关系"><a href="#6-2、渠道集成关系" class="headerlink" title="6.2、渠道集成关系"></a>6.2、渠道集成关系</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8edb4e8a-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>渠道整体的集成关系由“渠道服务、渠道路由、渠道管理、渠道网关”四部分组成，渠道服务接收来自支付引擎的请求，并将支付请求拆解成路由因子传递给“渠道路由”系统，经过三级路由计算后，选中一条支付通道，通过调用渠道网关完成接口的组装并完成支付。最终支付结果以回调的形式返回，并通知上游系统。</p>
+<h3 id="6-3、三级路由流程"><a href="#6-3、三级路由流程" class="headerlink" title="6.3、三级路由流程"></a>6.3、三级路由流程</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8f841e20-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>分析完渠道设计后，下面我们就把流程、参数和模型进行串联，以此来了解其上下游的对应关系。</p>
+<p>①解析支付订单，提取路由因子，准备路由。</p>
+<p>②判断路由模式：动态路由则自动筛选渠道；直接路由则获取渠道号后直接进行第三级路由。</p>
+<p>③一级渠道匹配：基于基础因子筛选符合条件的支付渠道，存入一级列表。</p>
+<p>私二级特性匹配：遍历一级列表中的渠道，检查其限额、维护期、商户白名单等特性，符合条件的存入二级列表。</p>
+<p>⑤三级网关检查：检查支付网关的服务质量（QoS），选择成功率高且速度快的渠道。</p>
+<p>⑥组装接口并支付：根据选定的渠道组装接口，完成支付。</p>
+<h2 id="07-支付核心"><a href="#07-支付核心" class="headerlink" title="07 支付核心"></a>07 支付核心</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/91172a98-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>支付核心是支付系统的一组核心服务，他由“支付引擎、账务核心、资金系统”三部分共同组成，将联机交易指令、跨行清算资金和本地账务三者融合，实现信息与资金的转换。</p>
+<p>1）支付引擎：</p>
+<p>支付引擎负责提供原子化的支付接口，将交易系统的支付请求转换支付指令，根据清结算规则，推动信息流的内场记账和外场清算。</p>
+<p>2）账务核心：</p>
+<p>负责内场的记账和会计账务处理，账务核心为了提升性能采用了异步账务处理的方式，先单边更新客户余额，然后异步复试记账，最后通过内外部客户账同步实现一笔联机账务的处理。</p>
+<p>3）资金系统：</p>
+<p>资金系统也叫清结算系统，负责渠道和内部系统的对账、差错处理与资金的清算与结转，驱动账务核心进行客资结算和总账核算，实现信息流与资金流的最终一致。</p>
+<h2 id="08、内外双驱、支付引擎"><a href="#08、内外双驱、支付引擎" class="headerlink" title="08、内外双驱、支付引擎"></a>08、内外双驱、支付引擎</h2><h3 id="8-1、支付引擎"><a href="#8-1、支付引擎" class="headerlink" title="8.1、支付引擎"></a>8.1、支付引擎</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/91bf1dd4-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>支付引擎是支付系统的核心驱动器，他对内提供原子化的支付服务，接收来自交易、收银台的支付请求；内部通过流程编排、清算协议、清分规则来执行支付指令，并驱动内场账务核心记账和外场支付渠道支付。</p>
+<h3 id="8-2、支付模型"><a href="#8-2、支付模型" class="headerlink" title="8.2、支付模型"></a>8.2、支付模型</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/92417c16-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>支付引擎接收来自交易系统的请求，根据接口和产品编码找到支付入口，按照加载的清算协议和清算规则，并生成支付指令。然后执行设定的服务编排流程，驱动内场的记账和外场的支付。</p>
+<ul>
+<li>服务配置：用来设置服务入口和流程配置。</li>
+<li>清算协议：清算参与的对象和设定单笔或者汇总清算的周期。</li>
+<li>结算周期：用来设定清算协议按照实时逐笔，还是按照定时汇总的方式进行清算。</li>
+<li>参与方：用来设定参与方的默认账号和角色，用以统一配置账务记账规则。</li>
+<li>资金渠道：用来配置不同资金渠道对应的记账科目。</li>
+<li>内场规则：按账套设置账务核心记账的账套和对于的记账规则。</li>
+<li>外场规则：设置账套设置支付渠道请求的支付处理参与。</li>
+<li>清算场次：一个定时任务，用来设置什么时候开始对账和清算处理。</li>
+</ul>
+<h3 id="8-3、核心流程"><a href="#8-3、核心流程" class="headerlink" title="8.3、核心流程"></a>8.3、核心流程</h3><p>支付引擎按照支付模式来编排流程，其中包含了“入款、入款退款、出款、出款退汇”等几组交易模式。我们这里主要介绍入款和出款两个核心流程。</p>
+<p><strong>1、入款结算流程</strong></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/92cd10b4-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>收单为入款交易，因此他实时联机交易先发送到渠道上，支付成功后完成账务处理。</p>
+<p>日终对账后，根据明细文件更新商户订单后给商户进行轧差结算（收单金额扣减退款金额），根据清算文件进行渠道清算，实现银存与备付金的平衡。</p>
+<p><strong>2、出款结算流程</strong></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/936a03c4-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>付款和提现为出款交易，出款交易的特点就是先扣减客户余额，然后发送渠道。如果成功就将资金结算到渠道清算账户；如果失败则冲正回到客户账户。</p>
+<p>日终对账后，由于付款即结算，因此不需要给客户结算资金，直接做渠道的付款结转即可（由于出款是钱离开系统，因此这里要做出款核销，即渠道清算账户和渠道银存账户都扣减掉资金）</p>
+<h2 id="09-清算结转，清结算"><a href="#09-清算结转，清结算" class="headerlink" title="09 清算结转，清结算"></a>09 清算结转，清结算</h2><h3 id="9-1、清结算流程"><a href="#9-1、清结算流程" class="headerlink" title="9.1、清结算流程"></a>9.1、清结算流程</h3><p>清结算系统主要由资金系统来负责进行对账和结算处理，他是个业务作业系统，产品架构上本身没有特别的复杂度，复杂度还是在对账和清结算的账务处理。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/93f8f4da-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>整个日终流程主要包含三个阶段</p>
+<p>1）资金对账：从备付金银行下载资金清算文件，将其与账务发生金额进行汇总核对，如果对平做银存结转，保障银存账户与备付金期末余额一致。如果没有对平就下载明细对账文件进行业务对账。</p>
+<p>2）业务对账：从每条渠道下载明细对账文件与入账明细进行核对，不同则进行差错处理。渠道全部对平则给客户结算资金。</p>
+<p>3）客资结算：核对每个客户当日收单与退款的交易明细，跟进成功的订单将客户待结算资金转为可用。</p>
+<h3 id="9-2、差错策略"><a href="#9-2、差错策略" class="headerlink" title="9.2、差错策略"></a>9.2、差错策略</h3><p>在清结算对账中，其实清算、结账与客资结算是比较固定的，日常维护和新增渠道比较常见的问题是差错处理。差错处理跟进订单中的差错因子来找到对应的差错策略。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/948b53e8-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<h2 id="10-最终一致，账务核心"><a href="#10-最终一致，账务核心" class="headerlink" title="10 最终一致，账务核心"></a>10 最终一致，账务核心</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/9516ee12-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>账务核心是支付平台的账务的基准。他日间与支付引擎配合记录联机交易清算账务，日终与对账中心配合处理期末的总账核算。</p>
+<h3 id="10-1、缓冲记账"><a href="#10-1、缓冲记账" class="headerlink" title="10.1、缓冲记账"></a>10.1、缓冲记账</h3><p>日间联机交易分为内场结算和外场清算，账务核心负责内场结算账务的处理。为了实现支付高性能账务核心采，通过单边记账来更新客户余额，通过异步和缓冲记账的方式来更新内部户和客户月。</p>
+<p>其中缓冲记账是针对集中操作内部户，或者涉及批量更新客户账户的情况，比如分账、担保交易、组合支付等。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/95b393e8-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>这里以即时分账为例，首先通过单边记账扣减付款方余额，然后异步将记账分录推送到会计系统保持到分录流水表，并设置缓存记账任务。系统定时的根据缓冲任务来进行账簿的登记和内部户的更新，同时将结果推送外部客户账户来更新分账方的余额。</p>
+<h3 id="10-2、总账核算"><a href="#10-2、总账核算" class="headerlink" title="10.2、总账核算"></a>10.2、总账核算</h3><p>我们在资金系统中已经介绍了清算结转，这里我们就介绍期末的总账核算。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/963aaab8-d230-11ef-a0cc-00163e09d72f.png" alt="img"></p>
+<p>总账核算是明细账簿的核算，通过明细账簿发生额核对，生成账簿的期末余额，并将明细账簿按照科目汇总到对应的总账账簿上并更新总账的科目余额。</p>
+<p>最后对总账进行平衡检查，然后讲当日的期末余额更新到历史表作为下个会计日的期初余额。</p>
+<p>最后系统完成会计日切。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/02/23/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/tu-jie-zhi-fu-xi-tong-chan-pin-jia-gou/">https://gustavo1841.github.io/2025/02/23/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/tu-jie-zhi-fu-xi-tong-chan-pin-jia-gou/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">系统设计</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">支付系统设计</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-02-23T15-13-52',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/02/23/ji-suan-ji/xi-tong-she-ji/hong-bao-xi-tong-she-ji/hong-bao-xi-tong-jia-gou-she-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/124.jpg" class="responsive-img" alt="红包系统架构设计">
+                        
+                        <span class="card-title">红包系统架构设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Gustavo
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/02/22/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/cong-0-dao-10-rang-ni-che-di-li-jie-xin-xi-liu-tou-fang-xi-tong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="信息流投放系统">
+                        
+                        <span class="card-title">信息流投放系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">系统设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">推荐系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">965.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

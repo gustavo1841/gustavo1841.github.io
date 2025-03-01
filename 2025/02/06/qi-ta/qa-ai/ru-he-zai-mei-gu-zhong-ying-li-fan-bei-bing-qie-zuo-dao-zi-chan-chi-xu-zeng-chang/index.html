@@ -362,7 +362,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/32.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/56.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -451,6 +451,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -1429,7 +1432,20 @@
 <hr>
 <h2 id="模块三：量化增强型人工决策"><a href="#模块三：量化增强型人工决策" class="headerlink" title="模块三：量化增强型人工决策"></a><strong>模块三：量化增强型人工决策</strong></h2><h4 id="1-搭建简易量化模型"><a href="#1-搭建简易量化模型" class="headerlink" title="1. 搭建简易量化模型"></a><strong>1. 搭建简易量化模型</strong></h4><ul>
 <li><strong>因子挖掘</strong>：<br>用Python计算过去5年每月表现最佳股票的共性因子（如季度营收增速&gt;30% + 空头回补率&gt;5%）。  </li>
-<li><strong>回测框架</strong>：  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyStrategy</span>(bt.Strategy):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.sma = bt.indicators.SMA(period=<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.data.close &gt; <span class="variable language_">self</span>.sma:</span><br><span class="line">            <span class="variable language_">self</span>.buy()</span><br><span class="line">        <span class="keyword">elif</span> <span class="variable language_">self</span>.data.close &lt; <span class="variable language_">self</span>.sma:</span><br><span class="line">            <span class="variable language_">self</span>.sell()</span><br><span class="line">cerebro = bt.Cerebro()</span><br><span class="line">data = bt.feeds.YahooFinanceData(dataname=<span class="string">'AAPL'</span>, fromdate=datetime(<span class="number">2020</span>,<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">cerebro.adddata(data)</span><br><span class="line">cerebro.addstrategy(MyStrategy)</span><br><span class="line">cerebro.run()</span><br></pre></td></tr></tbody></table></figure></li>
+<li><strong>回测框架</strong>：  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> backtrader <span class="token keyword">as</span> bt
+<span class="token keyword">class</span> <span class="token class-name">MyStrategy</span><span class="token punctuation">(</span>bt<span class="token punctuation">.</span>Strategy<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>sma <span class="token operator">=</span> bt<span class="token punctuation">.</span>indicators<span class="token punctuation">.</span>SMA<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">next</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>close <span class="token operator">&gt;</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>buy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>data<span class="token punctuation">.</span>close <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cerebro <span class="token operator">=</span> bt<span class="token punctuation">.</span>Cerebro<span class="token punctuation">(</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> bt<span class="token punctuation">.</span>feeds<span class="token punctuation">.</span>YahooFinanceData<span class="token punctuation">(</span>dataname<span class="token operator">=</span><span class="token string">'AAPL'</span><span class="token punctuation">,</span> fromdate<span class="token operator">=</span>datetime<span class="token punctuation">(</span><span class="token number">2020</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+cerebro<span class="token punctuation">.</span>adddata<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+cerebro<span class="token punctuation">.</span>addstrategy<span class="token punctuation">(</span>MyStrategy<span class="token punctuation">)</span>
+cerebro<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="2-人工否决权规则"><a href="#2-人工否决权规则" class="headerlink" title="2. 人工否决权规则"></a><strong>2. 人工否决权规则</strong></h4><ul>
 <li><strong>量化信号需人工确认</strong>：  <ul>
@@ -2549,7 +2565,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/125.jpg" class="responsive-img" alt="会计31-企业绩效管理">
+                        <img src="/medias/featureimages/202.jpg" class="responsive-img" alt="会计31-企业绩效管理">
                         
                         <span class="card-title">会计31-企业绩效管理</span>
                     </div>
@@ -2598,7 +2614,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/153.jpg" class="responsive-img" alt="会计30-企业成本管理">
+                        <img src="/medias/featureimages/165.jpg" class="responsive-img" alt="会计30-企业成本管理">
                         
                         <span class="card-title">会计30-企业成本管理</span>
                     </div>
@@ -2685,6 +2701,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -2766,7 +2785,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.8k</span>
+                        class="white-color">963.9k</span>
             
             
             

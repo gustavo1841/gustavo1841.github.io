@@ -7,7 +7,10 @@
     <meta name="keywords" content="顺序表, Gustavo">
     <meta name="description" content="引言顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次
 实现初始化
-123456789101112131415161718#include &amp;lt;iostream&amp;gt;using namespace std;#de">
+#include &amp;lt;iostream&amp;gt;
+using namespace std;
+#define InitSize 2
+#define M">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -360,7 +363,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/169.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/104.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -432,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    477
+                    475
                 </div>
                 
 
@@ -454,6 +457,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -466,22 +472,104 @@
             <div id="articleContent">
                 <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>初始化</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> InitSize 2</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 2</span></span><br><span class="line"><span class="comment">//定义顺序表的结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    <span class="type">int</span> * data;</span><br><span class="line">    <span class="type">int</span> capacity,length;</span><br><span class="line">}SqList;</span><br><span class="line"><span class="comment">//初始化表</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InitList</span><span class="params">(SqList &amp;L)</span> {</span><br><span class="line">    L.data = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * InitSize);</span><br><span class="line">    L.length = <span class="number">0</span>;</span><br><span class="line">    L.capacity = MaxSize;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; InitSize;i++) {</span><br><span class="line">        L.data[i] = <span class="literal">NULL</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;iostream&gt;
+using namespace std;
+#define InitSize 2
+#define MaxSize 2
+//定义顺序表的结构
+typedef struct {
+    int * data;
+    int capacity,length;
+}SqList;
+//初始化表
+void InitList(SqList &amp;L) {
+    L.data = (int*)malloc(sizeof(int) * InitSize);
+    L.length = 0;
+    L.capacity = MaxSize;
+    for (int i = 0;i &lt; InitSize;i++) {
+        L.data[i] = NULL;
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>动态扩容</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//动态扩容</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">InCreateSize</span><span class="params">(SqList &amp;L)</span> {</span><br><span class="line">    <span class="type">int</span>* p = L.data;</span><br><span class="line">    <span class="type">int</span>* <span class="built_in">list</span> = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * L.capacity * <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; L.length;i++) {</span><br><span class="line">        <span class="built_in">list</span>[i] = p[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"动态扩容成功！"</span> &lt;&lt;<span class="string">"扩容前容量："</span>&lt;&lt;L.capacity&lt;&lt;<span class="string">"，扩容后："</span>&lt;&lt;L.capacity *<span class="number">2</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    L.capacity = L.capacity * <span class="number">2</span>;</span><br><span class="line">    L.data = <span class="built_in">list</span>;</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">//动态扩容
+bool InCreateSize(SqList &amp;L) {
+    int* p = L.data;
+    int* list = (int*)malloc(sizeof(int) * L.capacity * 2);
+    for (int i = 0;i &lt; L.length;i++) {
+        list[i] = p[i];
+    }
+    cout &lt;&lt; "动态扩容成功！" &lt;&lt;"扩容前容量："&lt;&lt;L.capacity&lt;&lt;"，扩容后："&lt;&lt;L.capacity *2&lt;&lt; endl;
+    L.capacity = L.capacity * 2;
+    L.data = list;
+    free(p);
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>顺序表指定位置插入</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">ListInsert</span><span class="params">(SqList &amp;L,<span class="type">int</span> i,<span class="type">int</span> data)</span> {</span><br><span class="line">    <span class="comment">//判断指定插入的位置是否合理</span></span><br><span class="line">    <span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;L.length+<span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//判断数组长度是否超出最大值</span></span><br><span class="line">    <span class="keyword">if</span> (L.length&gt;=L.capacity) {</span><br><span class="line">        <span class="type">bool</span> isCreate = InCreateSize(L);</span><br><span class="line">        <span class="keyword">if</span> (!isCreate)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//所有元素从指定位置往后挪一步，腾出i的位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = L.length;j &gt;= i;j--) {</span><br><span class="line">        L.data[j] = L.data[j - <span class="number">1</span>];</span><br><span class="line">    }</span><br><span class="line">    L.data[i<span class="number">-1</span>] = data;</span><br><span class="line">    L.length++;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool ListInsert(SqList &amp;L,int i,int data) {
+    //判断指定插入的位置是否合理
+    if (i&lt;1 || i&gt;L.length+1) {
+        return false;
+    }
+    //判断数组长度是否超出最大值
+    if (L.length&gt;=L.capacity) {
+        bool isCreate = InCreateSize(L);
+        if (!isCreate)
+            return false;
+    }
+    //所有元素从指定位置往后挪一步，腾出i的位置
+    for (int j = L.length;j &gt;= i;j--) {
+        L.data[j] = L.data[j - 1];
+    }
+    L.data[i-1] = data;
+    L.length++;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>顺序表删除</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">ListDelete</span><span class="params">(SqList &amp;L,<span class="type">int</span> i,<span class="type">int</span> &amp;e)</span> {</span><br><span class="line">    <span class="keyword">if</span> (i&lt;<span class="number">1</span> &amp;&amp; i&gt;L.length) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    e = L.data[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = i;j &lt;= L.length;j++) {</span><br><span class="line">        L.data[j - <span class="number">1</span>] = L.data[j];</span><br><span class="line">    }</span><br><span class="line">    L.length--;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool ListDelete(SqList &amp;L,int i,int &amp;e) {
+    if (i&lt;1 &amp;&amp; i&gt;L.length) {
+        return false;
+    }
+    e = L.data[i - 1];
+    for (int j = i;j &lt;= L.length;j++) {
+        L.data[j - 1] = L.data[j];
+    }
+    L.length--;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>按值查找元素位置</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">get</span><span class="params">(SqList &amp;L,<span class="type">int</span> data)</span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; L.length;i++) {</span><br><span class="line">        <span class="keyword">if</span> (data==L.data[i]) {</span><br><span class="line">            <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int get(SqList &amp;L,int data) {
+    for (int i = 0;i &lt; L.length;i++) {
+        if (data==L.data[i]) {
+            return i + 1;
+        }
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>调试</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">printList</span><span class="params">(SqList L)</span> {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; L.length;i++) {</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"下标为："</span> &lt;&lt; i&lt;&lt;<span class="string">"："</span> &lt;&lt; L.data[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">    SqList L;</span><br><span class="line">    InitList(L);</span><br><span class="line">    ListInsert(L, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    ListInsert(L, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">    ListInsert(L, <span class="number">3</span>, <span class="number">3</span>);</span><br><span class="line">    printList(L);</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    ListDelete(L, <span class="number">2</span>, i);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"删除的元素："</span>&lt;&lt;i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"查找元素："</span> &lt;&lt; get(L, <span class="number">3</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void printList(SqList L) {
+    for (int i = 0;i &lt; L.length;i++) {
+        cout &lt;&lt; "下标为：" &lt;&lt; i&lt;&lt;"：" &lt;&lt; L.data[i] &lt;&lt; endl;
+    }
+}
+
+int main()
+{
+    SqList L;
+    InitList(L);
+    ListInsert(L, 1, 1);
+    ListInsert(L, 2, 2);
+    ListInsert(L, 3, 3);
+    printList(L);
+    int i;
+    ListDelete(L, 2, i);
+    cout &lt;&lt; "删除的元素："&lt;&lt;i &lt;&lt; endl;
+    cout &lt;&lt; "查找元素：" &lt;&lt; get(L, 3) &lt;&lt; endl;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -633,7 +721,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/68.jpg" class="responsive-img" alt="链表">
+                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="链表">
                         
                         <span class="card-title">链表</span>
                     </div>
@@ -686,7 +774,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/84.jpg" class="responsive-img" alt="初级宏观01：宏观经济指标">
+                        <img src="/medias/featureimages/87.jpg" class="responsive-img" alt="初级宏观01：宏观经济指标">
                         
                         <span class="card-title">初级宏观01：宏观经济指标</span>
                     </div>
@@ -777,6 +865,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -858,7 +949,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.8k</span>
+                        class="white-color">963.9k</span>
             
             
             

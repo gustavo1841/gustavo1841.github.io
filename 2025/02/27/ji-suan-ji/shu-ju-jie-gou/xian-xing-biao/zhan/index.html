@@ -5,7 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="栈, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="顺序栈结构体定义
+#include &amp;lt;iostream&amp;gt;
+using namespace std;
+
+#define MaxSize 50
+typedef struct {
+    int data[MaxSize];
+    ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -358,7 +365,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/58.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/74.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -423,14 +430,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    186
                 </div>
                 
 
@@ -452,6 +459,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -462,7 +472,62 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h1><p>结构体定义</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+using namespace std<span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MaxSize</span> <span class="token expression"><span class="token number">50</span></span></span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> data<span class="token punctuation">[</span>MaxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> top<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>SqStack<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//顺序栈</span>
+<span class="token keyword">void</span> <span class="token function">InitStack</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    S<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//初始化栈顶指针</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>判空</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">StatckEmpty</span><span class="token punctuation">(</span>SqStack S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>进栈</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">push</span><span class="token punctuation">(</span>SqStack<span class="token operator">&amp;</span> S<span class="token punctuation">,</span> <span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">==</span> MaxSize <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"指针："</span> <span class="token operator">&lt;&lt;</span> S<span class="token punctuation">.</span>top <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    S<span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token operator">++</span>S<span class="token punctuation">.</span>top<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"压栈成功："</span> <span class="token operator">&lt;&lt;</span> S<span class="token punctuation">.</span>top <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>出栈</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">pop</span><span class="token punctuation">(</span>SqStack <span class="token operator">&amp;</span>S<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>S<span class="token punctuation">.</span>top <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    x <span class="token operator">=</span> S<span class="token punctuation">.</span>data<span class="token punctuation">[</span>S<span class="token punctuation">.</span>top<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    SqStack S<span class="token punctuation">;</span>
+    <span class="token function">InitStack</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">push</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">StatckEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> prop<span class="token punctuation">;</span>
+    <span class="token function">pop</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span>prop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"出栈元素："</span> <span class="token operator">&lt;&lt;</span> prop <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span><span class="token string">"是否为空栈："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">StatckEmpty</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -612,7 +677,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/66.jpg" class="responsive-img" alt="队列">
+                        <img src="/medias/featureimages/193.jpg" class="responsive-img" alt="队列">
                         
                         <span class="card-title">队列</span>
                     </div>
@@ -665,7 +730,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/68.jpg" class="responsive-img" alt="链表">
+                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="链表">
                         
                         <span class="card-title">链表</span>
                     </div>
@@ -756,6 +821,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -837,7 +905,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.8k</span>
+                        class="white-color">963.9k</span>
             
             
             

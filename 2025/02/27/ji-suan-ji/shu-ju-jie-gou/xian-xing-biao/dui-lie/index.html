@@ -5,7 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="队列, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="循环队列结构体定义
+#include &amp;lt;iostream&amp;gt;
+#define MaxSize 50
+using namespace std;
+
+typedef struct {
+    int data[MaxSize];
+   ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -358,7 +365,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/66.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/193.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -423,21 +430,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    370
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -452,6 +459,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -462,7 +472,142 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h1><p>结构体定义</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;iostream&gt;
+#define MaxSize 50
+using namespace std;
+
+typedef struct {
+    int data[MaxSize];
+    int front, rear;
+}SqQueue;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void init(SqQueue&amp; Q) {
+    Q.rear = Q.front = 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>判空</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool isEmpty(SqQueue q) {
+    if (q.front==q.rear) {
+        return true;
+    }
+    return false;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>入队</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool EnQueue(SqQueue &amp;Q,int data) {
+    //队满
+    if ((Q.rear+1)%MaxSize==Q.front) {
+        return false;
+    }
+    Q.data[Q.rear] = data;
+    //1%50 = 1、2%50=2、3%50=3....50%50=0，用这种方式就可以构造一个完整递进闭环
+    Q.rear = (Q.rear + 1) %MaxSize;
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>出队</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool DeQueue(SqQueue &amp;Q) {
+    if (Q.rear==Q.front) {
+        return false;
+    }
+    int x = Q.data[Q.front];
+    cout &lt;&lt; "出队：" &lt;&lt; x &lt;&lt; endl;
+    //头指针后移
+    Q.front = (Q.front + 1) % MaxSize;
+    return true;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int main()
+{
+    SqQueue Q;
+    init(Q);
+    EnQueue(Q, 1);
+    EnQueue(Q, 2);
+    EnQueue(Q, 3);
+    EnQueue(Q, 4);
+    
+    DeQueue(Q);
+    DeQueue(Q);
+    DeQueue(Q);
+    DeQueue(Q);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h1><p>结构体定义</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;iostream&gt;
+using namespace std;
+
+typedef struct LinkNode {
+    int data;
+    struct LinkNode *next;
+}LinkNode;
+
+typedef struct {
+    LinkNode* front, * rear;
+}LinkedQueue;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void init(LinkedQueue &amp; Q) {
+    Q.front = Q.rear = (LinkNode*)malloc(sizeof(LinkNode));//建立头结点
+    Q.front-&gt;next = NULL;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>判空</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">bool <span class="token function">isEmpty</span><span class="token punctuation">(</span>LinkedQueue Q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Q<span class="token punctuation">.</span>front<span class="token operator">==</span>Q<span class="token punctuation">.</span>rear<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>入队</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">void EnQueue(LinkedQueue &amp;Q,int data) {
+    LinkNode* s = (LinkNode*)malloc(sizeof(LinkNode));
+    s-&gt;data = data;
+    s-&gt;next = NULL;
+    Q.rear-&gt;next = s;
+    Q.rear = s;
+   
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>出队</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">bool DeQueue(LinkedQueue &amp; Q) {
+    if (Q.front==Q.rear) {
+        return false;
+    }
+    LinkNode *p = Q.front-&gt;next;
+    int x = p-&gt;data;
+    cout &lt;&lt; "出队：" &lt;&lt;x&lt;&lt; endl;
+    if (Q.rear==p) {
+        Q.rear = Q.front;
+    }
+    free(p);
+    return true;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>测试</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int main()
+{
+    LinkedQueue Q;
+    init(Q);
+    EnQueue(Q, 1);
+    EnQueue(Q, 2);
+    EnQueue(Q, 3);
+    EnQueue(Q, 4);
+    DeQueue(Q);
+    DeQueue(Q);
+    DeQueue(Q);
+    DeQueue(Q);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -665,7 +810,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/58.jpg" class="responsive-img" alt="栈">
+                        <img src="/medias/featureimages/74.jpg" class="responsive-img" alt="栈">
                         
                         <span class="card-title">栈</span>
                     </div>
@@ -756,6 +901,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -837,7 +985,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">881.8k</span>
+                        class="white-color">963.9k</span>
             
             
             

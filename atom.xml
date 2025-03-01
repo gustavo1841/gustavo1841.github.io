@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-02-27T12:18:14.926Z</updated>
+  <updated>2025-03-01T07:52:50.371Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,33 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>回文判断</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/jing-dian-de-suan-fa-ti-mu/hui-wen-pan-duan/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/jing-dian-de-suan-fa-ti-mu/hui-wen-pan-duan/</id>
-    <published>2025-02-27T08:31:55.000Z</published>
-    <updated>2025-02-27T12:18:14.926Z</updated>
+    <title>红包系统架构设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/hong-bao-xi-tong-she-ji/hong-bao-xi-tong-jia-gou-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/hong-bao-xi-tong-she-ji/hong-bao-xi-tong-jia-gou-she-ji/</id>
+    <published>2025-03-01T07:35:36.000Z</published>
+    <updated>2025-03-01T07:52:50.371Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot; title=&quot;1. 引言&quot;&gt;&lt;/a&gt;1.</summary>
+        
+      
     
     
     
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
-    <title>散列表</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/san-lie-biao/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/san-lie-biao/</id>
-    <published>2025-02-27T03:43:04.000Z</published>
-    <updated>2025-02-27T12:18:14.912Z</updated>
+    <title>评论架构设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/ping-lun-xi-tong-she-ji/ping-lun-jia-gou-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/ping-lun-xi-tong-she-ji/ping-lun-jia-gou-she-ji/</id>
+    <published>2025-03-01T07:29:48.000Z</published>
+    <updated>2025-03-01T07:35:12.507Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1评论系统的特点&quot;&gt;&lt;a href=&quot;#1评论系统的特点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -52,19 +60,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>B+树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/b-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/b-shu/</id>
-    <published>2025-02-27T03:42:56.000Z</published>
-    <updated>2025-02-27T12:18:14.880Z</updated>
+    <title>权限系统架构设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/quan-xian-xi-tong-jia-gou-she-ji/quan-xian-xi-tong-jia-gou-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/quan-xian-xi-tong-jia-gou-she-ji/quan-xian-xi-tong-jia-gou-she-ji/</id>
+    <published>2025-03-01T07:24:54.000Z</published>
+    <updated>2025-03-01T07:28:41.899Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1为什么需要权限管理&quot;&gt;&lt;a href=&quot;#1为什么需要权限管理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -73,19 +89,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>B树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/b-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/b-shu/</id>
-    <published>2025-02-27T03:42:50.000Z</published>
-    <updated>2025-02-27T12:18:14.889Z</updated>
+    <title>优惠券系统架构设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/you-hui-quan-xi-tong-she-ji/you-hui-quan-xi-tong-jia-gou-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/you-hui-quan-xi-tong-she-ji/you-hui-quan-xi-tong-jia-gou-she-ji/</id>
+    <published>2025-03-01T07:18:52.000Z</published>
+    <updated>2025-03-01T07:26:34.533Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-内容介绍&quot;&gt;&lt;a href=&quot;#1-内容介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -94,19 +118,29 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>红黑树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/hong-hei-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/hong-hei-shu/</id>
-    <published>2025-02-27T03:42:45.000Z</published>
-    <updated>2025-02-27T12:18:14.914Z</updated>
+    <title>支付系统产品架构</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/tu-jie-zhi-fu-xi-tong-chan-pin-jia-gou/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/tu-jie-zhi-fu-xi-tong-chan-pin-jia-gou/</id>
+    <published>2025-03-01T07:13:52.000Z</published>
+    <updated>2025-03-01T07:24:18.982Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在支付行业，系统架构的设计对于确保交易的安全、高效和稳定至关重要。本文将通过图解的方式，详细介绍支付系统的产品架构，包括耦合架构、产品架构、交易系统、客户系统、钱包账户、支付渠道、支付核心、支付引擎、清结算系统和账务核心等关键组成部分。&lt;/p&gt;
+&lt;</summary>
+        
+      
     
     
     
@@ -115,19 +149,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>平衡二叉树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/ping-heng-er-cha-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/ping-heng-er-cha-shu/</id>
-    <published>2025-02-27T03:42:39.000Z</published>
-    <updated>2025-02-27T12:18:14.898Z</updated>
+    <title>去哪儿公司分享的支付产品架构</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qu-na-er-gong-si-fen-xiang-de-zhi-fu-chan-pin-jia-gou/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qu-na-er-gong-si-fen-xiang-de-zhi-fu-chan-pin-jia-gou/</id>
+    <published>2025-03-01T07:00:12.000Z</published>
+    <updated>2025-03-01T07:03:39.548Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;去哪儿支付系统自 2011 年搭建以来，在五年的时间里逐渐从一个高耦合的单一系统发展为众多子系统组成的高并发、高可用、支持多种交易支付业务的分布式系统。业务从最初的非代收到现在多种非代收、代收场景的支持，B2B</summary>
+        
+      
     
     
     
@@ -136,19 +178,28 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>二叉排序树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/er-cha-pai-xu-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/er-cha-pai-xu-shu/</id>
-    <published>2025-02-27T03:42:34.000Z</published>
-    <updated>2025-02-27T12:18:14.889Z</updated>
+    <title>京东支付平台总体架构设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/jing-dong-zhi-fu-ping-tai-zong-ti-jia-gou-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/jing-dong-zhi-fu-ping-tai-zong-ti-jia-gou-she-ji/</id>
+    <published>2025-03-01T06:54:20.000Z</published>
+    <updated>2025-03-01T07:03:48.241Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;进步就需要变革，完美则需要经常变革–丘吉尔&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;随着新兴互联网金融业务的迅速崛起，对支付服务提出更高的要求，原有的系统架构很难满足快速变化、日益复杂的新兴业务需求；与此同时，随着用户量、业务量爆发式增长，系统的处理容量和稳定运行也</summary>
+        
+      
     
     
     
@@ -157,19 +208,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>分块查找</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/fen-kuai-cha-zhao/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/fen-kuai-cha-zhao/</id>
-    <published>2025-02-27T03:42:25.000Z</published>
-    <updated>2025-02-27T12:18:14.890Z</updated>
+    <title>支付宝钱包系统架构内部剖析</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-bao-qian-bao-xi-tong-jia-gou-nei-bu-pou-xi/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-bao-qian-bao-xi-tong-jia-gou-nei-bu-pou-xi/</id>
+    <published>2025-03-01T06:45:47.000Z</published>
+    <updated>2025-03-01T07:04:23.687Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;支付宝系统架构概况&quot;&gt;&lt;a href=&quot;#支付宝系统架构概况&quot; class=&quot;headerlink&quot; title=&quot;支付宝系统架构概况&quot;&gt;&lt;/a&gt;&lt;strong&gt;支付宝系统架构概况&lt;/strong&gt;&lt;/h3&gt;&lt;h3 id=&quot;典型处理默认&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
@@ -178,19 +237,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>折半查找</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/zhe-ban-cha-zhao/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/zhe-ban-cha-zhao/</id>
-    <published>2025-02-27T03:42:20.000Z</published>
-    <updated>2025-02-27T12:18:14.906Z</updated>
+    <title>浅析支付系统的整体架构</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qian-xi-zhi-fu-xi-tong-de-zheng-ti-jia-gou/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qian-xi-zhi-fu-xi-tong-de-zheng-ti-jia-gou/</id>
+    <published>2025-03-01T06:43:56.000Z</published>
+    <updated>2025-03-01T07:56:42.266Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;支付的典型架构&quot;&gt;&lt;a href=&quot;#支付的典型架构&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -199,19 +266,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>顺序查找</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/shun-xu-cha-zhao/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/shun-xu-cha-zhao/</id>
-    <published>2025-02-27T03:42:15.000Z</published>
-    <updated>2025-02-27T12:18:14.920Z</updated>
+    <title>从产品分类、模块功能和业务流程，了解支付产品服务的设计</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/cong-chan-pin-fen-lei-mo-kuai-gong-neng-he-ye-wu-liu-cheng-liao-jie-zhi-fu-chan-pin-fu-wu-de-she-ji/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/cong-chan-pin-fen-lei-mo-kuai-gong-neng-he-ye-wu-liu-cheng-liao-jie-zhi-fu-chan-pin-fu-wu-de-she-ji/</id>
+    <published>2025-03-01T05:58:53.000Z</published>
+    <updated>2025-03-01T07:56:05.239Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;支付产品模块是按照支付场景来为业务方提供支付服务。这个模块一般位于支付网关之后，支付渠道之前。 它根据支付能力将不同的支付渠道封装成统一的接口，通过支付网关来对外提供服务。所以，从微服务的角度，支付产品本身也是一个代理模式的微服务，它透过支付网关响应业务方请求，</summary>
+        
+      
     
     
     
@@ -220,19 +295,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>树与森林</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/shu-yu-sen-lin/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/shu-yu-sen-lin/</id>
-    <published>2025-02-27T03:42:06.000Z</published>
-    <updated>2025-02-27T12:18:14.990Z</updated>
+    <title>支付清结算之账户和账务处理</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-zhang-hu-he-zhang-wu-chu-li/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-zhang-hu-he-zhang-wu-chu-li/</id>
+    <published>2025-03-01T05:53:12.000Z</published>
+    <updated>2025-03-01T05:56:47.134Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;支付清结算之账户和账务处理&quot;&gt;&lt;a href=&quot;#支付清结算之账户和账务处理&quot; class=&quot;headerlink&quot; title=&quot;支付清结算之账户和账务处理&quot;&gt;&lt;/a&gt;支付清结算之账户和账务处理&lt;/h1&gt;&lt;h2 id=&quot;一、账户体系&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
@@ -241,17 +324,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>外部排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/wai-bu-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/wai-bu-pai-xu/</id>
-    <published>2025-02-27T03:39:43.000Z</published>
-    <updated>2025-02-27T12:18:14.848Z</updated>
+    <title>支付清结算之电商侧处理</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-dian-shang-ce-chu-li/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-dian-shang-ce-chu-li/</id>
+    <published>2025-03-01T05:51:30.000Z</published>
+    <updated>2025-03-01T05:53:41.597Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;支付清结算之电商侧处理&quot;&gt;&lt;a href=&quot;#支付清结算之电商侧处理&quot; class=&quot;headerlink&quot; title=&quot;支付清结算之电商侧处理&quot;&gt;&lt;/a&gt;支付清结算之电商侧处理&lt;/h1&gt;&lt;p&gt;这篇文章的内容比较枯燥，就是一堆的业务对应的会计分录。</summary>
+        
+      
     
     
     
@@ -260,19 +353,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>内部排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/nei-bu-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/nei-bu-pai-xu/</id>
-    <published>2025-02-27T03:39:37.000Z</published>
-    <updated>2025-02-27T12:18:14.834Z</updated>
+    <title>支付清结算之渠道侧处理</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-qu-dao-ce-chu-li/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-qu-dao-ce-chu-li/</id>
+    <published>2025-03-01T05:50:22.000Z</published>
+    <updated>2025-03-01T05:53:50.716Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;支付清结算之渠道侧处理&quot;&gt;&lt;a href=&quot;#支付清结算之渠道侧处理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -281,19 +382,27 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>基数排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/ji-shu-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/ji-shu-pai-xu/</id>
-    <published>2025-02-27T03:39:32.000Z</published>
-    <updated>2025-02-27T12:18:14.841Z</updated>
+    <title>支付清结算之基本概念和入门</title>
+    <link href="https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-ji-ben-gai-nian-he-ru-men/"/>
+    <id>https://gustavo1841.github.io/2025/03/01/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-qing-jie-suan-zhi-ji-ben-gai-nian-he-ru-men/</id>
+    <published>2025-03-01T05:34:45.000Z</published>
+    <updated>2025-03-01T05:54:00.325Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;支付清结算之基本概念和入门&quot;&gt;&lt;a href=&quot;#支付清结算之基本概念和入门&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -302,131 +411,163 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="系统设计" scheme="https://gustavo1841.github.io/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="支付系统设计" scheme="https://gustavo1841.github.io/tags/%E6%94%AF%E4%BB%98%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
-    <title>归并排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu/</id>
-    <published>2025-02-27T03:39:26.000Z</published>
-    <updated>2025-02-27T12:18:14.857Z</updated>
+    <title>如何判断信息的可信度</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ru-he-pan-duan-xin-xi-de-ke-xin-du/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ru-he-pan-duan-xin-xi-de-ke-xin-du/</id>
+    <published>2025-02-28T10:00:51.000Z</published>
+    <updated>2025-03-01T04:42:46.862Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;什么样的信息发布的可信度高，我个人觉得有下面几个方面。&lt;/p&gt;
+&lt;p&gt;1）动机正确。如果动机是为了平息舆论，以宣传为目的，而且不是批露事实和真相，那么信息的可信度自然会很差。&lt;/p&gt;
+&lt;p&gt;2）可供查证。发布的信息中只有结论，没有提供对结果的推导过程，没有供人查证的证据和数</summary>
+        
+      
     
     
     
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>选择排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/xuan-ze-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/xuan-ze-pai-xu/</id>
-    <published>2025-02-27T03:39:19.000Z</published>
-    <updated>2025-02-27T12:18:14.874Z</updated>
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
     
     
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   
   <entry>
-    <title>交换排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/jiao-huan-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/jiao-huan-pai-xu/</id>
-    <published>2025-02-27T03:39:14.000Z</published>
-    <updated>2025-02-27T12:18:14.827Z</updated>
+    <title>前公司内部PMM项目经理经验分享</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/gong-si-nei-bu-pmm-xiang-mu-jing-li-jing-yan-fen-xiang/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/gong-si-nei-bu-pmm-xiang-mu-jing-li-jing-yan-fen-xiang/</id>
+    <published>2025-02-28T09:59:57.000Z</published>
+    <updated>2025-03-01T04:50:22.983Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;项目经理常见的问题&quot;&gt;&lt;a href=&quot;#项目经理常见的问题&quot; class=&quot;headerlink&quot; title=&quot;项目经理常见的问题&quot;&gt;&lt;/a&gt;项目经理常见的问题&lt;/h1&gt;&lt;h2 id=&quot;1、-需求蔓延&quot;&gt;&lt;a href=&quot;#1、-需求蔓延&quot;</summary>
+        
+      
     
     
     
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/cha-ru-pai-xu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/cha-ru-pai-xu/</id>
-    <published>2025-02-27T03:39:08.000Z</published>
-    <updated>2025-02-27T12:18:14.865Z</updated>
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
     
     
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   
   <entry>
-    <title>图</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/tu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/tu/</id>
-    <published>2025-02-27T03:38:39.000Z</published>
-    <updated>2025-02-27T12:18:14.976Z</updated>
+    <title>如何学会在面对擅长勾心斗角的人面前保护自己？</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ru-he-xue-hui-zai-mian-dui-shan-chang-gou-xin-dou-jiao-de-ren-mian-qian-bao-hu-zi-ji/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ru-he-xue-hui-zai-mian-dui-shan-chang-gou-xin-dou-jiao-de-ren-mian-qian-bao-hu-zi-ji/</id>
+    <published>2025-02-28T09:56:44.000Z</published>
+    <updated>2025-03-01T04:42:46.863Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1，熟人间很难保守秘密，尽量避免背后评价他人，如果要评价，就以强调优点为主，绝不提缺点。&lt;/p&gt;
+&lt;p&gt;2，很多时候，你跟同事朋友去倾诉和抱怨，就是用被加害权-交换情绪价值。因此减少倾诉欲一，自己的个人隐私尽量不说，自己的情绪状态表达，尽量不跟非亲人说。&lt;/p&gt;
+&lt;p&gt;3，</summary>
+        
+      
     
     
     
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
     
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   
   <entry>
-    <title>二叉树</title>
-    <link href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/er-cha-shu/"/>
-    <id>https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/er-cha-shu/</id>
-    <published>2025-02-27T03:38:23.000Z</published>
-    <updated>2025-02-27T12:18:14.971Z</updated>
+    <title>学习执行力</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/xue-xi-zhi-xing-li/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/xue-xi-zhi-xing-li/</id>
+    <published>2025-02-28T09:53:01.000Z</published>
+    <updated>2025-03-01T04:42:46.865Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1、立刻行动&quot;&gt;&lt;a href=&quot;#1、立刻行动&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
     
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>弱势生存——以弱对强的两大策略六种手段</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ruo-shi-sheng-cun-yi-ruo-dui-qiang-de-san-chong-ying-dui-ce-lue/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ruo-shi-sheng-cun-yi-ruo-dui-qiang-de-san-chong-ying-dui-ce-lue/</id>
+    <published>2025-02-28T07:48:25.000Z</published>
+    <updated>2025-03-01T07:50:47.025Z</updated>
     
     
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、敌强我弱&quot;&gt;&lt;a href=&quot;#一、敌强我弱&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
+    
+    
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>明白这5点，你将会拉开与同龄人之间的差距</title>
+    <link href="https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ming-bai-zhe-5-dian-ni-jiang-hui-la-kai-yu-tong-ling-ren-zhi-jian-de-chai-ju/"/>
+    <id>https://gustavo1841.github.io/2025/02/28/ren-sheng-yu-zhi-chang/ming-bai-zhe-5-dian-ni-jiang-hui-la-kai-yu-tong-ling-ren-zhi-jian-de-chai-ju/</id>
+    <published>2025-02-28T07:42:45.000Z</published>
+    <updated>2025-03-01T07:50:55.190Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;明白这5点，你将会拉开与同龄人之间的差距！&quot;&gt;&lt;a href=&quot;#明白这5点，你将会拉开与同龄人之间的差距！&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
+    
+    
+    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   

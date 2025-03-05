@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="数组, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="二维数组二维数组是一个矩阵，缺位的值补0。数组所需内存空间为n*sizeof(int)，我们可将该下标对应的元素存储在以下位置
+start+map(i1+i2+….in) * sizeof(int)
+行主序map(i,k) = 列*行+列
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -60,9 +63,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 7.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
 </head>
 
 
@@ -423,14 +426,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    442
                 </div>
                 
 
@@ -465,7 +468,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><p>二维数组是一个矩阵，缺位的值补0。数组所需内存空间为n*sizeof(int)，我们可将该下标对应的元素存储在以下位置</p>
+<p>start+map(i1+i2+….in) * sizeof(int)</p>
+<h2 id="行主序"><a href="#行主序" class="headerlink" title="行主序"></a>行主序</h2><p>map(i,k) = 列*行+列</p>
+<h2 id="列主序"><a href="#列主序" class="headerlink" title="列主序"></a>列主序</h2><p>map(i,k)=列乘列+行</p>
+<h1 id="三维数组"><a href="#三维数组" class="headerlink" title="三维数组"></a>三维数组</h1><p>nap(i,k,j) =i*u2 *u3+k *u3 + j</p>
+<h1 id="矩阵压缩"><a href="#矩阵压缩" class="headerlink" title="矩阵压缩"></a>矩阵压缩</h1><h2 id="三角矩阵"><a href="#三角矩阵" class="headerlink" title="三角矩阵"></a>三角矩阵</h2><h3 id="对称矩阵"><a href="#对称矩阵" class="headerlink" title="对称矩阵"></a>对称矩阵</h3><p>n*n矩阵M是一个对称矩阵，对称矩阵中，以对角线为界，上三角部分与下三角部分对称相等。对于对称矩阵，因为对角线以及上下元素相等，所以只需要保存其中一半，即对角线上的元素。例如若有n行n列，则这种形式下需要保持元素的个数为n(n+1)/2</p>
+<h3 id="行主序-1"><a href="#行主序-1" class="headerlink" title="行主序"></a>行主序</h3><p>对于采用压缩存储方式保存的特殊矩阵，map(i,j) = i * (i+j)/2+i（0≤i≤n-1，0≤j≤i），注意当j&gt;i时，应返回0.</p>
+<p>对于仅保存上三角或下三角部分会有如下取值：</p>
+<p>下三角：当i≥j，则i * (i+1)/2+j</p>
+<p>上三角：当i&lt;j，则 j * (j+1)/2+i</p>
+<h2 id="稀疏矩阵"><a href="#稀疏矩阵" class="headerlink" title="稀疏矩阵"></a>稀疏矩阵</h2><p>矩阵中可能会出现大量的0元素，而非0元素数量很少，这就是所谓的稀疏矩阵。</p>
+<h2 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h2><p>A = （）空表，长度为0，深度为1</p>
+<p>B = (())，B的长度为1，深度为2</p>
+<p>C=(6,2)，C的长度为2，深度为1，两个元素都是原子</p>
+<p>D=(‘a’，(12,’b’,4))，D的长度为2，深度为2，含一个原子和子表</p>
+<p>E=（C、D、A），长度为3，深度为3，三个子表</p>
+<p>F=（C），长度为1，深度为2，一个子表</p>
+<p>G=（4，G），长度为2，深度为∞，是递归表。</p>
+
                 
             </div>
             <hr/>
@@ -843,7 +864,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">997.4k</span>
+                        class="white-color">1000.2k</span>
             
             
             

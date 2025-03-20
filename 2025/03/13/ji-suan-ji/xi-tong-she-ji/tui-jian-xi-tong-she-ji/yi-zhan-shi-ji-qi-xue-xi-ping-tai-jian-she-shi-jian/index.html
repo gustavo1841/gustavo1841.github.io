@@ -1,0 +1,1305 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="一站式机器学习平台建设实践, Gustavo">
+    <meta name="description" content="
+本文根据美团配送资深技术专家郑艳伟在2019 SACC（中国系统架构师大会）上的演讲内容整理而成，主要介绍了美团配送技术团队在建设一站式机器学习平台过程中的经验总结和探索，希望对从事此领域的同学有所帮助。
+
+0. 写在前面AI是目前互联网">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>一站式机器学习平台建设实践 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/246.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">一站式机器学习平台建设实践</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">系统设计</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">推荐系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8E%A8%E8%8D%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">推荐架构设计</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%99%BA%E8%83%BD%E6%B4%BE%E5%8D%95%E8%B0%83%E5%BA%A6/">
+                                <span class="chip bg-color">智能派单调度</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-03-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>本文根据美团配送资深技术专家郑艳伟在2019 SACC（中国系统架构师大会）上的演讲内容整理而成，主要介绍了美团配送技术团队在建设一站式机器学习平台过程中的经验总结和探索，希望对从事此领域的同学有所帮助。</p>
+</blockquote>
+<h2 id="0-写在前面"><a href="#0-写在前面" class="headerlink" title="0. 写在前面"></a>0. 写在前面</h2><p>AI是目前互联网行业炙手可热的“明星”，无论是老牌巨头，还是流量新贵，都在大力研发AI技术，为自家的业务赋能。配送作为外卖平台闭环链条上重要的一环，配送效率和用户体验是配送业务的核心竞争力。随着单量上涨、骑手增多、配送场景复杂化，配送场景的各种算法在更快（算法需要快速迭代、快速上线）、更好（业务越来越依赖机器学习算法产生正向的效果）、更准（算法的各种预测如预计送达时间等，需要准确逼近真实值）的目标下也面临日益增大的挑战。算法从调研到最终上线发挥作用，需要有一系列的工程开发和对接，由此引发了新的问题：如何界定算法和工程的边界，各司其职，各善其长？如何提升算法迭代上线的速度和效率？如何快速准确评估算法的效果？本文将为大家分享美团配送技术团队在建设一站式机器学习平台过程中的一些经验和探索，希望对大家能有所帮助或者启发。</p>
+<h2 id="1-业务背景"><a href="#1-业务背景" class="headerlink" title="1. 业务背景"></a>1. 业务背景</h2><p>2019年7月份，美团外卖的日订单量已经突破3000万单，占有了相对领先的市场份额。围绕着用户、商户、骑手，美团配送构建了全球领先的即时配送网络，建设了行业领先的美团智能配送系统，形成了全球规模最大的外卖配送平台。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/893093a5c46194ec1ff2a31775080d93143315.png"></p>
+<p>如何让配送网络运行效率更高，用户体验更好，是一项非常有难度的挑战。我们需要解决大量复杂的机器学习和运筹优化等问题，包括ETA预测、智能调度、地图优化、动态定价、情景感知、智能运营等多个领域。同时，我们还需要在体验、效率和成本之间达到平衡。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/99f40adfe9785a782e7dc8bf306f1cfe379449.png"></p>
+<h2 id="2-美团配送机器学习平台演进过程"><a href="#2-美团配送机器学习平台演进过程" class="headerlink" title="2. 美团配送机器学习平台演进过程"></a>2. 美团配送机器学习平台演进过程</h2><h3 id="2-1-为什么建设一站式机器学习平台"><a href="#2-1-为什么建设一站式机器学习平台" class="headerlink" title="2.1 为什么建设一站式机器学习平台"></a>2.1 为什么建设一站式机器学习平台</h3><p>如果要解决上述的机器学习问题，就需要有一个功能强大且易用的机器学习平台来辅助算法研发人员，帮助大家脱离繁琐的工程化开发，把有限的精力聚焦于算法策略的迭代上面。</p>
+<p>目前业界比较优秀的机器学习平台有很多，既有大公司研发的商用产品，如微软的Azure、亚马逊的SageMaker、阿里的PAI平台、百度的PaddlePaddle以及腾讯的TI平台，也有很多开源的产品，如加州大学伯克利分校的Caffe、Google的TensorFlow、Facebook的PyTorch以及Apache的Spark MLlib等。而开源平台大都是机器学习或者深度学习基础计算框架，聚焦于训练机器学习或深度学习模型；公司的商用产品则是基于基础的机器学习和深度学习计算框架进行二次开发，提供一站式的生态化的服务，为用户提供从数据预处理、模型训练、模型评估、模型在线预测的全流程开发和部署支持，以期降低算法同学的使用门槛。</p>
+<p>公司级的一站式机器学习平台的目标和定位，与我们对机器学习平台的需求不谋而合：为用户提供端到端的一站式的服务，帮助他们脱离繁琐的工程化开发，把有限的精力聚焦于算法策略的迭代上面。鉴于此，美团配送的一站式机器学习平台应运而生。</p>
+<p>美团配送机器学习平台的演进过程可以分为两个阶段：</p>
+<ul>
+<li><strong>MVP阶段</strong>：灵活，快速试错，具备快速迭代能力。</li>
+<li><strong>平台化阶段</strong>：业务成指数级增长，需要机器学习算法的场景越来越多，如何既保证业务发展，又能解决系统可用性、扩展性、研发效率等问题。</li>
+</ul>
+<h3 id="2-2-MVP阶段"><a href="#2-2-MVP阶段" class="headerlink" title="2.2 MVP阶段"></a>2.2 MVP阶段</h3><p>初始阶段，大家对机器学习平台要发展成什么样子并不明确，很多事情也想不清楚。但是为了支撑业务的发展，必须快速上线、快速试错。因此，在此阶段，各个业务线独自建设自己的机器学习工具集，按照各自业务的特殊需求进行各自迭代，快速支持机器学习算法上线落地应用到具体的业务场景，也就是我们所熟知的“烟囱模式”。此种模式各自为战，非常灵活，能够快速支持业务的个性化需求，为业务抢占市场赢得了先机。但随着业务规模的逐渐扩大，这种“烟囱模式”的缺点就凸显了出来，主要表现在以下两个方面：</p>
+<ul>
+<li><strong>重复造轮子</strong>：特征工程、模型训练、模型在线预测都是各自研发，从零做起，算法的迭代效率低下。</li>
+<li><strong>特征口径混乱</strong>：各个业务方重复开发特征，相同特征的统计口径也不一致，导致算法之间难以协同工作。</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/97903e4894515954a22526d92be53763287386.png"></p>
+<h3 id="2-3-平台化阶段"><a href="#2-3-平台化阶段" class="headerlink" title="2.3 平台化阶段"></a>2.3 平台化阶段</h3><p>为了避免各部门重复造轮子，提升研发的效率，同时统一业务指标和特征的计算口径，标准化配送侧的数据体系，美团配送的研发团队组建了一个算法工程小组，专门规整各业务线的机器学习工具集，希望建设一个统一的机器学习平台，其需求主要包括以下几个方面：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/e32ef9b3c3da9e0dcdcbf17da07c8ba095330.png"></p>
+<ul>
+<li>该平台底层依托于Hadoop/Yarn进行资源调度管理，集成了Spark ML、XGBoost、TensorFlow三种机器学习框架，并保留了扩展性，方便接入其它机器学习框架，如美团自研的MLX（超大规模机器学习平台，专为搜索、推荐、广告等排序问题定制，支持百亿级特征和流式更新）。</li>
+<li>通过对Spark ML、XGBoost、TensorFlow机器学习框架的封装，我们实现了可视化离线训练平台，通过拖拉拽的方式生成DAG图，屏蔽多个训练框架的差异，统一模型训练和资源分配，降低了算法RD的接入门槛。</li>
+<li>模型管理平台，提供统一的模型注册、发现、部署、切换、降级等解决方案，并为机器学习和深度学习模型实时计算提供高可用在线预测服务。</li>
+<li>离线特征平台，收集分拣线下日志，计算提炼成算法所需要的特征，并将线下的特征应用到线上。</li>
+<li>实时特征平台，实时收集线上数据，计算提炼成算法所需要的特征，并实时推送应用到线上。</li>
+<li>版本管理平台，管理算法的版本以及算法版本所用的模型、特征和参数。</li>
+<li>AB实验平台，通过科学的分流和评估方法，更快更好地验证算法的效果。</li>
+</ul>
+<h2 id="3-图灵平台"><a href="#3-图灵平台" class="headerlink" title="3. 图灵平台"></a>3. 图灵平台</h2><p>平台化阶段，我们对美团配送机器学习平台的目标定位是：一站式机器学习平台，给算法同学提供一站式服务，覆盖算法同学调研、开发、上线、评估算法效果的全流程，包括：数据处理、特征生产、样本生成、模型训练、模型评估、模型发布、在线预测和效果评估。为了响应这个目标，大家还给平台取了个大胆的名字——Turing，中文名称为图灵平台，虽然有点“胆大包天”，但是也算是对我们团队的一种鞭策。</p>
+<p>1）首先在获取数据阶段，支持在线和离线两个层面的处理，分别通过采样、过滤、归一化、标准化等手段生产实时和离线特征，并推送到在线的特征库，供线上服务使用。</p>
+<p>2）模型训练阶段，支持分类、回归、聚类、深度学习等多种模型，并支持自定义Loss损失函数。</p>
+<p>3）模型评估阶段，支持多种评估指标，如AUC、MSE、MAE、F1等。</p>
+<p>4）模型发布阶段，提供一键部署功能，支持本地和远程两种模式，分别对应将模型部署在业务服务本地和部署在专用的在线预测集群。</p>
+<p>5）在线预测阶段，支持AB实验，灵活的灰度发布放量，并通过统一埋点日志实现AB实验效果评估。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/cb913705f4da670a665bf6f00b66e044359254.png"></p>
+<h3 id="3-1-离线训练平台"><a href="#3-1-离线训练平台" class="headerlink" title="3.1 离线训练平台"></a>3.1 离线训练平台</h3><p>离线训练平台的目标是：搭建可视化训练平台，屏蔽多个训练框架的差异，降低算法RD的接入门槛。</p>
+<p>为了降低算法RD进入机器学习领域的门槛，我们开发了带有可视化界面的离线训练平台，通过各种组件的拖拉拽组合成DAG图，从而生成一个完整的机器学习训练任务。</p>
+<p>目前支持的组件大致分为：输入、输出、特征预处理、数据集加工、机器学习模型、深度学习模型等几大类，每种类别都开发了多个不同的组件，分别支持不同的应用场景。同时为了不失去灵活性，我们也花费了一番心思，提供了多种诸如自定义参数、自动调参、自定义Loss函数等功能，尽量满足各个不同业务方向算法同学各种灵活性的需求。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/87bbed6bf34e0099698a0f078bf95009533366.png"></p>
+<p>我们的离线训练平台在产出模型时，除了产出模型文件之外，还产出了一个MLDL（Machine Learning Definition Language）文件，将各模型的所有预处理模块信息写入MLDL文件中，与模型保存在同一目录中。当模型发布时，模型文件连带MLDL文件作为一个整体共同发布到线上。在线计算时，先自动执行MLDL中的预处理逻辑，然后再执行模型计算逻辑。通过MLDL打通了离线训练和在线预测，贯穿整个机器学习平台，使得线下和线上使用同一套特征预处理框架代码，保证了线下和线上处理的一致性。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/a568c627242d080d593697ab2aff6707230016.png"></p>
+<p>在发布模型时，我们还提供了模型绑定特征功能，支持用户把特征和模型的入参关联起来，方便在线预测时模型自动获取特征，极大地简化了算法RD构造模型输入时获取特征的工作量。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/e257bc96af769863ba5c9520d913a310142359.png"></p>
+<h3 id="3-2-模型管理平台"><a href="#3-2-模型管理平台" class="headerlink" title="3.2 模型管理平台"></a>3.2 模型管理平台</h3><p>前面介绍了，我们的图灵平台集成了Spark ML、XGBoost、TensorFlow三种底层训练框架，基于此，我们的训练平台产出的机器学习模型种类也非常多，简单的有LR、SVM，树模型有GBDT、RF、XGB等，深度学习模型有RNN、DNN、LSTM、DeepFM等等。而我们的模型管理平台的目标就是提供统一的模型注册、发现、部署、切换、降级等解决方案，并为机器学习和深度学习模型提供高可用的线上预测服务。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/b0f8b6ade95a28c05664adae838af288256476.png"></p>
+<p>模型管理平台支持本地和远程两种部署模式：</p>
+<ul>
+<li>本地：模型和MLDL统一推送到业务方服务节点上，同时图灵平台提供一个Java的Lib包，嵌入到业务方应用中，业务方通过本地接口的方式调用模型计算。</li>
+<li>远程：图灵平台维护了一个专用的在线计算集群，模型和MLDL统一部署到在线计算集群中，业务方应用通过RPC接口调用在线计算服务进行模型计算。</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/b5647d6a4e6a93d066ce91ab826d7514280066.jpg"><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/3cdaa8124c912cfdedca9d2951f91c83325889.png"></p>
+<p>对于超大规模模型，单机无法装载，需要对模型进行Sharding。鉴于美团配送的业务特性，可以按照配送城市/区域进行分区训练，每个城市或区域产出一个小模型，多个分区模型分散部署到多个节点上，解决单节点无法装载大模型的问题。分区模型要求我们必须提供模型的路由功能，以便业务方精准地找到部署相应分区模型的节点。</p>
+<p>同时，模型管理平台还收集各个服务节点的心跳上报信息，维护模型的状态和版本切换，确保所有节点上模型版本一致。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/b5db838c4558317bb2932b95fec9b73a375613.png"></p>
+<h3 id="3-3-离线特征平台"><a href="#3-3-离线特征平台" class="headerlink" title="3.3 离线特征平台"></a>3.3 离线特征平台</h3><p>配送线上业务每天会记录许多骑手、商家、用户等维度的数据，这些数据经过ETL处理得到所谓的离线特征，算法同学利用这些离线特征训练模型，并在线上利用这些特征进行模型在线预测。离线特征平台就是将存放在Hive表中的离线特征数据生产到线上，对外提供在线获取离线特征的服务能力，支撑配送各个业务高并发及算法快速迭代。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6ff97f23237eb2c773bc8f05d25425c7291620.png"></p>
+<p>最简单的方案，直接把离线特征存储到DB中，线上服务直接读取DB获取特征Value。读取DB是个很重的操作，这种方案明显不能满足互联网大并发的场景，直接被Pass掉。</p>
+<p>第二种方案，把各个离线特征作为K-V结构存储到Redis中，线上服务直接根据特征Key读取Redis获取特征Value。此方案利用了Redis内存K-V数据库的高性能，乍一看去，好像可以满足业务的需求，但实际使用时，也存在着严重的性能问题。</p>
+<p>典型的业务场景：比如我们要预测20个商家的配送时长，假设每个商家需要100个特征，则我们就需要20*100=2000个特征进行模型计算，2000个KV。如果直接单个获取，满足不了业务方的性能需求；如果使用Redis提供的批量接口Mget，如果每次获取100个KV，则需要20次Mget。缓存mget的耗时TP99约5ms，20次Mget，TP99接近100ms，也无法满足业务方的性能需求（上游服务超时时间约50ms）。</p>
+<p>因此，我们需要对离线特征从存储和获取进行优化。我们提出了特征组的概念，同一维度的特征，按照特征组的结构进行聚合成一个KV，大大减少了Key的数目；并且提供了相对完善的管理功能，支持对特征组的动态调整（组装、拆分等）。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6457111ad752bee833f4b88172fa2ac3245163.png"></p>
+<h3 id="3-4-实时特征平台"><a href="#3-4-实时特征平台" class="headerlink" title="3.4 实时特征平台"></a>3.4 实时特征平台</h3><p>相比于传统配送，即时配送无论是在位置信息、骑手负载，还是在当前路网情况，以及商家出餐情况等方面都是瞬息变化的，实时性要求非常高。为了让机器学习算法能够即时的在线上生效，我们需要实时地收集线上各种业务数据，进行计算，提炼成算法所需要的特征，并实时更新。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/47beebf6b945cd1f2ea15c2625cc88b1325821.png"></p>
+<h3 id="3-5-AB实验平台"><a href="#3-5-AB实验平台" class="headerlink" title="3.5 AB实验平台"></a>3.5 AB实验平台</h3><p>AB实验并不是个新兴的概念，自2000年谷歌工程师将这一方法应用在互联网产品以来，AB实验在国内外越来越普及，已成为互联网产品运营精细度的重要体现。简单来说，AB实验在产品优化中的应用方法是：在产品正式迭代发版之前，为同一个目标制定两个（或以上）方案，将用户流量对应分成几组，在保证每组用户特征相同的前提下，让用户分别看到不同的方案设计，根据几组用户的真实数据反馈，科学的帮助产品进行决策。 </p>
+<p>互联网领域常见的AB实验，大多是面向C端用户进行流量选择，比如基于注册用户的UID或者用户的设备标识（移动用户IMEI号/PC用户Cookie）进行随机或者哈希计算后分流。此类方案广泛应用于搜索、推荐、广告等领域，体现出千人千面个性化的特点。此类方案的特点是实现简单，假设请求独立同分布，流量之间独立决策，互不干扰。此类AB实验之所以能够这样做是因为：C端流量比较大，样本足够多，而且不同用户之间没有相互干扰，只要分流时足够随机，即基本可以保证请求独立同分布。</p>
+<p>即时配送领域的AB实验是围绕用户、商户、骑手三者进行，用户/商户/骑手之间不再是相互独立的，而是相互影响相互制约的。针对此类场景，现有的分流方案会造成不同策略的互相干扰，无法有效地评估各个流量各个策略的优劣。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/67c4b043fe211d9f1a588b534547ef68323468.png"></p>
+<p>鉴于上述的问题，我们将配送侧的AB实验分为三个阶段：事前的AA分组，事中的AB分流，事后的效果评估。</p>
+<ul>
+<li>AA分组：将候选流量按照既定的规则预先分为对照组和实验组，基于数理统计的理论确保对照组和实验组在所关注的业务指标上没有显著差异。</li>
+<li>AB分流：将线上请求实时分到对照或者实验版本。</li>
+<li>效果评估：根据对照组和实验组的数据对比评估AB实验的效果。</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/49b6b7d08117ea1b04ecd787071f1583290453.png"></p>
+<p>由于即时配送的场景较为特殊，比如按照配送区域或城市进行AB实验时，由于样本空间有限，很难找到没有差异的对照组和实验组，因此我们设计了一种分时间片AB对照的分流方法：支持按天、小时、分钟进行分片，多个时间片进行轮转切换，在不同区域、不同时间片之间，对不同的策略进行交替切换进行AB分流，最大限度减少线下因素的影响，确保实验科学公正。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/929bbb60781b1a3367ee9b40fac301c8460766.png"></p>
+<h2 id="4-总结与展望"><a href="#4-总结与展望" class="headerlink" title="4 总结与展望"></a>4 总结与展望</h2><p>目前图灵平台支撑了美团配送、小象、LBS平台等BU的算法离线训练、在线预测、AB实验等，使算法RD更加关注算法策略本身的迭代优化，显著提高了算法RD的效率。未来我们会在以下方面继续深入探索：</p>
+<p>1）加强深度学习的建设。</p>
+<ul>
+<li>加强深度学习的建设，全面支持深度学习，实现深度学习相关组件与机器学习组件一样，在可视化界面可以和任意组件组合使用。</li>
+<li>离线训练支持更多常用深度学习模型。</li>
+<li>支持直接写Python代码自定义深度学习模型。</li>
+</ul>
+<p>2）在线预测平台化，进一步解耦算法和工程。</p>
+<ul>
+<li>简化图灵平台SDK，剥离主体计算逻辑，建设在线预测平台。</li>
+<li>在线预测平台动态加载算法包，实现算法、业务工程方、图灵平台的解耦。</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/03/13/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/yi-zhan-shi-ji-qi-xue-xi-ping-tai-jian-she-shi-jian/">https://gustavo1841.github.io/2025/03/13/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/yi-zhan-shi-ji-qi-xue-xi-ping-tai-jian-she-shi-jian/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">系统设计</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">推荐系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8E%A8%E8%8D%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">推荐架构设计</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%99%BA%E8%83%BD%E6%B4%BE%E5%8D%95%E8%B0%83%E5%BA%A6/">
+                                    <span class="chip bg-color">智能派单调度</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-03-13T10-18-43',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/03/16/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-06-suo-luo-zeng-chang-mo-xing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/635.jpg" class="responsive-img" alt="初级宏观06：索洛增长模型">
+                        
+                        <span class="card-title">初级宏观06：索洛增长模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-03-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                    宏观金融
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">宏观金融</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                        <span class="chip bg-color">初级</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/03/13/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/jie-mi-mei-tuan-wai-mai-suan-fa-ru-he-jing-zhun-pi-pei-po-jie-pei-song-nan-ti/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/834.jpg" class="responsive-img" alt="揭秘美团外卖算法：如何精准匹配，破解配送难题？">
+                        
+                        <span class="card-title">揭秘美团外卖算法：如何精准匹配，破解配送难题？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">系统设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">推荐系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">推荐架构设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E6%B4%BE%E5%8D%95%E8%B0%83%E5%BA%A6/">
+                        <span class="chip bg-color">智能派单调度</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1055k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

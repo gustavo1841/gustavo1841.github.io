@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="图, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="图（Graph）数据结构图（Graph）是一种重要的数据结构，用于表示事物之间的关系。它由一组顶点（Vertex）和连接这些顶点的边（Edge）组成。图常常用来描述物体之间复杂的关系，如网络、社交媒体、交通系统等。
+图的基本定义
+顶点（Ve">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -423,21 +425,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    10 分
                 </div>
                 
 
@@ -465,7 +467,278 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="图（Graph）数据结构"><a href="#图（Graph）数据结构" class="headerlink" title="图（Graph）数据结构"></a><strong>图（Graph）数据结构</strong></h1><p>图（Graph）是一种重要的数据结构，用于表示事物之间的关系。它由一组顶点（Vertex）和连接这些顶点的边（Edge）组成。图常常用来描述物体之间复杂的关系，如网络、社交媒体、交通系统等。</p>
+<h2 id="图的基本定义"><a href="#图的基本定义" class="headerlink" title="图的基本定义"></a><strong>图的基本定义</strong></h2><ul>
+<li><p><strong>顶点（Vertex）</strong>：也称为节点，是图中的基本单位。</p>
+</li>
+<li><p>边（Edge）</p>
+<p>：连接两个顶点的线，表示它们之间的关系或连接。</p>
+<ul>
+<li><strong>无向图（Undirected Graph）</strong>：边没有方向，意味着如果顶点 A 与顶点 B 有一条边，那么 A 和 B 之间是对称的关系。</li>
+<li><strong>有向图（Directed Graph，简称 Digraph）</strong>：边有方向，意味着如果顶点 A 与顶点 B 之间有一条边（A → B），则从 A 到 B 有方向，但从 B 到 A 不一定有边。</li>
+</ul>
+</li>
+<li><p><strong>权重（Weight）</strong>：边可能带有权重，表示两个顶点之间的关系的强度（如交通网络中的距离、社交网络中的亲密度等）。</p>
+</li>
+</ul>
+<h2 id="图的表示方法"><a href="#图的表示方法" class="headerlink" title="图的表示方法"></a><strong>图的表示方法</strong></h2><p>图可以通过多种方式进行表示，常见的表示方法有：</p>
+<ol>
+<li><p><strong>邻接矩阵（Adjacency Matrix）</strong>：</p>
+<ul>
+<li>用一个二维矩阵来表示图，矩阵的行和列分别对应顶点，矩阵中的值表示顶点之间是否有边（如果有边，则为非零值；如果没有边，则为零值）。</li>
+<li><strong>优点</strong>：查找任意两个顶点之间是否有边非常方便（时间复杂度 O(1)）。</li>
+<li><strong>缺点</strong>：对于稀疏图来说，空间浪费严重，因为无论边的数量多少，矩阵大小始终是顶点数的平方。</li>
+</ul>
+<p><strong>邻接矩阵示例</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">  A  B  C  D
+A 0  1  0  0
+B 0  0  1  0
+C 0  0  0  1
+D 1  0  0  0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>邻接表（Adjacency List）</strong>：</p>
+<ul>
+<li>用一个数组或链表数组来表示图，数组中的每个元素表示一个顶点，链表则存储与该顶点直接相连的顶点。</li>
+<li><strong>优点</strong>：空间利用高效，适用于稀疏图。</li>
+<li><strong>缺点</strong>：查找是否有一条边需要遍历相邻的顶点，时间复杂度为 O(d)，其中 d 是该顶点的度数。</li>
+</ul>
+<p><strong>邻接表示例</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">A -&gt; [B]
+B -&gt; [C]
+C -&gt; [D]
+D -&gt; [A]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>边列表（Edge List）</strong>：</p>
+<ul>
+<li>用一组边的集合来表示图，每条边是一个由两个顶点组成的二元组，表示这两个顶点之间有一条边。</li>
+<li><strong>优点</strong>：存储简单，适用于图的边操作。</li>
+<li><strong>缺点</strong>：不适合快速查找边的连接性或邻接关系。</li>
+</ul>
+<p><strong>边列表示例</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">(A, B)
+(B, C)
+(C, D)
+(D, A)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="图的分类"><a href="#图的分类" class="headerlink" title="图的分类"></a><strong>图的分类</strong></h2><ol>
+<li><strong>无向图（Undirected Graph）</strong>：<ul>
+<li>边没有方向，表示顶点之间的双向关系。即如果顶点 A 与顶点 B 之间有一条边，那么从 A 到 B 和从 B 到 A 都可以走。</li>
+</ul>
+</li>
+<li><strong>有向图（Directed Graph）</strong>：<ul>
+<li>边有方向，表示顶点之间的单向关系。即如果从顶点 A 到顶点 B 有一条边（A → B），那么不能从 B 到 A 移动，除非存在一条单独的边（B → A）。</li>
+</ul>
+</li>
+<li><strong>加权图（Weighted Graph）</strong>：<ul>
+<li>图的边具有权重，表示两个顶点之间的关系强度，通常在优化路径问题（如最短路径问题）时使用。</li>
+</ul>
+</li>
+<li><strong>无权图（Unweighted Graph）</strong>：<ul>
+<li>图的边没有权重，表示顶点之间简单的连接关系。</li>
+</ul>
+</li>
+<li><strong>连通图（Connected Graph）</strong>：<ul>
+<li>如果图是无向图，且图中的任意两个顶点之间都有路径相连，则称图是连通的。</li>
+</ul>
+</li>
+<li><strong>非连通图（Disconnected Graph）</strong>：<ul>
+<li>如果图是无向图，且存在至少一对顶点没有路径相连，则称图是非连通的。</li>
+</ul>
+</li>
+<li><strong>树（Tree）</strong>：<ul>
+<li>树是一个特殊的图，没有环且连通。树的一个重要性质是，树中有 n 个节点时，有 n-1 条边。</li>
+</ul>
+</li>
+</ol>
+<h2 id="图的基本操作"><a href="#图的基本操作" class="headerlink" title="图的基本操作"></a><strong>图的基本操作</strong></h2><p>图的基本操作包括：</p>
+<ol>
+<li><p><strong>添加顶点</strong>：向图中添加一个新的顶点。</p>
+</li>
+<li><p><strong>删除顶点</strong>：从图中删除一个顶点及其所有相连的边。</p>
+</li>
+<li><p><strong>添加边</strong>：向图中添加一条边（无向图时，需要在两个方向上都添加边）。</p>
+</li>
+<li><p><strong>删除边</strong>：从图中删除一条边。</p>
+</li>
+<li><p>遍历图</p>
+<p>：</p>
+<ul>
+<li><strong>深度优先搜索（DFS，Depth-First Search）</strong>：从一个顶点出发，沿着边一直深入，直到无法继续深入为止，再回溯到上一个节点，继续寻找未访问的邻接节点。</li>
+<li><strong>广度优先搜索（BFS，Breadth-First Search）</strong>：从一个顶点出发，首先访问该顶点的所有邻接顶点，然后再访问它们的邻接顶点。</li>
+</ul>
+</li>
+</ol>
+<h2 id="图的应用"><a href="#图的应用" class="headerlink" title="图的应用"></a><strong>图的应用</strong></h2><p>图广泛应用于各个领域，以下是一些典型应用：</p>
+<ol>
+<li><strong>社交网络</strong>：每个人可以看作图中的一个顶点，人与人之间的关系可以看作图中的一条边。社交网络中的很多问题，如朋友推荐、社交圈分析、影响力传播等，都可以通过图来建模。</li>
+<li><strong>路径搜索</strong>：在地图应用中，可以将城市视为图的顶点，道路视为边，通过图算法（如 Dijkstra 算法、A* 算法等）来找到最短路径。</li>
+<li><strong>电路设计</strong>：电路中的元件和连接可以用图来表示，通过图的分析可以优化电路布局。</li>
+<li><strong>任务调度</strong>：在某些任务之间存在依赖关系时，可以将任务表示为图，通过图的分析来找出执行顺序。</li>
+<li><strong>网页排名（PageRank）</strong>：搜索引擎中的网页排名算法就是通过图来计算网页的相对重要性。</li>
+</ol>
+<h2 id="图的遍历算法"><a href="#图的遍历算法" class="headerlink" title="图的遍历算法"></a><strong>图的遍历算法</strong></h2><p>图的遍历是图算法中的基础，包括 <strong>深度优先搜索（DFS）</strong> 和 <strong>广度优先搜索（BFS）</strong>。</p>
+<ol>
+<li><strong>深度优先搜索（DFS）</strong>：<ul>
+<li>通过递归的方式进行搜索，优先深入到图的深层。</li>
+<li><strong>时间复杂度</strong>：O(V + E)，V 是顶点数，E 是边数。</li>
+</ul>
+</li>
+<li><strong>广度优先搜索（BFS）</strong>：<ul>
+<li>通过队列的方式进行搜索，优先访问与当前节点距离较近的节点。</li>
+<li><strong>时间复杂度</strong>：O(V + E)，V 是顶点数，E 是边数。</li>
+</ul>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>图是一种非常灵活且强大的数据结构，能够很好地表示和处理各种关系和依赖。它的应用范围广泛，涵盖了网络、社交、地图、任务调度等多个领域。掌握图的基本操作、遍历算法及其优化技巧，对于解决复杂问题至关重要。</p>
+<h1 id="图的代码实现（邻接表表示法）"><a href="#图的代码实现（邻接表表示法）" class="headerlink" title="图的代码实现（邻接表表示法）"></a>图的代码实现（邻接表表示法）</h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// 图的类</span>
+<span class="token keyword">class</span> <span class="token class-name">Graph</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> V<span class="token punctuation">;</span>               <span class="token comment">// 顶点的个数</span>
+    <span class="token keyword">int</span><span class="token operator">*</span><span class="token operator">*</span> adjList<span class="token punctuation">;</span>       <span class="token comment">// 邻接表表示法，二维数组表示图的边</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">// 构造函数</span>
+    <span class="token function">Graph</span><span class="token punctuation">(</span><span class="token keyword">int</span> V<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">-&gt;</span>V <span class="token operator">=</span> V<span class="token punctuation">;</span>
+        adjList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">[</span>V<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 分配二维数组</span>
+
+        <span class="token comment">// 初始化邻接表</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> V<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            adjList<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>  <span class="token comment">// 每个顶点的邻接表初始化为空</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 添加边</span>
+    <span class="token keyword">void</span> <span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">int</span> w<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 为 v 分配一个新的邻接表节点</span>
+        <span class="token keyword">int</span><span class="token operator">*</span> newAdjNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储一个邻接节点和下一个节点的指针</span>
+        newAdjNode<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> w<span class="token punctuation">;</span>  <span class="token comment">// 邻接节点</span>
+        newAdjNode<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>adjList<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 上一个邻接表的指针</span>
+
+        adjList<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> newAdjNode<span class="token punctuation">;</span>  <span class="token comment">// 更新邻接表</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 深度优先搜索 (DFS)</span>
+    <span class="token keyword">void</span> <span class="token function">DFS</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">bool</span><span class="token operator">*</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">bool</span><span class="token punctuation">[</span>V<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 访问标记</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> V<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">DFSHelper</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token comment">// DFS辅助函数</span>
+    <span class="token keyword">void</span> <span class="token function">DFSHelper</span><span class="token punctuation">(</span><span class="token keyword">int</span> v<span class="token punctuation">,</span> <span class="token keyword">bool</span><span class="token operator">*</span> visited<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> v <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>  <span class="token comment">// 访问当前节点</span>
+
+        <span class="token comment">// 遍历邻接表</span>
+        <span class="token keyword">int</span><span class="token operator">*</span> node <span class="token operator">=</span> adjList<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> adj <span class="token operator">=</span> node<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 邻接节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>adj<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">DFSHelper</span><span class="token punctuation">(</span>adj<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            node <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>node<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 移动到下一个邻接节点</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">// 广度优先搜索 (BFS)</span>
+    <span class="token keyword">void</span> <span class="token function">BFS</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">bool</span><span class="token operator">*</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">bool</span><span class="token punctuation">[</span>V<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 访问标记</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> V<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            visited<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">BFSHelper</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token comment">// BFS 辅助函数</span>
+    <span class="token keyword">void</span> <span class="token function">BFSHelper</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">bool</span><span class="token operator">*</span> visited<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token operator">*</span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>V<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 队列</span>
+        <span class="token keyword">int</span> front <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> rear <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        queue<span class="token punctuation">[</span>rear<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> start<span class="token punctuation">;</span>  <span class="token comment">// 加入起始节点到队列</span>
+        visited<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>front <span class="token operator">&lt;</span> rear<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> v <span class="token operator">=</span> queue<span class="token punctuation">[</span>front<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 取出队首元素</span>
+
+            cout <span class="token operator">&lt;&lt;</span> v <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>  <span class="token comment">// 访问当前节点</span>
+
+            <span class="token comment">// 遍历邻接节点</span>
+            <span class="token keyword">int</span><span class="token operator">*</span> node <span class="token operator">=</span> adjList<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> adj <span class="token operator">=</span> node<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>adj<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    visited<span class="token punctuation">[</span>adj<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                    queue<span class="token punctuation">[</span>rear<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> adj<span class="token punctuation">;</span>  <span class="token comment">// 加入队列</span>
+                <span class="token punctuation">}</span>
+                node <span class="token operator">=</span> <span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>node<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 移动到下一个邻接节点</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> queue<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 主函数</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 创建图对象，设定有 6 个顶点</span>
+    Graph <span class="token function">g</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 添加边</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">addEdge</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 执行深度优先搜索（DFS）</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"DFS Traversal starting from vertex 0: "</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">DFS</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 从顶点 0 开始深度优先搜索</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token comment">// 执行广度优先搜索（BFS）</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"BFS Traversal starting from vertex 0: "</span><span class="token punctuation">;</span>
+    g<span class="token punctuation">.</span><span class="token function">BFS</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 从顶点 0 开始广度优先搜索</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a><strong>代码讲解</strong></h2><h3 id="1-图的表示："><a href="#1-图的表示：" class="headerlink" title="1. 图的表示："></a>1. <strong>图的表示：</strong></h3><ul>
+<li>我们使用 <strong>邻接表</strong>（邻接链表）来表示图。每个顶点的邻接表是一个指向 <code>int</code> 数组的指针。该数组存储该顶点的邻接节点和指向下一个邻接节点的指针。</li>
+<li><strong><code>addEdge(int v, int w)</code></strong> 函数将一条从 <code>v</code> 到 <code>w</code> 的边加入到图中。在每次添加一条边时，我们为 <code>v</code> 分配一个新的邻接节点，并将该节点链接到 <code>v</code> 的邻接表中。</li>
+</ul>
+<h3 id="2-深度优先搜索（DFS）算法："><a href="#2-深度优先搜索（DFS）算法：" class="headerlink" title="2. 深度优先搜索（DFS）算法："></a>2. <strong>深度优先搜索（DFS）算法：</strong></h3><ul>
+<li><strong>DFS</strong> 使用递归的方式（通过一个辅助函数 <code>DFSHelper</code>）进行遍历。我们用一个 <code>visited</code> 数组来记录哪些节点已被访问。</li>
+<li>在 DFS 中，我们访问当前节点后，递归地访问它的所有邻接节点。</li>
+<li><strong><code>DFSHelper</code></strong> 辅助函数会遍历当前节点的邻接表，对于每个未访问的邻接节点，递归调用 <code>DFSHelper</code>。</li>
+</ul>
+<h3 id="3-广度优先搜索（BFS）算法："><a href="#3-广度优先搜索（BFS）算法：" class="headerlink" title="3. 广度优先搜索（BFS）算法："></a>3. <strong>广度优先搜索（BFS）算法：</strong></h3><ul>
+<li><strong>BFS</strong> 使用一个队列来按层访问每个节点。我们首先将起始节点入队，然后逐个访问队列中的节点，访问时将它们的邻接节点入队。</li>
+<li><strong><code>BFSHelper</code></strong> 辅助函数使用一个队列（<code>queue</code> 数组）来模拟队列的行为，保证按顺序访问每一层的节点。</li>
+</ul>
+<h3 id="4-内存管理："><a href="#4-内存管理：" class="headerlink" title="4. 内存管理："></a>4. <strong>内存管理：</strong></h3><ul>
+<li>在实现中，我们手动使用 <code>new</code> 动态分配内存，并且在适当的位置使用 <code>delete[]</code> 来释放内存。</li>
+<li>例如，<code>visited</code> 数组、<code>queue</code> 队列、<code>newAdjNode</code> 邻接节点都使用了 <code>new</code>，因此在结束时要手动释放内存。</li>
+</ul>
+<h3 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a><strong>输出示例</strong></h3><pre class="line-numbers language-none"><code class="language-none">DFS Traversal starting from vertex 0: 0 1 3 5 4 2
+BFS Traversal starting from vertex 0: 0 1 2 3 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -847,7 +1120,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1088k</span>
+                        class="white-color">1090.6k</span>
             
             
             

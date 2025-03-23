@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="哈夫曼树, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="哈夫曼树的基本概念路径：从树中一个结点到另一个结点之间的分支构成这两个结点间的路径
+结点的路径长度：两结点之间路径上的分支数
+
+树的路径长度：从树根到每一个结点的路径长度之和．记作：ＴＬ
+权（weight)：将树中结点赋给一个有着某种含义的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -430,14 +434,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -465,7 +469,141 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="哈夫曼树的基本概念"><a href="#哈夫曼树的基本概念" class="headerlink" title="哈夫曼树的基本概念"></a>哈夫曼树的基本概念</h1><p>路径：从树中一个结点到另一个结点之间的分支构成这两个结点间的路径</p>
+<p>结点的路径长度：两结点之间路径上的分支数</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-f07e3b68c7798559e664eeb6cf20ba3c_r.jpg"></p>
+<p>树的路径长度：从树根到每一个结点的路径长度之和．记作：ＴＬ</p>
+<p>权（weight)：将树中结点赋给一个有着某种含义的数值，则这个数值秒针为该结点的权</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-561bb507a8adcbbed29281abac1d3485_r.jpg"></p>
+<p>结点的带权路径长度：从根结点到该结点之间的路径长度与该结点的权的乘积</p>
+<p>树的带权路径长度：树中所有叶子结点的带权路径长度之和．记作:WPL(Weighted Path Length)</p>
+<p>哈夫曼树：最优树（带权路径长度（ＷＰＬ）最短的树）</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-20250323085954263.png" alt="image-20250323085954263"></p>
+<h1 id="哈夫曼树：最优二叉树"><a href="#哈夫曼树：最优二叉树" class="headerlink" title="哈夫曼树：最优二叉树"></a>哈夫曼树：最优二叉树</h1><p>特点：</p>
+<p>１满二叉树不一定是哈夫曼树．</p>
+<p>２哈夫曼树中权越大的叶子离根越近．</p>
+<p>３具有相同带权结点的哈夫曼树不惟一．</p>
+<h1 id="构造哈夫曼树的方法"><a href="#构造哈夫曼树的方法" class="headerlink" title="构造哈夫曼树的方法"></a>构造哈夫曼树的方法</h1><p> 哈夫曼树的实现利用了贪心算法的理念，就是先给定的若干结点的权进行分割，让它们变为单个的森林或者说是单个的树，因为树肯定是森林，而后在其中选择两个权值最小的结点生成新的结点，而后删除被选择的结点，让生成的结点参与森林中进行选拔，直至无结点进行选拔。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>(1) 将w1、w2、…，wn看成是有n 棵树的森林(每棵树仅有一个结点)；</p>
+<p>(2) 在森林中选出两个根结点的权值最小的树合并，作为一棵新树的左、右子树，且新树的根结点权值为其左、右子树根结点权值之和；</p>
+<p>(3)从森林中删除选取的两棵树，并将新树加入森林；</p>
+<p>(4)重复(2)、(3)步，直到森林中只剩一棵树为止，该树即为所求得的哈夫曼树。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>例题：已知结点权值的集合为w(2，3，4，6)求其哈夫曼树</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-5c5bdbcdbfbacf4565bb5e99445b964a_r.jpg"></p>
+<h2 id="哈夫曼树编码"><a href="#哈夫曼树编码" class="headerlink" title="哈夫曼树编码"></a>哈夫曼树编码</h2><p>左分支为0，右分支为1，标记后将从根到叶子结点的路径上标记的0和1收集起来，得到叶子结点对应的字符的具体编码，这就是哈夫曼编码。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-82b9db088f6babb04754a98f22978433_r.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-20250323100115884.png" alt="image-20250323100115884"></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="哈夫曼树实现思路"><a href="#哈夫曼树实现思路" class="headerlink" title="哈夫曼树实现思路"></a>哈夫曼树实现思路</h2><ol>
+<li>定义 <code>HuffmanNode</code> 结构：<ul>
+<li>代表哈夫曼树的节点，包括字符 <code>ch</code> 和权重 <code>freq</code>。</li>
+<li>左右子节点 <code>left</code> 和 <code>right</code> 用于存储树结构。</li>
+</ul>
+</li>
+<li>使用优先队列 (<code>std::priority_queue</code>) 作为最小堆：<ul>
+<li><code>priority_queue</code> 按照 最小频率优先 进行排序。</li>
+</ul>
+</li>
+<li>构造哈夫曼树：<ul>
+<li>将所有字符和权重插入最小堆。</li>
+<li>取出最小的两个节点，合并成一个新节点并重新插入最小堆。</li>
+<li>直到堆中只剩下一个根节点，哈夫曼树构造完成。</li>
+</ul>
+</li>
+<li>生成哈夫曼编码：<ul>
+<li>递归遍历树，左子树路径为 <code>"0"</code>，右子树路径为 <code>"1"</code>，最终生成哈夫曼编码表。</li>
+</ul>
+</li>
+<li>输出编码结果：<ul>
+<li>遍历 <code>unordered_map&lt;char, string&gt;</code>，打印编码结果。</li>
+</ul>
+</li>
+</ol>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>最小堆操作（插入、删除）：每次操作O(log⁡n)。</li>
+<li>构建哈夫曼树：有 n 个字符，需要进行 n−1 次合并，每次合并操作的复杂度为 O(log⁡n)，因此整体复杂度是 O(nlog⁡n)。</li>
+</ul>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>文件压缩（文本编码）</li>
+<li>数据传输优化</li>
+<li>信息熵计算</li>
+</ul>
+<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><h3 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h3><pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;unordered_map&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// 哈夫曼树的节点结构
+struct HuffmanNode {
+    char ch;
+    int freq;
+    HuffmanNode left, right;
+    
+    HuffmanNode(char ch, int freq) : ch(ch), freq(freq), left(nullptr), right(nullptr) {}
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="优先队列比较函数"><a href="#优先队列比较函数" class="headerlink" title="优先队列比较函数"></a>优先队列比较函数</h3><pre class="line-numbers language-none"><code class="language-none">// 优先队列的比较函数
+struct Compare {
+    bool operator()(HuffmanNode a, HuffmanNode b) {
+        return a-&gt;freq &gt; b-&gt;freq; // 小顶堆
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="递归构建哈夫曼编码"><a href="#递归构建哈夫曼编码" class="headerlink" title="递归构建哈夫曼编码"></a>递归构建哈夫曼编码</h3><pre class="line-numbers language-none"><code class="language-none">void generateHuffmanCodes(HuffmanNode root, string code, unordered_map&lt;char, string&gt;&amp; huffmanCodes) {
+    if (!root) return;
+    
+    if (!root-&gt;left &amp;&amp; !root-&gt;right) {
+        huffmanCodes[root-&gt;ch] = code;
+    }
+    
+    generateHuffmanCodes(root-&gt;left, code + "0", huffmanCodes);
+    generateHuffmanCodes(root-&gt;right, code + "1", huffmanCodes);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="构建哈夫曼树并构造其编码"><a href="#构建哈夫曼树并构造其编码" class="headerlink" title="构建哈夫曼树并构造其编码"></a>构建哈夫曼树并构造其编码</h3><pre class="line-numbers language-none"><code class="language-none">// 构造哈夫曼树并生成编码
+unordered_map&lt;char, string&gt; buildHuffmanTree(const unordered_map&lt;char, int&gt;&amp; freqMap) {
+    priority_queue&lt;HuffmanNode, vector&lt;HuffmanNode&gt;, Compare&gt; pq;
+    
+    // 1. 初始化最小堆
+    for (auto pair : freqMap) {
+        pq.push(new HuffmanNode(pair.first, pair.second));
+    }
+    
+    // 2. 构造哈夫曼树
+    while (pq.size() &gt; 1) {
+        HuffmanNode left = pq.top(); pq.pop();
+        HuffmanNode right = pq.top(); pq.pop();
+        HuffmanNode newNode = new HuffmanNode('\0', left-&gt;freq + right-&gt;freq);
+        newNode-&gt;left = left;
+        newNode-&gt;right = right;
+        pq.push(newNode);
+    }
+    
+    // 3. 生成哈夫曼编码
+    unordered_map&lt;char, string&gt; huffmanCodes;
+    generateHuffmanCodes(pq.top(), "", huffmanCodes);
+    
+    return huffmanCodes;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><pre class="line-numbers language-none"><code class="language-none">int main() {
+    unordered_map&lt;char, int&gt; freqMap = {
+        {'a', 5}, {'b', 9}, {'c', 12}, {'d', 13}, {'e', 16}, {'f', 45}
+    };
+    
+    unordered_map&lt;char, string&gt; huffmanCodes = buildHuffmanTree(freqMap);
+    
+    // 输出哈夫曼编码
+    for (auto pair : huffmanCodes) {
+        cout &lt;&lt; pair.first &lt;&lt; ": " &lt;&lt; pair.second &lt;&lt; endl;
+    }
+    
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -700,12 +838,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
-                        <span class="chip bg-color">宏观金融</span>
-                    </a>
-                    
                     <a href="/tags/%E5%88%9D%E7%BA%A7/">
                         <span class="chip bg-color">初级</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">宏观金融</span>
                     </a>
                     
                 </div>
@@ -845,7 +983,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1057.6k</span>
+                        class="white-color">1059.2k</span>
             
             
             

@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="回文判断, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="基于 栈（stack） 的回文判断程序：代码实现#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;stack&amp;gt;
+#include &amp;lt;cctype&amp;gt;   // 用于 std::tolower
+#i">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +430,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    914
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -469,7 +472,172 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="基于-栈（stack）-的回文判断程序："><a href="#基于-栈（stack）-的回文判断程序：" class="headerlink" title="基于 栈（stack） 的回文判断程序："></a>基于 <strong>栈（stack）</strong> 的回文判断程序：</h1><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stack&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cctype&gt;</span>   <span class="token comment">// 用于 std::tolower</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span> <span class="token comment">// 用于 std::remove_if</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">const</span> string <span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    stack<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">&gt;</span> charStack<span class="token punctuation">;</span>
+    string cleanedStr<span class="token punctuation">;</span>
+
+    <span class="token comment">// 预处理字符串：去除空格并转换为小写</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isalnum</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 只保留字母和数字</span>
+            cleanedStr <span class="token operator">+=</span> <span class="token function">tolower</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 将字符串的前半部分压入栈</span>
+    <span class="token keyword">int</span> length <span class="token operator">=</span> cleanedStr<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        charStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>cleanedStr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 依次弹出栈顶字符并与原始字符串比较</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>charStack<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> cleanedStr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 若不匹配，则不是回文</span>
+        <span class="token punctuation">}</span>
+        charStack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 所有字符匹配，则是回文</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 测试用例</span>
+    cout <span class="token operator">&lt;&lt;</span> boolalpha<span class="token punctuation">;</span>  <span class="token comment">// 让 `true` 和 `false` 以文字形式输出</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"racecar"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>          <span class="token comment">// true</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>            <span class="token comment">// false</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"madam"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>            <span class="token comment">// true</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"A man a plan a canal Panama"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>  <span class="token comment">// true</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a><strong>代码解析</strong></h3><ol>
+<li><strong>预处理字符串</strong>：<ul>
+<li>通过 <code>isalnum(c)</code> 过滤掉非字母数字字符（如空格、标点符号）。</li>
+<li>统一转换为小写，避免大小写影响判断。</li>
+</ul>
+</li>
+<li><strong>使用栈存储字符串</strong>：<ul>
+<li>依次将字符压入栈中。</li>
+</ul>
+</li>
+<li><strong>依次比较栈顶元素和原字符串</strong>：<ul>
+<li>由于栈是 <strong>LIFO（后进先出）</strong> 结构，弹出时的顺序刚好是原字符串的反向顺序。</li>
+<li>逐个比较栈顶字符和原字符串对应位置的字符，如果有不匹配的情况，则返回 <code>false</code>。</li>
+</ul>
+</li>
+<li><strong><code>boolalpha</code> 输出</strong>：<ul>
+<li>让 <code>true/false</code> 以 <code>true</code> 或 <code>false</code> 形式输出，而不是 <code>1</code> 或 <code>0</code>。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="示例运行结果"><a href="#示例运行结果" class="headerlink" title="示例运行结果"></a><strong>示例运行结果</strong></h3><pre class="line-numbers language-none"><code class="language-none">true
+false
+true
+true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 C++ 中，使用 <strong>栈（stack）</strong> 虽然可以实现回文判断，但<strong>并不是最优的方法</strong>。<br> 因为栈需要 <strong>额外的 O(n) 空间</strong>，而实际上我们可以 <strong>只使用双指针，节省空间</strong>，将 <strong>时间复杂度降到 O(n)，空间复杂度降到 O(1)</strong>。</p>
+<hr>
+<h1 id="最优解：双指针（O-n-时间-O-1-空间）"><a href="#最优解：双指针（O-n-时间-O-1-空间）" class="headerlink" title="最优解：双指针（O(n) 时间, O(1) 空间）"></a><strong>最优解：双指针（O(n) 时间, O(1) 空间）</strong></h1><p><strong>思路：</strong></p>
+<ol>
+<li><p>使用 <strong>两个指针</strong>，分别指向字符串的 <strong>起始和末尾</strong>。</p>
+</li>
+<li><p>依次比较 </p>
+<p>左指针和右指针</p>
+<p> 所指向的字符：</p>
+<ul>
+<li>如果相同，则继续向中间移动。</li>
+<li>如果不同，则直接返回 <code>false</code>。</li>
+</ul>
+</li>
+<li><p>如果所有字符都匹配，则返回 <code>true</code>。</p>
+</li>
+</ol>
+<hr>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a><strong>实现</strong></h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cctype&gt;</span>  <span class="token comment">// 用于 std::tolower 和 std::isalnum</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token keyword">const</span> string <span class="token operator">&amp;</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 跳过非字母数字字符</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isalnum</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> left<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isalnum</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> right<span class="token operator">--</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 转换为小写后进行比较</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">tolower</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token function">tolower</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        left<span class="token operator">++</span><span class="token punctuation">;</span>
+        right<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> boolalpha<span class="token punctuation">;</span>  <span class="token comment">// 让 true 和 false 以文字形式输出</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"racecar"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>          <span class="token comment">// true</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>            <span class="token comment">// false</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"madam"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>            <span class="token comment">// true</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"A man, a plan, a canal: Panama"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// true</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token string">"No lemon, no melon"</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// true</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="代码解析-1"><a href="#代码解析-1" class="headerlink" title="代码解析"></a><strong>代码解析</strong></h2><ol>
+<li><strong>跳过无关字符</strong>：<ul>
+<li><code>isalnum(s[left])</code> 和 <code>isalnum(s[right])</code> 过滤掉 <strong>空格、标点符号等非字母数字字符</strong>。</li>
+<li><code>tolower(s[left])</code> 和 <code>tolower(s[right])</code> 统一转换为小写，避免大小写影响。</li>
+</ul>
+</li>
+<li><strong>双指针优化</strong>：<ul>
+<li>直接在原字符串上进行比较，不需要额外存储字符，<strong>节省 O(n) 空间</strong>。</li>
+<li>只需 <strong>遍历一半</strong> 的字符串，<strong>时间复杂度仍然是 O(n)</strong>，但更高效。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="示例运行结果-1"><a href="#示例运行结果-1" class="headerlink" title="示例运行结果"></a><strong>示例运行结果</strong></h2><pre class="line-numbers language-none"><code class="language-none">true
+false
+true
+true
+true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="为什么双指针比栈更优？"><a href="#为什么双指针比栈更优？" class="headerlink" title="为什么双指针比栈更优？"></a><strong>为什么双指针比栈更优？</strong></h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>栈</strong></td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>适用于需要保存整个序列的情况</td>
+</tr>
+<tr>
+<td><strong>双指针</strong></td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>最优解，适用于回文检查</td>
+</tr>
+</tbody></table>
+
                 
             </div>
             <hr/>
@@ -859,7 +1027,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1094k</span>
+                        class="white-color">1094.9k</span>
             
             
             

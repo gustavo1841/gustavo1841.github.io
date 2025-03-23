@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="散列表, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="散列表（哈希表，Hash Table）介绍散列表（Hash Table）是一种 基于哈希函数（Hash Function） 实现的 键值对（key-value）存储结构，支持 O(1) 级别的查找、插入和删除 操作，广泛用于 数据库索引、缓">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +427,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -469,7 +469,279 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="散列表（哈希表，Hash-Table）介绍"><a href="#散列表（哈希表，Hash-Table）介绍" class="headerlink" title="散列表（哈希表，Hash Table）介绍"></a><strong>散列表（哈希表，Hash Table）介绍</strong></h1><p>散列表（Hash Table）是一种 <strong>基于哈希函数（Hash Function）</strong> 实现的 <strong>键值对（key-value）存储结构</strong>，支持 <strong>O(1) 级别的查找、插入和删除</strong> 操作，广泛用于 <strong>数据库索引、缓存系统、集合操作</strong> 等。</p>
+<hr>
+<h2 id="1-为什么需要散列表？"><a href="#1-为什么需要散列表？" class="headerlink" title="1. 为什么需要散列表？"></a><strong>1. 为什么需要散列表？</strong></h2><h3 id="1-线性查找-vs-二分查找-vs-平衡二叉树"><a href="#1-线性查找-vs-二分查找-vs-平衡二叉树" class="headerlink" title="(1) 线性查找 vs. 二分查找 vs. 平衡二叉树"></a><strong>(1) 线性查找 vs. 二分查找 vs. 平衡二叉树</strong></h3><table>
+<thead>
+<tr>
+<th>数据结构</th>
+<th>查找</th>
+<th>插入</th>
+<th>删除</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>数组（无序）</strong></td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+</tr>
+<tr>
+<td><strong>数组（有序）+ 二分查找</strong></td>
+<td>O(log n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>静态数据</td>
+</tr>
+<tr>
+<td><strong>平衡二叉树（AVL/红黑树）</strong></td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>动态数据</td>
+</tr>
+<tr>
+<td><strong>散列表（Hash Table）</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td>快速查找</td>
+</tr>
+</tbody></table>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><strong>二叉搜索树（BST）适用于区间查找、排序查询</strong>。</li>
+<li><strong>哈希表适用于快速查找，不要求顺序存储</strong>。</li>
+</ul>
+<hr>
+<h2 id="2-散列表的基本原理"><a href="#2-散列表的基本原理" class="headerlink" title="2. 散列表的基本原理"></a><strong>2. 散列表的基本原理</strong></h2><p><strong>核心思想</strong>：</p>
+<ol>
+<li><strong>哈希函数（Hash Function）</strong>：将 <strong>key</strong> 映射到 <strong>哈希值（哈希桶索引）</strong>。</li>
+<li>冲突解决（Collision Resolution）：<ul>
+<li><strong>拉链法（Separate Chaining）</strong></li>
+<li><strong>开放地址法（Open Addressing）</strong></li>
+</ul>
+</li>
+<li>动态扩容（Resizing）：<ul>
+<li><strong>负载因子（Load Factor）</strong> 超过阈值（如 0.75），进行 <strong>扩容（rehashing）</strong>。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3-哈希函数"><a href="#3-哈希函数" class="headerlink" title="3. 哈希函数"></a><strong>3. 哈希函数</strong></h2><p>哈希函数的作用是将 <strong>任意大小的 key 映射到固定范围的索引</strong>。</p>
+<h3 id="1-常见哈希函数"><a href="#1-常见哈希函数" class="headerlink" title="(1) 常见哈希函数"></a><strong>(1) 常见哈希函数</strong></h3><ul>
+<li><p>除留余数法（Modulo Method）：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> key <span class="token operator">%</span> size<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>乘法散列法（Multiplication Method）：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">double</span> A <span class="token operator">=</span> <span class="token number">0.6180339887</span><span class="token punctuation">;</span> <span class="token comment">// 黄金比例</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>size <span class="token operator">*</span> <span class="token punctuation">(</span>key <span class="token operator">*</span> A <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>key <span class="token operator">*</span> A<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>字符串哈希（BKDRHash）：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token function">BKDRHash</span><span class="token punctuation">(</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> seed <span class="token operator">=</span> <span class="token number">131</span><span class="token punctuation">;</span> <span class="token comment">// 31, 131, 1313...</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> hash <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> ch <span class="token operator">:</span> str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        hash <span class="token operator">=</span> hash <span class="token operator">*</span> seed <span class="token operator">+</span> ch<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> hash<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<hr>
+<h2 id="4-哈希冲突解决方案"><a href="#4-哈希冲突解决方案" class="headerlink" title="4. 哈希冲突解决方案"></a><strong>4. 哈希冲突解决方案</strong></h2><h3 id="1-拉链法（Separate-Chaining）"><a href="#1-拉链法（Separate-Chaining）" class="headerlink" title="(1) 拉链法（Separate Chaining）"></a><strong>(1) 拉链法（Separate Chaining）</strong></h3><ul>
+<li><strong>思路</strong>：每个哈希桶存储一个<strong>链表</strong>，发生冲突时，将新元素插入链表中。</li>
+<li><strong>优点</strong>：避免哈希表扩容，适用于大规模数据。</li>
+<li><strong>缺点</strong>：链表查找最坏 O(n)。</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;list&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">HashTable</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span>list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> key <span class="token operator">%</span> size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">HashTable</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">size</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        table<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        table<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">bool</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> table<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> key<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    HashTable <span class="token function">ht</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ht<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ht<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> ht<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 输出 1</span>
+    cout <span class="token operator">&lt;&lt;</span> ht<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 输出 0</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="2-开放地址法（Open-Addressing）"><a href="#2-开放地址法（Open-Addressing）" class="headerlink" title="(2) 开放地址法（Open Addressing）"></a><strong>(2) 开放地址法（Open Addressing）</strong></h3><ul>
+<li><strong>思路</strong>：若发生冲突，则寻找 <strong>下一个空位</strong>（线性探测/二次探测/双重哈希）。</li>
+<li><strong>优点</strong>：节省空间，无需额外链表。</li>
+<li><strong>缺点</strong>：删除困难（可能需要懒惰删除）。</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">OpenAddressingHashTable</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> table<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> EMPTY <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> <span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> key <span class="token operator">%</span> size<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">OpenAddressingHashTable</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">size</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        table<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> EMPTY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>table<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">!=</span> EMPTY<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// 线性探测</span>
+            index <span class="token operator">=</span> <span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> size<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        table<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> key<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">bool</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token function">hash</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> index<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>table<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">!=</span> EMPTY<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>table<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> key<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            index <span class="token operator">=</span> <span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> size<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">==</span> start<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    OpenAddressingHashTable <span class="token function">ht</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ht<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ht<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> ht<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 输出 1</span>
+    cout <span class="token operator">&lt;&lt;</span> ht<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 输出 0</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="5-动态扩容（Rehashing）"><a href="#5-动态扩容（Rehashing）" class="headerlink" title="5. 动态扩容（Rehashing）"></a><strong>5. 动态扩容（Rehashing）</strong></h2><ul>
+<li><strong>当负载因子 &gt; 0.75</strong>，进行扩容。</li>
+<li>扩容规则：<ol>
+<li><strong>新建更大数组（通常为原来的 2 倍）</strong>。</li>
+<li><strong>重新计算哈希值并插入新数组</strong>。</li>
+</ol>
+</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">rehash</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    vector<span class="token operator">&lt;</span>list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> oldTable <span class="token operator">=</span> table<span class="token punctuation">;</span>
+    size <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    table<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    table<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>bucket <span class="token operator">:</span> oldTable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> key <span class="token operator">:</span> bucket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">insert</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="6-哈希表的实际应用"><a href="#6-哈希表的实际应用" class="headerlink" title="6. 哈希表的实际应用"></a><strong>6. 哈希表的实际应用</strong></h2><ol>
+<li><strong>数据库索引</strong>（如 MySQL Hash Index）。</li>
+<li><strong>缓存系统</strong>（如 Redis）。</li>
+<li><strong>去重查重</strong>（如 <code>unordered_set</code>）。</li>
+<li><strong>字符串模式匹配</strong>（如 Rabin-Karp 算法）。</li>
+</ol>
+<hr>
+<h2 id="7-哈希表-vs-二叉搜索树（BST）"><a href="#7-哈希表-vs-二叉搜索树（BST）" class="headerlink" title="7. 哈希表 vs. 二叉搜索树（BST）"></a><strong>7. 哈希表 vs. 二叉搜索树（BST）</strong></h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>哈希表（Hash Table）</th>
+<th>二叉搜索树（BST）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>查找</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(log n)</strong></td>
+</tr>
+<tr>
+<td><strong>插入</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(log n)</strong></td>
+</tr>
+<tr>
+<td><strong>删除</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(log n)</strong></td>
+</tr>
+<tr>
+<td><strong>有序性</strong></td>
+<td>❌（无序）</td>
+<td>✅（有序）</td>
+</tr>
+<tr>
+<td><strong>区间查找</strong></td>
+<td>❌（不支持）</td>
+<td>✅（支持）</td>
+</tr>
+<tr>
+<td><strong>动态性</strong></td>
+<td>可能需要 Rehash</td>
+<td>动态插入删除</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>快速查找、集合</td>
+<td>需要排序的场景</td>
+</tr>
+</tbody></table>
+<p><strong>选择指南</strong>：</p>
+<ul>
+<li><strong>只需要快速查找</strong> → 用 <strong>哈希表</strong>。</li>
+<li><strong>需要排序、区间查找</strong> → 用 <strong>BST（红黑树）</strong>。</li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ul>
+<li><strong>哈希表的核心</strong>：<strong>哈希函数 + 冲突解决</strong>。</li>
+<li><strong>拉链法适用于大规模数据，开放地址法适用于小规模数据</strong>。</li>
+<li><strong>Redis、数据库索引、编译器符号表等广泛使用哈希表</strong>。</li>
+</ul>
+<p>哈希表是现代计算机科学 <strong>最重要的数据结构之一</strong>，掌握它能帮助你更高效地解决实际问题！ </p>
+
                 
             </div>
             <hr/>
@@ -859,7 +1131,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

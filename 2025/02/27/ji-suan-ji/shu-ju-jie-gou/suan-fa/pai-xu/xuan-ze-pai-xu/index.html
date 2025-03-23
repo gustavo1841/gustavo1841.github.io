@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="选择排序, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="选择排序（Selection Sort）1. 选择排序原理选择排序（Selection Sort）是一种简单直观的排序算法，基本原理如下：
+
+寻找最小值：在未排序的部分中，找到最小的元素。
+交换最小值与当前元素：将其与当前未排序部分的第一个">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +430,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    620
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -469,7 +472,94 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="选择排序（Selection-Sort）"><a href="#选择排序（Selection-Sort）" class="headerlink" title="选择排序（Selection Sort）"></a><strong>选择排序（Selection Sort）</strong></h1><h2 id="1-选择排序原理"><a href="#1-选择排序原理" class="headerlink" title="1. 选择排序原理"></a><strong>1. 选择排序原理</strong></h2><p>选择排序（Selection Sort）是一种简单直观的排序算法，基本原理如下：</p>
+<ol>
+<li><strong>寻找最小值</strong>：在未排序的部分中，找到<strong>最小的元素</strong>。</li>
+<li><strong>交换最小值与当前元素</strong>：将其与当前未排序部分的<strong>第一个元素交换</strong>。</li>
+<li><strong>重复步骤1-2</strong>，直到所有元素都排序完成。</li>
+</ol>
+<hr>
+<h2 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a><strong>2. 代码实现</strong></h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// **交换两个数**</span>
+<span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> a<span class="token punctuation">;</span>
+    a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **选择排序**</span>
+<span class="token keyword">void</span> <span class="token function">selectionSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>  <span class="token comment">// 记录最小值索引</span>
+
+        <span class="token comment">// **寻找当前未排序部分中的最小值**</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                minIndex <span class="token operator">=</span> j<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// **交换最小值和当前未排序的起始位置**</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>minIndex <span class="token operator">!=</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **测试代码**</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"排序前："</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token function">selectionSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 执行选择排序</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"排序后："</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="3-代码解析"><a href="#3-代码解析" class="headerlink" title="3. 代码解析"></a><strong>3. 代码解析</strong></h2><ol>
+<li><strong>外层循环 <code>i</code></strong>：<ul>
+<li>逐步<strong>确定已排序部分</strong>，每次找到最小值并放置到 <code>i</code> 位置。</li>
+</ul>
+</li>
+<li><strong>内层循环 <code>j</code></strong>：<ul>
+<li>遍历<strong>未排序部分</strong>，找到最小值的索引 <code>minIndex</code>。</li>
+</ul>
+</li>
+<li><strong>交换元素</strong>：<ul>
+<li>将 <code>minIndex</code> 位置的最小值与 <code>i</code> 位置的元素<strong>交换</strong>，确保 <code>i</code> 之前的元素有序。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="4-时间复杂度分析"><a href="#4-时间复杂度分析" class="headerlink" title="4. 时间复杂度分析"></a><strong>4. 时间复杂度分析</strong></h2><h3 id="最优、最差、平均时间复杂度"><a href="#最优、最差、平均时间复杂度" class="headerlink" title="最优、最差、平均时间复杂度"></a><strong>最优、最差、平均时间复杂度</strong></h3><ul>
+<li><strong>无论数据是否有序，选择排序的比较次数都固定为 O(n²)</strong>：<ul>
+<li>外层循环执行 <code>n-1</code> 次</li>
+<li>内层循环最多 <code>n-1</code>、<code>n-2</code>……<code>1</code> 次</li>
+<li><strong>总比较次数：O(n²)</strong></li>
+</ul>
+</li>
+<li><strong>交换次数（比冒泡排序少）</strong><ul>
+<li>每轮最多<strong>1次交换</strong>，最多 <code>n-1</code> 次，最少 <code>0</code> 次。</li>
+<li><strong>最坏情况：O(n) 次交换</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-选择排序的特点"><a href="#5-选择排序的特点" class="headerlink" title="5. 选择排序的特点"></a><strong>5. 选择排序的特点</strong></h2><p>✅ <strong>稳定性</strong>：❌ <strong>不稳定</strong>（例如 <code>[3, 3, 2]</code>，后面的 <code>3</code> 可能被换到前面）。<br> ✅ <strong>适用于小规模数据排序</strong>（大数据建议使用归并或快排）。<br> ✅ <strong>空间复杂度 O(1)</strong>（原地排序，不需要额外存储）。<br> ✅ <strong>适合用于不考虑时间的排序场景</strong>（如考试手写排序算法）。</p>
+<p>选择排序虽然时间复杂度较高，但其实现简单、交换次数少，适用于数据量较小的排序任务。</p>
+
                 
             </div>
             <hr/>
@@ -619,13 +709,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu/">
+                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu-nei-pai-xu-fang-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/289.jpg" class="responsive-img" alt="归并排序">
+                        <img src="/medias/featureimages/151.jpg" class="responsive-img" alt="归并排序——内排序方式">
                         
-                        <span class="card-title">归并排序</span>
+                        <span class="card-title">归并排序——内排序方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -859,7 +949,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

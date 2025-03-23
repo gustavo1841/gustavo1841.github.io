@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="顺序查找, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="顺序查找（Sequential Search）顺序查找（又称线性查找，Linear Search）是一种最简单的查找算法。它的基本思想是 从数据序列的第一个元素开始，依次与目标值进行比较，直到找到匹配项或遍历完整个序列。
+
+1. 顺序查找的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +429,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    872
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -469,7 +471,146 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="顺序查找（Sequential-Search）"><a href="#顺序查找（Sequential-Search）" class="headerlink" title="顺序查找（Sequential Search）"></a><strong>顺序查找（Sequential Search）</strong></h1><p>顺序查找（又称线性查找，Linear Search）是一种最简单的查找算法。它的基本思想是 <strong>从数据序列的第一个元素开始，依次与目标值进行比较，直到找到匹配项或遍历完整个序列</strong>。</p>
+<hr>
+<h2 id="1-顺序查找的基本原理"><a href="#1-顺序查找的基本原理" class="headerlink" title="1. 顺序查找的基本原理"></a><strong>1. 顺序查找的基本原理</strong></h2><p><strong>输入</strong>：数组 <code>arr</code> 和目标值 <code>target</code>。<br> <strong>过程</strong>：</p>
+<ol>
+<li><strong>从头到尾遍历数组</strong>。</li>
+<li><strong>逐个元素与 <code>target</code> 进行比较</strong>。</li>
+<li><strong>如果找到目标值，返回索引</strong>；否则返回 <code>-1</code>，表示未找到。</li>
+</ol>
+<p><strong>时间复杂度</strong>：</p>
+<ul>
+<li><strong>最优情况（Best Case）</strong>：<code>O(1)</code>（第一个元素就是目标值）。</li>
+<li><strong>最坏情况（Worst Case）</strong>：<code>O(n)</code>（目标值在最后，或不存在）。</li>
+<li><strong>平均情况（Average Case）</strong>：<code>O(n)</code>。</li>
+</ul>
+<hr>
+<h2 id="2-顺序查找的代码实现"><a href="#2-顺序查找的代码实现" class="headerlink" title="2. 顺序查找的代码实现"></a><strong>2. 顺序查找的代码实现</strong></h2><h3 id="1-顺序查找（适用于无序数组）"><a href="#1-顺序查找（适用于无序数组）" class="headerlink" title="(1) 顺序查找（适用于无序数组）"></a><strong>(1) 顺序查找（适用于无序数组）</strong></h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">linearSearch</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> i<span class="token punctuation">;</span> <span class="token comment">// 找到目标值，返回索引</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 未找到目标值</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token function">linearSearch</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"找到目标值 "</span> <span class="token operator">&lt;&lt;</span> target <span class="token operator">&lt;&lt;</span> <span class="token string">"，索引为："</span> <span class="token operator">&lt;&lt;</span> result <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"目标值 "</span> <span class="token operator">&lt;&lt;</span> target <span class="token operator">&lt;&lt;</span> <span class="token string">" 不存在"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>优缺点分析</strong>：</p>
+<ul>
+<li><strong>优点</strong>：适用于 <strong>无序数组</strong>，实现简单。</li>
+<li><strong>缺点</strong>：效率低，时间复杂度最坏为 <code>O(n)</code>。</li>
+</ul>
+<hr>
+<h3 id="2-顺序查找（适用于有序数组，带哨兵优化）"><a href="#2-顺序查找（适用于有序数组，带哨兵优化）" class="headerlink" title="(2) 顺序查找（适用于有序数组，带哨兵优化）"></a><strong>(2) 顺序查找（适用于有序数组，带哨兵优化）</strong></h3><p>在有序数组中查找时，可以利用<strong>哨兵</strong>减少比较次数：</p>
+<ol>
+<li><strong>先在数组最后附加目标值（哨兵）</strong>，避免越界判断。</li>
+<li><strong>找到目标值后，判断是否真的存在</strong>（避免哨兵误判）。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">linearSearchWithSentinel</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    arr<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> target<span class="token punctuation">;</span> <span class="token comment">// 设定哨兵</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> n<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> i<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
+    <span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token function">linearSearchWithSentinel</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"找到目标值 "</span> <span class="token operator">&lt;&lt;</span> target <span class="token operator">&lt;&lt;</span> <span class="token string">"，索引为："</span> <span class="token operator">&lt;&lt;</span> result <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"目标值 "</span> <span class="token operator">&lt;&lt;</span> target <span class="token operator">&lt;&lt;</span> <span class="token string">" 不存在"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>优化点</strong>：</p>
+<ul>
+<li><strong>哨兵（Sentinel）减少了 <code>i &lt; n</code> 的检查，提高了执行效率</strong>。</li>
+<li><strong>适用于有序数组，但不如二分查找（<code>O(log n)</code>）高效</strong>。</li>
+</ul>
+<hr>
+<h2 id="3-顺序查找-vs-其他查找算法"><a href="#3-顺序查找-vs-其他查找算法" class="headerlink" title="3. 顺序查找 vs. 其他查找算法"></a><strong>3. 顺序查找 vs. 其他查找算法</strong></h2><table>
+<thead>
+<tr>
+<th>查找算法</th>
+<th>适用数据</th>
+<th>时间复杂度</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>顺序查找</strong></td>
+<td><strong>无序数组</strong></td>
+<td><code>O(n)</code></td>
+<td>适用于小规模数据</td>
+</tr>
+<tr>
+<td><strong>二分查找（Binary Search）</strong></td>
+<td><strong>有序数组</strong></td>
+<td><code>O(log n)</code></td>
+<td>适用于大规模有序数据</td>
+</tr>
+<tr>
+<td><strong>跳跃查找（Jump Search）</strong></td>
+<td><strong>有序数组</strong></td>
+<td><code>O(√n)</code></td>
+<td>适用于搜索较大的区间</td>
+</tr>
+<tr>
+<td><strong>散列表查找（Hash Search）</strong></td>
+<td><strong>无序数据</strong></td>
+<td><code>O(1)</code></td>
+<td>适用于键值映射</td>
+</tr>
+<tr>
+<td><strong>二叉搜索树（BST）查找</strong></td>
+<td><strong>有序数据</strong></td>
+<td><code>O(log n)</code></td>
+<td>适用于动态数据集合</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-顺序查找的优化方向"><a href="#4-顺序查找的优化方向" class="headerlink" title="4. 顺序查找的优化方向"></a><strong>4. 顺序查找的优化方向</strong></h2><ol>
+<li><strong>哨兵优化</strong>（减少循环内 <code>i &lt; n</code> 的比较）。</li>
+<li><strong>双向查找</strong>（从<strong>两端向中间</strong>查找，提高效率）。</li>
+<li><strong>自适应优化</strong>（例如 <strong>最近访问的元素放前面，提高下次访问效率</strong>）。</li>
+</ol>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><ul>
+<li><strong>顺序查找适用于小规模、无序数据</strong>，但 <strong>效率低</strong>。</li>
+<li><strong>有序数据应考虑二分查找，哈希表更适合 O(1) 查找</strong>。</li>
+<li><strong>使用哨兵、双向查找可优化顺序查找的效率</strong>。</li>
+</ul>
+<p>顺序查找虽然简单，但仍然有应用价值，在合适场景下能快速实现查找功能！ </p>
+
                 
             </div>
             <hr/>
@@ -855,7 +996,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

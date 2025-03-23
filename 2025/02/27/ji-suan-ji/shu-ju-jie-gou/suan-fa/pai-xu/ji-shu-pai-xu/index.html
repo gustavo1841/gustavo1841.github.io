@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="基数排序, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="基数排序（Radix Sort）基数排序是一种非比较型排序算法，它通过按位对数字进行排序，通常用于对整数进行排序。它将所有数字看成是按位数划分的，每一位上的数字单独参与排序。基数排序分为两类：LSD（Least Significant Di">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +427,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -469,7 +469,146 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="基数排序（Radix-Sort）"><a href="#基数排序（Radix-Sort）" class="headerlink" title="基数排序（Radix Sort）"></a><strong>基数排序（Radix Sort）</strong></h1><p>基数排序是一种非比较型排序算法，它通过按位对数字进行排序，通常用于对整数进行排序。它将所有数字看成是按位数划分的，每一位上的数字单独参与排序。基数排序分为两类：LSD（Least Significant Digit First，最小有效位优先）和 MSD（Most Significant Digit First，最大有效位优先）。一般来说，基数排序使用 LSD 方法实现。</p>
+<p>基数排序的基本思想是：从最低有效位（即数字的个位）开始，将数组中的数字按每一位的大小进行排序，然后依次处理高位，最终得到一个有序的数组。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a><strong>实现原理</strong></h1><ol>
+<li><p><strong>分组按位排序</strong>：</p>
+<ul>
+<li>假设待排序的数字是非负整数，我们从个位开始，将所有数字按个位的数字分类；然后按十位排序，依此类推，直到最大的位。</li>
+<li>每一位的排序都采用稳定的排序方法（例如桶排序），稳定排序的特点是相同的元素不会改变它们在原始序列中的相对顺序。</li>
+</ul>
+</li>
+<li><p><strong>步骤</strong>：</p>
+<ul>
+<li>对于每一位，使用一个稳定的排序算法（如计数排序）将数字按该位排序。</li>
+<li>从最低有效位开始排序，一直排序到最高有效位。</li>
+<li>排序完成后，所有的元素都会根据每一位数值被排好序。</li>
+</ul>
+</li>
+<li><p><strong>时间复杂度</strong>：</p>
+<ul>
+<li><p>时间复杂度为 </p>
+<p>O(d * (n + k))，其中：</p>
+<ul>
+<li><code>d</code> 是数字的位数，<code>n</code> 是待排序的元素个数，<code>k</code> 是基数（桶的大小，通常是 10）。</li>
+</ul>
+</li>
+<li><p>对于每一位数的排序，使用的是稳定的排序算法（通常选择计数排序），时间复杂度为 <strong>O(n + k)</strong>，而位数 <code>d</code> 是数字的位数。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h1><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// 计数排序，用于按某一位排序</span>
+<span class="token keyword">void</span> <span class="token function">countingSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> exp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> <span class="token operator">*</span>output <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储排序结果</span>
+    <span class="token keyword">int</span> count<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">// 计数数组，基数排序的基数为10</span>
+
+    <span class="token comment">// 计算每个数字在该位的出现次数</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token punctuation">[</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">/</span> exp<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 计算每个元素的最终位置</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> count<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 构建输出数组</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">/</span> exp<span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        output<span class="token punctuation">[</span>count<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        count<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 将输出数组复制到原数组</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> output<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 基数排序主函数</span>
+<span class="token keyword">void</span> <span class="token function">radixSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 找到数组中最大值</span>
+    <span class="token keyword">int</span> maxVal <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> maxVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            maxVal <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 从个位开始，一直到最大数的最高位</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> exp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> maxVal <span class="token operator">/</span> exp <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> exp <span class="token operator">*=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">countingSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> exp<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 按当前位进行计数排序</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 输出数组</span>
+<span class="token keyword">void</span> <span class="token function">printArray</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">170</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">,</span> <span class="token number">75</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">802</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">66</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"原始数组: "</span><span class="token punctuation">;</span>
+    <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">radixSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"排序后的数组: "</span><span class="token punctuation">;</span>
+    <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解释代码"><a href="#解释代码" class="headerlink" title="解释代码"></a><strong>解释代码</strong></h1><ol>
+<li><strong>计数排序（<code>countingSort</code>）</strong>：<ul>
+<li><code>countingSort</code> 用来对数组中根据某一位数的值进行排序。<code>exp</code> 代表当前排序的位数（个位、十位等）。</li>
+<li>通过取 <code>arr[i] / exp % 10</code> 来获取当前数字的某一位上的值，这个值决定了该数字应该在计数数组 <code>count</code> 中的哪个位置。</li>
+<li>然后，我们使用计数数组来确定每个数字在排序结果中的位置，并将其填充到 <code>output</code> 数组中，最后更新原始数组。</li>
+</ul>
+</li>
+<li><strong>基数排序（<code>radixSort</code>）</strong>：<ul>
+<li><code>radixSort</code> 函数通过多次调用 <code>countingSort</code> 来对数组进行排序。每次排序时，<code>exp</code> 表示当前排序的位数。<code>exp</code> 从个位开始，逐渐增大，直到处理完最大数字的最高位。</li>
+<li><code>maxVal</code> 是数组中的最大值，它决定了排序的位数。</li>
+</ul>
+</li>
+<li><strong>主函数</strong>：<ul>
+<li>创建一个整数数组并打印原始数组。</li>
+<li>调用 <code>radixSort</code> 函数进行排序。</li>
+<li>打印排序后的数组。</li>
+</ul>
+</li>
+</ol>
+<h1 id="排序过程"><a href="#排序过程" class="headerlink" title="排序过程"></a><strong>排序过程</strong></h1><p>以数组 <code>[170, 45, 75, 90, 802, 24, 2, 66]</code> 为例：</p>
+<ol>
+<li><strong>第一次排序（个位）</strong>：<ul>
+<li>按照每个数字的个位数进行排序，得到 <code>[170, 90, 802, 2, 24, 45, 75, 66]</code>。</li>
+</ul>
+</li>
+<li><strong>第二次排序（十位）</strong>：<ul>
+<li>按照每个数字的十位数进行排序，得到 <code>[802, 2, 24, 45, 66, 75, 170, 90]</code>。</li>
+</ul>
+</li>
+<li><strong>第三次排序（百位）</strong>：<ul>
+<li>按照每个数字的百位数进行排序，最终得到排序后的数组 <code>[2, 24, 45, 66, 75, 90, 170, 802]</code>。</li>
+</ul>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><ul>
+<li>基数排序的关键在于按位对数字进行排序，而每一位的排序需要使用稳定的排序算法（如计数排序）。</li>
+<li>它的时间复杂度为 <strong>O(d * (n + k))</strong>，其中 <code>d</code> 是数字的位数，<code>n</code> 是数组的大小，<code>k</code> 是基数（在此示例中为 10）。</li>
+<li>基数排序特别适用于整数排序，尤其当数据范围较大、位数较少时，相较于其他排序算法（如快速排序、归并排序），其性能表现更为出色。</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -676,13 +815,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu/">
+                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu-nei-pai-xu-fang-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/289.jpg" class="responsive-img" alt="归并排序">
+                        <img src="/medias/featureimages/151.jpg" class="responsive-img" alt="归并排序——内排序方式">
                         
-                        <span class="card-title">归并排序</span>
+                        <span class="card-title">归并排序——内排序方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -859,7 +998,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="插入排序, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="引言插入排序是一种简单的排序算法，它的核心思想是将待排序的元素逐一插入到已排序部分的合适位置。虽然它的时间复杂度较高（最坏情况下是 O(n²)），但在数据量较小或者数据已经部分有序时，插入排序的表现比较优秀，且它是稳定的排序算法。
+插入排序">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +428,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -469,7 +470,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>插入排序是一种简单的排序算法，它的核心思想是将待排序的元素逐一插入到已排序部分的合适位置。虽然它的时间复杂度较高（最坏情况下是 O(n²)），但在数据量较小或者数据已经部分有序时，插入排序的表现比较优秀，且它是稳定的排序算法。</p>
+<h1 id="插入排序的实现原理"><a href="#插入排序的实现原理" class="headerlink" title="插入排序的实现原理"></a><strong>插入排序的实现原理</strong></h1><p>插入排序的实现过程可以通过以下步骤描述：</p>
+<ol>
+<li><strong>从第二个元素开始</strong>：首先，假设第一个元素已经排好序，然后从第二个元素开始，逐个将未排序的元素插入到已排序部分的合适位置。</li>
+<li><strong>查找插入位置</strong>：对于当前元素，将其与已排序部分的元素逐一比较，找到其应该插入的位置。</li>
+<li><strong>元素移位</strong>：为了腾出位置，所有比当前元素大的元素都会向后移动一位。</li>
+<li><strong>插入当前元素</strong>：将当前元素插入到正确的位置。</li>
+</ol>
+<p>插入排序的主要操作是将一个元素插入到已经排好序的部分，涉及到元素的比较和移动，因此其时间复杂度最坏情况下为 O(n²)，最优情况下（数据本身已经有序）为 O(n)。</p>
+<h2 id="插入排序的代码实现"><a href="#插入排序的代码实现" class="headerlink" title="插入排序的代码实现"></a><strong>插入排序的代码实现</strong></h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">insertionSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 从第二个元素开始，假设第一个元素已经排好序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> key <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 当前要插入的元素</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 找到插入位置，右侧元素向右移动</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            j<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 将当前元素插入到正确的位置</span>
+        arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> key<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">printArray</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Original array: "</span><span class="token punctuation">;</span>
+    <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">insertionSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Sorted array: "</span><span class="token punctuation">;</span>
+    <span class="token function">printArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a><strong>代码解析</strong></h2><ol>
+<li><strong><code>insertionSort</code> 函数</strong>：<ul>
+<li>该函数实现了插入排序的主要逻辑。我们从数组的第二个元素开始，依次将每个元素插入到其合适的位置。</li>
+<li><code>key</code> 是当前要插入的元素，我们将它与已排序部分的元素逐一比较。</li>
+<li><code>j</code> 是已排序部分的最后一个元素索引，<code>while</code> 循环用于找到 <code>key</code> 应该插入的位置。通过比较当前元素和 <code>key</code> 的大小，元素需要向右移动。</li>
+<li>最后将 <code>key</code> 插入到合适的位置，即 <code>arr[j + 1] = key</code>。</li>
+</ul>
+</li>
+<li><strong><code>printArray</code> 函数</strong>：<ul>
+<li>用于输出数组的内容，帮助我们观察排序前后的变化。</li>
+</ul>
+</li>
+<li><strong><code>main</code> 函数</strong>：<ul>
+<li>我们定义了一个数组 <code>arr[]</code>，并调用 <code>insertionSort</code> 函数对其进行排序，最后输出排序后的数组。</li>
+</ul>
+</li>
+</ol>
+<h2 id="插入排序的时间复杂度"><a href="#插入排序的时间复杂度" class="headerlink" title="插入排序的时间复杂度"></a><strong>插入排序的时间复杂度</strong></h2><ul>
+<li><strong>最优情况（已排序）</strong>：当数组已经是升序时，插入排序的时间复杂度是 O(n)，因为每个元素都只需要和前一个元素比较一次。</li>
+<li><strong>最坏情况（逆序）</strong>：当数组是降序排列时，插入排序的时间复杂度是 O(n²)，因为每个元素都需要移动到数组的最前面。</li>
+<li><strong>平均情况</strong>：平均情况下，插入排序的时间复杂度也是 O(n²)。</li>
+</ul>
+<h2 id="插入排序的空间复杂度"><a href="#插入排序的空间复杂度" class="headerlink" title="插入排序的空间复杂度"></a><strong>插入排序的空间复杂度</strong></h2><p>插入排序是原地排序算法，空间复杂度为 O(1)，因为它只需要一个常数的额外空间来存储 <code>key</code> 和 <code>j</code>。</p>
+<h2 id="插入排序的优点和缺点"><a href="#插入排序的优点和缺点" class="headerlink" title="插入排序的优点和缺点"></a><strong>插入排序的优点和缺点</strong></h2><p><strong>优点</strong>：</p>
+<ul>
+<li>简单、易于实现。</li>
+<li>对于小规模数据或部分有序的数据，插入排序非常高效。</li>
+<li>是稳定的排序算法（相等的元素不会改变相对顺序）。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>最坏时间复杂度为 O(n²)，因此对于大规模数据，插入排序效率较低。</li>
+<li>在数据完全逆序的情况下，效率最差。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>插入排序是一种非常直观的排序算法，它通过将未排序的元素插入到已排序部分的合适位置来逐步完成排序。尽管在大多数情况下它的时间复杂度较高，但在数据量较小或部分有序时，它依然表现得非常高效。</p>
+
                 
             </div>
             <hr/>
@@ -855,7 +942,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

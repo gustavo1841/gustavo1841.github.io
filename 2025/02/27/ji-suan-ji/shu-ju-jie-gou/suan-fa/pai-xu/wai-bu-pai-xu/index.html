@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="外部排序, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="外部排序（External Sorting）1. 什么是外部排序？当数据太大，无法一次性加载到内存时，需要使用外部存储（如磁盘）进行排序，称为外部排序。
+2. 外部排序的核心思想
+分块排序（分段排序）：先将大文件分成多个可以放入内存的小块，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +429,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -469,7 +471,193 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="外部排序（External-Sorting）"><a href="#外部排序（External-Sorting）" class="headerlink" title="外部排序（External Sorting）"></a><strong>外部排序（External Sorting）</strong></h1><h2 id="1-什么是外部排序？"><a href="#1-什么是外部排序？" class="headerlink" title="1. 什么是外部排序？"></a><strong>1. 什么是外部排序？</strong></h2><p>当数据<strong>太大，无法一次性加载到内存</strong>时，需要使用外部存储（如<strong>磁盘</strong>）进行排序，称为<strong>外部排序</strong>。</p>
+<h2 id="2-外部排序的核心思想"><a href="#2-外部排序的核心思想" class="headerlink" title="2. 外部排序的核心思想"></a><strong>2. 外部排序的核心思想</strong></h2><ul>
+<li><strong>分块排序（分段排序）</strong>：先将大文件分成多个可以放入内存的小块，每个小块单独排序后存入外存。</li>
+<li><strong>归并排序（合并排序）</strong>：再将这些已排序的小块进行多路归并，最终得到一个完整的有序文件。</li>
+</ul>
+<p>常见外部排序方法：</p>
+<ol>
+<li><strong>多路归并排序（Multi-way Merge Sort）</strong>（最常用）</li>
+<li>置换-选择排序（Replacement Selection）</li>
+</ol>
+<hr>
+<h1 id="多路归并排序（Multi-way-Merge-Sort）"><a href="#多路归并排序（Multi-way-Merge-Sort）" class="headerlink" title="多路归并排序（Multi-way Merge Sort）"></a><strong>多路归并排序（Multi-way Merge Sort）</strong></h1><p><strong>原理</strong></p>
+<ul>
+<li>第一步：分块排序<ul>
+<li>把大数据文件切成多个小块，每个小块能放入<strong>内存</strong>。</li>
+<li>在内存中对每个小块进行排序（可用<strong>快速排序</strong>或<strong>归并排序</strong>）。</li>
+<li>排序后的小块写回外存（磁盘）。</li>
+</ul>
+</li>
+<li>第二步：多路归并<ul>
+<li>采用<strong>k路归并</strong>方法，将多个已排序的小块合并为一个大文件。</li>
+<li>维护一个**最小堆（堆排序）**来找出当前所有块中的最小元素，逐步写入最终的输出文件。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h2><p>由于无法直接操作<strong>超大数据</strong>，这里用多个小文件模拟外部数据，并使用<strong>多路归并排序</strong>进行合并。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;queue&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> CHUNK_SIZE <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// 内存能容纳的最大元素数，模拟有限内存</span>
+
+<span class="token comment">// 生成大文件</span>
+<span class="token keyword">void</span> <span class="token function">generateLargeFile</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> filename<span class="token punctuation">,</span> <span class="token keyword">int</span> numElements<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ofstream <span class="token function">outFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>outFile<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"无法创建文件！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">srand</span><span class="token punctuation">(</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numElements<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        outFile <span class="token operator">&lt;&lt;</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 生成0~99之间的随机数</span>
+    <span class="token punctuation">}</span>
+    outFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 读取大文件并分块排序</span>
+vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> <span class="token function">splitAndSortChunks</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> filename<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ifstream <span class="token function">inFile</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> chunkFiles<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> buffer<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> chunkIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        buffer<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> CHUNK_SIZE <span class="token operator">&amp;&amp;</span> inFile <span class="token operator">&gt;&gt;</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            buffer<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>buffer<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 对块进行排序</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>buffer<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> buffer<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 将排序后的数据写入小文件</span>
+        string chunkFilename <span class="token operator">=</span> <span class="token string">"chunk_"</span> <span class="token operator">+</span> <span class="token function">to_string</span><span class="token punctuation">(</span>chunkIndex<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".txt"</span><span class="token punctuation">;</span>
+        chunkFiles<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>chunkFilename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ofstream <span class="token function">outFile</span><span class="token punctuation">(</span>chunkFilename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            outFile <span class="token operator">&lt;&lt;</span> num <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        outFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    inFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> chunkFiles<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 多路归并排序（最小堆）</span>
+<span class="token keyword">void</span> <span class="token function">mergeSortedChunks</span><span class="token punctuation">(</span><span class="token keyword">const</span> vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span><span class="token operator">&amp;</span> chunkFiles<span class="token punctuation">,</span> <span class="token keyword">const</span> string<span class="token operator">&amp;</span> outputFilename<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ofstream <span class="token function">outFile</span><span class="token punctuation">(</span>outputFilename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>outFile<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"无法创建输出文件！"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 优先队列（最小堆），存放 {值, 文件索引}</span>
+    priority_queue<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> minHeap<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>ifstream<span class="token operator">&gt;</span> <span class="token function">inFiles</span><span class="token punctuation">(</span>chunkFiles<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 打开所有小文件，并读取第一个数放入堆</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> chunkFiles<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        inFiles<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>chunkFiles<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>inFiles<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;&gt;</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            minHeap<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>num<span class="token punctuation">,</span> i<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 归并排序</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>minHeap<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">auto</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> fileIndex<span class="token punctuation">]</span> <span class="token operator">=</span> minHeap<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        minHeap<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        outFile <span class="token operator">&lt;&lt;</span> value <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token comment">// 写入最终结果</span>
+
+        <span class="token comment">// 从同一文件读取下一个数</span>
+        <span class="token keyword">int</span> nextNum<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>inFiles<span class="token punctuation">[</span>fileIndex<span class="token punctuation">]</span> <span class="token operator">&gt;&gt;</span> nextNum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            minHeap<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>nextNum<span class="token punctuation">,</span> fileIndex<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 关闭所有文件</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> file <span class="token operator">:</span> inFiles<span class="token punctuation">)</span> file<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    outFile<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **主函数**</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    string inputFile <span class="token operator">=</span> <span class="token string">"large_input.txt"</span><span class="token punctuation">;</span>
+    string outputFile <span class="token operator">=</span> <span class="token string">"sorted_output.txt"</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// **生成大文件**</span>
+    <span class="token function">generateLargeFile</span><span class="token punctuation">(</span>inputFile<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// **第一步：分块排序**</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> chunkFiles <span class="token operator">=</span> <span class="token function">splitAndSortChunks</span><span class="token punctuation">(</span>inputFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// **第二步：多路归并**</span>
+    <span class="token function">mergeSortedChunks</span><span class="token punctuation">(</span>chunkFiles<span class="token punctuation">,</span> outputFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"外部排序完成！已写入文件："</span> <span class="token operator">&lt;&lt;</span> outputFile <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a><strong>代码解析</strong></h2><ol>
+<li><strong><code>generateLargeFile</code></strong><ul>
+<li>生成一个包含 <strong>20 个随机数</strong> 的大文件（模拟超大数据）。</li>
+</ul>
+</li>
+<li><strong><code>splitAndSortChunks</code></strong><ul>
+<li>读取**固定大小（CHUNK_SIZE）**的数据块。</li>
+<li>逐块排序后存入小文件（模拟内存受限）。</li>
+</ul>
+</li>
+<li><strong><code>mergeSortedChunks</code></strong><ul>
+<li>维护一个<strong>最小堆</strong>，用于多路归并。</li>
+<li><strong>每次从最小堆中取最小值</strong>，然后从该文件读取下一个值。</li>
+<li>直到所有文件归并完成。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a><strong>时间复杂度分析</strong></h2><ul>
+<li><strong>分块排序：O(n log k)</strong>（k = 每块大小）</li>
+<li><strong>归并排序：O(n log m)</strong>（m = 块的数量）</li>
+</ul>
+<p><strong>整体时间复杂度：O(n log n)</strong>，与<strong>归并排序相同</strong>。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><table>
+<thead>
+<tr>
+<th>外部排序步骤</th>
+<th>方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>分块排序</strong></td>
+<td>将大文件分割成多个小块，每个块在<strong>内存中排序</strong>后存储到外存</td>
+</tr>
+<tr>
+<td><strong>归并排序</strong></td>
+<td>使用<strong>最小堆</strong>进行多路归并，合并多个有序块</td>
+</tr>
+</tbody></table>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a><strong>应用场景</strong></h3><p>✅ <strong>大数据排序</strong>（大于内存大小的文件）<br> ✅ <strong>数据库索引构建</strong>（MySQL、MongoDB）<br> ✅ <strong>搜索引擎数据处理</strong>（Google、Bing）</p>
+<p>外部排序是<strong>处理超大数据集的核心技术</strong>，适用于<strong>无法一次性加载入内存</strong>的情况。</p>
+
                 
             </div>
             <hr/>
@@ -855,7 +1043,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

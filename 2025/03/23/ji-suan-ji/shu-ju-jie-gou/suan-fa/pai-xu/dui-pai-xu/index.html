@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分块查找, Gustavo">
-    <meta name="description" content="">
+    <meta name="keywords" content="堆排序, Gustavo">
+    <meta name="description" content="堆排序（Heap Sort）
+1. 堆排序的基本原理堆排序（Heap Sort）是一种基于二叉堆（Binary Heap）结构的排序算法，属于选择排序的一种改进版本。 其核心思想是利用最大堆或最小堆的性质，使得排序过程更加高效。
+堆排序的具">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分块查找 | Gustavo</title>
+    <title>堆排序 | Gustavo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -358,12 +360,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/458.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/387.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">分块查找</h1>
+                    <h1 class="description center-align post-title">堆排序</h1>
                 </div>
             </div>
         </div>
@@ -420,28 +422,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -469,7 +471,149 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="堆排序（Heap-Sort）"><a href="#堆排序（Heap-Sort）" class="headerlink" title="堆排序（Heap Sort）"></a><strong>堆排序（Heap Sort）</strong></h1><hr>
+<h2 id="1-堆排序的基本原理"><a href="#1-堆排序的基本原理" class="headerlink" title="1. 堆排序的基本原理"></a><strong>1. 堆排序的基本原理</strong></h2><p>堆排序（Heap Sort）是一种<strong>基于二叉堆（Binary Heap）结构</strong>的排序算法，属于<strong>选择排序的一种改进版本</strong>。<br> 其核心思想是利用<strong>最大堆</strong>或<strong>最小堆</strong>的性质，使得排序过程更加高效。</p>
+<p>堆排序的具体步骤如下：</p>
+<ol>
+<li><p>构建最大堆</p>
+<p>（Build Max Heap）：</p>
+<ul>
+<li>先将无序数组调整为<strong>最大堆</strong>（即父节点大于等于子节点）。</li>
+</ul>
+</li>
+<li><p>排序过程</p>
+<p>：</p>
+<ul>
+<li>取出堆顶元素（最大值），放到数组末尾。</li>
+<li>重新调整剩余元素为<strong>最大堆</strong>，重复此步骤，直到所有元素排序完成。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="2-堆的基本操作"><a href="#2-堆的基本操作" class="headerlink" title="2. 堆的基本操作"></a><strong>2. 堆的基本操作</strong></h2><h3 id="1-最大堆调整（Heapify）"><a href="#1-最大堆调整（Heapify）" class="headerlink" title="(1) 最大堆调整（Heapify）"></a><strong>(1) 最大堆调整（Heapify）</strong></h3><ul>
+<li>保持堆的性质，即：<strong>父节点的值必须大于或等于子节点的值</strong>。</li>
+<li>如果当前父节点不符合堆的性质，就和较大的子节点交换，并递归调整子树。</li>
+</ul>
+<h3 id="2-构建最大堆"><a href="#2-构建最大堆" class="headerlink" title="(2) 构建最大堆"></a><strong>(2) 构建最大堆</strong></h3><ul>
+<li><strong>从最后一个非叶子节点开始</strong>，对所有父节点执行 <code>heapify</code> 操作，使整个数组变成<strong>最大堆</strong>。</li>
+</ul>
+<h3 id="3-取出堆顶元素（排序）"><a href="#3-取出堆顶元素（排序）" class="headerlink" title="(3) 取出堆顶元素（排序）"></a><strong>(3) 取出堆顶元素（排序）</strong></h3><ul>
+<li><strong>交换堆顶元素和数组末尾元素</strong>，然后<strong>缩小堆的范围</strong>，再执行 <code>heapify</code> 操作。</li>
+</ul>
+<hr>
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a><strong>3. 代码实现</strong></h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token comment">// **最大堆调整（保持堆的性质）**</span>
+<span class="token keyword">void</span> <span class="token function">heapify</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> largest <span class="token operator">=</span> i<span class="token punctuation">;</span>  <span class="token comment">// 设当前父节点为最大值</span>
+    <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// 左子节点</span>
+    <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 右子节点</span>
+
+    <span class="token comment">// **如果左子节点更大，则更新最大值索引**</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">&gt;</span> arr<span class="token punctuation">[</span>largest<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        largest <span class="token operator">=</span> left<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// **如果右子节点更大，则更新最大值索引**</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">&gt;</span> arr<span class="token punctuation">[</span>largest<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        largest <span class="token operator">=</span> right<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// **如果最大值索引不是当前父节点，则交换，并递归调整**</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>largest <span class="token operator">!=</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>largest<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> largest<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 递归调整子树</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **构建最大堆**</span>
+<span class="token keyword">void</span> <span class="token function">buildMaxHeap</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// **从最后一个非叶子节点开始**</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **堆排序**</span>
+<span class="token keyword">void</span> <span class="token function">heapSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">buildMaxHeap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// **1. 先构建最大堆**</span>
+
+    <span class="token comment">// **2. 依次取出堆顶元素，并调整堆**</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// **交换堆顶（最大值）和末尾元素**</span>
+        <span class="token function">heapify</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// **调整剩余元素为最大堆**</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// **测试代码**</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"排序前："</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token function">heapSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> size<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 执行堆排序</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"排序后："</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="4-代码解析"><a href="#4-代码解析" class="headerlink" title="4. 代码解析"></a><strong>4. 代码解析</strong></h2><h3 id="1-heapify"><a href="#1-heapify" class="headerlink" title="(1) heapify()"></a><strong>(1) <code>heapify()</code></strong></h3><ul>
+<li>该函数用于调整最大堆：<ul>
+<li>先假设<strong>当前父节点最大</strong>，然后比较<strong>左右子节点</strong>。</li>
+<li><strong>若子节点更大，则更新最大值索引</strong>，然后<strong>交换父子节点</strong>。</li>
+<li>递归调用 <code>heapify()</code>，直到满足最大堆性质。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-buildMaxHeap"><a href="#2-buildMaxHeap" class="headerlink" title="(2) buildMaxHeap()"></a><strong>(2) <code>buildMaxHeap()</code></strong></h3><ul>
+<li><p>构建最大堆</p>
+<p>：</p>
+<ul>
+<li><strong>从最后一个非叶子节点</strong>（<code>n/2 - 1</code>）开始，依次执行 <code>heapify()</code>，确保父节点都大于子节点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-heapSort"><a href="#3-heapSort" class="headerlink" title="(3) heapSort()"></a><strong>(3) <code>heapSort()</code></strong></h3><ul>
+<li><p>先构建最大堆</p>
+<p>，然后</p>
+<p>依次取出最大值</p>
+<p>：</p>
+<ul>
+<li>交换堆顶元素（最大值）与<strong>数组末尾元素</strong>。</li>
+<li><strong>缩小堆的范围</strong>，然后执行 <code>heapify()</code> 重新调整堆结构。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-时间复杂度分析"><a href="#5-时间复杂度分析" class="headerlink" title="5. 时间复杂度分析"></a><strong>5. 时间复杂度分析</strong></h2><h3 id="1-构建最大堆"><a href="#1-构建最大堆" class="headerlink" title="(1) 构建最大堆"></a><strong>(1) 构建最大堆</strong></h3><ul>
+<li><code>buildMaxHeap()</code> 执行 <code>heapify()</code> <strong>n/2 次</strong>，每次 <code>heapify</code> 最多需要 <code>O(log n)</code> 时间。</li>
+<li><strong>总复杂度</strong>：<code>O(n log n)</code></li>
+</ul>
+<h3 id="2-排序过程"><a href="#2-排序过程" class="headerlink" title="(2) 排序过程"></a><strong>(2) 排序过程</strong></h3><ul>
+<li><strong>每次取出堆顶元素</strong>（<code>O(1)</code>），然后调整堆（<code>O(log n)</code>），执行 <code>n-1</code> 次。</li>
+<li><strong>总复杂度</strong>：<code>O(n log n)</code></li>
+</ul>
+<h3 id="3-总时间复杂度"><a href="#3-总时间复杂度" class="headerlink" title="(3) 总时间复杂度"></a><strong>(3) 总时间复杂度</strong></h3><ul>
+<li><strong>堆排序的时间复杂度始终是 O(n log n)</strong>，比冒泡、选择、插入排序（<code>O(n²)）</code>高效。</li>
+</ul>
+<hr>
+<h2 id="6-堆排序的特点"><a href="#6-堆排序的特点" class="headerlink" title="6. 堆排序的特点"></a><strong>6. 堆排序的特点</strong></h2><p>✅ <strong>时间复杂度 O(n log n)，适用于大规模数据排序</strong>。<br> ✅ <strong>不稳定排序</strong>（因为交换操作可能破坏原有顺序）。<br> ✅ <strong>适用于对</strong>海量数据<strong>进行排序（如磁盘排序、日志数据排序）。<br> ✅ *<em>空间复杂度 O(1)*</em>，属于**原地排序算法</strong>（不像归并排序 <code>O(n)</code> 需要额外存储）。</p>
+<hr>
+<h2 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a><strong>7. 总结</strong></h2><ul>
+<li><strong>堆排序是一种基于完全二叉堆的数据结构</strong>，能够以 <strong>O(n log n) 的时间复杂度进行排序</strong>。</li>
+<li><strong>利用最大堆性质，每次取出堆顶元素（最大值）放到数组末尾，调整堆结构</strong>，最终实现排序。</li>
+<li><strong>相比快速排序（快排），堆排序的优势在于</strong> <strong>最坏情况下依然是 O(n log n) 的时间复杂度</strong>，但缺点是<strong>交换操作较多，导致常数时间较大</strong>，实际性能不如快排。</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -495,7 +639,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/fen-kuai-cha-zhao/">https://gustavo1841.github.io/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/fen-kuai-cha-zhao/</a>
+                    <a href="https://gustavo1841.github.io/2025/03/23/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/dui-pai-xu/">https://gustavo1841.github.io/2025/03/23/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/dui-pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,7 +731,7 @@
         repo: 'gustavo1841.github.io',
         owner: 'gustavo1841',
         admin: "gustavo1841",
-        id: '2025-02-27T11-42-25',
+        id: '2025-03-23T15-21-48',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -619,13 +763,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/er-cha-pai-xu-shu/">
+                <a href="/2025/03/23/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/gui-bing-pai-xu-wai-pai-xu-fang-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/663.jpg" class="responsive-img" alt="二叉排序树">
+                        <img src="/medias/featureimages/664.jpg" class="responsive-img" alt="归并排序——外排序方式">
                         
-                        <span class="card-title">二叉排序树</span>
+                        <span class="card-title">归并排序——外排序方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -636,7 +780,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-03-23
                         </span>
                         <span class="publish-author">
                             
@@ -676,13 +820,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/zhe-ban-cha-zhao/">
+                <a href="/2025/03/23/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/ha-fu-man-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/555.jpg" class="responsive-img" alt="折半查找">
+                        <img src="/medias/featureimages/408.jpg" class="responsive-img" alt="哈夫曼树">
                         
-                        <span class="card-title">折半查找</span>
+                        <span class="card-title">哈夫曼树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -693,7 +837,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-23
                             </span>
                         <span class="publish-author">
                             
@@ -716,10 +860,6 @@
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -859,7 +999,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

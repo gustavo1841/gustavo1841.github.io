@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="平衡二叉树, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="平衡二叉树（Balanced Binary Tree）介绍平衡二叉树（Balanced Binary Tree）是一种特殊的二叉搜索树（BST），它在 插入、删除操作后仍能保持高度平衡，从而保证查找、插入、删除的时间复杂度为 O(log n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,21 +427,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -469,7 +469,238 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="平衡二叉树（Balanced-Binary-Tree）介绍"><a href="#平衡二叉树（Balanced-Binary-Tree）介绍" class="headerlink" title="平衡二叉树（Balanced Binary Tree）介绍"></a><strong>平衡二叉树（Balanced Binary Tree）介绍</strong></h1><p>平衡二叉树（Balanced Binary Tree）是一种特殊的二叉搜索树（BST），它在 <strong>插入、删除操作后仍能保持高度平衡</strong>，从而保证查找、插入、删除的时间复杂度为 <strong>O(log n)</strong>。</p>
+<hr>
+<h2 id="1-为什么需要平衡二叉树？"><a href="#1-为什么需要平衡二叉树？" class="headerlink" title="1. 为什么需要平衡二叉树？"></a><strong>1. 为什么需要平衡二叉树？</strong></h2><p><strong>普通二叉搜索树（BST）的问题：</strong></p>
+<ul>
+<li><p><strong>最坏情况下可能退化为链表</strong>，导致查找效率从 <strong>O(log n) 变为 O(n)</strong>。</p>
+</li>
+<li><p>例如，对于以下 </p>
+<p>有序插入的情况：</p>
+<pre class="line-numbers language-none"><code class="language-none">1
+ \
+  2
+   \
+    3
+     \
+      4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里的 BST 退化成了一条 单链表，查找效率大大降低。</p>
+</li>
+</ul>
+<p><strong>平衡二叉树的目标：</strong></p>
+<ul>
+<li>保证 <strong>任意节点的左右子树高度差不超过一定范围</strong>，确保树的高度保持在 <strong>O(log n)</strong>，从而提高查找效率。</li>
+</ul>
+<hr>
+<h2 id="2-常见的平衡二叉树类型"><a href="#2-常见的平衡二叉树类型" class="headerlink" title="2. 常见的平衡二叉树类型"></a><strong>2. 常见的平衡二叉树类型</strong></h2><h3 id="1-AVL-树"><a href="#1-AVL-树" class="headerlink" title="(1) AVL 树"></a><strong>(1) AVL 树</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>AVL 树是 <strong>最早提出的自平衡二叉搜索树</strong>（1962 年）。</li>
+<li>任何节点的 <strong>左右子树高度差不超过 1</strong>。</li>
+<li>通过 <strong>旋转（左旋、右旋、双旋）</strong> 保持平衡。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>插入和删除时的 <strong>调整次数较多</strong>，维护成本较高。</li>
+<li>适用于 <strong>查找较多，插入/删除较少的场景</strong>（如数据库索引）。</li>
+</ul>
+<hr>
+<h3 id="2-红黑树（Red-Black-Tree）"><a href="#2-红黑树（Red-Black-Tree）" class="headerlink" title="(2) 红黑树（Red-Black Tree）"></a><strong>(2) 红黑树（Red-Black Tree）</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>每个节点要么是<strong>红色</strong>，要么是<strong>黑色</strong>。</li>
+<li>通过<strong>颜色变化+旋转</strong>维持平衡，保证最长路径不超过最短路径的 2 倍。</li>
+<li>适用于 <strong>插入、删除频繁</strong> 的场景（如 STL 的 <code>map</code>、<code>set</code>）。</li>
+</ul>
+<p><strong>对比 AVL 树</strong>：</p>
+<ul>
+<li><strong>AVL 树查找更快（更严格平衡）</strong>，但插入/删除调整较多。</li>
+<li><strong>红黑树插入/删除更快</strong>，适用于动态数据结构。</li>
+</ul>
+<hr>
+<h3 id="3-Treap（树堆）"><a href="#3-Treap（树堆）" class="headerlink" title="(3) Treap（树堆）"></a><strong>(3) Treap（树堆）</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>结合了 二叉搜索树（BST）和 堆（Heap） 的特性：<ul>
+<li><strong>BST</strong>：按照键值（key）排序，左子树 &lt; 根 &lt; 右子树。</li>
+<li><strong>堆</strong>：按照优先级（priority）排序，父节点优先级高于子节点。</li>
+</ul>
+</li>
+<li>插入时随机分配 <strong>优先级</strong>，通过旋转维持平衡。</li>
+</ul>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>实现简单，适用于 <strong>随机化数据结构</strong>，常用于 <strong>竞赛和高效算法</strong>。</li>
+</ul>
+<hr>
+<h3 id="4-Splay-树"><a href="#4-Splay-树" class="headerlink" title="(4) Splay 树"></a><strong>(4) Splay 树</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li><strong>自调整二叉搜索树</strong>：每次访问某个节点时，会通过 <strong>旋转</strong> 使该节点成为根。</li>
+<li>访问频繁的节点会更接近根，提高局部查找速度（<strong>自适应特性</strong>）。</li>
+</ul>
+<p><strong>应用场景</strong>：</p>
+<ul>
+<li><strong>缓存系统</strong>（LRU 实现）、<strong>字符串搜索（如 Rope 数据结构）</strong>。</li>
+</ul>
+<hr>
+<h2 id="3-AVL-树的实现"><a href="#3-AVL-树的实现" class="headerlink" title="3. AVL 树的实现"></a><strong>3. AVL 树的实现</strong></h2><p><strong>AVL 树的核心操作</strong>：</p>
+<ol>
+<li>旋转操作（保持平衡）：<ul>
+<li><strong>左旋（Left Rotation）</strong></li>
+<li><strong>右旋（Right Rotation）</strong></li>
+<li><strong>左右双旋（Left-Right Rotation）</strong></li>
+<li><strong>右左双旋（Right-Left Rotation）</strong></li>
+</ul>
+</li>
+<li>插入操作：<ul>
+<li>插入后，可能导致不平衡，需要 <strong>旋转恢复平衡</strong>。</li>
+</ul>
+</li>
+<li>删除操作：<ul>
+<li>删除节点后，也可能导致不平衡，需要 <strong>旋转恢复平衡</strong>。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="C-AVL-树实现"><a href="#C-AVL-树实现" class="headerlink" title="C++ AVL 树实现"></a><strong>C++ AVL 树实现</strong></h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> key<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> height<span class="token punctuation">;</span>
+    Node<span class="token operator">*</span> left<span class="token punctuation">;</span>
+    Node<span class="token operator">*</span> right<span class="token punctuation">;</span>
+
+    <span class="token function">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">key</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">height</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">left</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">right</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AVLTree</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    Node<span class="token operator">*</span> root<span class="token punctuation">;</span>
+
+    <span class="token comment">// 获取节点高度</span>
+    <span class="token keyword">int</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> node <span class="token operator">?</span> node<span class="token operator">-&gt;</span>height <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 计算平衡因子</span>
+    <span class="token keyword">int</span> <span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> node <span class="token operator">?</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 更新高度</span>
+    <span class="token keyword">void</span> <span class="token function">updateHeight</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token operator">-&gt;</span>height <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token function">getHeight</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 左旋</span>
+    Node<span class="token operator">*</span> <span class="token function">leftRotate</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Node<span class="token operator">*</span> y <span class="token operator">=</span> x<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+        x<span class="token operator">-&gt;</span>right <span class="token operator">=</span> y<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+        y<span class="token operator">-&gt;</span>left <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 右旋</span>
+    Node<span class="token operator">*</span> <span class="token function">rightRotate</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Node<span class="token operator">*</span> x <span class="token operator">=</span> y<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+        y<span class="token operator">-&gt;</span>left <span class="token operator">=</span> x<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+        x<span class="token operator">-&gt;</span>right <span class="token operator">=</span> y<span class="token punctuation">;</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 插入节点</span>
+    Node<span class="token operator">*</span> <span class="token function">insert</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">,</span> <span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&lt;</span> node<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span>
+            node<span class="token operator">-&gt;</span>left <span class="token operator">=</span> <span class="token function">insert</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&gt;</span> node<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span>
+            node<span class="token operator">-&gt;</span>right <span class="token operator">=</span> <span class="token function">insert</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span>
+            <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+
+        <span class="token function">updateHeight</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 平衡因子</span>
+        <span class="token keyword">int</span> balance <span class="token operator">=</span> <span class="token function">getBalanceFactor</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// LL型（右旋）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balance <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">&lt;</span> node<span class="token operator">-&gt;</span>left<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token function">rightRotate</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// RR型（左旋）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balance <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">&gt;</span> node<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token function">leftRotate</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// LR型（左-右旋）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balance <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">&gt;</span> node<span class="token operator">-&gt;</span>left<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            node<span class="token operator">-&gt;</span>left <span class="token operator">=</span> <span class="token function">leftRotate</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">rightRotate</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// RL型（右-左旋）</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>balance <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> key <span class="token operator">&lt;</span> node<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            node<span class="token operator">-&gt;</span>right <span class="token operator">=</span> <span class="token function">rightRotate</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">leftRotate</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 中序遍历</span>
+    <span class="token keyword">void</span> <span class="token function">inorder</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> node<span class="token operator">-&gt;</span>key <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">AVLTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        root <span class="token operator">=</span> <span class="token function">insert</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">inorder</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    AVLTree tree<span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    tree<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a><strong>4. 总结</strong></h2><ul>
+<li><strong>AVL 树保证平衡性</strong>，适用于 <strong>查找操作频繁的场景</strong>。</li>
+<li><strong>红黑树适用于动态插入/删除操作</strong>，如 STL 的 <code>map/set</code>。</li>
+<li><strong>Splay 树自适应局部访问</strong>，适合 <strong>缓存（LRU）</strong>。</li>
+<li><strong>Treap 结合了 BST 和堆</strong>，适合 <strong>随机数据结构</strong>。</li>
+</ul>
+<p><strong>不同平衡二叉树的选择</strong>：</p>
+<ul>
+<li><strong>查找多、插入少</strong> → <strong>AVL 树</strong></li>
+<li><strong>插入、删除频繁</strong> → <strong>红黑树</strong></li>
+<li><strong>局部访问频繁</strong> → <strong>Splay 树</strong></li>
+<li><strong>随机化结构</strong> → <strong>Treap</strong></li>
+</ul>
+<p>红黑树和 AVL 树是最常见的 <strong>高效平衡二叉树</strong>，了解它们能帮助更好地设计高效的数据结构！ </p>
+
                 
             </div>
             <hr/>
@@ -859,7 +1090,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

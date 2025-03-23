@@ -5,7 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="串, Gustavo">
-    <meta name="description" content="">
+    <meta name="description" content="串实现思路1. 成员变量
+char* data: 存储字符串数据的字符数组。
+size_t length: 字符串的长度（不包括结尾的 \0）。
+
+2. 构造函数
+默认构造函数：初始化一个空字符串。
+构造函数：接收一个 const char">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -423,21 +429,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-27
+                    2025-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -465,7 +471,287 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="串"><a href="#串" class="headerlink" title="串"></a>串</h1><h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h4 id="1-成员变量"><a href="#1-成员变量" class="headerlink" title="1. 成员变量"></a>1. <strong>成员变量</strong></h4><ul>
+<li><code>char* data</code>: 存储字符串数据的字符数组。</li>
+<li><code>size_t length</code>: 字符串的长度（不包括结尾的 <code>\0</code>）。</li>
+</ul>
+<h4 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2. 构造函数"></a>2. <strong>构造函数</strong></h4><ul>
+<li><strong>默认构造函数</strong>：初始化一个空字符串。</li>
+<li><strong>构造函数</strong>：接收一个 <code>const char*</code> 类型的字符串，将其拷贝到 <code>data</code> 中并记录长度。</li>
+<li><strong>拷贝构造函数</strong>：通过拷贝其他字符串对象来创建新对象。</li>
+<li><strong>移动构造函数</strong>：通过转移资源来创建新对象，避免多余的内存分配和复制。</li>
+<li><strong>析构函数</strong>：释放 <code>data</code> 所占用的内存。</li>
+</ul>
+<h4 id="3-赋值运算符重载"><a href="#3-赋值运算符重载" class="headerlink" title="3. 赋值运算符重载"></a>3. <strong>赋值运算符重载</strong></h4><ul>
+<li><strong>拷贝赋值</strong>：如果赋值的目标对象和当前对象不同，首先判断是否需要重新分配内存，然后逐个字符进行拷贝。</li>
+<li><strong>移动赋值</strong>：直接转移资源，避免不必要的内存分配。</li>
+</ul>
+<h4 id="4-字符串连接-operator"><a href="#4-字符串连接-operator" class="headerlink" title="4. 字符串连接 (operator+)"></a>4. <strong>字符串连接 (<code>operator+</code>)</strong></h4><ul>
+<li>创建一个新的字符数组，将两个字符串的数据复制到其中，并返回新字符串对象。时间复杂度为 O(n + m)，其中 <code>n</code> 为当前字符串的长度，<code>m</code> 为要连接的字符串的长度。</li>
+</ul>
+<h4 id="5-子串提取-substring"><a href="#5-子串提取-substring" class="headerlink" title="5. 子串提取 (substring)"></a>5. <strong>子串提取 (<code>substring</code>)</strong></h4><ul>
+<li>提取从 <code>start</code> 开始，长度为 <code>len</code> 的子串。如果 <code>start</code> 超出字符串的范围，返回空字符串；否则，复制子串并返回新的 <code>String</code> 对象。时间复杂度为 O(len)。</li>
+</ul>
+<h4 id="6-查找子串-contains"><a href="#6-查找子串-contains" class="headerlink" title="6. 查找子串 (contains)"></a>6. <strong>查找子串 (<code>contains</code>)</strong></h4><ul>
+<li>遍历当前字符串，通过比较每个位置是否能匹配目标子串，如果找到匹配则返回 <code>true</code>，否则返回 <code>false</code>。时间复杂度为 O(n * m)，其中 <code>n</code> 是当前字符串长度，<code>m</code> 是目标子串的长度。</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+
+class String {
+private:
+    char* data;
+    size_t length;
+
+    // 私有构造函数：直接使用现有字符数组，避免重复分配
+    String(char* buffer, size_t len, bool) : data(buffer), length(len) {}
+
+public:
+    // 默认构造函数
+    String() : data(new char[1]{'\0'}), length(0) {}
+
+    // 构造函数
+    String(const char* str) {
+        length = 0;
+        while (str[length] != '\0') length++;
+        data = new char[length + 1];
+        for (size_t i = 0; i &lt; length; i++) {
+            data[i] = str[i];
+        }
+        data[length] = '\0';
+    }
+
+    // 拷贝构造函数
+    String(const String&amp; other) {
+        length = other.length;
+        data = new char[length + 1];
+        for (size_t i = 0; i &lt; length; i++) {
+            data[i] = other.data[i];
+        }
+        data[length] = '\0';
+    }
+
+    // 移动构造函数
+    String(String&amp;&amp; other) noexcept : data(other.data), length(other.length) {
+        other.data = nullptr;
+        other.length = 0;
+    }
+
+    // 析构函数
+    ~String() {
+        delete[] data;
+    }
+
+    // 赋值运算符重载（拷贝）
+    String&amp; operator=(const String&amp; other) {
+        if (this != &amp;other) {
+            if (length != other.length) { // 只有在长度不同的时候才重新分配
+                delete[] data;
+                data = new char[other.length + 1];
+            }
+            length = other.length;
+            for (size_t i = 0; i &lt; length; i++) {
+                data[i] = other.data[i];
+            }
+            data[length] = '\0';
+        }
+        return *this;
+    }
+
+    // 赋值运算符重载（移动）
+    String&amp; operator=(String&amp;&amp; other) noexcept {
+        if (this != &amp;other) {
+            delete[] data;
+            data = other.data;
+            length = other.length;
+            other.data = nullptr;
+            other.length = 0;
+        }
+        return *this;
+    }
+
+    // 获取长度
+    size_t size() const {
+        return length;
+    }
+
+    // 串连接 (O(n + m))
+    String operator+(const String&amp; other) const {
+        char* newData = new char[length + other.length + 1];
+        for (size_t i = 0; i &lt; length; i++) {
+            newData[i] = data[i];
+        }
+        for (size_t i = 0; i &lt; other.length; i++) {
+            newData[length + i] = other.data[i];
+        }
+        newData[length + other.length] = '\0';
+        return String(newData, length + other.length, true);
+    }
+
+    // 子串提取 (O(len))
+    String substring(size_t start, size_t len) const {
+        if (start &gt;= length) return String("");
+        len = (start + len &gt; length) ? (length - start) : len;
+        char* subData = new char[len + 1];
+        for (size_t i = 0; i &lt; len; i++) {
+            subData[i] = data[start + i];
+        }
+        subData[len] = '\0';
+        return String(subData, len, true);
+    }
+
+    // 查找是否包含某个子串 (O(n * m))
+    bool contains(const String&amp; subStr) const {
+        if (subStr.length &gt; length) return false;
+
+        // 遍历当前字符串
+        for (size_t i = 0; i &lt;= length - subStr.length; i++) {
+            size_t j = 0;
+            // 比较子串
+            while (j &lt; subStr.length &amp;&amp; data[i + j] == subStr.data[j]) {
+                j++;
+            }
+            // 如果完全匹配，返回 true
+            if (j == subStr.length) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 输出流重载
+    void print() const {
+        for (size_t i = 0; i &lt; length; i++) {
+            std::cout &lt;&lt; data[i];
+        }
+        std::cout &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    String s1("Hello");
+    String s2("World");
+    String s3 = s1 + s2;
+    s3.print(); // HelloWorld
+
+    String s4 = s3.substring(5, 5);
+    s4.print(); // World
+
+    // 检查是否包含子串
+    String sub("World");
+    if (s3.contains(sub)) {
+        std::cout &lt;&lt; "Found substring!" &lt;&lt; std::endl; // Found substring!
+    } else {
+        std::cout &lt;&lt; "Substring not found." &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="优化子串查找：KMP-算法"><a href="#优化子串查找：KMP-算法" class="headerlink" title="优化子串查找：KMP 算法"></a>优化子串查找：KMP 算法</h1><p><strong>KMP（Knuth-Morris-Pratt）算法</strong>是一种高效的字符串匹配算法，能够避免在匹配失败时回溯已匹配的字符，从而提高效率。它的时间复杂度为 O(n + m)，其中 <code>n</code> 是主串长度，<code>m</code> 是子串长度。</p>
+<h2 id="实现思路-1"><a href="#实现思路-1" class="headerlink" title="实现思路"></a>实现思路</h2><h4 id="KMP-算法的工作原理"><a href="#KMP-算法的工作原理" class="headerlink" title="KMP 算法的工作原理"></a><strong>KMP 算法的工作原理</strong></h4><ol>
+<li><strong>构建部分匹配表（又叫“失配函数”或“前缀函数”）</strong>：<ul>
+<li>部分匹配表记录了每个位置之前的最长相同前缀和后缀的长度，用于指示在发生匹配失败时应该跳过多少字符。</li>
+</ul>
+</li>
+<li><strong>字符串匹配</strong>：<ul>
+<li>通过比较主串和子串的字符，如果匹配失败，根据部分匹配表的信息跳过一些字符，避免重复比较。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-none"><code class="language-none">// KMP 算法子串查找
+bool contains(const String&amp; subStr) const {
+    size_t m = subStr.length;
+    size_t n = length;
+    if (m == 0) return true;
+    if (m &gt; n) return false;
+
+    // 构建部分匹配表
+    size_t* lps = new size_t[m];  // 最长前缀后缀表
+    lps[0] = 0;  // 初始值
+    size_t j = 0;  // 前缀后缀长度
+    for (size_t i = 1; i &lt; m; i++) {
+        while (j &gt; 0 &amp;&amp; subStr.data[i] != subStr.data[j]) {
+            j = lps[j - 1];
+        }
+        if (subStr.data[i] == subStr.data[j]) {
+            j++;
+        }
+        lps[i] = j;
+    }
+
+    // 主串匹配
+    size_t i = 0;
+    j = 0;
+    while (i &lt; n) {
+        if (data[i] == subStr.data[j]) {
+            i++;
+            j++;
+        }
+        if (j == m) {
+            delete[] lps;
+            return true;  // 匹配成功
+        } else if (i &lt; n &amp;&amp; data[i] != subStr.data[j]) {
+            if (j != 0) {
+                j = lps[j - 1];  // 使用部分匹配表跳过字符
+            } else {
+                i++;
+            }
+        }
+    }
+
+    delete[] lps;
+    return false;  // 匹配失败
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="优化子串查找：Boyer-Moore-算法"><a href="#优化子串查找：Boyer-Moore-算法" class="headerlink" title="优化子串查找：Boyer-Moore 算法"></a>优化子串查找：Boyer-Moore 算法</h1><p><strong>Boyer-Moore 算法</strong>是一种基于字符的模式匹配算法，其通过启发式规则来跳过更多的字符，从而进一步提高匹配效率。它的时间复杂度在最佳情况下接近 O(n/m)，但最坏情况下是 O(n * m)。</p>
+<h2 id="实现思路-2"><a href="#实现思路-2" class="headerlink" title="实现思路"></a>实现思路</h2><h4 id="Boyer-Moore-算法的工作原理"><a href="#Boyer-Moore-算法的工作原理" class="headerlink" title="Boyer-Moore 算法的工作原理"></a><strong>Boyer-Moore 算法的工作原理</strong></h4><ol>
+<li><strong>坏字符规则</strong>：<ul>
+<li>如果在匹配过程中某个字符不匹配，根据主串中字符的位置，跳过一些字符，直到找到一个匹配的字符。</li>
+</ul>
+</li>
+<li><strong>好后缀规则</strong>：<ul>
+<li>当出现不匹配时，检查当前的后缀部分，尝试通过已有的匹配信息跳过一些字符。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h2><pre class="line-numbers language-none"><code class="language-none">// Boyer-Moore 算法子串查找
+bool contains(const String&amp; subStr) const {
+    size_t m = subStr.length;
+    size_t n = length;
+    if (m == 0) return true;
+    if (m &gt; n) return false;
+
+    // 创建坏字符表
+    size_t* badChar = new size_t[256];  // ASCII 字符表
+    for (size_t i = 0; i &lt; 256; i++) {
+        badChar[i] = m;  // 默认跳过全部字符
+    }
+    for (size_t i = 0; i &lt; m - 1; i++) {
+        badChar[(unsigned char)subStr.data[i]] = m - i - 1;
+    }
+
+    size_t i = 0;
+    while (i &lt;= n - m) {
+        size_t j = m - 1;
+        while (j &gt;= 0 &amp;&amp; data[i + j] == subStr.data[j]) {
+            j--;
+        }
+        if (j == -1) {
+            delete[] badChar;
+            return true;  // 匹配成功
+        } else {
+            i += badChar[(unsigned char)data[i + m - 1]];
+        }
+    }
+
+    delete[] badChar;
+    return false;  // 匹配失败
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -843,7 +1129,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1059.2k</span>
+                        class="white-color">1088k</span>
             
             
             

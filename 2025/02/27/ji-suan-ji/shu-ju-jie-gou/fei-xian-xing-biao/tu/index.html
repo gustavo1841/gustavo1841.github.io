@@ -471,8 +471,7 @@
 <h2 id="图的基本定义"><a href="#图的基本定义" class="headerlink" title="图的基本定义"></a><strong>图的基本定义</strong></h2><ul>
 <li><p><strong>顶点（Vertex）</strong>：也称为节点，是图中的基本单位。</p>
 </li>
-<li><p>边（Edge）</p>
-<p>：连接两个顶点的线，表示它们之间的关系或连接。</p>
+<li><p>边（Edge）：连接两个顶点的线，表示它们之间的关系或连接。</p>
 <ul>
 <li><strong>无向图（Undirected Graph）</strong>：边没有方向，意味着如果顶点 A 与顶点 B 有一条边，那么 A 和 B 之间是对称的关系。</li>
 <li><strong>有向图（Directed Graph，简称 Digraph）</strong>：边有方向，意味着如果顶点 A 与顶点 B 之间有一条边（A → B），则从 A 到 B 有方向，但从 B 到 A 不一定有边。</li>
@@ -560,14 +559,15 @@ D -&gt; [A]<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 </li>
 <li><p><strong>删除边</strong>：从图中删除一条边。</p>
 </li>
-<li><p>遍历图</p>
-<p>：</p>
+<li><p>遍历图：</p>
 <ul>
 <li><strong>深度优先搜索（DFS，Depth-First Search）</strong>：从一个顶点出发，沿着边一直深入，直到无法继续深入为止，再回溯到上一个节点，继续寻找未访问的邻接节点。</li>
-<li><strong>广度优先搜索（BFS，Breadth-First Search）</strong>：从一个顶点出发，首先访问该顶点的所有邻接顶点，然后再访问它们的邻接顶点。</li>
 </ul>
 </li>
 </ol>
+<ul>
+<li><strong>广度优先搜索（BFS，Breadth-First Search）</strong>：从一个顶点出发，首先访问该顶点的所有邻接顶点，然后再访问它们的邻接顶点。</li>
+</ul>
 <h2 id="图的应用"><a href="#图的应用" class="headerlink" title="图的应用"></a><strong>图的应用</strong></h2><p>图广泛应用于各个领域，以下是一些典型应用：</p>
 <ol>
 <li><strong>社交网络</strong>：每个人可以看作图中的一个顶点，人与人之间的关系可以看作图中的一条边。社交网络中的很多问题，如朋友推荐、社交圈分析、影响力传播等，都可以通过图来建模。</li>

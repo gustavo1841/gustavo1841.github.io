@@ -429,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-02
+                    2025-03-24
                 </div>
                 
 
@@ -472,12 +472,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>当我那天拿着手机，正在和朋友们的微信群里畅聊着八卦新闻和即将到来的周末计划时，忽然一条带着喜意的消息扑面而来，消息正中间赫然写着八个大字：<strong>恭喜发财，大吉大利</strong>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/E76n2LuV96eRJY.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/E76n2LuV96eRJY.png"></p>
 <p>抢红包！！相信大部分人对此都不陌生，自 2015 年春节以来，微信就新增了各类型抢红包功能，吸引了数以亿万级的用户参与体验，今天，我们就来聊一聊这个奇妙有趣的红包系统。</p>
-<h2 id="2-概要设计"><a href="#2-概要设计" class="headerlink" title="2. 概要设计"></a>2. 概要设计</h2><h3 id="2-1-系统特点"><a href="#2-1-系统特点" class="headerlink" title="2.1 系统特点"></a>2.1 系统特点</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/YRE76n2LuV96eRJYQ.png" alt="图片"></p>
+<h2 id="2-概要设计"><a href="#2-概要设计" class="headerlink" title="2. 概要设计"></a>2. 概要设计</h2><h3 id="2-1-系统特点"><a href="#2-1-系统特点" class="headerlink" title="2.1 系统特点"></a>2.1 系统特点</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/YRE76n2LuV96eRJYQ.png"></p>
 <p>抢红包系统从功能拆分，可以分为包红包、发红包、抢红包和拆红包 4 个功能。</p>
 <p>对于系统特性来说，抢红包系统和秒杀系统类似。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6n2LuV96eRJYQyEMQ.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6n2LuV96eRJYQyEMQ.png"></p>
 <p>每次发红包都是一次商品秒杀流程，包括<strong>商品准备，商品上架，查库存、减库存，以及秒杀开始</strong>，最终的用户转账就是红包到账的过程。</p>
 <h3 id="2-2-难点"><a href="#2-2-难点" class="headerlink" title="2.2 难点"></a>2.2 难点</h3><p>相比秒杀活动，微信发红包系统的用户量更大，设计更加复杂，需要重视的点更多，主要包括以下几点。</p>
 <h4 id="1、高并发"><a href="#1、高并发" class="headerlink" title="1、高并发"></a>1、高并发</h4><p>海量并发请求，秒杀只有一次活动，但红包可能同一时刻有几十万个秒杀活动。</p>
@@ -490,7 +490,7 @@
 <h4 id="3、严格事务"><a href="#3、严格事务" class="headerlink" title="3、严格事务"></a>3、严格事务</h4><p>参与用户越多，并发 DB 请求越大，数据越容易出现事务问题，所以系统得做好<strong>事务一致性</strong>。</p>
 <p>这也是一般秒杀活动的难点所在，而且抢红包系统涉及金钱交易，所以事务级别要求更高，<strong>不能出现脏数据</strong>。</p>
 <h2 id="3-概要设计"><a href="#3-概要设计" class="headerlink" title="3. 概要设计"></a>3. 概要设计</h2><h3 id="3-1-功能说明"><a href="#3-1-功能说明" class="headerlink" title="3.1 功能说明"></a>3.1 功能说明</h3><p>抢红包功能允许用户在群聊中发送任意个数和金额的红包，群成员可以抢到随机金额的红包，但要<strong>保证每个用户的红包金额不小于 0.01 元</strong>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/LuV96eRJYQyEMQ8.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/LuV96eRJYQyEMQ8.png"></p>
 <p>抢红包的详细交互流程如下：</p>
 <ol>
 <li>用户接收到抢红包通知，点击通知打开群聊页面；</li>
@@ -524,7 +524,7 @@
 </ol>
 <h3 id="3-4-抢红包"><a href="#3-4-抢红包" class="headerlink" title="3.4 抢红包"></a>3.4 抢红包</h3><p>从 2015 年起，微信红包的抢红包和拆红包就分离了，用户点击抢红包后需要进行两次操作。</p>
 <p>这也是为什么明明有时候抢到了红包，点开后却发现<strong>该红包已经被领取完了</strong>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/uV96eRJYQyEMQ8QcPe.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/uV96eRJYQyEMQ8QcPe.png"></p>
 <p>抢红包的交互步骤如下：</p>
 <ol>
 <li>抢红包：抢操作在 <code>Redis</code> 缓存层完成，<strong>通过原子递减的操作来更新红包个数</strong>，个数递减为 0 后就说明抢光了。</li>
@@ -539,7 +539,7 @@
 <p>而在这种业务量下，简单地对数据库进行扩容不仅会让成本消耗剧增，另一方面由于存在<strong>磁盘的性能瓶颈</strong>，所以大概率解决不了问题。</p>
 <p>所以，我们将解决方案集中在 <code>减轻系统压力、提升响应速度</code> 上，接下来会从<strong>缓存、加锁、异步分治</strong>等方案来探讨可行性。</p>
 <h4 id="1、缓存"><a href="#1、缓存" class="headerlink" title="1、缓存"></a>1、缓存</h4><p>和大多数秒杀系统设计相似，由于抢红包时并发很高，如果直接操作 DB 里的数据表，可能触发 DB 锁的逻辑，导致响应不及时。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/eYRE76n2LuV96eRJYQyEMQ8.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/eYRE76n2LuV96eRJYQyEMQ8.png"></p>
 <p>所以，我们可以在 DB 落盘之前加一层缓存，先限制住流量，再处理红包订单的数据更新。</p>
 <p>这样做的优点是用<strong>缓存操作替代了磁盘操作，提升了并发性能</strong>，这在一般的小型秒杀活动中非常有效！</p>
 <p>但是，随着微信使用发&amp;抢红包的用户量增多，系统压力增大，各种连锁反应产生后，数据一致性的问题逐渐暴露出来：</p>
@@ -549,7 +549,7 @@
 </ul>
 <p>而且在几十万的并发下，直接对业务加锁也是不现实的，即便是乐观锁。</p>
 <h4 id="2、加锁"><a href="#2、加锁" class="headerlink" title="2、加锁"></a>2、加锁</h4><p>在关系型 DB 里，有两种并发控制方法：分为<strong>乐观锁</strong>（又叫乐观并发控制，Optimistic Concurrency Control，缩写 “OCC”）和<strong>悲观锁</strong>（又叫悲观并发，Pessimistic Concurrency Control，缩写“PCC”）。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/V96eRJYQyEMQ8QcPcDy1uhicmH.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/V96eRJYQyEMQ8QcPcDy1uhicmH.png"></p>
 <p>悲观锁在操作数据时比较悲观，认为别的事务可能会同时修改数据，所以每次操作数据时会<strong>先把数据锁住，直到操作完成</strong>。</p>
 <p>乐观锁正好相反，这种策略主打一个“信任”的思想，认为事务之间的数据竞争很小，所以在操作数据时不会加锁，直到所有操作都完成到<strong>提交时才去检查是否有事务更新</strong>（通常是通过版本号来判断），如果没有则提交，否则进行回滚。</p>
 <p>在高并发场景下，由于数据操作的请求很多，所以<strong>乐观锁的吞吐量更大一些</strong>。但是从业务来看，可能会带来一些额外的问题：</p>
@@ -562,7 +562,7 @@
 <p>因此对于抢红包系统来说，加锁是非常不适合的。</p>
 <h4 id="3、异步分治"><a href="#3、异步分治" class="headerlink" title="3、异步分治"></a>3、异步分治</h4><p>综上所述，抢红包时不仅要解决高并发问题、还得保障并发的<strong>顺序性</strong>，所以我们考虑从队列的角度来设计。</p>
 <p>我们知道，每次包红包、发红包、抢红包时，也有先后依赖关系，因此我们可以将红包 ID 作为一个唯一 Key，将<strong>发一次红包看作一个单独的 set，各个 set 相互独立处理</strong>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6eRJYQyEMQ8QcPYe5XJ3.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6eRJYQyEMQ8QcPYe5XJ3.png"></p>
 <p>这样，我们就把海量的抢红包系统分成一个个的小型秒杀系统，在调度处理中，通过对红包 ID <strong>哈希取模</strong>，将一个个请求打到多台服务器上解耦处理。</p>
 <p>然后，为了保证每个用户抢红包的先后顺序，我们把一个红包相关的操作<strong>串行</strong>起来，放到一个队列里面，依次消费。</p>
 <p>从上述 set 分流我们可以看出，一台服务器可能会同时处理多个红包的操作，所以，为了保证消费者处理 DB 不被高并发打崩，我们还需要在消费队列时用<strong>缓存来限制并发消费数量</strong>。</p>
@@ -583,9 +583,9 @@
 <p>假设当前红包剩余金额为 10 元，剩余个数为 5，<code>10/5 = 2</code>，则当前用户可以抢到的红包金额为：<code>0.01 ~ 4</code> 元之间。</p>
 <h4 id="4、算法优化"><a href="#4、算法优化" class="headerlink" title="4、算法优化"></a>4、算法优化</h4><p>用二倍均值法生成的随机红包虽然接近平均值，但是在实际场景下：<strong>微信红包金额的随机性和领取的顺序有关系，尤其是金额不高的情况下</strong>。</p>
 <p>于是，小❤耗费 “巨资” 在微信群发了多个红包，得出了这样一个结论：如果发出的 <code>红包总额 = 红包数*0.01 + 0.01</code>，比如：发了 4 个红包，总额为 0.05，则最后一个人领取的红包金额一定是 <code>0.02</code>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/n2LuV96eRJYQyEMQ8QcPVdu8PNO.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/n2LuV96eRJYQyEMQ8QcPVdu8PNO.png"></p>
 <p>无一例外：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/JYQyEMQ8QcPsC1khq8mUqohhxKichc8wf.png" alt="图片"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/JYQyEMQ8QcPsC1khq8mUqohhxKichc8wf.png"></p>
 <p>所以，红包金额算法大概率不是随机分配，而是在派发红包之前已经做了处理。比如在红包金额生成前，先生成一个不存在的红包，这个红包的总额为 <code>0.01 * 红包总数</code>。</p>
 <p>而在红包金额分配的时候，会对每个红包的随机值基础上加上 <code>0.01</code>，以此来保证每个红包的最小值不为 0。</p>
 <p>所以，假设用户发了总额为 0.04 的个数为 3 的红包时，需要先提取 <code>3*0.01</code> 到 “第四个” 不存在的红包里面，于是第一个人抢到的红包随机值是 <code>0 ~ (0.04-3*0.01)/3</code>。</p>
@@ -847,12 +847,12 @@ func <span class="token function">main</span><span class="token punctuation">(</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
-                        <span class="chip bg-color">宏观金融</span>
-                    </a>
-                    
                     <a href="/tags/%E5%88%9D%E7%BA%A7/">
                         <span class="chip bg-color">初级</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">宏观金融</span>
                     </a>
                     
                 </div>
@@ -1049,7 +1049,7 @@ func <span class="token function">main</span><span class="token punctuation">(</
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1094.9k</span>
+                        class="white-color">1102.3k</span>
             
             
             

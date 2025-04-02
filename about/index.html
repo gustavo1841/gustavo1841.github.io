@@ -649,7 +649,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["计算机","会计","数据结构","系统设计","人生","算法","初级","财管","微观金融","支付架构设计"]
+                data: ["计算机","会计","数据结构","系统设计","人生","算法","初级","财管","微观金融","推荐系统"]
             }
         ],
         yAxis: [
@@ -1009,6 +1009,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

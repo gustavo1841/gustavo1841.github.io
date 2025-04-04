@@ -427,7 +427,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-02
+                    2025-04-04
                 </div>
                 
 
@@ -544,7 +544,7 @@
 <p>2.缓存隔离，减少热Key对其他业务影响。</p>
 <p>3.散列多份，放许多份，读取数据时进行随机读取一份，这个方法比较通用。</p>
 <p>4.对于热Key前置缓存到应用服务器上，尽量是占用空间小并且不怎么发生变的数据进行前置，不然Gc也是件比较麻烦的事情。</p>
-<p>**注意：**实际生产环境会比较复杂，会存在一些场景比较难以定位。例如：不是大Key也不是热Key，但是会是阻塞节点的主要流量Key。定位方法可以参考读写分离方法，观察节点出流量以及QPS变化。</p>
+<p><strong>注意</strong>：实际生产环境会比较复杂，会存在一些场景比较难以定位。例如：不是大Key也不是热Key，但是会是阻塞节点的主要流量Key。定位方法可以参考读写分离方法，观察节点出流量以及QPS变化。</p>
 <h3 id="4-3重视缓存过期策略"><a href="#4-3重视缓存过期策略" class="headerlink" title="4.3重视缓存过期策略"></a>4.3重视缓存过期策略</h3><p>实际生产环境经常需要做的是优化Redis的使用空间，减少集群大小，节省成本。经常不增加过期时间，过期时间使用不合理现象。</p>
 <p>过期策略是Redis很重要的一部分，了解过期策略有什么好处呢。第一：我们可以学习到一些好的设计思想；第二可以对Redis过期有足够了解，能从原理层知道平时使用Redis应该注意什么。</p>
 <p><strong>过期策略</strong>：</p>
@@ -1105,7 +1105,7 @@ void activeExpireCycle(int type) {
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1131.8k</span>
+                        class="white-color">1132.4k</span>
             
             
             

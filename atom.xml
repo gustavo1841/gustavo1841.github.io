@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-04T11:37:44.422Z</updated>
+  <updated>2025-04-06T11:49:32.933Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何高效的去阅读数学和经济学的书籍</title>
+    <link href="https://gustavo1841.github.io/2025/04/05/ren-sheng-yu-zhi-chang/ru-he-gao-xiao-de-qu-yue-du-shu-xue-he-jing-ji-xue-de-shu-ji/"/>
+    <id>https://gustavo1841.github.io/2025/04/05/ren-sheng-yu-zhi-chang/ru-he-gao-xiao-de-qu-yue-du-shu-xue-he-jing-ji-xue-de-shu-ji/</id>
+    <published>2025-04-05T02:49:54.000Z</published>
+    <updated>2025-04-06T11:49:32.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;🔑-数学书的主动学习方法（针对基础差也适用）&quot;&gt;&lt;a href=&quot;#🔑-数学书的主动学习方法（针对基础差也适用）&quot; class=&quot;headerlink&quot; title=&quot;🔑 数学书的主动学习方法（针对基础差也适用）&quot;&gt;&lt;/a&gt;🔑</summary>
+        
+      
+    
+    
+    
+    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>为什么不建议长期持有杠杆ETF</title>
@@ -482,9 +507,9 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
     <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -511,9 +536,9 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
     <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -540,34 +565,7 @@
     
     <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
     <category term="算法" scheme="https://gustavo1841.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>哈夫曼树</title>
-    <link href="https://gustavo1841.github.io/2025/03/23/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/ha-fu-man-shu/"/>
-    <id>https://gustavo1841.github.io/2025/03/23/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/ha-fu-man-shu/</id>
-    <published>2025-03-22T16:34:36.000Z</published>
-    <updated>2025-03-23T05:00:58.838Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;哈夫曼树的基本概念&quot;&gt;&lt;a href=&quot;#哈夫曼树的基本概念&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="数据结构" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     

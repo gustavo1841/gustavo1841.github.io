@@ -346,7 +346,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '1882b4902a76e8c86c625e052a430d8dc794a9c12761d7a5456ee9117165fde5';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -420,21 +420,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-04-14
+                    2025-04-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    14 分
                 </div>
                 
 
@@ -748,6 +748,69 @@ Gustavo
 
 
 
+<h1 id="期货期权小课堂"><a href="#期货期权小课堂" class="headerlink" title="期货期权小课堂"></a>期货期权小课堂</h1><p><a target="_blank" rel="noopener" href="https://www.cmegroup.com/cn-s/education/courses.html">https://www.cmegroup.com/cn-s/education/courses.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cmegroup.com/cn-s/education/courses/tools-for-option-analysis.html">https://www.cmegroup.com/cn-s/education/courses/tools-for-option-analysis.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cmegroup.com/education/files/educational-inventory.pdf">https://www.cmegroup.com/education/files/educational-inventory.pdf</a></p>
+<h1 id="日内技术指标运用"><a href="#日内技术指标运用" class="headerlink" title="日内技术指标运用"></a>日内技术指标运用</h1><p>其实就是看均线，rsi搭配ema20/50/100，sma也20/50/100，连着trading view做也可，别贪心，做一个rsi的区间就行最好的办法就是，超卖做到超买或者接近超买基本就可。</p>
+<p>用到以下几个Trading View 指标： </p>
+<ol>
+<li>5EMA by SelNach, 选20，50，100， 200. 其中50和200 比较重要，用来判断当前多空趋势；</li>
+<li>Parabolic SAR, 默认设置 ； </li>
+<li>CCI, upper band 设成100， lower设成-100， CCI 勾选柱状图； </li>
+<li>MACD， 多一个指标参考； </li>
+<li>SRv2 high/Low 这个用来看阻力支撑。我一般会同时看5min和1min的图，如果两个图50ema 都在 200ema 之上，只做多；反之只做空。多头策略：5min 图，Parabolic SAR 指标出现在阳K线之下， 同时CCI 的柱子不超出Upper/Lower band, 就可以买入， 止损可以放在附进低点或者根据你自己风险偏好，止盈可以在risk:reward 1:1 出一些，剩下的博取更高利润，当Parabolic SAR 出现在股价上方时应该全部清仓。空头策略基本相同，只不过指标反过来。</li>
+</ol>
+<p>500倍杠杆，ndx，开3000点，止盈做一点，永远在rsi超买的时候买一次就好了</p>
+<p>日内常用的指标：rsi+bb+vwap，注意指标的volume是按照什么计算的，例如fx成交量不一样，它fx的volume是按tick算的，而且fx有些行会自主调控，还是nq、ndx最美，用1min交易，一天一次就好，周入10k都快国内一年工资了</p>
+<p><strong>普通人最好的学习还是均线，ema sme rsi macd摸透了就好</strong></p>
+<h1 id="为什么均线很重要"><a href="#为什么均线很重要" class="headerlink" title="为什么均线很重要"></a>为什么均线很重要</h1><p>均线是主力画不出来的，均线是真金白银买出来的，<strong>筹码密集区就是支撑位和阻力位</strong>，均线的级别越大越有效。a股主要是T+1所以你们感觉不明显，多玩玩spy qqq dow就能感觉出来，尤其fx和大宗，股指，均线有时候也不是看什么金叉死叉，大部分时候都不看。</p>
+<h1 id="大A怎么做T"><a href="#大A怎么做T" class="headerlink" title="大A怎么做T"></a>大A怎么做T</h1><p>t+1算了吧，大a还是老老实实研究周期价值股吧，尽量选择和大盘关联性不大的股票。</p>
+<p>一般我这么做，macd金叉，出量，rsi触底</p>
+<p>这种形态下的A股，具有购买意义：</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/image-20250415111946908.png" alt="均线共振，筹码区大量买入"></p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/image-20250415112037458.png"></p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/image-20250415112051137.png"></p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/image-20250415112123284.png"></p>
+<p>总结：<strong>日线密集，周线支撑 月线250也在支撑，把均线当作支撑位和压力位用</strong></p>
+<p>复盘一下真实案例，均线的实战</p>
+<p>以中公为例</p>
+<p>当时是说这里有线</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/0248b359417aa3bd1e4dbcce90ae249e.png" alt="img"></p>
+<p>再来看看以周为单位的成交量</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/94d3be10f7806a442740ef22a92df2e8.png" alt="img"></p>
+<p>再看看以月为成交量</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/19e8159b1aafeab262c3627a45b4a9b2.png" alt="img"></p>
+<p>不破周线月线我只会默默继续加仓，因为跌的是时候量都很小，根本没咋动静，所以当时群里有人卖了我就惊了，咋三天就卖了。</p>
+<p>日均密集（各均线纠缠在一起）就可以进了，黄蓝交接指的是回踩周K的。看指标就是换手率，K容易失真，所以我一般不咋爱用，主要国内的股票还不够进化，不然调用trading view出来做箱体，更容易做。</p>
+<p>纠缠的话用ema会快点，反正只是看收束和扩张，不如给近期权重大些，能拿很久影响到长均线的，都是大机构了</p>
+<p>我最大个股不超20%，不然影响我睡眠质量了</p>
+<h1 id="如何更好的理解指标"><a href="#如何更好的理解指标" class="headerlink" title="如何更好的理解指标"></a>如何更好的理解指标</h1><p>你要有一定的知识看得懂经济指标意味着什么，然后当场下决策，时间不超过10min。rsi其实说白了就是在一瞬间供需失衡了，这个机会非常短暂，一定要严格控制止盈止损</p>
+<h1 id="IC和ISE"><a href="#IC和ISE" class="headerlink" title="IC和ISE"></a>IC和ISE</h1><p>IC，quant摇篮，<a target="_blank" rel="noopener" href="https://www.imperial.ac.uk/study/pg/mathematics/mathematics-finance/%EF%BC%8CIC%E7%9A%84MF%E5%9F%BA%E6%9C%AC%E4%B8%80%E7%AD%89%E6%AF%95%E4%B8%9A%E8%B5%B7%E8%96%AA50k%E8%8B%B1%E9%95%91%EF%BC%8Cise%E7%9A%84%E5%93%AA%E4%B8%AA36%E5%B7%A6%E5%8F%B3%EF%BC%8C%E7%9C%9F%E8%A6%81%E8%AF%BB%E8%BF%98%E6%98%AFIC%E5%BC%BA%E3%80%82">https://www.imperial.ac.uk/study/pg/mathematics/mathematics-finance/，IC的MF基本一等毕业起薪50k英镑，ise的哪个36左右，真要读还是IC强。</a></p>
+<h1 id="市场的理解"><a href="#市场的理解" class="headerlink" title="市场的理解"></a>市场的理解</h1><p>大A是政策，美股是预期，资金只是跟风的。短线都难，美股一天可以走6个方向，多点耐心，炒股很轻松，提款机一样。</p>
+<h1 id="怎么看是bot操盘"><a href="#怎么看是bot操盘" class="headerlink" title="怎么看是bot操盘"></a>怎么看是bot操盘</h1><p>订阅一下ikbr的数据，然后分析一下期权和mm的操盘，基本就会了</p>
+<h1 id="为什么A股不玩指数"><a href="#为什么A股不玩指数" class="headerlink" title="为什么A股不玩指数"></a>为什么A股不玩指数</h1><p>上证是失真的，整个占比是不符合规律的，所以我大A不玩指数</p>
+<h1 id="股票熊市与牛市"><a href="#股票熊市与牛市" class="headerlink" title="股票熊市与牛市"></a>股票熊市与牛市</h1><p>熊牛有啥，抓住主线不就好了。熊的话你上期权做卖方。因为熊市你是要抄底吧，一般自己设计个价位，到了就接盘，不到白嫖，除非你自己都没准备好接盘。</p>
+<h1 id="ig练手"><a href="#ig练手" class="headerlink" title="ig练手"></a>ig练手</h1><p>练吧，多练爆几个模拟盘，杠杆拉满</p>
+<h1 id="线性思维"><a href="#线性思维" class="headerlink" title="线性思维"></a>线性思维</h1><blockquote>
+<p>我这个想法太线性了，看别人分析汇率都要牵扯一堆环境因素，但是我又不了解宏观</p>
+</blockquote>
+<p>那没事啊，如果线性思维我觉得你可以好好学习均线。然后做日内期权，越简单的学的越好，不然我觉得那没啥用</p>
+<h1 id="消息面"><a href="#消息面" class="headerlink" title="消息面"></a>消息面</h1><blockquote>
+<p>你玩股票会受到新闻消息的干扰吗，比如什么佩婆子去台湾什么的。我就是很容易被干扰，拿不住</p>
+</blockquote>
+<p>我只看资金交易量和均线，不破不走。短期消息面决定不了啥，所以我一般看我一般看个股相关的，比如谷歌要裁员了啊，meta裁员了什么的或者fomc/fed。这种什么出来啊，访问啊拉到。</p>
+<p>fomc/fed虽然容易针，但是上下开一下经常两边吃到。ecb和boj也看，除此之外，没了。</p>
+<blockquote>
+<p>破，是指股价日线什么级别破位了？60日，还是120日啊</p>
+</blockquote>
+<p>均线形成的密集均线平台</p>
+<blockquote>
+<p>那是周，月k吧，看起来中公教育算破了吗，股票位于周月密集均线下方了</p>
+</blockquote>
+<p>在周线上，月线承压</p>
+<p>其它优质回答</p>
+<p>其实就是5日均线，10日均线，20日均线，30日均线，60均线，120均线，200均线，300均线，最密集的那个点位，决定多空方向，也是最交集最深的时候。我现在ema用的均线就这些，然后再看看rsi，macd。rsi有时候会误导，顶破了60天，120天我就不看了，长期持有。</p>
+<p>可以把ema和筹码分布一起看啊，我股票设置和期货差不多，不过股票的均线可以用长一点</p>
 
                 
             </div>
@@ -1118,7 +1181,7 @@ Gustavo
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1214.7k</span>
+                        class="white-color">1216.4k</span>
             
             
             

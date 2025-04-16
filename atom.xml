@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-14T01:42:17.605Z</updated>
+  <updated>2025-04-16T07:58:20.815Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目性能优化—下</title>
+    <link href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-xia/"/>
+    <id>https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-xia/</id>
+    <published>2025-04-16T07:57:54.000Z</published>
+    <updated>2025-04-16T07:58:20.815Z</updated>
+    
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目性能优化—上</title>
+    <link href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-shang/"/>
+    <id>https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-shang/</id>
+    <published>2025-04-16T07:57:47.000Z</published>
+    <updated>2025-04-16T08:18:49.657Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;性能问题分析&quot;&gt;&lt;a href=&quot;#性能问题分析&quot; class=&quot;headerlink&quot; title=&quot;性能问题分析&quot;&gt;&lt;/a&gt;性能问题分析&lt;/h1&gt;&lt;h2 id=&quot;性能优化的目标&quot;&gt;&lt;a href=&quot;#性能优化的目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>合理用药，拒绝无效产品</title>
@@ -490,60 +536,6 @@
     
     
     <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>外汇交易做的快崩溃了，求哪位大神给指点一二?</title>
-    <link href="https://gustavo1841.github.io/2025/03/27/cao-pan-ri-ji/zi-xue-jiao-yi/wai-hui-jiao-yi-zuo-de-kuai-beng-kui-liao-qiu-na-wei-da-shen-gei-zhi-dian-yi-er/"/>
-    <id>https://gustavo1841.github.io/2025/03/27/cao-pan-ri-ji/zi-xue-jiao-yi/wai-hui-jiao-yi-zuo-de-kuai-beng-kui-liao-qiu-na-wei-da-shen-gei-zhi-dian-yi-er/</id>
-    <published>2025-03-27T07:22:21.000Z</published>
-    <updated>2025-04-07T01:10:47.296Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;别人踩过的坑，自己就没必要再滚一边了&lt;/p&gt;
-&lt;p&gt;作者：落花流水&lt;br&gt;链接：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>现代出师表</title>
-    <link href="https://gustavo1841.github.io/2025/03/26/ren-sheng-yu-zhi-chang/xian-dai-chu-shi-biao/"/>
-    <id>https://gustavo1841.github.io/2025/03/26/ren-sheng-yu-zhi-chang/xian-dai-chu-shi-biao/</id>
-    <published>2025-03-26T10:02:32.000Z</published>
-    <updated>2025-03-26T10:09:23.346Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   

@@ -532,12 +532,12 @@
 
 
 <h2 id="04-测试场景"><a href="#04-测试场景" class="headerlink" title="04-测试场景"></a>04-测试场景</h2><p>测试场景一般情况下是都是最重要接口：验证hero_mall服务获取商品信息接口在不同并发规模的表现</p>
-<p>**情况01-模拟低延时场景，**用户访问接口并发逐渐增加的过程。接口的响应时间为20ms，线程梯度：5、10、15、20、25、30、35、40个线程，5000次;</p>
+<p><strong>情况01-模拟低延时场景</strong>，用户访问接口并发逐渐增加的过程。接口的响应时间为20ms，线程梯度：5、10、15、20、25、30、35、40个线程，5000次;</p>
 <ul>
 <li>时间设置：Ramp-up period(inseconds)的值设为对应线程数</li>
 <li>测试总时长：约等于20ms x 5000次 x 8 = 800s = 13分</li>
 </ul>
-<p>**情况02-模拟高延时场景，**用户访问接口并发逐渐增加的过程。接口的响应时间为500ms，线程梯度：100、200、300、400、500、600、700、800个线程，200次; </p>
+<p><strong>情况02-模拟高延时场景</strong>，用户访问接口并发逐渐增加的过程。接口的响应时间为500ms，线程梯度：100、200、300、400、500、600、700、800个线程，200次; </p>
 <ul>
 <li>时间设置：Ramp-up period(inseconds)的值设为对应线程数的1/10；</li>
 <li>测试总时长：约等于500ms x 200次 x 8 = 800s = 13分</li>
@@ -556,7 +556,7 @@
 
 <p>（图略）</p>
 <blockquote>
-<p>**公众号静默授权获取静默授权地址 **<a target="_blank" rel="noopener" href="http://yapi.hero.com/project/582/interface/api/35768"><strong>http://yapi.hero.com/project/582/interface/api/35768</strong></a></p>
+<p><strong>公众号静默授权获取静默授权地址</strong> <a target="_blank" rel="noopener" href="http://yapi.hero.com/project/582/interface/api/35768">http://yapi.hero.com/project/582/interface/api/35768</a></p>
 </blockquote>
 <h4 id="2、静默授权获取openid-get"><a href="#2、静默授权获取openid-get" class="headerlink" title="2、静默授权获取openid(get)"></a>2、静默授权获取openid(get)</h4><p>目标峰值TPS：10000、P99响应时间：300ms</p>
 <pre class="line-numbers language-none"><code class="language-none">地址：https://open2.hero.com/wechat/open/authorize?code=${params.code}&amp;state=kkb&amp;appId=appid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

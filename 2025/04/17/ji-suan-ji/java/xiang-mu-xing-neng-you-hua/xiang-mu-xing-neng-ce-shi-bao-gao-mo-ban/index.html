@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="项目性能优化—下, Gustavo">
-    <meta name="description" content="">
+    <meta name="keywords" content="项目性能测试报告模板, Gustavo">
+    <meta name="description" content="项目性能测试报告01-测试目的主要是让开发者对hero_mall项目的性能负载和容量有个准确的认知。同时，协助技术管理者更好的管理业务系统性能质量，科学评估业务系统的负荷，拒绝盲目上线。
+02-测试工具（图略）
+03-测试环境3.1 环境
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>项目性能优化—下 | Gustavo</title>
+    <title>项目性能测试报告模板 | Gustavo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -358,12 +361,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/64.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/440.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">项目性能优化—下</h1>
+                    <h1 class="description center-align post-title">项目性能测试报告模板</h1>
                 </div>
             </div>
         </div>
@@ -395,6 +398,10 @@
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">性能优化</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -416,28 +423,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-04-16
+                    2025-04-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-04-16
+                    2025-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -465,7 +472,148 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="项目性能测试报告"><a href="#项目性能测试报告" class="headerlink" title="项目性能测试报告"></a>项目性能测试报告</h1><h2 id="01-测试目的"><a href="#01-测试目的" class="headerlink" title="01-测试目的"></a>01-测试目的</h2><p>主要是让开发者对hero_mall项目的性能负载和容量有个准确的认知。同时，协助技术管理者更好的管理业务系统性能质量，科学评估业务系统的负荷，拒绝盲目上线。</p>
+<h2 id="02-测试工具"><a href="#02-测试工具" class="headerlink" title="02-测试工具"></a>02-测试工具</h2><p>（图略）</p>
+<h2 id="03-测试环境"><a href="#03-测试环境" class="headerlink" title="03-测试环境"></a>03-测试环境</h2><h3 id="3-1-环境"><a href="#3-1-环境" class="headerlink" title="3.1 环境"></a>3.1 环境</h3><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机器</td>
+<td>4C8G</td>
+</tr>
+<tr>
+<td>集群规模</td>
+<td>单机</td>
+</tr>
+<tr>
+<td>hero_mall_one版本</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>4C8G</td>
+</tr>
+</tbody></table>
+<h3 id="3-1-设置启动参数"><a href="#3-1-设置启动参数" class="headerlink" title="3.1 设置启动参数"></a>3.1 设置启动参数</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> JAVA_HOME
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JRE_HOME</span><span class="token operator">=</span><span class="token variable">${JAVA_HOME}</span>/jre
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CLASSPATH</span><span class="token operator">=</span>.:<span class="token variable">${JAVA_HOME}</span>/lib:<span class="token variable">${JRE_HOME}</span>/lib
+
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">SERVER_NAME</span><span class="token operator">=</span><span class="token string">"hero_web"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$JAVA_HOME</span>/bin/java"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">BASE_DIR</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">cd</span> <span class="token punctuation">$(</span>dirname $0<span class="token punctuation">)</span>/.<span class="token punctuation">;</span> <span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">DEFAULT_SEARCH_LOCATIONS</span><span class="token operator">=</span><span class="token string">"classpath:/,classpath:/config/,file:./,file:./config/"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CUSTOM_SEARCH_LOCATIONS</span><span class="token operator">=</span><span class="token variable">${DEFAULT_SEARCH_LOCATIONS}</span>,file:<span class="token variable">${BASE_DIR}</span>/conf/
+
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> -server -Xms512m -Xmx512m -Xmn256 -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"</span>
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<span class="token variable">${BASE_DIR}</span>/logs/java_heapdump.hprof"</span>
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> -XX:-UseLargePages"</span>
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> -jar <span class="token variable">${BASE_DIR}</span>/<span class="token variable">${SERVER_NAME}</span>*.jar"</span>
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> <span class="token variable">${JAVA_OPT_EXT}</span>"</span>
+
+<span class="token assign-left variable">JAVA_OPT</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${JAVA_OPT}</span> --spring.config.location=<span class="token variable">${CUSTOM_SEARCH_LOCATIONS}</span>"</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token string">"<span class="token variable">${BASE_DIR}</span>/logs"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token function">mkdir</span> <span class="token variable">${BASE_DIR}</span>/logs
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$JAVA</span> <span class="token variable">${JAVA_OPT}</span>"</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">${BASE_DIR}</span>/logs/<span class="token variable">${SERVER_NAME}</span>.out"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token function">touch</span> <span class="token string">"<span class="token variable">${BASE_DIR}</span>/logs/<span class="token variable">${SERVER_NAME}</span>.out"</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$JAVA</span> <span class="token variable">${JAVA_OPT}</span>"</span> <span class="token operator">&gt;</span> <span class="token variable">${BASE_DIR}</span>/logs/<span class="token variable">${SERVER_NAME}</span>.out <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+<span class="token function">nohup</span> <span class="token variable">$JAVA</span> <span class="token variable">${JAVA_OPT}</span> hero_web.hero_web <span class="token operator">&gt;&gt;</span> <span class="token variable">${BASE_DIR}</span>/logs/<span class="token variable">${SERVER_NAME}</span>.out <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"server is starting，you can check the <span class="token variable">${BASE_DIR}</span>/logs/<span class="token variable">${SERVER_NAME}</span>.out"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="04-测试场景"><a href="#04-测试场景" class="headerlink" title="04-测试场景"></a>04-测试场景</h2><p>测试场景一般情况下是都是最重要接口：验证hero_mall服务获取商品信息接口在不同并发规模的表现</p>
+<p>**情况01-模拟低延时场景，**用户访问接口并发逐渐增加的过程。接口的响应时间为20ms，线程梯度：5、10、15、20、25、30、35、40个线程，5000次;</p>
+<ul>
+<li>时间设置：Ramp-up period(inseconds)的值设为对应线程数</li>
+<li>测试总时长：约等于20ms x 5000次 x 8 = 800s = 13分</li>
+</ul>
+<p>**情况02-模拟高延时场景，**用户访问接口并发逐渐增加的过程。接口的响应时间为500ms，线程梯度：100、200、300、400、500、600、700、800个线程，200次; </p>
+<ul>
+<li>时间设置：Ramp-up period(inseconds)的值设为对应线程数的1/10；</li>
+<li>测试总时长：约等于500ms x 200次 x 8 = 800s = 13分</li>
+</ul>
+<h2 id="05-核心接口的测试结果"><a href="#05-核心接口的测试结果" class="headerlink" title="05-核心接口的测试结果"></a>05-核心接口的测试结果</h2><h3 id="一、商品详情页涉及到的接口"><a href="#一、商品详情页涉及到的接口" class="headerlink" title="一、商品详情页涉及到的接口"></a>一、商品详情页涉及到的接口</h3><h4 id="1、获取商品信息接口"><a href="#1、获取商品信息接口" class="headerlink" title="1、获取商品信息接口"></a>1、获取商品信息接口</h4><p>验证hero_mall服务获取商品信息接口能力性能。<strong>目标峰值TPS：10000，P99响应时间：300ms</strong></p>
+<p>Active Threads：注意压力机的活动线程数并不等同于在线用数中，并发的用户数。压力活动线程数是用来模拟用户发出并发请求的操作。</p>
+<ul>
+<li>压力机-活动线程数  =模拟=&gt; 系统并发用户数</li>
+<li>系统并发用户数 =不等于=&gt;  压力机-活动线程数</li>
+</ul>
+<p>TPS、RT</p>
+<p>聚合报告（图略）</p>
+<p>JMeterDashboard（图略）</p>
+<h3 id="二、支付详情页涉及到的接口"><a href="#二、支付详情页涉及到的接口" class="headerlink" title="二、支付详情页涉及到的接口"></a>二、支付详情页涉及到的接口</h3><h4 id="1、公众号静默授权获取静默授权地址-get"><a href="#1、公众号静默授权获取静默授权地址-get" class="headerlink" title="1、公众号静默授权获取静默授权地址(get)"></a>1、公众号静默授权获取静默授权地址(get)</h4><p>目标峰值TPS：5000、P99响应时间：300ms</p>
+<pre class="line-numbers language-none"><code class="language-none">地址： https://open2.hero.com/wechat/open/redirect/url<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（图略）</p>
+<blockquote>
+<p>**公众号静默授权获取静默授权地址 **<a target="_blank" rel="noopener" href="http://yapi.hero.com/project/582/interface/api/35768"><strong>http://yapi.hero.com/project/582/interface/api/35768</strong></a></p>
+</blockquote>
+<h4 id="2、静默授权获取openid-get"><a href="#2、静默授权获取openid-get" class="headerlink" title="2、静默授权获取openid(get)"></a>2、静默授权获取openid(get)</h4><p>目标峰值TPS：10000、P99响应时间：300ms</p>
+<pre class="line-numbers language-none"><code class="language-none">地址：https://open2.hero.com/wechat/open/authorize?code=${params.code}&amp;state=kkb&amp;appId=appid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+<blockquote>
+<p>授权获取用户信息 <a target="_blank" rel="noopener" href="http://yapi.hero.com/project/582/interface/api/35782">http://yapi.hero.com/project/582/interface/api/35782</a></p>
+</blockquote>
+<h4 id="3、创建订单接口"><a href="#3、创建订单接口" class="headerlink" title="3、创建订单接口"></a>3、创建订单接口</h4><p>目标峰值TPS：5000、P99响应时间：300ms</p>
+<pre class="line-numbers language-none"><code class="language-none">地址：https://open2.hero.comvipcourse/order<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+<blockquote>
+<p>创建订单 <a target="_blank" rel="noopener" href="http://yapi.hero.com/project/61/interface/api/4003">http://yapi.hero.com/project/61/interface/api/4003</a></p>
+</blockquote>
+<h4 id="4、统一支付接口"><a href="#4、统一支付接口" class="headerlink" title="4、统一支付接口"></a>4、统一支付接口</h4><p>目标峰值TPS：2666、P99响应时间：300ms</p>
+<pre class="line-numbers language-none"><code class="language-none">地址：https://open2.hero.com/vip/payorder/params.openid/{params.openid}/params.openid/{params.orderNo}/params.payType{params.payType}params.payType{userId}${emi}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+<blockquote>
+<p>获取支付链接(创建支付流水) <a target="_blank" rel="noopener" href="http://yapi.hero.com/project/61/interface/api/4007">http://yapi.hero.com/project/61/interface/api/4007</a></p>
+</blockquote>
+<h4 id="5、订单查询（详情）接口"><a href="#5、订单查询（详情）接口" class="headerlink" title="5、订单查询（详情）接口"></a>5、订单查询（详情）接口</h4><p>目标峰值TPS：36048，P99响应时间：300ms</p>
+<pre class="line-numbers language-none"><code class="language-none">地址：https://open2.hero.comvipcourse/order/{orderNo}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+<blockquote>
+<p>订单详情 <a target="_blank" rel="noopener" href="http://yapi.hero.com/project/382/interface/api/5929">http://yapi.hero.com/project/382/interface/api/5929</a></p>
+</blockquote>
+<h3 id="三、新MOS核心API压测"><a href="#三、新MOS核心API压测" class="headerlink" title="三、新MOS核心API压测"></a>三、新MOS核心API压测</h3><blockquote>
+<p>略</p>
+</blockquote>
+<h3 id="四、红包接口压测"><a href="#四、红包接口压测" class="headerlink" title="四、红包接口压测"></a>四、红包接口压测</h3><blockquote>
+<p>略</p>
+</blockquote>
+<h2 id="06-测试结论"><a href="#06-测试结论" class="headerlink" title="06-测试结论"></a>06-测试结论</h2><p>hero_web性能测试是针对重点功能，单机单节点服务进行压测，可以看到各个接口容量。本测试供给大家作为参考，如有不足或偏差，请指正！如果对性能有其他需求，可以进行集群扩容。例如:3节点、10节点、100节点…</p>
+
                 
             </div>
             <hr/>
@@ -491,7 +639,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-xia/">https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-xia/</a>
+                    <a href="https://gustavo1841.github.io/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-ce-shi-bao-gao-mo-ban/">https://gustavo1841.github.io/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-ce-shi-bao-gao-mo-ban/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -537,6 +685,10 @@
                                     <span class="chip bg-color">Java</span>
                                 </a>
                             
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">性能优化</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -579,7 +731,7 @@
         repo: 'gustavo1841.github.io',
         owner: 'gustavo1841',
         admin: "gustavo1841",
-        id: '2025-04-16T15-57-54',
+        id: '2025-04-17T11-16-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -612,13 +764,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-xia/">
+                <a href="/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-ce-shi-bao-gao-mo-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/64.jpg" class="responsive-img" alt="项目性能优化—下">
+                        <img src="/medias/featureimages/440.jpg" class="responsive-img" alt="项目性能测试报告模板">
                         
-                        <span class="card-title">项目性能优化—下</span>
+                        <span class="card-title">项目性能测试报告模板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -629,7 +781,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-17
                             </span>
                         <span class="publish-author">
                             
@@ -655,6 +807,10 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -666,13 +822,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua-shang/">
+                <a href="/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-huan-jing-da-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="项目性能优化—上">
+                        <img src="/medias/featureimages/214.jpg" class="responsive-img" alt="项目性能优化环境搭建">
                         
-                        <span class="card-title">项目性能优化—上</span>
+                        <span class="card-title">项目性能优化环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -683,7 +839,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-17
                             </span>
                         <span class="publish-author">
                             
@@ -706,6 +862,10 @@
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">性能优化</span>
                     </a>
                     
                 </div>
@@ -845,7 +1005,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1221k</span>
+                        class="white-color">1234.5k</span>
             
             
             

@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-18T02:59:53.167Z</updated>
+  <updated>2025-04-18T09:57:06.399Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM—下</title>
+    <link href="https://gustavo1841.github.io/2025/04/18/ji-suan-ji/java/jvm/jvm-xia/"/>
+    <id>https://gustavo1841.github.io/2025/04/18/ji-suan-ji/java/jvm/jvm-xia/</id>
+    <published>2025-04-18T09:40:56.000Z</published>
+    <updated>2025-04-18T09:57:06.399Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;对象的创建流程与内存分配&quot;&gt;&lt;a href=&quot;#对象的创建流程与内存分配&quot; class=&quot;headerlink&quot; title=&quot;对象的创建流程与内存分配&quot;&gt;&lt;/a&gt;对象的创建流程与内存分配&lt;/h1&gt;&lt;h2 id=&quot;创建流程&quot;&gt;&lt;a href=&quot;#创建流程&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="JVM" scheme="https://gustavo1841.github.io/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>JVM—上</title>
@@ -399,7 +428,7 @@
     <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/jiao-liu-xin-de-hui-zong/"/>
     <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/jiao-liu-xin-de-hui-zong/</id>
     <published>2025-04-07T02:29:33.000Z</published>
-    <updated>2025-04-15T07:09:32.354Z</updated>
+    <updated>2025-04-18T03:39:51.815Z</updated>
     
     
       
@@ -525,34 +554,6 @@
     <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
     <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>智力补剂的正确打开方式</title>
-    <link href="https://gustavo1841.github.io/2025/03/28/ren-sheng-yu-zhi-chang/zhi-li-bu-ji-de-zheng-que-da-kai-fang-shi/"/>
-    <id>https://gustavo1841.github.io/2025/03/28/ren-sheng-yu-zhi-chang/zhi-li-bu-ji-de-zheng-que-da-kai-fang-shi/</id>
-    <published>2025-03-28T07:23:32.000Z</published>
-    <updated>2025-03-28T07:41:00.639Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;转载：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="健康" scheme="https://gustavo1841.github.io/tags/%E5%81%A5%E5%BA%B7/"/>
     
   </entry>
   

@@ -427,7 +427,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-23
+                    2025-04-17
                 </div>
                 
 
@@ -471,14 +471,14 @@
             <div id="articleContent">
                 <h1 id="哈夫曼树的基本概念"><a href="#哈夫曼树的基本概念" class="headerlink" title="哈夫曼树的基本概念"></a>哈夫曼树的基本概念</h1><p>路径：从树中一个结点到另一个结点之间的分支构成这两个结点间的路径</p>
 <p>结点的路径长度：两结点之间路径上的分支数</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-f07e3b68c7798559e664eeb6cf20ba3c_r.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/v2-f07e3b68c7798559e664eeb6cf20ba3c_r.jpg"></p>
 <p>树的路径长度：从树根到每一个结点的路径长度之和．记作：ＴＬ</p>
 <p>权（weight)：将树中结点赋给一个有着某种含义的数值，则这个数值秒针为该结点的权</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-561bb507a8adcbbed29281abac1d3485_r.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/v2-561bb507a8adcbbed29281abac1d3485_r.jpg"></p>
 <p>结点的带权路径长度：从根结点到该结点之间的路径长度与该结点的权的乘积</p>
 <p>树的带权路径长度：树中所有叶子结点的带权路径长度之和．记作:WPL(Weighted Path Length)</p>
 <p>哈夫曼树：最优树（带权路径长度（ＷＰＬ）最短的树）</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-20250323085954263.png" alt="image-20250323085954263"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20250323085954263.png" alt="image-20250323085954263"></p>
 <h1 id="哈夫曼树：最优二叉树"><a href="#哈夫曼树：最优二叉树" class="headerlink" title="哈夫曼树：最优二叉树"></a>哈夫曼树：最优二叉树</h1><p>特点：</p>
 <p>１满二叉树不一定是哈夫曼树．</p>
 <p>２哈夫曼树中权越大的叶子离根越近．</p>
@@ -489,10 +489,10 @@
 <p>(3)从森林中删除选取的两棵树，并将新树加入森林；</p>
 <p>(4)重复(2)、(3)步，直到森林中只剩一棵树为止，该树即为所求得的哈夫曼树。</p>
 <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>例题：已知结点权值的集合为w(2，3，4，6)求其哈夫曼树</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-5c5bdbcdbfbacf4565bb5e99445b964a_r.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/v2-5c5bdbcdbfbacf4565bb5e99445b964a_r.jpg"></p>
 <h2 id="哈夫曼树编码"><a href="#哈夫曼树编码" class="headerlink" title="哈夫曼树编码"></a>哈夫曼树编码</h2><p>左分支为0，右分支为1，标记后将从根到叶子结点的路径上标记的0和1收集起来，得到叶子结点对应的字符的具体编码，这就是哈夫曼编码。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/v2-82b9db088f6babb04754a98f22978433_r.jpg"></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-20250323100115884.png" alt="image-20250323100115884"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/v2-82b9db088f6babb04754a98f22978433_r.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20250323100115884.png" alt="image-20250323100115884"></p>
 <h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="哈夫曼树实现思路"><a href="#哈夫曼树实现思路" class="headerlink" title="哈夫曼树实现思路"></a>哈夫曼树实现思路</h2><ol>
 <li>定义 <code>HuffmanNode</code> 结构：<ul>
 <li>代表哈夫曼树的节点，包括字符 <code>ch</code> 和权重 <code>freq</code>。</li>
@@ -787,12 +787,12 @@ unordered_map&lt;char, string&gt; buildHuffmanTree(const unordered_map&lt;char, 
                         <span class="chip bg-color">计算机</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -985,7 +985,7 @@ unordered_map&lt;char, string&gt; buildHuffmanTree(const unordered_map&lt;char, 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

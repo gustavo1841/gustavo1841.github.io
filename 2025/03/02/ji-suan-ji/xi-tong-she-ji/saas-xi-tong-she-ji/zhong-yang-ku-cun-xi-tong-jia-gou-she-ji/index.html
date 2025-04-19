@@ -428,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-02
+                    2025-04-17
                 </div>
                 
 
@@ -484,7 +484,7 @@
 <h3 id="中央库存系统的定位"><a href="#中央库存系统的定位" class="headerlink" title="中央库存系统的定位"></a>中央库存系统的定位</h3><p>向下对接各地仓库/门店库存，将各地库存放在“一盘货”里，进行管理、统一调配。</p>
 <p>向上打通所有销售渠道平台，实现全渠道库存共享、自动化运营。</p>
 <h3 id="中央库存系统的关键概念"><a href="#中央库存系统的关键概念" class="headerlink" title="中央库存系统的关键概念"></a>中央库存系统的关键概念</h3><h4 id="中央库存整体业务框架"><a href="#中央库存整体业务框架" class="headerlink" title="中央库存整体业务框架"></a>中央库存整体业务框架</h4><p>中央库存体系将库存管理分为三层，销售层、调度层、仓库层，实现库存利用最大化，支持多仓多渠道模式下的各种业务场景。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/NuN8cb0URYwmwc44Z8P79BZ.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/NuN8cb0URYwmwc44Z8P79BZ.png"></p>
 <h4 id="仓库层"><a href="#仓库层" class="headerlink" title="仓库层"></a>仓库层</h4><p>仓库层的定位是管理仓库库存，一般使用仓库WMS、门店系统或ERP系统来管理仓库的进销存，通过出入库单据变更仓库库存数量。</p>
 <p>仓库库存的关键属性包括：货主、仓库/门店、SKU、批号、生产日期、库存状态、库位等。</p>
 <ul>
@@ -522,27 +522,27 @@
 <li>可售库存 = 预售库存+销售可用库存 – 预占库存 - 预留库存。</li>
 </ul>
 <h4 id="销售渠道层"><a href="#销售渠道层" class="headerlink" title="销售渠道层"></a>销售渠道层</h4><p>销售渠道层代表各个销售渠道平台，包括自营的网店、门店渠道，天猫，京东，美团，饿了么等三方平台等。</p>
-<h3 id="逻辑模型设计"><a href="#逻辑模型设计" class="headerlink" title="逻辑模型设计"></a>逻辑模型设计</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/wfTsKpHLNuN8cb0URYwmwc43qCd.png"></p>
+<h3 id="逻辑模型设计"><a href="#逻辑模型设计" class="headerlink" title="逻辑模型设计"></a>逻辑模型设计</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/wfTsKpHLNuN8cb0URYwmwc43qCd.png"></p>
 <h3 id="库存的核心场景"><a href="#库存的核心场景" class="headerlink" title="库存的核心场景"></a>库存的核心场景</h3><h4 id="调度层同步逻辑"><a href="#调度层同步逻辑" class="headerlink" title="调度层同步逻辑"></a>调度层同步逻辑</h4><p>调度层的实物库存来自各个仓库的库存，一般有两种同步模式：</p>
 <ul>
 <li>流水同步模式：适用于内部系统打通，能够获取仓库/门店的库存流水，通过回传流水，变更调度层的实物库存数量。这样做的好处是，有很清晰的实物库存流水变更记录，便于追查到每次库存变化的明细，需要注意做好幂等处理，避免重复同步导致库存数量变更出错。</li>
 <li>数量同步模式：适用于外部系统对接，一般获取不到详细的库存流水，通过商家后台或系统对接的方式同步库存实时数量。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/NuN8cb0URYwmwc4gnE4btVTaE4VOF8Q7PT8.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/NuN8cb0URYwmwc4gnE4btVTaE4VOF8Q7PT8.png"></p>
 <h4 id="销售库存计算逻辑"><a href="#销售库存计算逻辑" class="headerlink" title="销售库存计算逻辑"></a>销售库存计算逻辑</h4><p>在新零售的多仓多渠道模式下，为了实现全渠道库存共享，库存汇总为“一盘货”管理，要充分考虑各个仓库/门店的特性，包括支持的发货方式，配送范围等，为了合理分配库存，需要考虑各个销售店铺的库存占比。下面针对几种常见的场景，说明销售库存的计算逻辑。</p>
 <p><strong>多仓供货场景</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/pHLNuN8cb0URYwmwc4npjn7.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/pHLNuN8cb0URYwmwc4npjn7.png"></p>
 <p>门店A、门店B为两个线下门店，门店A有100件iphone14，门店B有50件iphone14。</p>
 <p>假设商家有1个天猫旗舰店，门店A、门店B均给天猫店供货。</p>
 <p>天猫旗舰店仅支持快递发货方式，为了防止超卖，设置快递的最大分配比例为80%。</p>
 <p>如图例所示，最终天猫渠道的iphone14的库存数量为120，并定期将数量同步到天猫平台。</p>
 <p><strong>单仓给多店供货场景</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/N8cb0URYwmw.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/N8cb0URYwmw.png"></p>
 <p>商家有1个电商仓，为商家的各个电商平台店铺提供仓储服务与发货服务，电商仓有100件iphone14。</p>
 <p>电商仓同时为京东旗舰店、天猫旗舰店供货，两个店铺仅支持快递发货方式，最大分配比例分别为80%、60%。</p>
 <p>如图例所示，最终京东渠道的iphone14的库存数量为80，天猫渠道的iphone14的库存数量为60。</p>
 <p><strong>门店全渠道库存共享场景</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8cb0URYwmwc4FceA.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/8cb0URYwmwc4FceA.png"></p>
 <p>随着新零售线上线下渠道加速融合，门店线上线下全渠道销售，已经成为大部分零售商家的标配。</p>
 <p>受益于微信生态和小程序电商的高速发展，越来越多的门店开启了云店模式，云店实际上就是门店的线上化交易渠道，或者称为门店的“线上货架”。</p>
 <p>连锁企业把线下门店嫁接到微信生态中，将门店所有商品上架到云店小程序。借助云店，消费者无需到店，即可享受到门店的服务，同时，门店的导购可以向自己的会员推荐所有云店商品。</p>
@@ -552,11 +552,11 @@
 <li>自营系统：如果自营渠道与库存系统是一体的，即一套系统，那么不需要过于复杂的库存同步逻辑，自营渠道直接读取中央库存系统的渠道库存即可。</li>
 <li>三方平台系统：像天猫，京东，美团，饿了么等，这些三方平台系统属于外部系统，商家自身无法管控，就需要通过开发API，向三方平台同步渠道库存。一般而言不会实时同步渠道库存，即只要有库存变动，就计算渠道库存，同步至三方平台。这种方式对系统压力较大，而且三方平台的API大多会按调用量收费，因此，会设定好时间间隔，定期同步渠道库存，例如5分钟一次。</li>
 </ul>
-<h4 id="组合商品库存计算"><a href="#组合商品库存计算" class="headerlink" title="组合商品库存计算"></a>组合商品库存计算</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/pHLNuN8cb0URYwmwc4.png"></p>
+<h4 id="组合商品库存计算"><a href="#组合商品库存计算" class="headerlink" title="组合商品库存计算"></a>组合商品库存计算</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/pHLNuN8cb0URYwmwc4.png"></p>
 <p>组合商品一般指人为将几个单独售卖的商品组合在一起，进行合并售卖的商品，例如：下午茶套餐、七夕美妆组合等。</p>
 <p>组合商品会先在调度层，根据组合比例计算好虚拟库存，不影响子商品的供货逻辑，下单时，会根据组合商品标识，进行子商品的实物库存预占、扣减。</p>
 <p>如图所示，电商仓中，商品A有150件，商品B有200件，根据组合关系，可以算出组合商品C有100件。当下一单商品C时，会预占1件商品A+2件商品B的实物库存。</p>
-<h3 id="中央库存系统的应用架构设计"><a href="#中央库存系统的应用架构设计" class="headerlink" title="中央库存系统的应用架构设计"></a>中央库存系统的应用架构设计</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8cb0URYwmwc4h3JVW.png"></p>
+<h3 id="中央库存系统的应用架构设计"><a href="#中央库存系统的应用架构设计" class="headerlink" title="中央库存系统的应用架构设计"></a>中央库存系统的应用架构设计</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/8cb0URYwmwc4h3JVW.png"></p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>本文介绍了在全渠道模式下，库存管理面临的挑战。针对挑战，详细介绍了中央库存系统的整体业务框架，涉及的关键概念，以及库存核心业务场景的处理逻辑，最后简单介绍了中央库存系统的应用架构设计。期望对读者有所帮助。</p>
 
                 
@@ -948,7 +948,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

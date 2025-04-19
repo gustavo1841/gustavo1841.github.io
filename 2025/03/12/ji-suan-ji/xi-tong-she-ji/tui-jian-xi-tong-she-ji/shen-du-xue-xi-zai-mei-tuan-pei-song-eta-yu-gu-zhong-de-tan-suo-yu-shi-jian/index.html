@@ -435,7 +435,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-17
+                    2025-04-17
                 </div>
                 
 
@@ -483,15 +483,15 @@
 <li>ETA在用户下单时刻就需要被展现，这个预估时长继而会贯穿整个订单生命周期，首先在用户侧给予准时性的承诺，接着被调度系统用作订单指派的依据及约束，而骑手则会按照这个ETA时间执行订单的配送，配送是否准时还会作为骑手的工作考核结果。</li>
 <li>ETA作为系统的调节中枢，需要平衡用户-骑手-商家-配送效率。从用户的诉求出发，尽可能快和准时，从骑手的角度出发，太短会给骑手极大压力。从调度角度出发，太长或太短都会影响配送效率。而从商家角度出发，都希望订单被尽可能派发出去，因为这关系到商家的收入。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/HTUw2VaOR.png">ETA在配送系统中作用</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/HTUw2VaOR.png">ETA在配送系统中作用</p>
 <p>在这样多维度的约束之下，外卖配送的ETA的建模和估计会变得更加复杂。与打车场景中的ETA做对比，外卖场景的ETA面临如下的挑战：</p>
 <ul>
 <li>外卖场景中ETA是对客户履约承诺的重要组成部分，无论是用户还是骑手，对于ETA准确性的要求非常高。而在打车场景，用户更加关心是否能打到车，ETA仅提供一个参考，司机端对此也不是特别关注。</li>
 <li>外卖场景中ETA包含更多环节，骑手全程完成履约过程，其中包括到达商家、商家出餐、等待取餐、路径规划、不同楼宇交付等较多的环节，且较高的合单率使得订单间的流程互相耦合，不确定性很大，做出合理的估计也有更高难度。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/o8NfOLOOAnJenchl5Euos.png">外卖及打车中的ETA</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/o8NfOLOOAnJenchl5Euos.png">外卖及打车中的ETA</p>
 <p>下图是骑手履约全过程的时间轴，过程中涉及各种时长参数，可以看到有十几个节点，其中关键时长达到七个。这些时长涉及多方，比如骑手（接-到-取-送）、商户（出餐）、用户（交付），要经历室内室外的场景转换，因此挑战性非常高。对于ETA建模，不光是简单一个时间的预估，更需要的是全链路的时间预估，同时更需要兼顾”单量-运力-用户转化率”转化率之间的平衡。配送ETA的演变包括了数据、特征层面的持续改进，也包括了模型层面一路从LR-XGB-FM-DeepFM-自定义结构的演变。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/ibUJjYKX2iaJibzlWFdlbUTkIQ.png">ETA的探索与演变</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/ibUJjYKX2iaJibzlWFdlbUTkIQ.png">ETA的探索与演变</p>
 <p>具体ETA在整个配送业务中的位置及配送业务的整体机器学习实践，请参看<a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/12/13/machine-learning-in-distribution-practice.html">《机器学习在美团配送系统的实践：用技术还原真实世界》</a>。</p>
 <h2 id="2-业务流程迭代中的模型改进"><a href="#2-业务流程迭代中的模型改进" class="headerlink" title="2. 业务流程迭代中的模型改进"></a><strong>2. 业务流程迭代中的模型改进</strong></h2><h3 id="2-1-基础模型迭代及选择"><a href="#2-1-基础模型迭代及选择" class="headerlink" title="2.1 基础模型迭代及选择"></a><strong>2.1 基础模型迭代及选择</strong></h3><p>与大部分CTR模型的迭代路径相似，配送ETA模型的业务迭代经历了LR-&gt;树模型-&gt;Embedding-&gt;DeepFM-&gt;针对性结构修改的路径。特征层面也进行不断迭代和丰富。</p>
 <ul>
@@ -501,7 +501,7 @@
 <p>目前版本模型在比较了Wide&amp;Deep、DeepFM、AFM等常用模型后，考虑到计算性能及效果，最终选择了DeepFM作为初步的Base模型。整个DeepFM模型特征Embedding化后，在FM（Factorization Machine）基础上，进一步加入deep部分，分别针对稀疏及稠密特征做针对性融合。FM部分通过隐变量内积方式考虑一阶及二阶的特征融合，DNN部分通过Feed-Forward学习高阶特征融合。模型训练过程中采取了Learning Decay/Clip Gradient/求解器选择/Dropout/激活函数选择等，在此不做赘述。</p>
 <h3 id="2-2-损失函数"><a href="#2-2-损失函数" class="headerlink" title="2.2 损失函数"></a><strong>2.2 损失函数</strong></h3><p>在ETA预估场景下，准时率及置信度是比较重要的业务指标。初步尝试将Square的损失函数换成Absolute的损失函数，从直观上更为切合MAE相比ME更为严苛的约束。在适当Learning Decay下，结果收敛且稳定。</p>
 <p>同时，在迭代中考虑到相同的ETA承诺时间下，在前后N分钟限制下，早到1min优于晚到1min，损失函数的设计希望整体的预估结果能够尽量前倾。对于提前部分，适当降低数值惩罚。对于迟到部分，适当增大数值惩罚。进行多次调试设计后，最终确定以前后N分钟以及原点作为3个分段点。在原先absolute函数优化的基础上，在前段设计1.2倍斜率absolute函数，后段设计1.8倍斜率absolute函数，以便让结果整体往中心收敛，且预估结果更倾向于提前送达，对于ETA各项指标均有较大幅度提升。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/kxAuo8NfOLyWpGkibic8VXOBqiaNjG.png">损失函数</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/kxAuo8NfOLyWpGkibic8VXOBqiaNjG.png">损失函数</p>
 <h3 id="2-3-业务规则融入模型"><a href="#2-3-业务规则融入模型" class="headerlink" title="2.3 业务规则融入模型"></a><strong>2.3 业务规则融入模型</strong></h3><p>目前的业务架构是”模型+规则”，在模型预估一个ETA值之后，针对特定业务场景，会有特定业务规则时间叠加以满足特定场景需求，各项规则由业务指标多次迭代产生。这里产生了模型和规则整体优化的割裂，在模型时间和规则时间分开优化后，即模型训练时并不能考虑到规则时间的影响，而规则时间在一年之中不同时间段，会产生不同的浮动，在经过一段时间重复迭代后，会加大割裂程度。</p>
 <p>在尝试了不同方案后，最终将整体规则写入到了TF模型中，在TF模型内部调整整体规则参数。</p>
 <ul>
@@ -509,7 +509,7 @@
 <li>对于过于复杂的规则部分，则可以借助一定的模型结构，通过模型的拟合来代替，过多复杂OP算子嵌套并不容易同时优化。</li>
 </ul>
 <p>通过调节不同的拟合部分及参数，将多个规则完全在TF模型中实现。最终对业务指标具备很大提升效果，且通过对部分定值参数的更改，具备部分人工干涉模型能力。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/uTG7YAiaGkxAuo8NfOL.png">多目标补时结构</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/uTG7YAiaGkxAuo8NfOL.png">多目标补时结构</p>
 <p>在这里，整体架构就简化为多目标预估的架构，这里采用多任务架构中常用的Shared Parameters的结构，训练时按比例采取不同的交替训练策略。结构上从最下面的模型中间融合层出发，分别在TF内实现常规预测结构及多个规则时间结构，而其对应的Label则仍然从常规的历史值和规则时间值中来，这样考虑了以下几点：</p>
 <ul>
 <li>模型预估时，已充分考虑到规则对整体结果的影响（例如多个规则的叠加效应），作为整体一起考虑。</li>
@@ -522,13 +522,13 @@
 <li>通常情况下激活函数差异不大，但在共享层到独立目标层中，不同的激活函数差异很大。</li>
 </ul>
 <h3 id="2-4-缺失值处理"><a href="#2-4-缺失值处理" class="headerlink" title="2.4 缺失值处理"></a><strong>2.4 缺失值处理</strong></h3><p>在模型处理中，特征层面不可避免存在一定的缺失值，而对于缺失值的处理，完全借鉴了<a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/03/29/recommend-dnn.html">《美团“猜你喜欢”深度学习排序模型实践》</a>文章中的方法。对于特征x进入TF模型，进行判断，如果是缺失值，则设置w1参数，如果不是缺失值则进入模型数值为w2*x，这里将w1和w2作为可学习参数，同时放入网络进行训练。以此方法来代替均值/零值等作为缺失值的方法。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/IC7VCFp8wUC0cvdBHJ1.png">缺失值处理</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/IC7VCFp8wUC0cvdBHJ1.png">缺失值处理</p>
 <h2 id="3-长尾问题优化"><a href="#3-长尾问题优化" class="headerlink" title="3. 长尾问题优化"></a><strong>3. 长尾问题优化</strong></h2><h3 id="3-1-模型预估结果-长尾规则补时"><a href="#3-1-模型预估结果-长尾规则补时" class="headerlink" title="3.1 模型预估结果+长尾规则补时"></a><strong>3.1 模型预估结果+长尾规则补时</strong></h3><p>基础模型学习的是整体的统计分布，但对于一些长尾情形的学习并不充分，体现在长尾情形下预估时间偏短（由于ETA拥有考核骑手的功能，预估偏短对骑手而言意味着很大的伤害）。故将长尾拆解成两部分来分析：</p>
 <ul>
 <li>业务长尾，即整体样本分布造成的长尾。主要体现在距离、价格等维度。距离越远，价格越高，实际送达时间越长，但样本占比越少，模型在这一部分上的表现整体都偏短。</li>
 <li>模型长尾，即由于模型自身对预估值的不确定性造成的长尾。模型学习的是整体的统计分布，但不是对每个样本的预估都有“信心”。实践中采用RF多棵决策树输出的标准差来衡量不确定性。RF模型生成的决策树是独立的，每棵树都可以看成是一个专家，多个专家共同打分，打分的标准差实际上就衡量了专家们的“分歧”程度（以及对预估的“信心”程度）。从下图也可以看出来，随着RF标准差的增加，模型的置信度和准时率均在下降。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/8NfOLhWOl4BbAgt.png">模型长尾因子</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/8NfOLhWOl4BbAgt.png">模型长尾因子</p>
 <p>在上述拆解下，采用补时规则来解决长尾预估偏短的问题：长尾规则补时为 &lt;业务长尾因子 , 模型长尾因子&gt; 组合。其中业务长尾因子为距离、价格等业务因素，模型长尾因子为RF标准差。最终的ETA策略即为模型预估结果+长尾规则补时。</p>
 <h2 id="4-工程开发实践"><a href="#4-工程开发实践" class="headerlink" title="4. 工程开发实践"></a><strong>4. 工程开发实践</strong></h2><h3 id="4-1-训练部分实践"><a href="#4-1-训练部分实践" class="headerlink" title="4.1 训练部分实践"></a><strong>4.1 训练部分实践</strong></h3><p><strong>整体训练流程</strong></p>
 <p>对于线下训练，采取如下训练流程：</p>
@@ -544,7 +544,7 @@
 <li>单机多卡方案</li>
 </ul>
 <p>采用PS-Worker的方案在平台上具备不错的扩展性，但是也存在一定的弊端，使用RPC的通讯很容易受到其他任务的影响，整个的训练过程受到最慢Worker的影响，同时异步更新方式对结果也存在一定的波动。对此，在线上生产中，最终选取单机多卡的方案，牺牲一定的扩展性，带来整体训练效果和训练速度的稳定性。单机多卡方案采取多GPU手动指定OP的Device，同时在各个Device内完成变量共享，最后综合Loss与梯度，将Grad更新到模型参数中。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Y9vrHHEUA35KWS2DULaU4E.png">加速比曲线</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/Y9vrHHEUA35KWS2DULaU4E.png">加速比曲线</p>
 <p><strong>TF模型集成预处理</strong></p>
 <p>模型训练过程中，ID类特征低频过滤需要用到Vocab词表，连续型特征都需要进行归一化。这里会产生大量的预处理文件，在线下处理流程中很容易在Spark中处理成Libsvm格式，然后载入到模型中进行训练。但是在线上预测时，需要在工程开发端载入多个词表及连续型特征的归一化预处理文件（avg/std值文件等），同时由于模型是按天更新，存在不同日期版本的对齐问题。</p>
 <p>为了简化工程开发中的难度，在模型训练时，考虑将所有的预处理文件写入TF计算图之中，每次在线预测只要输入最原始的特征，不经过工程预处理，直接可得到结果：</p>
@@ -575,10 +575,10 @@ ph_out = (ph_in - constant_avg) / constant_std<span aria-hidden="true" class="li
 <p><strong>远程计算模式</strong></p>
 <p>TensorFlow Java API的底层C++动态链接库对libstdc++.so的版本有要求，需要GCC版本不低于4.8.3，而目前线上服务的CPU机器大部分系统为CentOS 6, 默认自带GCC版本为4.4.7。如果每台线上业务方服务器都支持TensorFlow SavedModel本地计算的话，需要把几千台服务器统一升级GCC版本，工作量比较大而且可能会产生其他风险。</p>
 <p>因此，我们重新申请了几十台远程计算服务器，业务方服务器只需要把Input数据序列化后传给TensorFlow Remote集群，Remote集群计算完后再将Output序列化后返回给业务方。这样只需要对几十台计算服务器升级就可以了。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Auo8NfOLMfk1sUB1BiaQ0T4dCMwbDP3eic.png">在线序列化</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/Auo8NfOLMfk1sUB1BiaQ0T4dCMwbDP3eic.png">在线序列化</p>
 <p><strong>线上性能</strong></p>
 <p>模型上线后，支持了多个业务方的算法需求，远程集群计算时间的TP99基本上在5ms以内，可以满足业务方的计算需求。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/LCgQukwKvEhjaTFlPaJ.png">线上效果</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/LCgQukwKvEhjaTFlPaJ.png">线上效果</p>
 <h2 id="5-总结与展望"><a href="#5-总结与展望" class="headerlink" title="5. 总结与展望"></a><strong>5. 总结与展望</strong></h2><p>模型落地并上线后，对业务指标带来较大的提升。后续将会进一步根据业务优化模型，进一步提升效果：</p>
 <ul>
 <li>将会进一步丰富多目标学习框架，将取餐、送餐、交付、调度等整个配送生命周期内的过程在模型层面考虑，对订单生命周期内多个目标进行建模，同时提升模型可解释性。</li>
@@ -999,7 +999,7 @@ ph_out = (ph_in - constant_avg) / constant_std<span aria-hidden="true" class="li
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

@@ -430,7 +430,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-02
+                    2025-04-17
                 </div>
                 
 
@@ -474,21 +474,21 @@
             <div id="articleContent">
                 <h2 id="支付的典型架构"><a href="#支付的典型架构" class="headerlink" title="支付的典型架构"></a>支付的典型架构</h2><p>每个公司根据其业务和公司发展的不同阶段，所设计的支付系统也会有所不同。我们先看看互联网公司的一些典型的支付系统架构。</p>
 <h3 id="支付宝"><a href="#支付宝" class="headerlink" title="支付宝"></a><strong>支付宝</strong></h3><p>先看看业内最强的支付宝系统，<a href="/2025/02/25/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-bao-qian-bao-xi-tong-jia-gou-nei-bu-pou-xi/" title="支付宝钱包系统架构内部剖析">支付宝钱包系统架构内部剖析</a></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/hVDgNQQaiaS8fWx2iM7O.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/hVDgNQQaiaS8fWx2iM7O.png"></p>
 <p>这个整体架构上并没有与众不同之处。在模块划分上，这个图显示的是最顶层的划分，也无法告知更多细节。 但支付宝架构强点在两个方面，一个是账务处理，分为内外两个子系统，外部子系统是单边账，内部子系统走复式记账。 不少支付平台是从这里得到启发来搞定的对账系统。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/6aVFHuLL2be1YCVDhRe2.png"></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/k11qYp5nlKA1xh5dmPAV.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/6aVFHuLL2be1YCVDhRe2.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/k11qYp5nlKA1xh5dmPAV.png"></p>
 <p>另一个亮点是柔性事务处理，利用消息机制来实现跨系统的事务处理，避免数据库锁导致的性能问题。</p>
 <h3 id="京东金融"><a href="#京东金融" class="headerlink" title="京东金融"></a><strong>京东金融</strong></h3><p>来自<a href="/2025/02/24/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/jing-dong-zhi-fu-ping-tai-zong-ti-jia-gou-she-ji/" title="京东支付平台总体架构设计">京东支付平台总体架构设计</a> 。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/nTOG1LBsV8jiWVneS3XX.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/nTOG1LBsV8jiWVneS3XX.png"></p>
 <p>京东金融是在网银在线的基础上发展起来的。 网银在线的原班技术人员有不少来自易宝公司，在京东收购之后，又引入了支付宝的人才。因而从架构上受这两个公司的影响很大。</p>
 <h3 id="去哪儿"><a href="#去哪儿" class="headerlink" title="去哪儿"></a><strong>去哪儿</strong></h3><p>来自<a href="/2025/02/26/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qu-na-er-gong-si-fen-xiang-de-zhi-fu-chan-pin-jia-gou/" title="去哪儿公司分享的支付产品架构">去哪儿公司分享的支付产品架构</a></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/uUjIRCLqoLMkB2zBpORD.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/uUjIRCLqoLMkB2zBpORD.png"></p>
 <h3 id="美团"><a href="#美团" class="headerlink" title="美团"></a><strong>美团</strong></h3><p>来自<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/7daa609d376baf1ffd4fad09.html">美团的支付平台规划架构</a> 。这是2015年的文档。 2016年美团才拿到支付牌照。 从这个架构，大家也能知道为什么美团必须拿到支付牌照。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Zz1Ii4sh3OOYfMDEjmxP.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/Zz1Ii4sh3OOYfMDEjmxP.png"></p>
 <p>这些架构文档全部来自互联网公开资料。 对于架构是否真实反映实际系统情况，需要大家自行判断。 我们以这些文档为基础，分析支付系统的应有的软件架构。</p>
 <h2 id="参考架构"><a href="#参考架构" class="headerlink" title="参考架构"></a>参考架构</h2><p>一般来说，支付系统典型架构会包含如下模块：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/loSogi026537PM92JQyv.jpg"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/loSogi026537PM92JQyv.jpg"></p>
 <p>支付系统从架构上来说，分为三层：</p>
 <ol>
 <li>支撑层： 用来支持核心系统的基础软件包和基础设施， 包括运维监控系统、日志分析系统等。</li>
@@ -915,7 +915,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

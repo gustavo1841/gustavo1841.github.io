@@ -428,7 +428,7 @@ typedef struct PTNode{
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-23
+                    2025-04-17
                 </div>
                 
 
@@ -486,7 +486,7 @@ typedef struct PTree
 
 
 
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/ec326383f8191ed4226e3e1be75db008.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ec326383f8191ed4226e3e1be75db008.png"></p>
 <h1 id="孩子链表示法"><a href="#孩子链表示法" class="headerlink" title="孩子链表示法"></a>孩子链表示法</h1><p>把每个节点用线性表连接起来，把某个节点的所有孩子节点连接成为一个单链表，连接在其父节点的线性表中</p>
 <pre class="line-numbers language-none"><code class="language-none">typedef struct CTNode
 {
@@ -507,7 +507,7 @@ typedef struct{
 
 
 
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/0980c3253ad90302547ab2d2d2142efe.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/0980c3253ad90302547ab2d2d2142efe.png"></p>
 <h1 id="孩子兄弟表示法（二叉树表示法、二叉链表表示法）"><a href="#孩子兄弟表示法（二叉树表示法、二叉链表表示法）" class="headerlink" title="孩子兄弟表示法（二叉树表示法、二叉链表表示法）"></a>孩子兄弟表示法（二叉树表示法、二叉链表表示法）</h1><p>用二叉链表作为树的存储结构，链表中每个节点的两个指针域分别指向其第一个孩子节点和下一个兄弟节点</p>
 <pre class="line-numbers language-none"><code class="language-none">typedef struct CSNode{
     ElemType data;
@@ -516,33 +516,33 @@ typedef struct{
 
 
 
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/b74f5f55d3d84272504c4e6e065ddc0d.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/b74f5f55d3d84272504c4e6e065ddc0d.png"></p>
 <h1 id="树转二叉树"><a href="#树转二叉树" class="headerlink" title="树转二叉树"></a>树转二叉树</h1><p>树转为二叉树转换步骤如下</p>
 <ol>
 <li>加线：兄弟之间加一条线</li>
 <li>抹线：对每个节点，除了其左孩子之外，去除与其他孩子之间的关系</li>
 <li>旋转：以树的根节点为轴心，整棵树顺时针旋转 40°</li>
 </ol>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-ilau.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-ilau.png"></p>
 <h1 id="二叉树转树"><a href="#二叉树转树" class="headerlink" title="二叉树转树"></a>二叉树转树</h1><ol>
 <li>加线：若 p 节点是双亲节点的左孩子，则将 p 的右孩子、右孩子的右孩子……. 沿着分支找到的所有右孩子，都与 p 的双亲用线连接起来</li>
 <li>抹线：抹掉原来二叉树的双亲节点与右孩子之间的连线</li>
 <li>调整：将节点按层次排列一下</li>
 </ol>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/image-smsk.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-smsk.png"></p>
 <h1 id="森林转二叉树"><a href="#森林转二叉树" class="headerlink" title="森林转二叉树"></a>森林转二叉树</h1><p>转换：将森林中的每一颗树转换成二叉树;</p>
 <p>连线：将各颗转换后的二叉树的根结点相连；</p>
 <p>旋转：将添加的水平线和原有的连线,以第一颗树的根结点为轴心,按顺时针方向旋转45°</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/7f8438d6bc25505b26c7a978b0457b79.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7f8438d6bc25505b26c7a978b0457b79.png"></p>
 <h1 id="二叉树转森林"><a href="#二叉树转森林" class="headerlink" title="二叉树转森林"></a>二叉树转森林</h1><ol>
 <li>从根结点开始，若右孩子存在，则把右孩子结点的连线删除，在查看分离后的二叉树，若右孩子存在，则连线删除……，直到所有的右孩子连线都删除为止，得到分离后的二叉树。</li>
 <li>在将每棵分离后的二叉树转换为树即可。</li>
 </ol>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/ee7c4a1f377a06809f550912439b0e22.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ee7c4a1f377a06809f550912439b0e22.png"></p>
 <h1 id="树的遍历有三种搜索策略"><a href="#树的遍历有三种搜索策略" class="headerlink" title="树的遍历有三种搜索策略"></a>树的遍历有三种搜索策略</h1><p>先根遍历:若树不空，则先访问根结点，然后依次先根遍历各棵子树。</p>
 <p>后根遍历:若树不空，则先依次后根遍历各棵子树，然后访问根结点。</p>
 <p>按层次遍历:若树不空，则自上而下自左至右访问树中每个结点。（用队列+递归实现）</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/b6593e271d5b50ef473ee8bec180d28d.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/b6593e271d5b50ef473ee8bec180d28d.png"></p>
 <h1 id="森林的遍历"><a href="#森林的遍历" class="headerlink" title="森林的遍历"></a>森林的遍历</h1><ul>
 <li><p>森林的先序遍历：若森林不空，则</p>
 </li>
@@ -553,7 +553,7 @@ typedef struct{
 <li><p>先序遍历森林中(除第一棵树之外)其余树构成的森林。</p>
 </li>
 </ul>
-<p>  <img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/7ac3b76223b376c50e11ee5d2cc385eb.gif"></p>
+<p>  <img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7ac3b76223b376c50e11ee5d2cc385eb.gif"></p>
 <p>  先序遍历：ABCDEFGHJI</p>
 <ul>
 <li><p>森林的中序遍历：若森林不空，则</p>
@@ -563,13 +563,13 @@ typedef struct{
 <li><p>访问森林中第一棵树的根结点;</p>
 </li>
 <li><p>中序遍历森林中(除第一棵树之外)其余树构成的森林。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/c059ffbb3b20f7e2c3ba0156db4f96ca.gif"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/c059ffbb3b20f7e2c3ba0156db4f96ca.gif"></p>
 <p>中序遍历：BCDAFEJHIG</p>
 </li>
 </ul>
 </li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/3d81353987ffb8b4cfd964d8ec6cbb89.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3d81353987ffb8b4cfd964d8ec6cbb89.png"></p>
 
                 
             </div>
@@ -754,12 +754,12 @@ typedef struct{
                         <span class="chip bg-color">计算机</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -811,12 +811,12 @@ typedef struct{
                         <span class="chip bg-color">计算机</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -956,7 +956,7 @@ typedef struct{
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

@@ -432,7 +432,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-04-04
+                    2025-04-17
                 </div>
                 
 
@@ -481,7 +481,7 @@
 <li>本文尽可能以通俗浅显的语言来描述一些技术问题，以及背后的业务思考，以期让大家通过快速阅读此文，<strong>从0到1到10，彻底理解投放系统</strong>，若能如此，则不胜荣幸(<strong>写不出段子的工程师的代码，是没有灵魂的</strong>?)</li>
 <li>如果看完全文，你还是没懂，那<strong>一定是我的问题</strong>，<strong>欢迎线下交流/指正</strong></li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/mmbiz.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/mmbiz.png"></p>
 <ul>
 <li><p>1.1 推荐系统的遗留问题</p>
 </li>
@@ -535,7 +535,7 @@
 </ul>
 <h1 id="一-为什么需要投放系统"><a href="#一-为什么需要投放系统" class="headerlink" title="一 为什么需要投放系统"></a>一 为什么需要投放系统</h1><p>要证明世上<strong>没有</strong>鬼是很难的，但如果要证明<strong>有</strong>，却很简单，举例说明即可。同理，要证明为什么需要xxx，只需要说明：<strong>没有xxx，不行</strong>即可。</p>
 <p>因此，“为什么要投放”，可转化为：<strong>“推荐系统在内容分发场景中有什么不足”</strong>，以此来进行具体分析。</p>
-<h2 id="1-1-推荐系统的遗留问题"><a href="#1-1-推荐系统的遗留问题" class="headerlink" title="1.1 推荐系统的遗留问题"></a>1.1 推荐系统的遗留问题</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/FVln3bRT4udYGhVCHgbTbXumc6Aic9tvI2yP62TluWe41j9lox3jcicr1qVb2VUJj1Q3jcLCtvXlyREibAyTiavXcw.png"></p>
+<h2 id="1-1-推荐系统的遗留问题"><a href="#1-1-推荐系统的遗留问题" class="headerlink" title="1.1 推荐系统的遗留问题"></a>1.1 推荐系统的遗留问题</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/FVln3bRT4udYGhVCHgbTbXumc6Aic9tvI2yP62TluWe41j9lox3jcicr1qVb2VUJj1Q3jcLCtvXlyREibAyTiavXcw.png"></p>
 <p>推荐系统的一个最大遗留问题是<strong>马太效应</strong>。一套<strong>虚拟系统，就是现实社会的一个映射</strong>，因此，在现实社会中存在的问题，在推荐系统同样存在，如上图所示：</p>
 <ul>
 <li>在<strong>内容侧</strong>，数百万级的内容池中，可能Top20%的一级分类内容数量占了整个内容池的80%左右（哦，2/8？3/7？请不用太过纠结，仅随意构造用于示例说明，下同）；</li>
@@ -549,13 +549,13 @@
 <p>既然，消费内容的80%+，都是短/贫/快的无脑娱乐化图文/视频，那么对于真正的<strong>优质账号作者</strong>自然是致命的：没有生存的环境/土壤，只能是<strong>肥的拖瘦，瘦的拖死（要么逃，要么死）</strong>。从而使得内容池的<strong>2/8分化趋势进一步加剧</strong>，当然也会加剧消费情况的2/8趋势…</p>
 <h3 id="1-1-3-推荐平台方：无辜的中间人"><a href="#1-1-3-推荐平台方：无辜的中间人" class="headerlink" title="1.1.3 推荐平台方：无辜的中间人"></a>1.1.3 推荐平台方：无辜的中间人</h3><p>那么上述的“马太效应”，应该由这场交易的中间方（推荐平台）来背锅吗？当然不能！<strong>推荐平台，恰恰只不过是做了它本来该做的事</strong>，而已。</p>
 <p>既然，推荐系统已经做了它该做的事情，为何结果却并不理想呢？下面从两方面分析：<strong>推荐系统是什么</strong>？ <strong>推荐系统有什么问题</strong>？</p>
-<h4 id="1-1-3-1-推荐系统是什么"><a href="#1-1-3-1-推荐系统是什么" class="headerlink" title="1.1.3.1 推荐系统是什么"></a>1.1.3.1 推荐系统是什么</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/odPiakcp5AMz.png"></p>
+<h4 id="1-1-3-1-推荐系统是什么"><a href="#1-1-3-1-推荐系统是什么" class="headerlink" title="1.1.3.1 推荐系统是什么"></a>1.1.3.1 推荐系统是什么</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/odPiakcp5AMz.png"></p>
 <p>上图，是一个基本&amp;通用的推荐系统架构。</p>
 <ul>
 <li><p><strong>最简单的描述： 将用户喜欢的内容推荐给用户</strong>。</p>
 </li>
 <li><p><strong>详细描述</strong>：<strong>根据用户的过往行为历史</strong>，来<strong>尝试识别</strong>用户的兴趣，然后从全体内容池中，筛选出和该画像匹配程度最高的内容，推荐给用户，并收集用户对此的反馈数据，来迭代用户的兴趣画像…，如此不断<strong>循环迭代…</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/KRaZGbqqdFotDQica7mYzZrvFJxlPKUhi.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/KRaZGbqqdFotDQica7mYzZrvFJxlPKUhi.png"></p>
 </li>
 </ul>
 <h4 id="1-1-3-2-推荐系统有什么问题"><a href="#1-1-3-2-推荐系统有什么问题" class="headerlink" title="1.1.3.2 推荐系统有什么问题"></a>1.1.3.2 推荐系统有什么问题</h4><p>推荐系统诞生的初衷，是为了解决海量用户 vs 海量内容的信息过载问题，注重规模效应。本质是<strong>以人(消费者)找内容</strong>，并且<strong>侧重为其中的人服务</strong>。也即是说，看似公平的中间人，实际是被消费者牵着在走，而忽略了内容生产方。<strong>注重开发利用，而忽略生态环境建设</strong>。</p>
@@ -571,7 +571,7 @@
 </ul>
 <h2 id="1-2-人工干预的必要性"><a href="#1-2-人工干预的必要性" class="headerlink" title="1.2 人工干预的必要性"></a>1.2 人工干预的必要性</h2><p><strong>在市场经济体系中</strong>，市场当然是至关重要，但市场本身是有缺陷的(贪婪/唯利)，因此人为的宏观调控也是必须的。</p>
 <p>同样，<strong>在信息流分发体系中</strong>，推荐当然是至关重要，但推荐本身是有缺陷的(伪喜欢/唯消费者)，因此人工干预也是必须的。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/TGibejBCvR6sa.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/TGibejBCvR6sa.png"></p>
 <h3 id="1-2-1-内部运营干预"><a href="#1-2-1-内部运营干预" class="headerlink" title="1.2.1 内部运营干预"></a>1.2.1 内部运营干预</h3><p>你隔壁运营组同学的需求：</p>
 <ul>
 <li>比如一些重大新闻，这当然应该成为头条内容</li>
@@ -586,9 +586,9 @@
 <li>号主需要把自己的某一篇文章，<strong>定向曝光/投放</strong>给满足指定条件的用户群体，比如：一篇深圳健身房的软广，当然不应该曝光给上海的用户 … 显然，<strong>这些需求都是从内容侧发起的</strong>，是推荐系统难以解决的需求。</li>
 </ul>
 <h2 id="1-3-为什么不是推送Push分发"><a href="#1-3-为什么不是推送Push分发" class="headerlink" title="1.3 为什么不是推送Push分发"></a>1.3 为什么不是推送Push分发</h2><p>以内容找人，粗略等于一个<strong>内容发起的Push动作</strong>（推荐的人找内容，近似<strong>用户发起的Pull动作</strong>）。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/PBQicriaATdWRvOiaqnx.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/PBQicriaATdWRvOiaqnx.png"></p>
 <p>Push分发，在一个产品的初期是很重要的一种分发方式，是拉新的基本手段，比如你常讨厌的<strong>红点推送</strong>。但由于Push操作<strong>过于强/硬</strong>，影响体验，容易导致用户反弹，因此，<strong>不适合长期/大规模发力</strong>。</p>
-<h2 id="1-4-为什么不是订阅分发"><a href="#1-4-为什么不是订阅分发" class="headerlink" title="1.4 为什么不是订阅分发"></a>1.4 为什么不是订阅分发</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/H95Ro1dvnZ26bzOuQpKq.png"></p>
+<h2 id="1-4-为什么不是订阅分发"><a href="#1-4-为什么不是订阅分发" class="headerlink" title="1.4 为什么不是订阅分发"></a>1.4 为什么不是订阅分发</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/H95Ro1dvnZ26bzOuQpKq.png"></p>
 <p>订阅分发，如同共产主义，是美好、而不可达到，但可以无限逼近的？如果：</p>
 <ul>
 <li>所有的<strong>用户</strong>：都能订阅到<strong>适量的</strong>、<strong>真正喜欢</strong>的账号</li>
@@ -596,7 +596,7 @@
 </ul>
 <p>但，目前确实还没到来…</p>
 <h1 id="二-投放系统是什么"><a href="#二-投放系统是什么" class="headerlink" title="二 投放系统是什么"></a>二 投放系统是什么</h1><p>相对于我们耳熟能详的推荐系统，投放系统似乎更为陌生？其实，并不然。可以通过下图<strong>直观感受下投放的含义</strong>：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/kCxbEL6LL5kmC.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/kCxbEL6LL5kmC.png"></p>
 <h2 id="2-1-生活中的投放"><a href="#2-1-生活中的投放" class="headerlink" title="2.1 生活中的投放"></a>2.1 生活中的投放</h2><p>投放的字面意思：<strong>把某物品投掷出去， 并放置于某处</strong>。</p>
 <ul>
 <li>例1：快递小哥把外卖送给一楼前台妹子</li>
@@ -612,7 +612,7 @@
 <p>所以，在这场活动中，投放平台方，<strong>服务的是商家(广告主)</strong>，而C侧用户只是可以售卖交易的流量而已。</p>
 <h2 id="2-3-信息流投放"><a href="#2-3-信息流投放" class="headerlink" title="2.3 信息流投放"></a>2.3 信息流投放</h2><p>信息流投放，本质上和广告投放是一致的。只是投放的物品有所区别而已，信息流投放的物品，包括图文、视频、广告等多种形态。</p>
 <p>在具体实施过程中，也是<strong>以内容找人</strong>，和推荐系统的<strong>以人找内容</strong>相反。投放强调的是：<strong>从 B侧-&gt;C侧的过程</strong>，和推荐系统<strong>以C侧需求为出发点</strong>相反。更加关注底层的<strong>内容生态健康</strong>，而非一切为C侧消费者服务。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/jBCvR6sacmsYH9ekheg0j.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/jBCvR6sacmsYH9ekheg0j.png"></p>
 <p>当然，在产品/业务的发展初期，处于快速跑马圈地阶段，我们往往忽略（应该是来不及关注？）生态的健康问题。但，随着产品/业务逐步发展壮大时，<strong>曾经重要但不紧急</strong>的生态问题，就会<strong>变得重要而急迫</strong>了，因为这通常会关系到产品的生死存亡。比如随着市场经济迅猛发展的阿里粑粑，一不小心就可能被宏观调控了。</p>
 <p>这也是为什么在信息流产品的生命周期里，一开始就必须要一套强大的推荐系统，而投放系统通常在中期阶段才出现的一大原因。</p>
 <h1 id="三-如何设计与实现投放系统"><a href="#三-如何设计与实现投放系统" class="headerlink" title="三 如何设计与实现投放系统"></a>三 如何设计与实现投放系统</h1><p>到此，终于将<strong>为什么</strong>，<strong>是什么</strong>，这两个基本的&amp;&amp;重要的背景问题讲完了。<strong>名正，则言顺</strong>，因此接下来的不过是具体实施细节，也就变得相对简单了。</p>
@@ -623,7 +623,7 @@
 <li>供应方平台(SSP)：投放通过DSP，将流量售卖给作者。因此，<strong>供应，指的是平台流量，即C侧用户</strong>。这部分主要是<strong>对接C侧用户请求，为投放提供流量输入</strong>。</li>
 <li>效果管理平台(TMP)：这部分是一个辅助设施，用于优化投放效果，比如ab实验系统等。本文暂不详细分析该模块。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/4viawxA54pBa.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/4viawxA54pBa.png"></p>
 <ul>
 <li><strong>需求方平台(DSP)</strong>：对接B侧，主要是离线系统；</li>
 <li><strong>供应方平台(SSP)</strong>：对接C侧，是在线系统；</li>
@@ -631,7 +631,7 @@
 </ul>
 <p>下文，将按照需求/物品流向，即DSP -&gt; TFX -&gt; SSP的顺序，对各子模块的设计和实现进行具体分析。</p>
 <h2 id="3-2-需求方平台-DSP"><a href="#3-2-需求方平台-DSP" class="headerlink" title="3.2 需求方平台(DSP)"></a>3.2 需求方平台(DSP)</h2><p>DSP主要包括需求(投放任务)的<strong>接入和管理</strong>两部分，是整个投放系统的<strong>入口和触发点</strong>。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/PfmlVFEqic9H.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/PfmlVFEqic9H.png"></p>
 <h3 id="3-2-1-需求接入"><a href="#3-2-1-需求接入" class="headerlink" title="3.2.1 需求接入"></a>3.2.1 需求接入</h3><p>投放需求的来源通常是多方面的，比如：</p>
 <ul>
 <li><strong>内部运营同学</strong>：如热点事件运营、BD账号内容扶持等；</li>
@@ -647,11 +647,11 @@
 <li><strong>流量</strong>：投放动作，<strong>本质是兑现流量的售卖协议</strong>。因此，如果曝光量达到了协议指定值，就完成了这笔交易，即应立刻熔断任务。</li>
 <li><strong>效果</strong>：除了有<strong>保量要求</strong>外，投放也必须关注<strong>投放效果</strong>。如果只关心保量目标，而忽略效果，就会影响C侧用户体验，进而影响平台方利益，同时也会影响B侧号主体验。因此，对于一些效果很差（用户不喜欢）的投放任务，会根据一些列规则（如点击率）进行适时熔断。</li>
 </ul>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/5KdRyGIHi.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/5KdRyGIHi.png"></p>
 <p>简单的说，<strong>熔断的基本原则</strong>就是，要求<strong>在规定的时间内，保质，保量 的完成B侧下发的投放任务</strong>。</p>
 <p>当然，<strong>保质、保量，本身就是一对矛盾体</strong>，因此，这里是一个<strong>平衡问题</strong>。在实际进行中，如何提升投放效果，保证投放完成率，同时<strong>兼顾三方利益</strong>，一直是我们追求的优化目标。<em>道阻且长，吾欣然往之</em>。</p>
 <h2 id="3-3-投放中介-TFX"><a href="#3-3-投放中介-TFX" class="headerlink" title="3.3 投放中介(TFX)"></a>3.3 投放中介(TFX)</h2><p>连接B侧和C侧的投放中介，也就是狭义上所说的投放系统， 是整个投放体系的关键部分，也是一次投放交易的<strong>决策和兑现</strong>机构。一次投放任务的下发-执行的主要流程如下：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/CnLo65aQvxicX.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/CnLo65aQvxicX.png"></p>
 <p>投放中介，可分为对接B侧的离线，和对接C侧的在线，两个子系统。以下将对两部分进行具体分析。</p>
 <h3 id="3-3-1-离线子系统"><a href="#3-3-1-离线子系统" class="headerlink" title="3.3.1 离线子系统"></a>3.3.1 离线子系统</h3><p>离线子系统，是直接和需求方平台(DSP)对接的，为DSP提供投放任务的<strong>排期决策服务</strong>。如前所述，投放系统通常需要接入来自运营/号主等多方的各类投放任务。如此多的投放任务(50w级)，<strong>如何保质保量的完成，这不仅是在线兑现的模块的问题，还必须依赖离线的排期决策</strong>。</p>
 <h4 id="3-3-1-1-任务排期"><a href="#3-3-1-1-任务排期" class="headerlink" title="3.3.1.1 任务排期"></a>3.3.1.1 任务排期</h4><p>任务排期，即在投放任务的生成阶段，对该任务进行排期。简单说：<strong>相当于货(流量)仓调度员</strong>，当有人来谈生意(下发投放任务)时，需要根据自己手上的货物，进行实时的评估，然后决定要不要/能不能承接这一单生意，并为后面的兑现环节做好必要的准备!!。</p>
@@ -662,7 +662,7 @@
 <li><strong>指导在线的执行兑现</strong>：离线的排期，不仅决定了任务能否下发，还需要为在线的具体执行提供参考/指导。否则，离线和在线会出现完全脱节，从而导致给出的承诺最后无法兑现。</li>
 </ul>
 <p>任务排期的几个<strong>关键步骤</strong>依次如下：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/RYsibZ0qyYnKRj7thmZ.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/RYsibZ0qyYnKRj7thmZ.png"></p>
 <p>回顾一下，你带女朋友去超市买雪糕的场景即可：</p>
 <pre class="line-numbers language-none"><code class="language-none">你：老板，有东北大板的雪糕卖吗？
 老板：噢，我看下....有，你要几根嘛？
@@ -686,21 +686,21 @@
 <p>当然，具体的排期策略，在不同的产品/业务场景，或者同一产品的各阶段，都会有很多差异，这里只是列举一些基本/常用的策略，以供参考。<strong>策略，永远在优化的路上…</strong></p>
 <h4 id="3-3-1-2-库存管理"><a href="#3-3-1-2-库存管理" class="headerlink" title="3.3.1.2 库存管理"></a>3.3.1.2 库存管理</h4><p>库存管理是排期策略得以实施的<strong>底层支撑</strong>。库存管理，类似一个<strong>忠诚&amp;勤劳的仓库管理员</strong>。需要对流量库存的<strong>已使用、剩余、时间分布、定向分布</strong>等了如指掌。为上层的排期决策，提供细致准确的数据信息支持。</p>
 <p>流量库存的数据，需要<strong>从在线服务进行抽样/采集</strong>，从而得到各个业务场景的具体流量分布情况。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/KXqNE0mxkEz2nR.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/KXqNE0mxkEz2nR.png"></p>
 <h3 id="3-3-2-在线子系统"><a href="#3-3-2-在线子系统" class="headerlink" title="3.3.2 在线子系统"></a>3.3.2 在线子系统</h3><p>在线子系统，即投放任务的真正<strong>执行/兑现机构</strong>。在C端用户请求进入时，根据任务的定向条件，或者lookalike智能扩散等，召回与用户匹配的任务，曝光给该用户，即兑现一次该任务的曝光流量。</p>
 <h4 id="3-3-2-1-定向召回"><a href="#3-3-2-1-定向召回" class="headerlink" title="3.3.2.1 定向召回"></a>3.3.2.1 定向召回</h4><p>在早期，由于投放任务量较少(1w条以下)，所以一种简单粗暴且高效的方案是，<strong>在线过滤匹配</strong>即可。当用户请求进入时，循环遍历投放任务列表，把任务的<strong>定向条件与用户画像进行匹配</strong>，由于任务量很少，耗时通常在50ms以下，完全满足需求。</p>
 <p>当任务量不断增加，则需要建立召回索引，提高在线检索性能。</p>
 <p>定向召回的基本流程和架构，与常规的推荐召回是一致的，包括<strong>数据源接入、数据预处理、离线索引构建、在线检索</strong>等4个主要部分。架构图如下：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/MGiagSyvG9s.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/MGiagSyvG9s.png"></p>
 <p>值得注意的是，在具体实现上，<strong>传统的倒排索引方式，无法直接满足定向召回的需求</strong>。其根本原因在于，<strong>推荐与投放是有本质区别的</strong>：</p>
 <ul>
 <li>推荐召回：<strong>以用户找内容</strong>，只要内容满足用户兴趣画像即可，此时<strong>用户画像可能并不满足内容的相关条件，内容处于被选择状态</strong>。如果用推荐召回来做定向召回，会出现<strong>召回结果放大</strong>的badcase，即<strong>召回的任务并不能投放给该用户</strong>。</li>
 <li>定向召回：<strong>以内容/任务找用户</strong>，<strong>用户画像必要满足内容的全部定向条件，此时用户处于被选择状态</strong>。</li>
 </ul>
 <p><strong>例1（错误示范）：按推荐的传统倒排索引进行召回</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/T34aqO7upibPeIzI9.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/T34aqO7upibPeIzI9.png"></p>
 <p><strong>例2（正确示范）：按改良后的定向索引进行召回</strong></p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/TIX49rY69V.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/TIX49rY69V.png"></p>
 <p>改良的关键点在于，补齐/显示化所有需要匹配的定向维度，以解决召回结果被放大的问题：</p>
 <ul>
 <li>投放任务：没有指定的定向维度，即可以投放给该维度的所有用户，<strong>补齐为all</strong></li>
@@ -715,7 +715,7 @@
 <p>这些额外代价，也可以通过继续优化去缓解，比如增加二级索引等，来解决在线检索的性能消耗问题（ <em>具体细节，后有专文介绍</em> ）。</p>
 <h4 id="3-3-2-2-lookalike人群扩散"><a href="#3-3-2-2-lookalike人群扩散" class="headerlink" title="3.3.2.2 lookalike人群扩散"></a>3.3.2.2 lookalike人群扩散</h4><p>凡是我们知道的问题，都不是问题；问题是那些，我不知道有问题的问题。</p>
 <p><strong>定向投放，只能解决明确知道目标用户群体的情况</strong>。而很多时候，<strong>运营/号主，并不知道他们该把这边文章投放给什么样的用户群体</strong>。对于这种情况，就需要一种更加智能的投放方式了，比如基于lookalike的人群扩散方式。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/cmsYH93ZicQx6ctp.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/cmsYH93ZicQx6ctp.png"></p>
 <p>在<strong>智能投放</strong>(自动化人群圈定)场景下， 即根据已有的少量种子用户，通过算法模型来<strong>计算其他用户 与 种子用户的相似程度</strong>，从而得到一个与种子用户群体相似的，更大的用户群体。</p>
 <p>在投放时，即可将该“<strong>相似的，更大的用户群体</strong>”作为投放任务的目标人群，进行投放，从而<strong>解决定向条件未知的问题</strong>。</p>
 <p>在具体实现中，这里也涉及很多方面，比如：</p>
@@ -727,7 +727,7 @@
 </ul>
 <h2 id="3-4-供应方平台-SSP"><a href="#3-4-供应方平台-SSP" class="headerlink" title="3.4 供应方平台(SSP)"></a>3.4 供应方平台(SSP)</h2><p>整个投放系统，供应/售卖的是<strong>C侧用户带来的流量</strong>。流量，即资产。因此，<strong>供应方平台解决的就是，如何通用灵活的接入C侧流量的问题</strong>，尤其在类似一些<strong>多端多场景</strong>的情况。</p>
 <p>当然，如果要建设一套通用/开放的信息流投放平台，自然就需要接入更多的流量场景，并且要灵活快速的支持各场景的随时下线和新增上线等需求。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/f7YZO2or4CaXLXM7sq.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/f7YZO2or4CaXLXM7sq.png"></p>
 <p>供应方平台涉及的相关技术点，主要是<strong>常见后台接入层的系列挑战</strong>，如: 一些需要考虑的基本问题：</p>
 <ul>
 <li><strong>高并发</strong>：对接业务场景多，上游请求量线性增加</li>
@@ -739,7 +739,7 @@
 <p>由于这些挑战点，与投放本身关系不大，因此就不再具体展开讨论。</p>
 <h2 id="3-5-投放系统透视图"><a href="#3-5-投放系统透视图" class="headerlink" title="3.5 投放系统透视图"></a>3.5 投放系统透视图</h2><p>到此，对一套投放系统所涉及的最主要模块进行了逐一的分析。当然，还有很多子模块，如连接离线与在线的<strong>任务分发模块</strong>，负责播放控制的<strong>Pacing调控模块</strong>，以及<strong>投放效果管理平台(TMP)</strong> 等等，这些遗留部分，后续争取找机会分享补齐(如果你相信的话)。</p>
 <p>在此给出一张<strong>一般/通用的</strong>投放系统的完整架构图，以供参考：</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/ZC0zgOhiauoPLH.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/ZC0zgOhiauoPLH.png"></p>
 <h1 id="四-总结与展望"><a href="#四-总结与展望" class="headerlink" title="四 总结与展望"></a>四 总结与展望</h1><p>沿着，<strong>为什么</strong>要投放，投放<strong>是什么</strong>，<strong>怎么做</strong>投放，这样的路线，对一般意义上的 &amp;&amp; 通用的信息流投放系统，进行了深入浅出的 &amp;&amp; 较为完整的 讨论(<em>自认为如此？</em>)。</p>
 <p>一套完整的投放系统，所涉及的点确实很多，包括：B侧/平台/C侧， 管理端/后台/算法/客户端等诸多参与方。<strong>本文，仅根据个人在业务实践中的理解，斗胆分享一些浅薄的所思所想，以供参考</strong>。部分术语并非十分严格/准确，部分思路也未必正确，<strong>欢迎各位随时交流讨论 / 批评指正</strong>。</p>
 <h1 id="五-最后的废话"><a href="#五-最后的废话" class="headerlink" title="五 最后的废话"></a>五 最后的废话</h1><p>由于篇幅 / 时间所限( <em>其实还是懒</em>)，文中抛出了诸多悬而未决的问题点。仅 <strong>“具体细节，后有专文介绍”</strong> 这种骗人鬼话，就出现了5+次，在此，有必要对看到3+次的你，表示感谢和歉意。</p>
@@ -1140,7 +1140,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

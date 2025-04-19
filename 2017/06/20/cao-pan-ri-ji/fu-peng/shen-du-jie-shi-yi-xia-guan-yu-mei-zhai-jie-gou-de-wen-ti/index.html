@@ -1,0 +1,1214 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="深度解释一下关于美债结构的问题, Gustavo">
+    <meta name="description" content="上在美债收益曲线的各个期限上，影响期限结构的有多方面的原因，既然存在期限的差异，这就意味着我们可以用商品供需的结构去思考利率曲线结构的影响因素；购买长端债券者往往要求更高的投资回报，传统中的逻辑考虑到时间价值和通胀因素的话，整个债券的远期收">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>深度解释一下关于美债结构的问题 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">深度解释一下关于美债结构的问题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BB%98%E9%B9%8F/">
+                                <span class="chip bg-color">付鹏</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%87%91%E8%9E%8D/" class="post-category">
+                                金融
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-06-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-04-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="上"><a href="#上" class="headerlink" title="上"></a>上</h1><p>在美债收益曲线的各个期限上，影响期限结构的有多方面的原因，既然存在期限的差异，这就意味着我们可以用商品供需的结构去思考利率曲线结构的影响因素；购买长端债券者往往要求更高的投资回报，传统中的逻辑考虑到时间价值和通胀因素的话，整个债券的远期收益率曲线的curve往往会以一个contango的结构（短端收益率低，长端收益率高）；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/9T3JNKt6fdtLhuTZMib8fyAQ.jpg"></p>
+<p> 其中最重要的在于长端利率对于货币政策的变动为什么不如短端敏感? 谁在追逐长端债券？为什么追逐？</p>
+<p>  长端债券收益率无法进一步的走高受制的因素如果从供需角度来分析的话，长端债券的收益率变动比较平坦，卖出长期债券的压力相对而言并不是很强很持续，相反会更为集中在短端，而长期债券则更多的会出现比较稳定的持续性的买入，实际上也就是长期债券供应不足又或者需求比较好，又或者两者兼具，这种从供需推导长端债券收益率的变动是我们最基本的前提，然后就可以来看为什么会出现这种情况，也就可以更好的解释长端债券的变动的影响因素；</p>
+<p> 长端的利率不完全是通胀的因素决定的，但是它确实隐含了一定的通胀预期在里面，但对于不同经济体所处在全球化分工层级的不同，通胀的原因又不尽相同；通胀的路径和债务需求的路径是一致的，而债务的供应又挂着通胀的的路径，所以本质上在三级架构中债务的需求和债务的供给是一个换上的共同体（如图）；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/7Ftwb9hYQY3libcMuvGh1xbP.jpg"></p>
+<blockquote>
+<p>需求国的通胀内因更多的是来自于自身的薪资收入水平增加带来的消费（石油，汽车等），还有自身金融杠杠的繁荣推动的债务扩张，而债务扩张带动需求，需求带来生产国的繁荣，生产国的繁荣推动大宗商品价格，同时金融繁荣推动商品金融性需求，两者作用推动了原材料价格的上涨，而这些都传导到了生产国成本上，而初期随着全球一体化下的投资转移和分工的产生，原材料价格上涨对消费国（欧美））并不构成直接性的通胀压力，而生产国的通胀并不一定会马上就传导到欧美去（2002-2006年的情况）这一阶段欧美的CPI和中国的PPI之间出现了比较大明显的脱钩（并未将此转嫁给美国消费者），更多的原因就是这一环节里用的是由于产能缺少议价能力，生产国的利润下降来缓冲了欧美需求端承受的物价传导；而生产国累计的储蓄（顺差）开始转化为欧美债务的支撑，进一步的刺激债务和其背后的需求，而生活必需品的物价上涨却比较慢，这也间接导致欧美消费端的可支配的支出相对加大，这一阶段就体现了更多的通胀来源源自看起来源自欧美的消费，薪资等良性循环；</p>
+<p>但随之，当生产国利润降低到将无可降，就会出现成本上升开始传导到终端，这个时候通胀上升的反馈将会加大，三级架构中的消费国的物价上涨（内生外加外部输入）也开始加速，通胀预期形成，此时这种强烈的通胀预期才会成为对于长端债券重要的影响因素；</p>
+</blockquote>
+<p> 但上述情况有两个条件是相沖的—<strong>债务扩张原因中金融杠杠</strong>部分（尤其是脱实入虚的金融杠杠），这部分<strong>即是整个通胀预期的巨大深度的影响要素，也是长端债券需求的重要影响因素</strong>；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/78CEJRicwPPk9EKGhoIfO24UdGc.jpg"></p>
+<p> 长端债券需求端的因素：</p>
+<p>  债券需求的本质来源来自于过剩的资本（庞大增长的债务带来了巨量的金融体系的资本和杠杠，过松的金融监管导致了资本的进一步反馈）这些过剩的资本并不用于投资导致资金过剩，资金过剩追逐债券，从而长期的拉低了美债长端的投资收益率（需求上升的速度远远高于供给的速度）；</p>
+<p> 债务需求（债券的需求）的过剩原因：1）EM的新兴市场的的顺差和储蓄的形成导致的对于长期债券的需求；2）中东石油美元对于债券的需求；3）EM企业的大量储蓄通过其本身的金融体系对于债券的需求；4）DM企业大量发债融资后换取的资金又形成了企业储蓄后，通过华尔街庞大的金融机构再次的转为了债券的需求；这部分资金对收益率的追求不像基金那么执著，进而拖低长期国债的孳息。</p>
+<blockquote>
+<p>例如新兴市场的储蓄的来源，这一点实际上在原来我们讲三极化架构的时候其实已经提到过，全剧一体化和分工形成的全球三极化架构，实际上新兴市场大部分的国家的储蓄，比如外汇储备等等，居民的储蓄，企业的储蓄，实际上更多都是来源于前期的经常项目下的顺差，而持续的长期的经常项目下的顺差就演变成了新兴市场的储蓄的增长，这种储蓄最终并无法转化成本身的消费、投资，这让储蓄的过剩在大的宏观层面，最终会演变成对长期美债的需求的配置，它们是长端美债的最主要的买家；</p>
+</blockquote>
+<blockquote>
+<p>例如像中国就面临着大量的居民储蓄和企业储蓄形成了金融体系内的严重的资本过剩，这部分资本过剩，如果我们的金融体系是放开的，资本流动是开放的，那这些资本必将会转化成对海外资产的需求，无论是股票还是债券，很多的稳定型的资本更多地就会去追求长端的美债的变量。</p>
+</blockquote>
+<blockquote>
+<p>例如美国的养老金，退休基金普遍患上收益饥渴症，养老基金因为股票市场不断地上涨以后，就会导致稳定型的资金为了避免股市的波动，可能造成对资金的影响会加大，或者说调配里面的资产和负债的配置，更多地会把短端的资产端加大到长端上，而2013年联邦预算法案提高了针对养老基金资金缺口的保险费溢价，并附带严厉的惩罚措施。，所以最终会导致类似的这样的基金为了稳定潜在的波动的缺口进一步加大长端美债的配置。这种情况实际上在过去的几次历史中间都发现地比较明显，比如说在05、06年的时候，美股的不断上涨以后，实际上它隐含的风险在越来越加大，其实当时很多的美国的养老社保，养老金和退休金都作出了一个资产负债端的调配，实际上就把资产端的短端从股市中倒腾到了长端的资产端去</p>
+</blockquote>
+<blockquote>
+<p>例如美国非金融企业部门的驱动，从2009年以来美国企业储蓄规模稳步下滑，但是是从一个非常高的水平往下走。考虑到美国金融部门和包括欧洲、日本在内的资金盈余，今年二季度G4国家的整体企业盈余仍然非常接近2005年期间的高位。在一个增长的经济体中，企业部门通常都是金融资产的净生产者，而如今却成了净累积者，这意味着企业不再借贷资金用于扩张和再投资，反而更倾向储蓄过冬。</p>
+</blockquote>
+<p> <strong>还有一个重要的是：全世界金融体系一体化下长端债券的套利需求</strong></p>
+<p>​    全球一体化下，跨国资本的流动是越来越便捷和迅速，所以说我们除了上面分析的传统的基金，企业和国家储备等行为以外，实际上我们不得不把现在的资本快速变动带来的carry trading来考虑进去。</p>
+<p>​    2008年的金融危机以后，需求还要更多考虑到这一点，欧洲央行和日本央行实施量化宽松政策，考虑到美国国债相对于德国国债和日本国债更有吸引力，这些carry trading投资者会扩大美国固定收益资产；</p>
+<p>【全球债券套利carry trading的参考链接】：</p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NDM5MzA1Mw==&amp;mid=2650377897&amp;idx=1&amp;sn=566ebc36803ac58e338a7bb6ed4f69e4&amp;scene=21#wechat_redirect">全球利率跳升，套利交易解除详细分解</a></p>
+<p> 传统的欧洲基金、全球企业资金、新兴市场储蓄再叠加欧洲央行与日本央行QE政策，这些综合因素作用在一起影响着美债长端的需求。</p>
+<h1 id="中"><a href="#中" class="headerlink" title="中"></a>中</h1><p>2008年金融危机后的美国证券交易委员会（SEC）吸取了危机期间货币基金出现“踩踏事件”的教训，加强金融监管并且在2014年7月23日通过的一项货币基金新规，要求主要投资于商票和银行大额存单的货币基金采取浮动净值，且可以在紧急情况下，收取流动性费用和添加资金赎回门槛，甚至停止赎回，而投资于短期政府债券的货币基金不受新规影响。</p>
+<p> 而这项SEC针对货币市场基金的改革导致了货币市场基金不得不从市场上大量吸收高质量的抵押物资产来满足日益加强的金融监管的变化，这部分新增的需求叠加了2014年以来的欧日央行的宽松，从而引发了carry trading的需求循环，又或者说三者之间是相互交织相互影响的；</p>
+<p> 在整个CARRY TRADING的链条中：对于美元持有者LIBORUSD升高是收益的增加（融出美元）而对于其他货币持有者，LIBOR USD的升高则是成本的增加（融入美元）</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/uVd6z52MEJOicnI1GmxAJLrTicA6wF.jpg"></p>
+<p> 这部分在去年解释日元carry trading对全球的影响的时候已经分析过了，这里面我只是在简单的说一下逻辑线：</p>
+<blockquote>
+<p>金融监管的增强导致货币基金改革从而导致了美元资产的短缺引发了美元货币互换的走高，而货币互换又引发了carrytrading的介入，双方之间形成了一个闭环“日元持有者在追逐有限的全球范围内有限的资产即便是付出的swap成本极高，但是仍然是追逐美债（融出日元，买入美债）（买完短端买长端）（融入短期日元，买入十年期甚至是更长的美债），而美元持有者则融出美元赚取swap的同时还买入日债最终导致日本债券收益率进一步的走低（和美债遇到的问题”由于BOJ持有大量的债券导致债券供应趋紧，而市场则不停的压铸BOJ最终会被市场压倒无法脱身，那么买入为数不多的日本长期债券进行“逼仓日本央行”就成为了一个流行的carry trading的游戏“</p>
+</blockquote>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/w0aQc9pzibdxy26xV0K3iaFQH.jpg"></p>
+<p> 这部分内容我在2016年上半年给各家基金公司路演的过程中就已经解释的很清楚，这样的做法造成了boj的困境，全球央行的负利率困局的产生，持续的时间越久，则央行失去市场威望甚至沦为市场博弈的对象就会越严重，货币政策将会面临着失效的情况，所以2016年7月份在成都的各国央行的财长峰会中，各国央行和财长的共同声明说到底就是打破了这总困局的囧境；</p>
+<p> 长端债券的需求部分我们已经聊的差不多了，然后我们将聚焦到来长期债券的供给部分：</p>
+<p> 2008年金融危机后，传统的货币政策已经使用到了一个极致，而FED面对的问题是短端利率水平降到了极值，所以这个时候必须把极值的假象拉进来，短端利率水平以及到底的情况下，如果长端还是因为这样的因素而无法降低的话，实际上对于经济复苏的支撑力度会非常非常的弱，其实就是说当长短端的contango拉到足够大的时候，比如说两年、十年期之差如果拉到2.5%的时候，其实这基本上都是历史上contango的极值，你会发现经济在短端利率的刺激作用还不能够产生的话，我们将面临非常大的一个麻烦。</p>
+<p> 当时我在微博上（2012年初）用这么一篇内容+图表解释过当货币政策触及极值（短端利率降无可降）的时候，需要做的就是要将债券的期限结构进行调整，事实上也就是让整个债券收益率的远端大幅度下行，虽然前面我分析了需求本身对于债券长端的推动，但这个导火索却是由于FED的数次QE和OT操作引发的，长端融资成本的下降的积极效应是FED希望看到的</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/0XTH2qKSxp00QTrTIXXrfbVticNZhgd3mK5eCk.jpg"></p>
+<p> 所以美联储在10年到13年的过程中三次的量化宽松，我觉得第一轮是真正意义上的量化宽松，而后两次QE，做的都是对长端曲线的微调。实际上是把长端的债券的收益率通过人为改变行为，使它的长端收益率不断下行，使contango的平滑靠的不是短端利率水平的抬升，而靠的是长端利率水平的下降。</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/AUiaWibk6ib6txcibWJoDgLt.jpg"> 所以长端下降看起来似乎从另外一个角度隐含了长期通胀的一个预期，但实际上也是因为美联储的QE导致这种供应的紧张，进而加大了长端债务配置上的需求难度，外加需求的因素（前面我们已经解释过)大家不停地买买买，使得长端债券的收益率推低很多，这样达到了长端融资水平下降以后，对经济的刺激和复苏作用。</p>
+<p> 但通过中央银行的资产负债表扩张吸收存量债务给市场提供足量的流动性缓冲，被动性的修复其他各个部门的资产负债表，压低期限结构上的时间成本，虽然能够取得一个积极的正面作用，但是这样的做法也有一个巨大的缺陷，就是会使得长期债券的供给端受到很明显的影响；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/DPOsQ9IxUiaOltD7PLYI9x4VJAvmHtbgzu.jpg"></p>
+<p>·    <strong>利差和利率的底线</strong></p>
+<p>长期债券利率上行的本质上宏观的原因是生产要素，制度红利，生产效率，技术革新等因素产生较为持续的通胀预期来改变大家对于长期债券持有的方式，通过预期来改变行为推动长期成本的上升，但关于这一点上在当下大家有着非常大的分歧，很多人认为这三十年（1980年之后）美国的实质红利和生产效率的无法提升，本质上是因为看不到预期才制约了美国长端债券收益率上行预期的原因，所以基于这个因素很多人得出的结论就是认为长期利率水平从足够长的时间来看一定是长期下行的；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/K2Ef8apbkzOkzibzJC3HQLLy9zWib1qwFkGUH6WnAD.jpg"></p>
+<p>但这会产生另一个问题，而由于长端债券的预期和各种需求的增加使得长期债券的水平不断地下移，而由于contango的结构也有相应的极值，那么这意味着，每一次的危机最终就是迫使短端利率水平的底线就会被不停地拉低，这也就是所谓的得用更深的contango去刺激每面临一种危机后的经济的增长，每一轮的循环几乎伴随着都是这样的一个运转逻辑产生了这样美债结构性的转变；</p>
+<p><img src="/../../../images/%E7%82%92%E8%82%A1%E5%BF%83%E5%BE%97/vM88oso7D8y0We820GOIfInFFj0bWaYpicQIQDc.jpg"></p>
+<p>而问题就是“短端利率”在2008年金融危机之后已经降低到了人类历史上5000年以来最低的水平了，还有多少的空间呢？货币政策的魔法已经失去了其本身的任何能力，而负利率的尝试也就是在这种极致下货币政策最后的挣扎，打破底线的尝试，但事实上2016年已经告诉我们负利率只能滋生更为广泛的套利行为，市场摧毁货币政策的信任底线;</p>
+<p>一个极端的假设会发生什么？长短端利率水平在一个极低的水平下利差缩小（短端到底，而长端不断地下行靠拢），那么史无前例的低利率从短端大规模沿着curve传导到远端，在0利率水平下的平滑的债券曲线必然会滋生更为巨大的资产泡沫和杠杆，而这却没有更为广泛的经济强劲和实质性的通胀作为支撑；</p>
+<p>所以美联储的“货币政策底线”“货币政策常态化”的用语应该说非常的准确，美联储的加息政策的本质更多的是让货币政策回归常态化，纠正过渡扭曲的利率政策（底线的抬升），而其本身政策调整对于短端的影响则更为明显的话，如果不解决“长期债券的供需失衡”潜在可能带来的折价的话，那么长短端倒挂的发生则仍是一种必然结果，并且按照前面所说，这种倒挂的结构发生仍然会在一个比前次“低”的绝对利率水平下发生；</p>
+<p>通过改变长端债券的微观的供应结构，增加长期债券的供给的方法事实上则更为广泛一个配合，事实上也就是货币政策向着财政政策大幅度转变的开始（如果结合考虑一下川普的财政刺激计划）靠着市场主导经济的模式或许已经失去了其本质的动力，转化为政府主导的经济模式；</p>
+<p>而如果是对于未来通胀，增长等预期改变债券持有的态度话，这又回到了预期行为影响供给的逻辑，而现在的问题也恰恰就是预期在现实情况下（现在的经济数据表现下）看起来仍然有点苍白</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2017/06/20/cao-pan-ri-ji/fu-peng/shen-du-jie-shi-yi-xia-guan-yu-mei-zhai-jie-gou-de-wen-ti/">https://gustavo1841.github.io/2017/06/20/cao-pan-ri-ji/fu-peng/shen-du-jie-shi-yi-xia-guan-yu-mei-zhai-jie-gou-de-wen-ti/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BB%98%E9%B9%8F/">
+                                    <span class="chip bg-color">付鹏</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2017-06-20T15-13-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/12/qi-ta/qa-ai/roadmapanalysis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/696.jpg" class="responsive-img" alt="RoadMapAnalysis">
+                        
+                        <span class="card-title">RoadMapAnalysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Quickly-Question-By-AI/" class="post-category">
+                                    Quickly Question By AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DeepSeek/">
+                        <span class="chip bg-color">DeepSeek</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/03/04/cao-pan-ri-ji/fu-peng/ratio-ce-lue-shi-yong-de-xiao-ji-qiao-jin-yin-he-ao-niu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/588.jpg" class="responsive-img" alt="Ratio策略使用的小技巧：金银和澳纽">
+                        
+                        <span class="card-title">Ratio策略使用的小技巧：金银和澳纽</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%87%91%E8%9E%8D/" class="post-category">
+                                    金融
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BB%98%E9%B9%8F/">
+                        <span class="chip bg-color">付鹏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1260.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

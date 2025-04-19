@@ -429,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-02
+                    2025-04-17
                 </div>
                 
 
@@ -477,7 +477,7 @@
 <p>多租户技术是一种软件架构技术，可以实现多个租户共享系统实例，并且租户间能够实现数据与行为的隔离。</p>
 <h3 id="传统软件模式-VS-SaaS模式"><a href="#传统软件模式-VS-SaaS模式" class="headerlink" title="传统软件模式 VS SaaS模式"></a>传统软件模式 VS SaaS模式</h3><p>传统软件项目一般是指，面向客户开发一套特定的软件系统，并部署在独立的环境中，通常是企业内部环境。</p>
 <p>而SaaS模式，是将软件服务部署到云端环境，可以面向不同的客户提供相同的软件服务。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/SiaR0dyMicuz.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/SiaR0dyMicuz.png"></p>
 <h3 id="SaaS多租户隔离模式"><a href="#SaaS多租户隔离模式" class="headerlink" title="SaaS多租户隔离模式"></a>SaaS多租户隔离模式</h3><p>对于SaaS模式，多租户间的资源隔离是非常基础的能力，出于成本和运营效率考虑，SaaS服务商需要构建多租户可同时访问软件的环境，不同租户虽然访问同一套SaaS产品服务，但资源访问需要严格隔离开。</p>
 <h4 id="SaaS资源隔离包含几个层次："><a href="#SaaS资源隔离包含几个层次：" class="headerlink" title="SaaS资源隔离包含几个层次："></a>SaaS资源隔离包含几个层次：</h4><ul>
 <li>第一层是SaaS系统底层所涉及到的计算、存储、网络等资源的隔离。</li>
@@ -485,7 +485,7 @@
 <li>第三层是系统使用过程中，各类业务动态数据的隔离，例如业务单据、操作记录等。</li>
 </ul>
 <p>多租户架构主要是解决第一层的隔离问题，即计算、存储、网络等资源的隔离。为了实现多租户隔离架构，我们先要搞清楚常见的几种多租户隔离模式。</p>
-<h4 id="竖井隔离模式"><a href="#竖井隔离模式" class="headerlink" title="竖井隔离模式"></a>竖井隔离模式</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/dyMicuzo0LUajialpfq.png"></p>
+<h4 id="竖井隔离模式"><a href="#竖井隔离模式" class="headerlink" title="竖井隔离模式"></a>竖井隔离模式</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/dyMicuzo0LUajialpfq.png"></p>
 <p>有些SaaS服务商会选择竖井隔离模式，即每个租户都运行在隔离的一套资源中。有人会说，这不就是传统软件模式吗，为什么会是SaaS模式呢？但如果这些竖井式的资源，拥有标准化的租户身份识别、入驻流程、计费体系、部署流程、运营流程，那边它依然是SaaS模式，只不过每个客户都有一套端到端的基础设施。</p>
 <h5 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h5><ul>
 <li>满足强隔离需求：一些客户为了系统和数据的安全性，可能提出非常严格的隔离需求，期望软件产品能够部署在一套完全独立的环境中，不和其他租户的应用实例、数据放在一起。</li>
@@ -498,7 +498,7 @@
 <li>敏捷迭代问题：SaaS模式的一个优势是能够快速响应市场需求，迭代产品功能。但竖井隔离策略会阻碍这种敏捷迭代能力，因为更新、管理、支撑这些租户的SaaS环境，会变得非常复杂和低效。</li>
 <li>系统管理与监控：在同一套环境中，对部署的基础设施进行管理与监控，是较为简单的。但每个租户都有独立的环境，在这种非中心化的模式下，对每个租户的基础设施进行管理与监控，同样也是非常复杂、困难的。</li>
 </ul>
-<h4 id="共享模式"><a href="#共享模式" class="headerlink" title="共享模式"></a>共享模式</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/awdSiaR0dyMicuzo05mVO.png"></p>
+<h4 id="共享模式"><a href="#共享模式" class="headerlink" title="共享模式"></a>共享模式</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/awdSiaR0dyMicuzo05mVO.png"></p>
 <p>相信很多SaaS服务商会优先选择共享模式，即多租户共享一套基础设施资源，这样能让SaaS软件服务更加高效、敏捷、低成本。</p>
 <h5 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h5><ul>
 <li>高效管理：在共享策略下，能够集中化地管理、运营所有租户，管理效率非常高。同时，对基础设施配置管理、监控，也将更加容易。相比竖井策略，产品的迭代更新会更快。</li>
@@ -508,7 +508,7 @@
 <li>租户相互影响：由于所有租户共享一套资源，当其中一个租户大量占用机器资源，其他租户的使用体验很可能受到影响，在这种场景下，需要在技术架构上设计一些限制措施（限流、降级、服务器隔离等），让影响面可控。</li>
 <li>租户计费困难：在竖井模型下，非常容易统计租户的资源消耗。然而，在共享模型下，由于所有租户共享一套资源，需要投入更多的精力统计单个租户的合理费用。</li>
 </ul>
-<h3 id="分域隔离模式"><a href="#分域隔离模式" class="headerlink" title="分域隔离模式"></a>分域隔离模式</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/aMmcM0wfRpIPJibawdSi.png"></p>
+<h3 id="分域隔离模式"><a href="#分域隔离模式" class="headerlink" title="分域隔离模式"></a>分域隔离模式</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/aMmcM0wfRpIPJibawdSi.png"></p>
 <p>传统大企业更喜欢私有化部署、个性化交付的传统模式，因为他们需要更强的管控和更高的安全性。然而，中小企业付费能力有限，需求往往也更加标准化，所以更喜欢价格更低的、订购更简单的SaaS产品。</p>
 <p>为了满足不同客户的需求，还有一种混合了竖井模型与共享模型的模式，即分域隔离模式。在该模式下，会细分基础域、专用域，基础域是使用共享模型，所有租户共享一套资源；而专用域是使用竖井模型，每个租户都有独立的资源环境。</p>
 <p>对于大多数中小客户来说，他们都是在基础域环境使用SaaS产品，只有少量的大客户会在专用域使用SaaS产品，通常他们付费能力强，有强烈的强隔离需求。</p>
@@ -531,7 +531,7 @@
 <li>资源域：用来运行1个或多个产品应用的一套云资源环境。</li>
 <li>云资源：SaaS产品一般都部署在各种云平台上，例如阿里云、腾讯云、华为云等。对这些云平台提供的计算、存储、网络、容器等资源，抽象为云资源。</li>
 </ul>
-<h4 id="概念模型设计"><a href="#概念模型设计" class="headerlink" title="概念模型设计"></a>概念模型设计</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/yMicuzo0VSXMlGIxBlqQ.png"></p>
+<h4 id="概念模型设计"><a href="#概念模型设计" class="headerlink" title="概念模型设计"></a>概念模型设计</h4><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/yMicuzo0VSXMlGIxBlqQ.png"></p>
 <ul>
 <li>SaaS平台可以创建与管理多个平台用户、多个租户、多个资源域。</li>
 <li>单个平台用户可以关联到多个租户下，例如，平台用户张三，可以是租户A的用户，也可以是租户B的用户。单个租户下可以拥有多个用户。</li>
@@ -539,13 +539,13 @@
 <li>组织单元间有上下级关系，单个组织下可以有多个员工，员工与单个用户进行绑定。</li>
 </ul>
 <h3 id="多租户核心场景"><a href="#多租户核心场景" class="headerlink" title="多租户核心场景"></a>多租户核心场景</h3><h4 id="租户内部模型关系"><a href="#租户内部模型关系" class="headerlink" title="租户内部模型关系"></a>租户内部模型关系</h4><p>对SaaS产品来说，租户是最顶层的概念，租户内部拥有组织、用户、产品能力、云资源等模型，租户就像租了一套大房子，其他模型都是房子内部的家具或设施。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/cV2Zd1yZcTR6q.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/cV2Zd1yZcTR6q.png"></p>
 <h4 id="租户身份识别"><a href="#租户身份识别" class="headerlink" title="租户身份识别"></a>租户身份识别</h4><p>在各种隔离模式下，识别租户身份，获取租户的资源配置，是非常关键的。当一个用户登录SaaS系统后，系统会返回租户上下文信息，上下文会包含用户绑定的租户信息，以及隔离模式。</p>
 <p>租户上下文信息会被附加在每一次系统交互中，贯穿整个系统调用链路，让上游调用方知道路由到哪些下游资源。</p>
-<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/dyMicuzo00Dp.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/dyMicuzo00Dp.png"></p>
 <h4 id="租户计费计量管理"><a href="#租户计费计量管理" class="headerlink" title="租户计费计量管理"></a>租户计费计量管理</h4><p>在竖井隔离模式下，由于资源本身就是隔离的，所以可以根据占用的计算、存储、网络资源来计费计量，逻辑相对简单。</p>
 <p>在共享模式下，计费计量就比较复杂，我们要能准确地采集到各个租户对实际资源的使用情况，一般会根据请求并发量、存储容量、数据对象数量等数据来进行组合计费。</p>
-<h3 id="多租户系统应用架构"><a href="#多租户系统应用架构" class="headerlink" title="多租户系统应用架构"></a>多租户系统应用架构</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/awdSiaR0dyMicuzo0Njadqu9ORcw.png"></p>
+<h3 id="多租户系统应用架构"><a href="#多租户系统应用架构" class="headerlink" title="多租户系统应用架构"></a>多租户系统应用架构</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/awdSiaR0dyMicuzo0Njadqu9ORcw.png"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>汤师爷首先介绍了什么是多租户，对比传统软件模式与SaaS模式的区别。通过分析多租户的三种隔离模式，逐步梳理出多租户的系统架构设计，包括概念模型、场景推演、应用架构等。期望对读者有帮助，有问题欢迎随时交流。</p>
 
                 
@@ -937,7 +937,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1134.6k</span>
+                        class="white-color">1260.8k</span>
             
             
             

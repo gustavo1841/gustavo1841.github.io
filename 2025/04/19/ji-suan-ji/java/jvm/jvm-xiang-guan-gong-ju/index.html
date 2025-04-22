@@ -429,7 +429,7 @@ jps ：列出Java程序进程ID">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-04-19
+                    2025-04-22
                 </div>
                 
 
@@ -497,9 +497,10 @@ jps -v ：显示传递给Java虚拟的参数<span aria-hidden="true" class="line
 -gcpermcapacity：显示永久代大小
 -gcutil：显示垃圾收集信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>示例一：</strong></p>
+<p><strong>示例一：jstat -gc</strong></p>
 <p>下面输出的是GC信息，34784 是 进程ID ，采样时间间隔为250ms，采样数为4。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jstat <span class="token parameter variable">-gc</span> <span class="token number">30108</span> <span class="token number">250</span> <span class="token number">4</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jstat <span class="token parameter variable">-gc</span> <span class="token number">30108</span> <span class="token number">250</span> <span class="token number">4</span>
+<span class="token comment"># 进程ID 34784 ，采样间隔250ms，采样数4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012074336212.png"></p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">S0C：年轻代中第一个survivor（幸存区）的容量 （单位kb）
@@ -522,7 +523,7 @@ GCT：从应用程序启动到采样时gc用的总时间(s)<span aria-hidden="tr
 
 
 
-<p><strong>示例二：</strong></p>
+<p><strong>示例二：jstat -gcutil</strong></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jstat <span class="token parameter variable">-gcutil</span> <span class="token number">30108</span> 1s <span class="token number">5</span>
 <span class="token comment"># 1s每隔1秒采样一次</span>
 <span class="token comment"># 共采样五次</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -606,30 +607,52 @@ J&lt;flag&gt;：指定传递给运行jmap的JVM的参数
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>示例一：no option</strong></p>
-<p>命令：jmap pid<br>描述：查看进程的内存映像信息,类似 Solaris pmap 命令。</p>
-<p>使用不带选项参数的jmap打印共享对象映射，将会打印目标虚拟机中加载的每个共享对象的起始地址、映射大小以及共享对象文件的路径全称。这与Solaris的pmap工具比较相似。</p>
+<ul>
+<li><p>命令：jmap pid</p>
+</li>
+<li><p>描述：查看进程的内存映像信息,类似 Solaris pmap 命令。使用不带选项参数的jmap打印共享对象映射，将会打印目标虚拟机中加载的每个共享对象的起始地址、映射大小以及共享对象文件的路径全称。这与Solaris的pmap工具比较相似。</p>
+</li>
+</ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmap <span class="token number">30108</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012074746501.png"> </p>
 <p><strong>示例二：heap</strong></p>
-<p>命令：jmap -heap pid<br>描述：显示Java堆详细信息</p>
-<p>打印一个堆的摘要信息，包括使用的GC算法、堆配置信息和各内存区域内存使用信息</p>
+<ul>
+<li><p>命令：jmap -heap pid</p>
+</li>
+<li><p>描述：显示Java堆详细信息：打印一个堆的摘要信息，包括使用的GC算法、堆配置信息和各内存区域内存使用信息</p>
+</li>
+</ul>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012074815725.png"> </p>
 <p><strong>示例三：histo[:live]</strong></p>
-<p>命令：jmap -histo:live pid<br> 描述：显示堆中对象的统计信息</p>
-<p>其中包括每个Java类、对象数量、内存大小(单位：字节)、完全限定的类名。打印的虚拟机内部的类名称将会带有一个’*’前缀。如果ja指定了live子选项，则只计算活动的对象。</p>
+<ul>
+<li>命令：jmap -histo:live pid</li>
+<li>描述：显示堆中对象的统计信息：其中包括每个Java类、对象数量、内存大小(单位：字节)、完全限定的类名。打印的虚拟机内部的类名称将会带有一个’*’前缀。如果ja指定了live子选项，则只计算活动的对象。</li>
+</ul>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012074906612.png"></p>
-<p><strong>示例四：clstats</strong><br>命令：jmap -clstats pid<br>描述：打印类加载器信息</p>
-<p>-clstats是-permstat的替代方案，在JDK8之前，-permstat用来打印类加载器的数据<br>打印Java堆内存的永久保存区域的类加载器的智能统计信息。对于每个类加载器而言，它的名称、活跃度、地址、父类加载器、它所加载的类的数量和大小都会被打印。此外，包含的字符串数量和大小也会被打印。</p>
+<p><strong>示例四：clstats</strong></p>
+<ul>
+<li>命令：jmap -clstats pid</li>
+<li>描述：打印类加载器信息：打印Java堆内存的永久保存区域的类加载器的智能统计信息。对于每个类加载器而言，它的名称、活跃度、地址、父类加载器、它所加载的类的数量和大小都会被打印。此外，包含的字符串数量和大小也会被打印。</li>
+</ul>
+<p>-clstats是-permstat的替代方案，在JDK8之前，-permstat用来打印类加载器的数据</p>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012075509079.png"></p>
-<p><strong>示例五：finalizerinfo</strong><br>命令：jmap -finalizerinfo pid<br>描述：打印等待终结的对象信息</p>
+<p><strong>示例五：finalizerinfo</strong></p>
+<ul>
+<li>命令：jmap -finalizerinfo pid</li>
+<li>描述：打印等待终结的对象信息</li>
+</ul>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012075625774.png"> </p>
 <p>Number of objects pending for finalization: 0 说明当前F-QUEUE队列中并没有等待Fializer线程执行final</p>
-<p><strong>示例六：dump:<dump-options></dump-options></strong><br>命令：jmap -dump:format=b,file=heapdump.hprof pid<br>描述：生成堆转储快照dump文件。</p>
-<p>以hprof二进制格式转储Java堆到指定filename的文件中。live子选项是可选的。如果指定了live子选项，堆中只有活动的对象会被转储。想要浏览heap dump，你可以使用jhat(Java堆分析工具)读取生成的文件。</p>
-<p>这个命令执行，JVM会将整个heap的信息dump写入到一个文件，heap如果比较大的话，就会导致这个过程比较耗时，并且执行的过程中为了保证dump的信息是可靠的，所以会暂停应用， 线上系统慎用。</p>
+<p><strong>示例六：dump:<dump-options></dump-options></strong><br>命令：jmap -dump:format=b,file=heapdump.hprof pid<br>描述：生成堆转储快照dump文件：以hprof二进制格式转储Java堆到指定文件中。live子选项是可选的。如果指定了live子选项，堆中只有活动的对象会被转储。想要浏览heap dump，你可以使用jhat(Java堆分析工具)读取生成的文件。</p>
+<p>注意：这个命令执行，JVM会将整个heap的信息dump写入到一个文件，heap如果比较大的话，就会导致这个过程比较耗时，并且执行的过程中为了保证dump的信息是可靠的，所以会暂停应用， 线上系统慎用。</p>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012075739588.png"> </p>
-<h4 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a>jhat</h4><p>jhat:Java Heap Analysis Tool，jhat 命令解析Java堆转储文件,并启动一个 web server. 然后用浏览器来查看/浏览 dump 出来的 heap. jhat 命令支持预先设计的查询, 比如显示某个类的所有实例. 还支持 对象查询语言(OQL, Object Query Language)。 OQL有点类似SQL,专门用来查询堆转储。 OQL相关的帮助信息可以在 jhat 命令所提供的服务器页面最底部. 如果使用默认端口, 则OQL帮助信息页面为: <a target="_blank" rel="noopener" href="http://localhost:7000/oqlhelp/">http://localhost:7000/oqlhelp/</a></p>
+<h4 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a>jhat</h4><p>jhat:Java Heap Analysis Tool</p>
+<ul>
+<li>jhat 命令解析Java堆转储文件,并启动一个 web server. 然后用浏览器来查看/浏览 dump 出来的 heap二进制文件.</li>
+<li>jhat 命令支持预先设计的查询, 比如显示某个类的所有实例. 还支持对象查询语言(OQL, Object Query Language)。 OQL有点类似SQL,专门用来查询堆转储。</li>
+</ul>
+<p>OQL相关的帮助信息可以在 jhat 命令所提供的服务器页面最底部. 如果使用默认端口, 则OQL帮助信息页面为: <a target="_blank" rel="noopener" href="http://localhost:7000/oqlhelp/">http://localhost:7000/oqlhelp/</a></p>
 <p><strong>Java生成堆转储的方式有多种:</strong></p>
 <ul>
 <li>使用 <code>jmap -dump</code> 选项可以在JVM运行时获取 heap dump.</li>
@@ -704,11 +727,11 @@ jstack [ option ] [server_id@]&lt;remote server IP or hostname&gt;  查看当前
 -h or -hel 打印帮助信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>​	</p>
-<p><strong>示例一：</strong></p>
+<p><strong>示例一：jstack pid 打印堆栈</strong></p>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012080318930.png"></p>
 <p>将指定进程的当前堆栈情况记录到某个文件中：</p>
 <p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/JVM/image-20211012080419064.png"> </p>
-<p><strong>示例二：</strong></p>
+<p><strong>示例二：统计线程数</strong></p>
 <p>统计线程数</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jstack <span class="token parameter variable">-l</span> <span class="token number">30108</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'java.lang.Thread.State'</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1155,18 +1178,17 @@ pid        <span class="token number">30108</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/04/19/ji-suan-ji/java/jvm/jvm-xiang-guan-gong-ju/">
+                <a href="/2025/04/21/ji-suan-ji/java/jvm/jvm-xing-neng-you-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/846.jpg" class="responsive-img" alt="JVM相关工具">
+                        <img src="/medias/featureimages/213.jpg" class="responsive-img" alt="JVM性能优化">
                         
-                        <span class="card-title">JVM相关工具</span>
+                        <span class="card-title">JVM性能优化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1176,9 +1198,9 @@ pid        <span class="token number">30108</span>
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-04-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1191,7 +1213,6 @@ pid        <span class="token number">30108</span>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1401,7 +1422,7 @@ pid        <span class="token number">30108</span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1260.9k</span>
+                        class="white-color">1267.7k</span>
             
             
             

@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-19T03:21:50.446Z</updated>
+  <updated>2025-04-22T13:31:42.096Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JVM监控环境搭建之Grafana+Prometheus+Micrometer</title>
+    <link href="https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/"/>
+    <id>https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/</id>
+    <published>2025-04-21T06:49:42.000Z</published>
+    <updated>2025-04-22T13:31:42.096Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SpringBoot应用JVM监控环境搭建Grafana-Prometheus-Micrometer&quot;&gt;&lt;a href=&quot;#SpringBoot应用JVM监控环境搭建Grafana-Prometheus-Micrometer&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="JVM" scheme="https://gustavo1841.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM性能优化</title>
+    <link href="https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-xing-neng-you-hua/"/>
+    <id>https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-xing-neng-you-hua/</id>
+    <published>2025-04-21T06:49:00.000Z</published>
+    <updated>2025-04-22T13:31:42.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;JVM调优实践&quot;&gt;&lt;a href=&quot;#JVM调优实践&quot; class=&quot;headerlink&quot; title=&quot;JVM调优实践&quot;&gt;&lt;/a&gt;JVM调优实践&lt;/h1&gt;&lt;h2 id=&quot;为什么JVM调优？&quot;&gt;&lt;a href=&quot;#为什么JVM调优？&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="JVM" scheme="https://gustavo1841.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JVM相关工具</title>
     <link href="https://gustavo1841.github.io/2025/04/19/ji-suan-ji/java/jvm/jvm-xiang-guan-gong-ju/"/>
     <id>https://gustavo1841.github.io/2025/04/19/ji-suan-ji/java/jvm/jvm-xiang-guan-gong-ju/</id>
     <published>2025-04-19T03:14:18.000Z</published>
-    <updated>2025-04-19T03:21:50.446Z</updated>
+    <updated>2025-04-22T13:31:42.119Z</updated>
     
     
       
@@ -502,59 +560,6 @@
     <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="金融" scheme="https://gustavo1841.github.io/tags/%E9%87%91%E8%9E%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为什么不建议长期持有杠杆ETF</title>
-    <link href="https://gustavo1841.github.io/2025/04/04/cao-pan-ri-ji/zi-xue-jiao-yi/wei-shi-me-bu-jian-yi-chang-qi-chi-you-gang-gan-etf/"/>
-    <id>https://gustavo1841.github.io/2025/04/04/cao-pan-ri-ji/zi-xue-jiao-yi/wei-shi-me-bu-jian-yi-chang-qi-chi-you-gang-gan-etf/</id>
-    <published>2025-04-04T11:17:48.000Z</published>
-    <updated>2025-04-07T15:40:14.953Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;一般都不建议投资人长期持有两倍或者三倍这些带杠杆的ETF。从名称理解这些应该就是几倍对应指数涨跌幅的ETF基金，有没有多收管理费。为什么不要长期持有哪。这里面有个杠杆ETF的固有问题就是损耗。以下图为例，QQQ是纳斯达克100</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在23年时候，被恶人坑到谷底，我的至暗时期是如何度过的。</title>
-    <link href="https://gustavo1841.github.io/2025/03/28/ren-sheng-yu-zhi-chang/zai-23-nian-shi-hou-bei-e-ren-keng-dao-gu-di-wo-de-zhi-an-shi-qi-shi-ru-he-du-guo-de/"/>
-    <id>https://gustavo1841.github.io/2025/03/28/ren-sheng-yu-zhi-chang/zai-23-nian-shi-hou-bei-e-ren-keng-dao-gu-di-wo-de-zhi-an-shi-qi-shi-ru-he-du-guo-de/</id>
-    <published>2025-03-28T07:43:37.000Z</published>
-    <updated>2025-04-02T14:50:19.112Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;说一件我亲身经历过的事情，也为那些正陷入对亲情混合着商业以及职业生涯关系，而感到迷茫无措的人一点警醒！&lt;/p&gt;
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
     
   </entry>
   

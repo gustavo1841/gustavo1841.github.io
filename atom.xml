@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-23T10:21:03.848Z</updated>
+  <updated>2025-04-24T06:47:15.095Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,70 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>网络编程——下</title>
+    <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/"/>
+    <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/</id>
+    <published>2025-04-24T01:30:54.000Z</published>
+    <updated>2025-04-24T06:47:15.095Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;4-案例01：手写一个RPC框架&quot;&gt;&lt;a href=&quot;#4-案例01：手写一个RPC框架&quot; class=&quot;headerlink&quot; title=&quot;4. 案例01：手写一个RPC框架&quot;&gt;&lt;/a&gt;4. 案例01：手写一个RPC框架&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="网络编程" scheme="https://gustavo1841.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程——上</title>
+    <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/"/>
+    <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/</id>
+    <published>2025-04-24T01:29:10.000Z</published>
+    <updated>2025-04-24T06:47:08.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-网络编程基础&quot;&gt;&lt;a href=&quot;#1-网络编程基础&quot; class=&quot;headerlink&quot; title=&quot;1.网络编程基础&quot;&gt;&lt;/a&gt;1.网络编程基础&lt;/h1&gt;&lt;p&gt;见计算机网络，因此略&lt;/p&gt;
+&lt;h1 id=&quot;2-深入BIO与NIO&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="网络编程" scheme="https://gustavo1841.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>并发编程—自定义实现web服务器</title>
     <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zi-ding-yi-shi-xian-web-fu-wu-qi/"/>
     <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zi-ding-yi-shi-xian-web-fu-wu-qi/</id>
     <published>2025-04-23T10:14:03.000Z</published>
-    <updated>2025-04-23T10:21:03.848Z</updated>
+    <updated>2025-04-24T01:30:36.190Z</updated>
     
     
       
@@ -34,6 +93,14 @@
     
     
     
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -42,7 +109,7 @@
     <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xian-cheng-chi/"/>
     <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xian-cheng-chi/</id>
     <published>2025-04-23T08:05:08.000Z</published>
-    <updated>2025-04-23T10:18:06.494Z</updated>
+    <updated>2025-04-24T01:30:29.836Z</updated>
     
     
       
@@ -55,6 +122,14 @@
     
     
     
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -63,7 +138,7 @@
     <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xia/"/>
     <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xia/</id>
     <published>2025-04-23T08:04:10.000Z</published>
-    <updated>2025-04-23T10:18:03.700Z</updated>
+    <updated>2025-04-24T01:30:25.419Z</updated>
     
     
       
@@ -76,6 +151,14 @@
     
     
     
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -84,7 +167,7 @@
     <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zhong/"/>
     <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zhong/</id>
     <published>2025-04-23T07:25:43.000Z</published>
-    <updated>2025-04-23T10:18:09.291Z</updated>
+    <updated>2025-04-24T01:30:33.060Z</updated>
     
     
       
@@ -97,6 +180,14 @@
     
     
     
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -105,7 +196,7 @@
     <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/"/>
     <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/</id>
     <published>2025-04-23T01:43:56.000Z</published>
-    <updated>2025-04-23T10:18:00.027Z</updated>
+    <updated>2025-04-24T01:30:19.923Z</updated>
     
     
       
@@ -118,6 +209,14 @@
     
     
     
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -475,56 +574,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;论债务【一】：内债、外债、收税-和-“人口”&quot;&gt;&lt;a href=&quot;#论债务【一】：内债、外债、收税-和-“人口”&quot; class=&quot;headerlink&quot; title=&quot;论债务【一】：内债、外债、收税 和 “人口”&quot;&gt;&lt;/a&gt;论债务【一】：内债、外债、收税 和</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>全球化下债务的症结</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/quan-qiu-hua-xia-zhai-wu-de-zheng-jie/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/quan-qiu-hua-xia-zhai-wu-de-zheng-jie/</id>
-    <published>2025-04-07T07:41:34.000Z</published>
-    <updated>2025-04-08T01:15:31.870Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;上&quot;&gt;&lt;a href=&quot;#上&quot; class=&quot;headerlink&quot; title=&quot;上&quot;&gt;&lt;/a&gt;上&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;“&lt;/strong&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>付鹏:2008年的老司机经验-仅供参考</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-2008-nian-de-lao-si-ji-jing-yan-jin-gong-can-kao/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-2008-nian-de-lao-si-ji-jing-yan-jin-gong-can-kao/</id>
-    <published>2025-04-07T07:37:45.000Z</published>
-    <updated>2025-04-08T01:21:07.055Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt; </summary>
         
       
     

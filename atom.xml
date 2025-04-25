@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-24T06:47:15.095Z</updated>
+  <updated>2025-04-25T08:35:29.795Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>网络编程——下</title>
+    <title>数据库系统原理——MySQL架构篇</title>
+    <link href="https://gustavo1841.github.io/2025/04/25/ji-suan-ji/java/shu-ju-ku-zhuan-ti/guan-xi-xing/shu-ju-ku-xi-tong-yuan-li-mysql-jia-gou-pian/"/>
+    <id>https://gustavo1841.github.io/2025/04/25/ji-suan-ji/java/shu-ju-ku-zhuan-ti/guan-xi-xing/shu-ju-ku-xi-tong-yuan-li-mysql-jia-gou-pian/</id>
+    <published>2025-04-25T06:55:17.000Z</published>
+    <updated>2025-04-25T08:35:29.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL架构篇&quot;&gt;&lt;a href=&quot;#MySQL架构篇&quot; class=&quot;headerlink&quot; title=&quot;MySQL架构篇&quot;&gt;&lt;/a&gt;MySQL架构篇&lt;/h1&gt;&lt;h2 id=&quot;1-MySQL服务器环境&quot;&gt;&lt;a href=&quot;#1-MySQL服务器环境&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="数据库" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程—下</title>
     <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/"/>
     <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/</id>
     <published>2025-04-24T01:30:54.000Z</published>
-    <updated>2025-04-24T06:47:15.095Z</updated>
+    <updated>2025-04-25T08:36:03.435Z</updated>
     
     
       
@@ -46,11 +75,11 @@
   </entry>
   
   <entry>
-    <title>网络编程——上</title>
+    <title>网络编程—上</title>
     <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/"/>
     <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/</id>
     <published>2025-04-24T01:29:10.000Z</published>
-    <updated>2025-04-24T06:47:08.840Z</updated>
+    <updated>2025-04-25T08:36:00.948Z</updated>
     
     
       
@@ -221,11 +250,11 @@
   </entry>
   
   <entry>
-    <title>JVM监控环境搭建之Grafana+Prometheus+Micrometer</title>
+    <title>JVM监控环境搭建之(Grafana+Prometheus+Micrometer)</title>
     <link href="https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/"/>
     <id>https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/</id>
     <published>2025-04-21T06:49:42.000Z</published>
-    <updated>2025-04-21T07:39:31.014Z</updated>
+    <updated>2025-04-25T08:37:12.210Z</updated>
     
     
       
@@ -549,31 +578,6 @@
     <summary type="html">&lt;p&gt;非常荣幸今天有一个简短的时间跟大家做分享，关于利率、汇率和大宗商品。&lt;/p&gt;
 &lt;p&gt;大概在2012年、2013年的时候，我写过一篇日记跟大家分享大宗商品十年的故事，关于2002年到2012年十年的大宗商品的逻辑和框架。&lt;/p&gt;
 &lt;p&gt;其中对于结论说得非常清楚，2012年是这</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论债务</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/lun-zhai-wu/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/lun-zhai-wu/</id>
-    <published>2025-04-07T07:51:04.000Z</published>
-    <updated>2025-04-08T01:13:57.062Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;论债务【一】：内债、外债、收税-和-“人口”&quot;&gt;&lt;a href=&quot;#论债务【一】：内债、外债、收税-和-“人口”&quot; class=&quot;headerlink&quot; title=&quot;论债务【一】：内债、外债、收税 和 “人口”&quot;&gt;&lt;/a&gt;论债务【一】：内债、外债、收税 和</summary>
         
       
     

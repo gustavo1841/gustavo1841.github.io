@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-04-22T13:31:42.096Z</updated>
+  <updated>2025-04-26T16:09:06.476Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,319 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JVM监控环境搭建之Grafana+Prometheus+Micrometer</title>
+    <title>instrument_traded_in_the_financial_markets</title>
+    <link href="https://gustavo1841.github.io/2025/04/26/jiao-yi-ti-xi/instrument-traded-in-the-financial-markets/"/>
+    <id>https://gustavo1841.github.io/2025/04/26/jiao-yi-ti-xi/instrument-traded-in-the-financial-markets/</id>
+    <published>2025-04-26T15:04:19.000Z</published>
+    <updated>2025-04-26T16:09:06.476Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;股票&quot;&gt;&lt;a href=&quot;#股票&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="tarder" scheme="https://gustavo1841.github.io/tags/tarder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>introduction_to_financial_markets</title>
+    <link href="https://gustavo1841.github.io/2025/04/26/jiao-yi-ti-xi/introduction-to-financial-markets/"/>
+    <id>https://gustavo1841.github.io/2025/04/26/jiao-yi-ti-xi/introduction-to-financial-markets/</id>
+    <published>2025-04-26T14:43:21.000Z</published>
+    <updated>2025-04-26T16:09:01.486Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是金融市场和机构？&quot;&gt;&lt;a href=&quot;#什么是金融市场和机构？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="tarder" scheme="https://gustavo1841.github.io/tags/tarder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>trader&#39;s_dictionary</title>
+    <link href="https://gustavo1841.github.io/2025/04/25/jiao-yi-ti-xi/traders-dictionary/"/>
+    <id>https://gustavo1841.github.io/2025/04/25/jiao-yi-ti-xi/traders-dictionary/</id>
+    <published>2025-04-25T08:54:32.000Z</published>
+    <updated>2025-04-26T02:13:20.260Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Forex-FORegin-Exchange&quot;&gt;&lt;a href=&quot;#Forex-FORegin-Exchange&quot; class=&quot;headerlink&quot; title=&quot;Forex(FORegin Exchange)&quot;&gt;&lt;/a&gt;Forex(FORegin</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="tarder" scheme="https://gustavo1841.github.io/tags/tarder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库系统原理——MySQL架构篇</title>
+    <link href="https://gustavo1841.github.io/2025/04/25/ji-suan-ji/java/shu-ju-ku-zhuan-ti/guan-xi-xing/shu-ju-ku-xi-tong-yuan-li-mysql-jia-gou-pian/"/>
+    <id>https://gustavo1841.github.io/2025/04/25/ji-suan-ji/java/shu-ju-ku-zhuan-ti/guan-xi-xing/shu-ju-ku-xi-tong-yuan-li-mysql-jia-gou-pian/</id>
+    <published>2025-04-25T06:55:17.000Z</published>
+    <updated>2025-04-26T02:13:20.290Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL架构篇&quot;&gt;&lt;a href=&quot;#MySQL架构篇&quot; class=&quot;headerlink&quot; title=&quot;MySQL架构篇&quot;&gt;&lt;/a&gt;MySQL架构篇&lt;/h1&gt;&lt;h2 id=&quot;1-MySQL服务器环境&quot;&gt;&lt;a href=&quot;#1-MySQL服务器环境&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="数据库" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程—下</title>
+    <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/"/>
+    <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/</id>
+    <published>2025-04-24T01:30:54.000Z</published>
+    <updated>2025-04-26T02:13:20.306Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;4-案例01：手写一个RPC框架&quot;&gt;&lt;a href=&quot;#4-案例01：手写一个RPC框架&quot; class=&quot;headerlink&quot; title=&quot;4. 案例01：手写一个RPC框架&quot;&gt;&lt;/a&gt;4. 案例01：手写一个RPC框架&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="网络编程" scheme="https://gustavo1841.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程—上</title>
+    <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/"/>
+    <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-shang/</id>
+    <published>2025-04-24T01:29:10.000Z</published>
+    <updated>2025-04-26T02:13:20.299Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-网络编程基础&quot;&gt;&lt;a href=&quot;#1-网络编程基础&quot; class=&quot;headerlink&quot; title=&quot;1.网络编程基础&quot;&gt;&lt;/a&gt;1.网络编程基础&lt;/h1&gt;&lt;p&gt;见计算机网络，因此略&lt;/p&gt;
+&lt;h1 id=&quot;2-深入BIO与NIO&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="网络编程" scheme="https://gustavo1841.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程—自定义实现web服务器</title>
+    <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zi-ding-yi-shi-xian-web-fu-wu-qi/"/>
+    <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zi-ding-yi-shi-xian-web-fu-wu-qi/</id>
+    <published>2025-04-23T10:14:03.000Z</published>
+    <updated>2025-04-26T02:13:20.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;手写网站服务器案例&quot;&gt;&lt;a href=&quot;#手写网站服务器案例&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程——线程池</title>
+    <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xian-cheng-chi/"/>
+    <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xian-cheng-chi/</id>
+    <published>2025-04-23T08:05:08.000Z</published>
+    <updated>2025-04-26T02:13:20.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;6-线程池&quot;&gt;&lt;a href=&quot;#6-线程池&quot; class=&quot;headerlink&quot; title=&quot;6.线程池&quot;&gt;&lt;/a&gt;6.线程池&lt;/h1&gt;&lt;h2 id=&quot;6-1-线程池介绍&quot;&gt;&lt;a href=&quot;#6-1-线程池介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程——下</title>
+    <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xia/"/>
+    <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-xia/</id>
+    <published>2025-04-23T08:04:10.000Z</published>
+    <updated>2025-04-26T02:13:20.279Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;3-3ReentrantLock源码分析&quot;&gt;&lt;a href=&quot;#3-3ReentrantLock源码分析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程——中</title>
+    <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zhong/"/>
+    <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zhong/</id>
+    <published>2025-04-23T07:25:43.000Z</published>
+    <updated>2025-04-26T02:13:20.279Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-JUC简介&quot;&gt;&lt;a href=&quot;#1-JUC简介&quot; class=&quot;headerlink&quot; title=&quot;1. JUC简介&quot;&gt;&lt;/a&gt;1. JUC简介&lt;/h1&gt;&lt;p&gt;从JDK1.5起，Java API</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并发编程——上</title>
+    <link href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/"/>
+    <id>https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/</id>
+    <published>2025-04-23T01:43:56.000Z</published>
+    <updated>2025-04-26T02:13:20.278Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、多线程&quot;&gt;&lt;a href=&quot;#一、多线程&quot; class=&quot;headerlink&quot; title=&quot;一、多线程&quot;&gt;&lt;/a&gt;一、多线程&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
+    
+    <category term="并发编程" scheme="https://gustavo1841.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM监控环境搭建之(Grafana+Prometheus+Micrometer)</title>
     <link href="https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/"/>
     <id>https://gustavo1841.github.io/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/</id>
     <published>2025-04-21T06:49:42.000Z</published>
-    <updated>2025-04-22T13:31:42.096Z</updated>
+    <updated>2025-04-26T02:13:20.277Z</updated>
     
     
       
@@ -274,292 +582,6 @@
     <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
     
     <category term="性能优化" scheme="https://gustavo1841.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>合理用药，拒绝无效产品</title>
-    <link href="https://gustavo1841.github.io/2025/04/14/ren-sheng-yu-zhi-chang/he-li-yong-yao-ju-jue-wu-xiao-chan-pin/"/>
-    <id>https://gustavo1841.github.io/2025/04/14/ren-sheng-yu-zhi-chang/he-li-yong-yao-ju-jue-wu-xiao-chan-pin/</id>
-    <published>2025-04-14T01:40:09.000Z</published>
-    <updated>2025-04-17T14:12:13.771Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;抗生素类&quot;&gt;&lt;a href=&quot;#抗生素类&quot; class=&quot;headerlink&quot; title=&quot;抗生素类&quot;&gt;&lt;/a&gt;抗生素类&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;头孢克洛（希刻劳）&lt;/strong&gt; -</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="人生" scheme="https://gustavo1841.github.io/tags/%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="健康" scheme="https://gustavo1841.github.io/tags/%E5%81%A5%E5%BA%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于经济回报、利率、汇率、资产和负债、价值和估值</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/guan-yu-jing-ji-hui-bao-li-lu-hui-lu-zi-chan-he-fu-zhai-jie-zhi-he-gu-zhi/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/guan-yu-jing-ji-hui-bao-li-lu-hui-lu-zi-chan-he-fu-zhai-jie-zhi-he-gu-zhi/</id>
-    <published>2025-04-07T09:36:34.000Z</published>
-    <updated>2025-04-17T14:12:13.874Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;关于经济回报、利率、汇率、资产和负债、价值和估值&quot;&gt;&lt;a href=&quot;#关于经济回报、利率、汇率、资产和负债、价值和估值&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利率、汇率、商品和地产</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/li-lu-hui-lu-shang-pin-he-di-chan/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/li-lu-hui-lu-shang-pin-he-di-chan/</id>
-    <published>2025-04-07T08:22:50.000Z</published>
-    <updated>2025-04-07T15:40:14.939Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;非常荣幸今天有一个简短的时间跟大家做分享，关于利率、汇率和大宗商品。&lt;/p&gt;
-&lt;p&gt;大概在2012年、2013年的时候，我写过一篇日记跟大家分享大宗商品十年的故事，关于2002年到2012年十年的大宗商品的逻辑和框架。&lt;/p&gt;
-&lt;p&gt;其中对于结论说得非常清楚，2012年是这</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论债务</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/lun-zhai-wu/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/lun-zhai-wu/</id>
-    <published>2025-04-07T07:51:04.000Z</published>
-    <updated>2025-04-17T14:12:13.901Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;论债务【一】：内债、外债、收税-和-“人口”&quot;&gt;&lt;a href=&quot;#论债务【一】：内债、外债、收税-和-“人口”&quot; class=&quot;headerlink&quot; title=&quot;论债务【一】：内债、外债、收税 和 “人口”&quot;&gt;&lt;/a&gt;论债务【一】：内债、外债、收税 和</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>全球化下债务的症结</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/quan-qiu-hua-xia-zhai-wu-de-zheng-jie/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/quan-qiu-hua-xia-zhai-wu-de-zheng-jie/</id>
-    <published>2025-04-07T07:41:34.000Z</published>
-    <updated>2025-04-17T14:12:13.867Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;上&quot;&gt;&lt;a href=&quot;#上&quot; class=&quot;headerlink&quot; title=&quot;上&quot;&gt;&lt;/a&gt;上&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;“&lt;/strong&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>付鹏:2008年的老司机经验-仅供参考</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-2008-nian-de-lao-si-ji-jing-yan-jin-gong-can-kao/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-2008-nian-de-lao-si-ji-jing-yan-jin-gong-can-kao/</id>
-    <published>2025-04-07T07:37:45.000Z</published>
-    <updated>2025-04-17T14:12:13.842Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt; </summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>付鹏：分享一下我对金融体系流动性观察的方法</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-fen-xiang-yi-xia-wo-dui-jin-rong-ti-xi-liu-dong-xing-guan-cha-de-fang-fa/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/fu-peng-fen-xiang-yi-xia-wo-dui-jin-rong-ti-xi-liu-dong-xing-guan-cha-de-fang-fa/</id>
-    <published>2025-04-07T07:29:11.000Z</published>
-    <updated>2025-04-17T14:12:13.849Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;能够补充流动性的情况下，就不会出现前面VAR风控下资产负债表减计的恶性循环，不是所有的暴跌都是流动性造成的，这里面要看银行间货币市场是否有问题，如果没有，你可能要更多的从市场本身层面去考虑，而不是从流动性层面去考虑；&lt;/p&gt;
-&lt;/blockquot</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>付鹏：通胀成因路径的深思</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/tong-zhang-cheng-yin-lu-jing-de-shen-si/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/fu-peng/tong-zhang-cheng-yin-lu-jing-de-shen-si/</id>
-    <published>2025-04-07T06:51:59.000Z</published>
-    <updated>2025-04-17T14:12:13.908Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;上&quot;&gt;&lt;a href=&quot;#上&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="付鹏" scheme="https://gustavo1841.github.io/tags/%E4%BB%98%E9%B9%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>市场现象</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/shi-chang-xian-xiang/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/shi-chang-xian-xiang/</id>
-    <published>2025-04-07T03:00:38.000Z</published>
-    <updated>2025-04-17T14:12:13.910Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;群友交流的一些市场现象&lt;/p&gt;
-&lt;h1 id=&quot;船周期&quot;&gt;&lt;a href=&quot;#船周期&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>交流心得汇总</title>
-    <link href="https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/jiao-liu-xin-de-hui-zong/"/>
-    <id>https://gustavo1841.github.io/2025/04/07/cao-pan-ri-ji/zi-xue-jiao-yi/jiao-liu-xin-de-hui-zong/</id>
-    <published>2025-04-07T02:29:33.000Z</published>
-    <updated>2025-04-18T14:42:57.509Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;交流心得汇总&lt;/p&gt;
-&lt;h1 id=&quot;持仓价格与持仓成本&quot;&gt;&lt;a href=&quot;#持仓价格与持仓成本&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何高效的去阅读数学和经济学的书籍</title>
-    <link href="https://gustavo1841.github.io/2025/04/05/cao-pan-ri-ji/zi-xue-jiao-yi/ru-he-gao-xiao-de-qu-yue-du-shu-xue-he-jing-ji-xue-de-shu-ji/"/>
-    <id>https://gustavo1841.github.io/2025/04/05/cao-pan-ri-ji/zi-xue-jiao-yi/ru-he-gao-xiao-de-qu-yue-du-shu-xue-he-jing-ji-xue-de-shu-ji/</id>
-    <published>2025-04-05T02:49:54.000Z</published>
-    <updated>2025-04-07T15:40:14.984Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;🔑-数学书的主动学习方法（针对基础差也适用）&quot;&gt;&lt;a href=&quot;#🔑-数学书的主动学习方法（针对基础差也适用）&quot; class=&quot;headerlink&quot; title=&quot;🔑 数学书的主动学习方法（针对基础差也适用）&quot;&gt;&lt;/a&gt;🔑</summary>
-        
-      
-    
-    
-    
-    <category term="世事洞明皆学问" scheme="https://gustavo1841.github.io/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="金融" scheme="https://gustavo1841.github.io/tags/%E9%87%91%E8%9E%8D/"/>
     
   </entry>
   

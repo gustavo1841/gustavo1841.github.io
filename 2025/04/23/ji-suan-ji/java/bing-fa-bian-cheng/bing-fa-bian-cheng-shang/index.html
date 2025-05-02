@@ -1,0 +1,2285 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="并发编程——上, Gustavo">
+    <meta name="description" content="一、多线程
+什么是多线程？多线程（multithreading）是指从软件或者硬件上实现多个线程并发执行的技术。具有多线程能力
+的计算机因有硬件支持而能够在同一时间执行多于一个线程，进而提升整体处理性能。
+并发编程：编写多线程代码，解决多线">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>并发编程——上 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/826.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">并发编程——上</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">并发编程</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-04-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-04-26
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    44 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="一、多线程"><a href="#一、多线程" class="headerlink" title="一、多线程"></a>一、多线程</h1><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%97%B6%E5%BA%8F%E5%9B%BE.png" alt="线程时序图"></p>
+<h2 id="什么是多线程？"><a href="#什么是多线程？" class="headerlink" title="什么是多线程？"></a>什么是多线程？</h2><p>多线程（multithreading）是指从软件或者硬件上实现多个线程并发执行的技术。具有多线程能力</p>
+<p>的计算机因有硬件支持而能够在同一时间执行多于一个线程，进而提升整体处理性能。</p>
+<p>并发编程：编写多线程代码，解决多线程带来的问题</p>
+<h2 id="怎么学并发编程？"><a href="#怎么学并发编程？" class="headerlink" title="怎么学并发编程？"></a>怎么学并发编程？</h2><ul>
+<li>多线程核心知识（概念、线程状态、线程安全问题、三大特性）</li>
+<li>同步代码块Synchronized及其实现原理</li>
+<li>volatile关键字及其实现原理</li>
+<li>多线程在JVM中的实现原理</li>
+<li>JUC概述</li>
+<li>原子类Atomic-CAS及其实现原理</li>
+<li>锁Lock-AQS核心原理剖析</li>
+<li>并发工具类、并发容器、阻塞队列</li>
+<li>线程池原理剖析</li>
+<li>线程池案例-Web容器-压力测试</li>
+</ul>
+<h2 id="1-多线程相关概念"><a href="#1-多线程相关概念" class="headerlink" title="1. 多线程相关概念"></a>1. 多线程相关概念</h2><h3 id="1-1-线程和进程"><a href="#1-1-线程和进程" class="headerlink" title="1.1 线程和进程"></a>1.1 线程和进程</h3><ul>
+<li>进程：是指内存中运行的一个应用程序，每个进程都有自己独立的内存空间；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。</li>
+<li>线程：是进程中的一个执行单元，负责当前进程中任务的执行。一个进程在其执行过程中，会产生很多个线程。</li>
+</ul>
+<p>进程与线程区别：</p>
+<ul>
+<li>进程：有独立内存空间，每个进程中的数据空间都是独立的。</li>
+<li>线程：多线程之间堆空间与方法区是共享的，但每个线程的栈空间、程序计数器是独立的，线程消耗的资源比进程小的多。</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423094616620.png"></p>
+<h4 id="1-1-1-什么是并发与并行？"><a href="#1-1-1-什么是并发与并行？" class="headerlink" title="1.1.1 什么是并发与并行？"></a>1.1.1 什么是并发与并行？</h4><ul>
+<li>并发（Concurrent）：同一时间段，多个任务都在执行 ，单位时间内不⼀定同时执行。</li>
+<li>并行（Parallel）：单位时间内，多个任务同时执行，单位时间内一定是同时执行。并行上限取决于CPU核数（CPU时间片内50ms）</li>
+</ul>
+<p>注意：并发是一种能力，而并行是一种手段。当我们的系统拥有了并发的能力后，代码如果跑在多核CPU上就可以并行运行。所以咱们会说高并发处理，而不会说高并行处理。并行处理是基于硬件CPU的是固定的，而并发处理的能力是可以通过设计编码进行提高的。</p>
+<h4 id="1-1-2-什么是线程上下文切换？"><a href="#1-1-2-什么是线程上下文切换？" class="headerlink" title="1.1.2 什么是线程上下文切换？"></a>1.1.2 什么是线程上下文切换？</h4><p>现在计算机一般都是多核CPU，且OS都能够同时支持远大于CPU内核数的线程运行。那么，OS如何分配CPU资源与调度线程呢？</p>
+<p>以我的个人计算机为例：4核8线程</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423094714888.png"></p>
+<p>一个CPU内核，同一时刻只能被一个线程使用。为了提升CPU利用率，CPU采用了时间片算法将CPU时间片轮流分配给多个线程，每个线程分配了一个时间片（几十毫秒/线程），线程在时间片内，使用CPU执行任务。当时间片用完后，线程会被挂起，然后把 CPU 让给其它线程。</p>
+<p>那么问题来了，线程再次运行时，系统是怎么知道线程之前运行到哪里了呢？</p>
+<ul>
+<li>CPU切换前会把当前任务状态保存下来，用于下次切换回任务时再次加载。</li>
+<li>任务状态的保存及再加载的过程就叫做上下文切换。</li>
+</ul>
+<p>任务状态信息保存在哪里呢？</p>
+<ul>
+<li>程序计数器：用来存储CPU正在执行的指令的位置，和即将执行的下一条指令的位置。</li>
+<li>他们都是CPU在运行任何任务前，必须依赖的环境，被叫做CPU上下文。</li>
+</ul>
+<p>上下文切换过程：</p>
+<ol>
+<li><p>挂起当前任务任务，将这个任务在 CPU 中的状态（上下文）存储于内存中的某处。</p>
+</li>
+<li><p>恢复一个任务，在内存中检索下一个任务的上下文并将在 CPU 的寄存器中恢复。</p>
+</li>
+<li><p>跳转到程序计数器所指定的位置（即跳转到任务被中断时的代码行）。</p>
+</li>
+</ol>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423094813794.png"></p>
+<p>线程上下文切换会有什么问题呢？</p>
+<p>过多的线程并行执行会导致CPU资源的争抢，产生频繁的上下文切换，常常表现为高并发执行时，RT延长。因此，合理控制上下文切换次数，可以提高多线程应用的运行效率。（也就是说线程并不是越多越好，要合理的控制线程的数量。）</p>
+<ul>
+<li>直接消耗：指的是CPU寄存器需要保存和加载，系统调度器的代码需要执行</li>
+<li>间接消耗：指的是多核的cache之间得共享数据，间接消耗对于程序的影响要看线程工作区操作数据的大小</li>
+</ul>
+<h4 id="1-2-3-线程状态：一个线程的一生"><a href="#1-2-3-线程状态：一个线程的一生" class="headerlink" title="1.2.3 线程状态：一个线程的一生"></a>1.2.3 线程状态：一个线程的一生</h4><p>查看Thread源码，能够看到java的线程有六种状态：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">State</span> <span class="token punctuation">{</span>
+    <span class="token constant">NEW</span><span class="token punctuation">,</span>
+    <span class="token constant">RUNNABLE</span><span class="token punctuation">,</span>
+    <span class="token constant">BLOCKED</span><span class="token punctuation">,</span>
+    <span class="token constant">WAITING</span><span class="token punctuation">,</span>
+    <span class="token constant">TIMED_WAITING</span><span class="token punctuation">,</span>
+    <span class="token constant">TERMINATED</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>NEW(新建) ：线程刚被创建，但是并未启动</p>
+<p>RUNNABLE(可运行)：线程可以在Java虚拟机中运行的状态，可能正在运行自己代码，也可能没有，这取决于操作系统处理器</p>
+<p>BLOCKED(锁阻塞)：当一个线程试图获取一个对象锁，而该对象锁被其他的线程持有，则该线程进入Blocked状态；当该线程持有锁时，该线程将变成Runnable状态</p>
+<p>WAITING(无限等待)：一个线程在等待另一个线程执行一个（唤醒）动作时，该线程进入Waiting状态。进入这个状态后是不能自动唤醒的，必须等待另一个线程调用notify或者notifyAll方法才能够唤醒</p>
+<p>TIMED_WAITING(计时等待)：同waiting状态，有几个方法有超时参数，调用他们将进入Timed Waiting状态。这一状态将一直保持到超时期满或者接收到唤醒通知。带有超时参数的常用方法有Thread.sleep 、Object.wait</p>
+<p>TERMINATED(被终止)：因为run方法正常退出而死亡，或者因为没有捕获的异常终止了run方法而死亡</p>
+<p>线程状态图：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423094916735.png"></p>
+<h5 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h5><ul>
+<li>线程名称</li>
+<li>线程ID：ThreadID = tid</li>
+<li>线程优先级：Priority</li>
+</ul>
+<h5 id="常用方法："><a href="#常用方法：" class="headerlink" title="常用方法："></a>常用方法：</h5><ul>
+<li>线程让步：yield()</li>
+<li>让线程休眠的方法：sleep()</li>
+<li>等待线程执行终止的方法： join()</li>
+<li>线程中断interrupt()</li>
+<li>等待与通知系列函数wait()、notify()、notifyAll()</li>
+</ul>
+<h5 id="wait-与sleep-区别："><a href="#wait-与sleep-区别：" class="headerlink" title="wait()与sleep()区别："></a>wait()与sleep()区别：</h5><ul>
+<li><p>主要区别：sleep()方法没有释放锁，而wait()方法释放了锁</p>
+</li>
+<li><p>两者都可以暂停线程的执行</p>
+</li>
+<li><p>wait()通常用于线程间的交互/通信，sleep()通常用于暂停线程执行</p>
+</li>
+<li><p>wait()方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象的notify或notifyAll。</p>
+</li>
+<li><p>sleep()方法执行完成后，线程会自动苏醒。或者可以使用wait(long)超时后，线程也会自动苏醒</p>
+</li>
+</ul>
+<h3 id="1-2-多线程在JVM中的实现原理剖析"><a href="#1-2-多线程在JVM中的实现原理剖析" class="headerlink" title="1.2 多线程在JVM中的实现原理剖析"></a>1.2 多线程在JVM中的实现原理剖析</h3><p>我们知道Java线程是通过行start()方法来启动的，线程启动后会执行run方法内的代码。</p>
+<p>那Java线程是怎么实现run方法的执行的呢？</p>
+<p>Java线程其实是“寄生”在操作系统线程上，通过操作系统的线程来实现Java线程的运行。接下来我们就深入源码来看看Java线程是怎么实现“寄生”在操作系统线程上来运行的。</p>
+<pre class="line-numbers language-none"><code class="language-none">package com.hero.multithreading;
+public class ThreadDemo {
+    public static void main(String[] args) {
+        Thread thread =new Thread(()-&gt;{
+        System.out.println("线程");
+        });
+        thread.start();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="1-2-1-下载源码"><a href="#1-2-1-下载源码" class="headerlink" title="1.2.1 下载源码"></a>1.2.1 下载源码</h4><p>openjdk的源码是托管在 Mercurial（水银） 代码版本管理平台上的，可以使用Mercurial的代码管理工具直接从远程仓库（Repository）中下载获取源码。点击左侧菜单”Source Code” 下 “Mercurial” 进入远程仓库<a target="_blank" rel="noopener" href="https://hg.openjdk.java.net/">https://hg.openjdk.java.net</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423100907393.png"></p>
+<p>我们选用的是OpenJDK 8u，点击jdk8u进入<a target="_blank" rel="noopener" href="https://hg.openjdk.java.net/jdk8u/jdk8u/%EF%BC%8C%E6%AD%A4%E7%BD%91%E5%9D%80%E4%B8%BA%E4%B8%8B%E8%BD%BD%E6%BA%90%E3%80%82%E5%9B%A0%E4%B8%BA%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%9C%80%E8%A6%81%E6%89%A7%E8%A1%8Cmercurial%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E5%9C%A8Linux%E5%B9%B3%E5%8F%B0%E4%B8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BF%87%E7%A8%8B%E5%A6%82%E4%B8%8B%EF%BC%9A">https://hg.openjdk.java.net/jdk8u/jdk8u/，此网址为下载源。因为下载源码过程中需要执行mercurial脚本文件，所以需要在Linux平台下下载，获取源代码过程如下：</a></p>
+<pre class="line-numbers language-none"><code class="language-none">#需先安装代码版本管理工具
+yum -y install mercurial
+#安装成功后，可以用以下命令查看hg 版本信息
+hg --version
+#从远程仓库下载源码
+hg clone https://hg.openjdk.java.net/jdk8u/jdk8u/
+#赋予get_source.sh文件可执行权限
+cd ./jdk8u/
+chmod 755 get_source.sh
+#执行文件获取源码
+./get_source.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>以上是下载方式，也可以直接用我下载好的源码！在课程资料中提供。</p>
+<p>目录结构:</p>
+<p>OpenJDK目录结构</p>
+<pre class="line-numbers language-none"><code class="language-none">jdk8u
+|---corba 不常用的多语言、分布式通讯接口
+|---hotspot JVM的实现-HotSpot VM源代码
+|---jaxp 用于处理XML的Java API
+|---jaxws 一组XML Web Services的Java API
+|---jdk JDK 实现
+|---langtools Java 语言工具
+|---nashorn JVM 上的 JavaScript 运行时<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>JDK实现 目录结构jdk8u/jdk</p>
+<pre class="line-numbers language-none"><code class="language-none">jdk JDK 实现
+|---src 源代码
+| |---share 与平台无关的公用代码
+| | |---classes Java API的实现
+| | |---native Java中相关的Native方法C++实现
+#其它的目录如back、instrument、javavm、npt、transport等目录包含了实现Java的基础部分的
+C++源码，在这里可以从最底层理解 Java。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>HotSpot VM目录结构：jdk8u\hotspot</p>
+<pre class="line-numbers language-none"><code class="language-none">hotspot
+|---src HotSpot VM源代码
+| |---cpu CPU相关代码
+| |---os 操作系统相关代码
+| |---os_cpu 操作系统+CPU组合的相关代码
+| |---share 与平台无关的公用代码
+| | |---tools 工具
+| | |---vm HotSpot VM的核心代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="1-2-2-查看naive-state0-方法"><a href="#1-2-2-查看naive-state0-方法" class="headerlink" title="1.2.2 查看naive state0 方法"></a>1.2.2 查看naive state0 方法</h4><p>从入口开始，首先我们进入到Thread类的start方法内，可以看到有一个start0()方法的调用， 这里是真正启动Java线程的地方 。</p>
+<pre class="line-numbers language-none"><code class="language-none">public synchronized void start() {//线程安全的方法
+    //线程状态判断
+    if (threadStatus != 0)
+        throw new IllegalThreadStateException();
+        boolean started = false;
+        try {
+            start0();//关键步骤，主线
+            started = true;
+        } finally {
+            try {
+                if (!started) {
+                    group.threadStartFailed(this);
+                }
+            } catch (Throwable ignore) {
+            }
+    }
+}
+private native void start0();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>start0是一个 native方法， 那么start0方法是在哪里实现的呢？</p>
+<p>在openjdk源码share\native\java\lang\Thread.c 文件中我们可以找到start0的定义，Java 线程将start0方法和真正的实现方法JVM_StartThread进行了绑定。也就是说调用start0相当与调用了JVM_StartThread方法。</p>
+<pre class="line-numbers language-none"><code class="language-none">//定义了JNINativeMethod类型的数组，JNINativeMethod是一个C语言的结构体类型，在jni.h头
+文件中。
+//数组中的在methods数组中定义了native方法，与JVM中线程方法的对应关系。
+static JNINativeMethod methods[] = {
+    {"start0", "()V", (void *)&amp;JVM_StartThread},
+    {"stop0", "(" OBJ ")V", (void *)&amp;JVM_StopThread},
+    {"isAlive", "()Z", (void *)&amp;JVM_IsThreadAlive},
+    {"suspend0", "()V", (void *)&amp;JVM_SuspendThread},
+    {"resume0", "()V", (void *)&amp;JVM_ResumeThread},
+    {"setPriority0", "(I)V", (void *)&amp;JVM_SetThreadPriority},
+    {"yield", "()V", (void *)&amp;JVM_Yield},
+    {"sleep", "(J)V", (void *)&amp;JVM_Sleep},
+    {"currentThread", "()" THD, (void *)&amp;JVM_CurrentThread},
+    {"countStackFrames", "()I", (void *)&amp;JVM_CountStackFrames},
+    {"interrupt0", "()V", (void *)&amp;JVM_Interrupt},
+    {"isInterrupted", "(Z)Z", (void *)&amp;JVM_IsInterrupted},
+    {"holdsLock", "(" OBJ ")Z", (void *)&amp;JVM_HoldsLock},
+    {"getThreads", "()[" THD, (void *)&amp;JVM_GetAllThreads},
+    {"dumpThreads", "([" THD ")[[" STE, (void *)&amp;JVM_DumpThreads},
+    {"setNativeName", "(" STR ")V", (void *)&amp;JVM_SetNativeThreadName},
+};
+//线程中registerNatives的native方法，对应的C++方法，使用了传统的JNI调用函数命名规则，
+//java.lang.Thread.registerNative的方法对应的JNI函数。
+//在这个方法内，完成了methods数组中的所有native方法与JVM中JNI函数的映射。
+JNIEXPORT void JNICALL
+Java_java_lang_Thread_registerNatives(JNIEnv *env, jclass cls)
+{
+(*env)-&gt;RegisterNatives(env, cls, methods, ARRAY_LENGTH(methods));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>JNINativeMethod类型的结构体变量，JNINativeMethod定义在jni.h中。定义了一个native方法和jni方法的映射关系，将Java中的native方法和JVM中真正的实现方法进行绑定。</p>
+<pre class="line-numbers language-none"><code class="language-none">typedef struct {
+    char *name;//native方法
+    char *signature;
+    void *fnPtr;//真正的实现JNI方法
+} JNINativeMethod;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那么这里就有一个问题，registerNatives方法具体是在哪里何时执行映射操作的呢？</p>
+<p>在JVM首次加载Thread类的时候，在Thread类的静态初始化块中，调用了native registerNatives方法，它对应的Jni方法就是上面Java_java_lang_Thread_registerNatives方法，就是在这里完成了state0和JVM_StartThread的绑定。</p>
+<h4 id="1-2-3-JVM-StartThread-方法"><a href="#1-2-3-JVM-StartThread-方法" class="headerlink" title="1.2.3 JVM_StartThread 方法"></a>1.2.3 JVM_StartThread 方法</h4><p>至此，我们知道执行state0方法就是执行JVM_StartThread方法，它定义在hotspot JVM源码文件src\share\vm\prims\jvm.cpp 中。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">JVM_ENTRY</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">,</span> <span class="token function">JVM_StartThread</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">,</span> jobject jthread<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">JVMWrapper</span><span class="token punctuation">(</span><span class="token string">"JVM_StartThread"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    JavaThread <span class="token operator">*</span>native_thread <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> throw_illegal_thread_state <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//获取互斥锁</span>
+        MutexLocker <span class="token function">mu</span><span class="token punctuation">(</span>Threads_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//判断Java线程是否已启动，如果已启动，则抛异常。</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>java_lang_Thread<span class="token double-colon punctuation">::</span><span class="token function">thread</span><span class="token punctuation">(</span><span class="token class-name">JNIHandles</span><span class="token double-colon punctuation">::</span><span class="token function">resolve_non_null</span><span class="token punctuation">(</span>jthread<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span>
+        <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        	throw_illegal_thread_state <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//抛出非法线程状态异常</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">//如果Java线程没有启动，创建JVM中的JavaThread</span>
+                jlong size <span class="token operator">=</span> java_lang_Thread<span class="token double-colon punctuation">::</span><span class="token function">stackSize</span><span class="token punctuation">(</span><span class="token class-name">JNIHandles</span><span class="token double-colon punctuation">::</span><span class="token function">resolve_non_null</span><span class="token punctuation">(</span>jthread<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                size_t sz <span class="token operator">=</span> size <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token punctuation">(</span>size_t<span class="token punctuation">)</span> size <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                native_thread <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">JavaThread</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>thread_entry<span class="token punctuation">,</span> sz<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//JVM中的JavaThread构造函数在文件thread.cpp</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>native_thread<span class="token operator">-&gt;</span><span class="token function">osthread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment">//将Java中的Thread和Jvm中的Thread进行绑定。</span>
+                    native_thread<span class="token operator">-&gt;</span><span class="token function">prepare</span><span class="token punctuation">(</span>jthread<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token comment">//开始启动执行JVM Thread线程。</span>
+	<span class="token class-name">Thread</span><span class="token double-colon punctuation">::</span><span class="token function">start</span><span class="token punctuation">(</span>native_thread<span class="token punctuation">)</span><span class="token punctuation">;</span>
+JVM_END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>进入java线程构造函数，在 src\share\vm\runtime\thread.cpp 中</p>
+<pre class="line-numbers language-none"><code class="language-none">JavaThread::JavaThread(ThreadFunction entry_point, size_t stack_sz) :
+Thread()
+{
+    if (TraceThreadEvents) {
+    	tty-&gt;print_cr("creating thread %p", this);
+    }
+    initialize();
+    _jni_attach_state = _not_attaching_via_jni;
+    set_entry_point(entry_point);
+    os::ThreadType thr_type = os::java_thread;
+    thr_type = entry_point == &amp;compiler_thread_entry ? os::compiler_thread : os::java_thread;
+    //创建操作系统线程,这个才是真正映射到系统层面。
+    os::create_thread(this, thr_type, stack_sz);
+    _safepoint_visible = false;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们着重关注os::create_thread(this, thr_type, stack_sz) ，它的作用是创建Java线程对应的操作系统线程。</p>
+<h4 id="1-2-4-创建操作系统线程"><a href="#1-2-4-创建操作系统线程" class="headerlink" title="1.2.4 创建操作系统线程"></a>1.2.4 创建操作系统线程</h4><p>JVM在所有的操作系统中都实现了os::create_thread，我们看linux操作系统的实现在src\os\linux\vm\os_linux.cpp 中</p>
+<pre class="line-numbers language-none"><code class="language-none">bool os::create_thread(Thread* thread, ThreadType thr_type, size_t
+stack_size) {
+......
+    pthread_t tid;
+    //创建os级别的线程，pthread_create是linux操作系统创建线程的函数。
+    //成功则返回0，否则返回出错编号
+    //第一个参数：指向线程标识符的指针。
+    //第二个参数：用来设置线程属性。
+    //第三个参数：java_start是新建的线程运行的初始函数地址；
+    //第四个参数：java_start函数的参数。
+    //java_start就是新创建的线程启动入口，它会等待一个信号来调用Java中的run()方法
+    int ret = pthread_create(&amp;tid, &amp;attr, (void* (*)(void*)) java_start,thread);
+......
+    return true;
+  }
+    //新建的操作系统线程从java_start方法开始执行。而在此函数中执行java线程对象的run方法。
+    static void *java_start(Thread *thread) {
+    ......
+        thread-&gt;run();//此处的作用是执行java线程对象的run方法
+        return 0;
+	}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="1-2-5-操作系统线程执行"><a href="#1-2-5-操作系统线程执行" class="headerlink" title="1.2.5 操作系统线程执行"></a>1.2.5 操作系统线程执行</h4><p>至此一个操作系统线程创建及初始化完毕了，我们返回到步骤1.2.3中的JVM_StartThread 方法中，最后一行 Thread::start(native_thread); 开始执行操作系统线程。</p>
+<pre class="line-numbers language-none"><code class="language-none">//hotspot\src\share\vm\runtime\thread.cpp
+void Thread::start(Thread* thread) {
+	trace("start", thread);
+	// Start is different from resume in that its safety is guaranteed by context or
+	// being called from a Java method synchronized on the Thread object.
+	if (!DisableStartThread) {
+		if (thread-&gt;is_Java_thread()) {
+			// Initialize the thread state to RUNNABLE before starting this thread.
+            // Can not set it after the thread started because we do not know the
+            // exact thread state at that time. It could be in MONITOR_WAIT or
+            // in SLEEPING or some other state.
+			//线程状态更新为RUNNABLE
+			java_lang_Thread::set_thread_status(((JavaThread*)thread)-&gt;threadObj(),java_lang_Thread::RUNNABLE);
+		}
+		os::start_thread(thread);
+	}
+}
+//hotspot\src\share\vm\runtime\os.cpp
+void os::start_thread(Thread* thread) {
+    // guard suspend/resume
+    MutexLockerEx ml(thread-&gt;SR_lock(), Mutex::_no_safepoint_check_flag);
+    OSThread* osthread = thread-&gt;osthread();
+    //操作系统线程状态置为RUNNABLE
+    osthread-&gt;set_state(RUNNABLE);
+    pd_start_thread(thread);
+}
+//hotspot\src\os\linux\vm\os_linux.cpp
+void os::pd_start_thread(Thread* thread) {
+    OSThread * osthread = thread-&gt;osthread();
+    assert(osthread-&gt;get_state() != INITIALIZED, "just checking");
+    Monitor* sync_with_child = osthread-&gt;startThread_lock();
+    MutexLockerEx ml(sync_with_child, Mutex::_no_safepoint_check_flag);
+	sync_with_child-&gt;notify();
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>至此，操作系统线程为就绪状态，等待被CPU选中运行时，就会调用执行入口函数java_start，调用Java</p>
+<p>线程的run方法，至此Java线程也就同时运行起来了。</p>
+<p>小结一下</p>
+<ol>
+<li><p>线程类被JVM加载时，完成线程所有native方法和C++中的对应方法绑定。</p>
+</li>
+<li><p>Java线程调用start方法：start方法 ==&gt; native state0方法 ==&gt; JVM_StartThread ==&gt; 创建JavaThread::JavaThread线程</p>
+</li>
+<li><p>创建OS线程，并指定OS线程的运行入口：创建JavaThread::JavaThread线程 ==&gt; 创建OS线程os::create_thread ==&gt; 指定OS线程执行入口Java线程的run方法</p>
+</li>
+<li><p>启动OS线程：运行时会调用Java线程的run方法，至此实现了Java线程的运行。</p>
+</li>
+<li><p>创建线程的时候使用的是互斥锁MutexLocker操作系统（互斥量），所以说创建线程是一个性能很差的操作！</p>
+</li>
+</ol>
+<h3 id="1-3-线程安全问题【关键】"><a href="#1-3-线程安全问题【关键】" class="headerlink" title="1.3 线程安全问题【关键】"></a>1.3 线程安全问题【关键】</h3><p>什么是线程安全？</p>
+<p>如果有多个线程在同时执行，而多个线程可能会同时运行一行代码。如果程序每次运行结果和单线程运行的结果一样，且其他的变量的值也和预期一样，就是线程安全的，反之则是线程不安全的。</p>
+<p>举个栗子：</p>
+<h4 id="1-3-1-经典案例：卖票"><a href="#1-3-1-经典案例：卖票" class="headerlink" title="1.3.1 经典案例：卖票"></a>1.3.1 经典案例：卖票</h4><p>假设电影院要播放的电影是 “独行月球”，电影院要卖电影票，我们采用多线程程序模拟电影院卖票过程。一场电影的座位共100个，每个座位一张票。公有三个电影票售票窗口。要求实现多个窗口同时卖“独行月球”这场电影票。卖完为止，不可多卖也不可以有余票。</p>
+<p>代码实现：</p>
+<pre class="line-numbers language-none"><code class="language-none">package com.hero.multithreading;
+public class Demo01Ticket {
+    public static void main(String[] args) {
+        //创建线程任务对象
+        SellTicketTask task = new SellTicketTask();
+        //创建三个窗口对象
+        Thread t1 = new Thread(task, "窗口1");
+        Thread t2 = new Thread(task, "窗口2");
+        Thread t3 = new Thread(task, "窗口3");
+        //同时卖票
+        t1.start();
+        t2.start();
+        t3.start();
+   }
+}
+class SellTicketTask implements Runnable {
+    //电影票100张
+    private int tickets = 100;
+    /*
+    * 每个窗口执行相同的卖票操作
+    * 窗口永远开启，所有窗口卖完100张票为止
+    */
+    @Override
+    public void run() {
+        while (true) {
+            //有票 可以卖
+            if (tickets &gt; 0){
+                //模拟出票时间：使用sleep模拟一下出票时间
+                try {
+                	Thread.sleep(20);
+                } catch (InterruptedException e) {
+                	e.printStackTrace();
+                }
+                //获取当前线程对象的名字
+                String name = Thread.currentThread().getName();
+                System.out.println(name + "-正在卖:" + tickets--);
+        	}
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>结果中有一部分这样现象</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423140522352.png"></p>
+<p>发现程序出现了两个问题：</p>
+<ol>
+<li><p>相同的票数：比如12这张票被卖了两回。</p>
+</li>
+<li><p>不存在的票：比如0票与-1票，是不存在的。</p>
+</li>
+</ol>
+<p>这种问题，几个窗口(线程)票数不同步了，这种问题称为线程不安全。</p>
+<p>引发线程安全问题：线程安全问题都是由全局变量及静态变量【共享】引起的。</p>
+<ul>
+<li><p>如果每个线程中对全局变量、静态变量只有读操作，而无写操作，一般来说，这个全局变量是线程安全的；</p>
+</li>
+<li><p>如果有多个线程同时执行写操作，一般都需要考虑线程同步，否则的话就可能影响线程安全问题。</p>
+</li>
+</ul>
+<p>怎么解决这个问题呢？</p>
+<ul>
+<li><p>线程同步</p>
+</li>
+<li><p>volatile</p>
+</li>
+<li><p>JUC</p>
+<ul>
+<li><p>原子类（CAS）</p>
+</li>
+<li><p>锁（AQS）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-2-线程同步"><a href="#1-3-2-线程同步" class="headerlink" title="1.3.2 线程同步"></a>1.3.2 线程同步</h4><p>为了保证不出现线程安全问题，Java引入了线程同步机制（synchronized）。那么怎么完成同步操作呢？</p>
+<blockquote>
+<p>这个是JUC的起源也是因为同步机制不太行！JUC的出现就是因为它！</p>
+</blockquote>
+<ol>
+<li><p>同步代码块Synchronized-重量级锁</p>
+</li>
+<li><p>同步方法Synchronized-重量级锁</p>
+</li>
+<li><p>锁机制【JUC】</p>
+</li>
+</ol>
+<p>同步代码块</p>
+<pre class="line-numbers language-none"><code class="language-none">synchronized(同步锁){
+
+	需要同步操作的代码
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>举例：</p>
+<pre class="line-numbers language-none"><code class="language-none">class SellTicketTaskSynchronized implements Runnable {
+    //电影票
+    private int tickets = 100;
+    private final Object lock = new Object();//锁对象，可以是任意类型数据
+    /*
+    * 每个窗口执行相同的卖票操作
+    * 窗口永远开启，所有窗口卖完100张票为止
+    */
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (lock){
+                //有票 可以卖
+                if (tickets &gt; 0){
+                    //模拟出票时间：使用sleep模拟一下出票时间
+                    try {
+                    	Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                    	e.printStackTrace();
+                    }
+                    //获取当前线程对象的名字
+                    String name = Thread.currentThread().getName();
+                    System.out.println(name + "-正在卖:" + tickets--);
+                }
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>同步方法</p>
+<p>Lock锁</p>
+<pre class="line-numbers language-none"><code class="language-none">Lock lock = new ReentrantLock();//可重入锁
+lock.lock();
+//需要同步操作的代码
+lock.unlock();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="1-4-多线程并发的3个特性"><a href="#1-4-多线程并发的3个特性" class="headerlink" title="1.4 多线程并发的3个特性"></a>1.4 多线程并发的3个特性</h3><p>并发编程中，三个非常重要的特性：原子性，有序性和可见性</p>
+<ol>
+<li><p>原子性：即一个操作或多个操作，要么全部执行，要么就都不执。执行过程中，不能被打断</p>
+</li>
+<li><p>有序性：程序代码按照先后顺序执行</p>
+<p>为什么会出现无序问题呢？因为指令重排</p>
+</li>
+<li><p>可见性：当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值</p>
+<p>为什么出现不可见性问题呢？可以说是因为Java内存模型【JMM】</p>
+</li>
+</ol>
+<h3 id="1-5-有序性案例：指令重排序"><a href="#1-5-有序性案例：指令重排序" class="headerlink" title="1.5 有序性案例：指令重排序"></a>1.5 有序性案例：指令重排序</h3><p>什么是指令重排序？</p>
+<p>重排序是编译器和处理器为了提高程序运行效率，会对输入代码进行优化的一种手段。它不保证程序中，各个语句执行先后顺序的一致。</p>
+<p>举个栗子：</p>
+<pre class="line-numbers language-none"><code class="language-none">int count = 0;
+boolean flag = false;
+count = 1; //语句1
+flag = true; //语句2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>在单线程中以上代码从顺序上看，语句1是在语句2前面的，那么JVM在真正执行这段代码的时候，会保证语句1一定在语句2前面执行吗？</p>
+<ul>
+<li><p>还真不一定！为什么呢？这里可能会发生指令重排序（Instruction Reorder）。</p>
+</li>
+<li><p>无论如何重排序，程序最终执行结果和代码顺序执行的结果是一致的。</p>
+</li>
+<li><p>Java编译器、运行时和处理器都会保证，在单线程下遵循as-if-serial语义。</p>
+</li>
+</ul>
+<p>按顺序执行不好么，为什么要重排序去执行？</p>
+<ul>
+<li><p>不进行指令重排，就相当于没有编译优化，那么程序执行效率打折扣</p>
+</li>
+<li><p>当前线程获取CPU时间片（几十毫秒），如果按照先后顺序执行，并不能把CPU性能发挥完全，上一个指令执行完执行下一个，CPU会出现空挡期。</p>
+</li>
+</ul>
+<p>什么是as-if-serial语义？</p>
+<ul>
+<li>不管编译器和处理器怎么优化字节码指令，怎样进行指令重排，单线程所执行的结果不能受影响。</li>
+<li>上面的代码中，语句1和语句2谁先执行对最终的程序结果并没有影响，那么就有可能在执行过程中，语句2先执行而语句1后执行。</li>
+</ul>
+<p>再举个单线程栗子：</p>
+<pre class="line-numbers language-none"><code class="language-none">int a = 10; //语句1
+int b = 2; //语句2
+a = a + 3; //语句3
+b = a*a; //语句4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li><p>这段代码有4个语句，那么可能的一个执行顺序是： 语句2 ==&gt; 语句1 ==&gt; 语句3 ==&gt; 语句4</p>
+<ul>
+<li>不可能是这个执行顺序： 语句2 ==&gt; 语句1 ==&gt; 语句4 ==&gt; 语句3</li>
+</ul>
+</li>
+<li><p>处理器在进行重排序时，会考虑指令之间的数据依赖性，如果一个 指令2 必须用到 指令1 的结果，那么处理器会保证指令1会在指令2之前执行。</p>
+</li>
+<li><p>虽然重排序不会影响单个线程内程序执行的结果，但是多线程会有影响。</p>
+</li>
+</ul>
+<p>再举个多线程的栗子：</p>
+<pre class="line-numbers language-none"><code class="language-none">//线程1:
+init = false
+context = loadContext(); //语句1
+init = true; //语句2
+//线程2:
+while(!init){//如果初始化未完成，等待
+	sleep();
+}
+execute(context);//初始化完成，执行逻辑<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>上面代码中，由于语句1和语句2没有数据依赖性，因此可能会被重排序。</p>
+</li>
+<li><p>假如发生了重排序，在线程1执行过程中先执行语句2，而此是线程2会以为初始化工作已经完成，那么就会跳出while循环，去执行execute(context)方法，而此时context并没有被初始化，就会导致程序出错。</p>
+</li>
+<li><p>从上面可以看出，重排序不会影响单个线程的执行，但是会影响到线程并发执行的正确性。</p>
+</li>
+</ul>
+<p>要想多线程程序正确地执行，必须要保证原子性、可见性以及有序性。只要有一个没有被保证，就有可能会导致程序运行不正确。</p>
+<h3 id="1-6-可见性案例：Java内存模型（JMM）"><a href="#1-6-可见性案例：Java内存模型（JMM）" class="headerlink" title="1.6 可见性案例：Java内存模型（JMM）"></a>1.6 可见性案例：Java内存模型（JMM）</h3><h4 id="1-6-1-CPU和缓存一致性"><a href="#1-6-1-CPU和缓存一致性" class="headerlink" title="1.6.1 CPU和缓存一致性"></a>1.6.1 CPU和缓存一致性</h4><p>在多核 CPU 中，每个核的自己的缓存，关于同一个数据的缓存内容可能不一致。</p>
+<p>计算机在执行程序的时候，每条指令都是在 CPU 中执行的，而执行的时候，又免不了和数据打交道，而计算机上面的数据，是存放在计算机的物理内存上的。</p>
+<p>当内存的读取速度和CPU的执行速度相比差别不大的时候，这样的机制是没有任何问题的，可是随着CPU的技术的发展，CPU的执行速度和内存的读取速度差距越来越大，导致CPU每次操作内存都要耗费很多等待时间。</p>
+<p>为了解决这个问题，在CPU和物理内存上新增高速缓存，这样程序的执行过程也就发生了改变，变成了程序在运行过程中，会将运算所需要的数据从主内存复制一份到CPU的高速缓存中，当CPU进行计算时就可以直接从高速缓存中读数据和写数据了，当运算结束再将数据刷新到主内存就可以了。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423141405206.png"></p>
+<p>随着技术的发展，CPU开始出现了多核的概念，每个核都有一套自己的缓存，并且随着计算机能力不断提升，还开始支持多线程，最终演变成，多个线程访问进程中的某个共享内存，且这多个线程分别在不同的核心上执行，则每个核心都会在各自的 Cache 中保留一份共享内存的缓冲，我们知道多核是可以并行的，这样就会出现多个线程同时写各自的缓存的情况，导致各自的 Cache 之间的数据不一致性问题。如何保证？JMM模型</p>
+<h4 id="1-6-2-Java内存模型（JMM）"><a href="#1-6-2-Java内存模型（JMM）" class="headerlink" title="1.6.2 Java内存模型（JMM）"></a>1.6.2 Java内存模型（JMM）</h4><p>背景：</p>
+<ul>
+<li><p>CPU和缓存一致性</p>
+</li>
+<li><p>处理器优化和指令重排</p>
+</li>
+</ul>
+<p>Java为了保证并发编程中可以满足原子性、可见性及有序性，诞生出了一个重要的概念，那就是内存模型，内存模型定义了共享内存系统中多线程程序读写操作行为的规范。通过这些规则来规范对内存的读写操作，从而保证指令执行的正确性，它解决了 CPU 多级缓存、处理器优化、指令重排等导致的内存访问问题。</p>
+<p>Java实现了JMM规范保证Java程序在各种平台下对内存的访问都能保证效果一致的机制及规范，JMM在Java中的实现屏蔽了各种硬件和操作系统的访问差异。</p>
+<p>内存模型怎么解决并发问题的？</p>
+<ul>
+<li><p>内存模型解决并发问题主要采取两种方式，分别是限制处理器优化，另一种是使用了内存屏障。</p>
+</li>
+<li><p>而对于这两种方式，Java底层其实已经封装好了一些关键字，我们只需要用起来就可以了，不需要关注底层具体如何实现。</p>
+</li>
+<li><p>关于解决并发编程中的原子性问题，Java底层封装了Synchronized的方式，来保证方法和代码块内的操作都是原子性的；</p>
+</li>
+<li><p>而至于可见性问题，Java底层则封装了Volatile的方式，将被修饰的变量在修改后立即同步到主内存中。</p>
+</li>
+<li><p>至于有序性问题，其实也就是我们所说的重排序问题，Volatile关键字也会禁止指令的重排序，而Synchroinzed关键字由于保证了同一时刻只允许一条线程操作，自然也就保证了有序性。</p>
+</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423141540719.png"></p>
+<ul>
+<li><p>JMM定义一个共享变量何时写入，何时对另一个线程可见</p>
+</li>
+<li><p>线程之间的共享变量存储在主内存：</p>
+<ul>
+<li>主要存储的是Java实例对象，所有线程创建的实例对象都存放在主内存中，不管该实例对象是成员变量还是方法中的本地变量（也称局部变量）。</li>
+<li>由于主内存是共享数据区，多条线程对同一个变量访问会出现线程安全问题。</li>
+</ul>
+</li>
+<li><p>每个线程都有一个私有的本地内存，本地内存存储共享变量的副本</p>
+<ul>
+<li><p>主要存储当前方法的所有本地变量，每个线程只能访问自己的本地内存。</p>
+</li>
+<li><p>线程中的本地变量对其它线程是不可见的，就算是两个线程执行同一段代码，它们也会在自己的本地内存中，创建属于自己线程的本地变量。</p>
+</li>
+</ul>
+</li>
+<li><p>本地内存是抽象概念涵盖：缓存，写缓冲区，寄存器等</p>
+</li>
+</ul>
+<p>JMM线程操作内存的基本规则：</p>
+<ul>
+<li><p>第一条，关于线程与主内存：线程对共享变量的所有操作都必须在自己的本地内存中进行，不能直接从主内存中读写</p>
+</li>
+<li><p>第二条，关于线程间本地内存：不同线程之间无法直接访问其他线程本地内存中的变量，线程间变量值的传递需要经过主内存</p>
+</li>
+</ul>
+<h4 id="1-6-3-什么是内存可见性？"><a href="#1-6-3-什么是内存可见性？" class="headerlink" title="1.6.3 什么是内存可见性？"></a>1.6.3 什么是内存可见性？</h4><p>可见性是一个线程对共享变量值的修改，能够及时的被其他线程看到。</p>
+<p>线程 A 与线程 B 之间如要通信的话，必须要经历下面 2 个步骤：</p>
+<ol>
+<li><p>首先，线程 A 把本地内存 A 中更新过的共享变量刷新到主内存中去。</p>
+</li>
+<li><p>然后，线程 B 到主内存中去读取线程 A 之前已更新过的共享变量。</p>
+</li>
+</ol>
+<p>从整体来看，这两个步骤实质上是线程 A 在向线程 B 发送消息，而且这个通信过程必须要经过主内存。</p>
+<p>JMM 通过控制主内存与每个线程的本地内存之间的交互，来为 Java 程序提供内存可见性的保证。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423141737206.png"></p>
+<p>1.6.4 可见性案例</p>
+<p>前面讲过多线程的内存可见性，现在我们写一个内存不可见的代码</p>
+<p>案例如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class Demo02Jmm {
+    public static void main(String[] args) throws InterruptedException {
+        JmmDemo demo = new JmmDemo();
+        Thread t = new Thread(demo);
+        t.start();
+        Thread.sleep(100);
+        demo.flag = false;
+        System.out.println("已经修改为false");
+        System.out.println(demo.flag);
+    }
+    static class JmmDemo implements Runnable {
+        public boolean flag = true;
+        public void run() {
+            System.out.println("子线程执行。。。");
+            while (flag) {
+            }
+            System.out.println("子线程结束。。。");
+    	}
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>执行结果</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423141849626.png"></p>
+<p>按照main方法的逻辑，我们已经把flag设置为false，那么从逻辑上讲，子线程就应该跳出while死循环，因为这个时候条件不成立，但是我们可以看到，程序仍旧执行中，并没有停止。</p>
+<p>原因是：线程之间的变量是不可见的，因为读取的是副本，没有及时读取到主内存结果</p>
+<p>怎么解决？</p>
+<ul>
+<li><p>使用Synchronized同步代码块</p>
+</li>
+<li><p>彻底禁止JMM？禁止重排序和读取本地内存副本</p>
+</li>
+<li><p>happens-before规则：按需使用重排序和本地内存副本，前提是需要满足happens-before规则</p>
+</li>
+</ul>
+<h4 id="1-6-5-happens-before规则"><a href="#1-6-5-happens-before规则" class="headerlink" title="1.6.5 happens-before规则"></a>1.6.5 happens-before规则</h4><p>在JMM中，使用happens-before规则来约束编译器的优化行为，允许编译期优化，但需要遵守一定的Happens-Before规则。如果一个操作执行的结果需要对另一个操作可见，那么这两个操作之间必须要存在happens-before的关系！</p>
+<p>程序员需关注的happens-before规则：</p>
+<ul>
+<li><p>程序顺序规则：一个线程中的每个操作，happens-before于该线程中的任意后续操作。</p>
+</li>
+<li><p>锁规则：对一个锁的解锁，happens-before于随后对这个锁的加锁。</p>
+</li>
+<li><p>volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。</p>
+</li>
+<li><p>传递性：如果A happens-before B，且B happens-before C，那么A happens-before C。</p>
+</li>
+</ul>
+<p>happens-before的实现：1.处理器重排序规则，2.编译器重排序规则</p>
+<blockquote>
+<p>注意：对于程序员来说，理解以上happens-before规则即可，JMM设计happens-before的目标就是屏蔽编译器和处理器重排序规则的复杂性。</p>
+</blockquote>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423142012477.png"></p>
+<h2 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2.synchronized"></a>2.synchronized</h2><p>在并发编程中，synchronized大家都肯定用过，一般情况下，我们会把synchronized称为重量级锁。主要原因，是因为JDK1.6之前，synchronized是一个重量级锁相比于JUC的锁显得非常笨重，存在性能问题。JDK1.6及之后，Java对synchronized进行的了一系列优化，性能与JUC的锁不相上下</p>
+<p>synchronized保证方法或者代码块在运行时，同一时刻只有一个线程执行代码块，还可以保证共享变量的内存可见性，也可以保证修饰的代码块重排序也不会影响其执行结果。</p>
+<p>一句话：synchronized可以保证并发程序的原子性，可见性，有序性。</p>
+<p>synchronized可以修饰方法和代码块。</p>
+<ul>
+<li><p>方法：可修饰静态方法和非静态方法</p>
+</li>
+<li><p>代码块：同步代码块的锁对象可以为当前实例对象、字节码对象（class）、其他实例对象</p>
+</li>
+</ul>
+<h3 id="2-1-如何解决可见性问题-？"><a href="#2-1-如何解决可见性问题-？" class="headerlink" title="2.1 如何解决可见性问题 ？"></a>2.1 如何解决可见性问题 ？</h3><p>JMM关于synchronized的两条规定：</p>
+<ul>
+<li><p>线程解锁前：必须把自己本地内存中共享变量的最新值刷新到主内存中</p>
+</li>
+<li><p>线程加锁时：将清空本地内存中共享变量的值，从而使用共享变量时需要从主内存中重新读取最新的值</p>
+</li>
+</ul>
+<p>在可见性案例中，做如下修改：</p>
+<pre class="line-numbers language-none"><code class="language-none">while (flag) {
+//在死循环中添加同步代码块，可以解决可见性问题
+    synchronized (this) {
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>synchronized实现可见性的过程</p>
+<ol>
+<li><p>获得互斥锁（同步获取锁）</p>
+</li>
+<li><p>清空本地内存</p>
+</li>
+<li><p>从主内存拷贝变量的最新副本到本地内存</p>
+</li>
+<li><p>执行代码</p>
+</li>
+<li><p>将更改后的共享变量的值刷新到主内存</p>
+</li>
+<li><p>释放互斥锁</p>
+</li>
+</ol>
+<h3 id="2-2-同步原理剖析"><a href="#2-2-同步原理剖析" class="headerlink" title="2.2 同步原理剖析"></a>2.2 同步原理剖析</h3><p>synchronized是如何实现同步的呢？</p>
+<p>同步操作主要是monitorenter和monitorexit这两个jvm指令实现的，先写一段简单的代码：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class Demo05Synchronized {
+    public synchronized void increase(){
+    	System.out.println("synchronized 方法");
+    }
+    public void syncBlock(){
+        synchronized (this){
+        	System.out.println("synchronized 块");
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>在cmd命令行执行javac编译和 javap -c .class 生成class文件对应的字节码指令</p>
+<pre class="line-numbers language-none"><code class="language-none">javac Demo05Synchronized.java
+javap -c Demo05Synchronized.class<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>从结果可以看出，同步代码块使用的是monitorenter和monitorexit这两个jvm指令</p>
+<pre class="line-numbers language-none"><code class="language-none">//同步方法
+public synchronized void increase();
+    flags: ACC_PUBLIC, ACC_SYNCHRONIZED //ACC_SYNCHRONIZED标记
+    Code:
+    	stack=2, locals=1, args_size=1
+            0: getstatic #2 // Field java/lang/System.out:Ljava/io/PrintStream;
+            3: ldc #3 // String synchronized 方法
+            5: invokevirtual #4 // Method java/io/PrintStream.println (Ljava/lang/String;)V
+            8: return
+    //同步块
+    public void syncBlock();
+        flags: ACC_PUBLIC
+        Code:
+        stack=2, locals=3, args_size=1
+        0: aload_0
+        1: dup
+        2: astore_1
+        3: monitorenter 	//monitorenter指令进入同步块
+        4: getstatic 	#2 // Field java/lang/System.out:Ljava/io/PrintStream;
+        7: ldc #5 // String synchronized 块
+        9: invokevirtual #4 // Method java/io/PrintStream.println (Ljava/lang/String;)V
+        12: aload_1
+        13: monitorexit 	//monitorexit指令退出同步块
+        14: goto 22
+        17: astore_2
+        18: aload_1
+        19: monitorexit 	//monitorexit指令退出同步块
+        20: aload_2
+        21: athrow
+        22: return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>从上述字节码指令看的到，同步代码块和同步方法的字节码是不同的</p>
+<ul>
+<li><p>对于synchronized同步块，对应的monitorenter和monitorexit指令分别对应synchronized同步块的进入和退出。</p>
+<ul>
+<li>为什么会多一个monitorexit？编译器会为同步块添加一个隐式的try-finally，在finally中会调用monitorexit命令释放锁</li>
+</ul>
+</li>
+<li><p>对于synchronized方法，对应ACC_SYNCHRONIZED关键字，JVM进行方法调用时，发现调用的方法被ACC_SYNCHRONIZED修饰，则会先尝试获得锁，方法调用结束了释放锁。在JVM底层，对于这两种synchronized的实现大致相同。都是基于monitorenter和monitorexit指令实现，底层还是使用 标记字段MarkWord和Monitor（管程）来实现重量级锁。</p>
+</li>
+</ul>
+<h3 id="2-3-什么是Monitor？"><a href="#2-3-什么是Monitor？" class="headerlink" title="2.3 什么是Monitor？"></a>2.3 什么是Monitor？</h3><ul>
+<li><p>Monitor中文翻译为管程，也有人称之为“监视器”，管程指的是管理共享变量以及对共享变量的操作过程，让他们支持并发。</p>
+</li>
+<li><p>Java中的所有对象都可以作为锁，每个对象都与一个 monitor 相关联，线程可以对 monitor 执行lock 和 unlock 操作。</p>
+</li>
+<li><p>Java并没有把lock和unlock操作直接开放给用户使用，但是却提供了两个指令来隐式地使用这两个操作：moniterenter和moniterexit。moniterenter对应lock操作，moniterexit对应unlock操作，通过这两个指锁定和解锁 monitor 对象来实现同步。</p>
+</li>
+<li><p>当一个monitor对象被线程持有后，它将处于锁定状态。对于一个 monitor 而言，同时只能有一个线程能锁定monitor，其它线程试图获得已被锁定的 monitor时，都将被阻塞。当monitor被释放后，阻塞中的线程会尝试获得该 monitor锁。一个线程可以对一个 monitor 反复执行 lock 操作，对应的释放锁时，需要执行相同次数的 unlock 操作。</p>
+</li>
+</ul>
+<blockquote>
+<p>详细了解Monitor请参考：极客时间专栏《Java并发编程实战-王宝令》管程：并发编程的万能钥匙</p>
+<p>文章：<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/86089">https://time.geekbang.org/column/article/86089</a></p>
+</blockquote>
+<p>Monitor如何解决了线程安全问题？</p>
+<p>管程解决互斥问题的思路：就是将共享变量及其对共享变量的操作统一封装起来。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423142521925.png"></p>
+<h3 id="2-4-什么是锁优化？"><a href="#2-4-什么是锁优化？" class="headerlink" title="2.4 什么是锁优化？"></a>2.4 什么是锁优化？</h3><ul>
+<li><p>在JDK 1.6之前，synchronized使用传统的锁（重量级锁）实现。它依赖于操作系统（互斥量）的同步机制，涉及到用户态和内核态的切换、线程的上下文切换，性能开销较高，所以给开发者留下了synchronized关键字性能不好的印象。</p>
+</li>
+<li><p>如果只有一个线程运行时并没有发生资源竞争、或两个线程交替执行，使用传统锁机制无疑效率是会比较低的。</p>
+</li>
+<li><p>JDK1.6中为了减少这两个场景，获得锁和释放锁带来的性能消耗，同步锁进行优化引入：偏向锁和轻量级锁。</p>
+</li>
+<li><p>同步锁一共有四种状态，级别从低到高依次是：无锁，偏向锁，轻量级锁，重量级锁。这四种状态</p>
+</li>
+</ul>
+<p>会随着竞争激烈情况逐渐升级。</p>
+<h4 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h4><p>偏向锁则是基这样一个想法：只有一个线程访问锁资源（无竞争）的话，偏向锁就会把整个同步措施都消除，并记录当前持有锁资源的线程和锁的类型。</p>
+<h4 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h4><p>轻量级锁是基于这样一个想法：只有两个线程交替运行时，如果线程竞争锁失败了，先不立即挂起，而是让它飞一会儿（自旋），在等待过程中，可能锁就被释放了，这时该线程就可以重新尝试获取锁，同时记录持有锁资源的线程和锁的类型。</p>
+<h4 id="那锁信息存储在哪？"><a href="#那锁信息存储在哪？" class="headerlink" title="那锁信息存储在哪？"></a>那锁信息存储在哪？</h4><p>例如：锁类型，当前持有线程</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423142827383.png"></p>
+<p>同步锁锁定资源是对象，那无疑存储在对象信息中，由对象直接携带，是最方便管理和操作的。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423142835435.png"></p>
+<blockquote>
+<p>32位操作系统的Markword</p>
+</blockquote>
+<h2 id="3-volatile"><a href="#3-volatile" class="headerlink" title="3.volatile"></a>3.volatile</h2><p>通过前面的内容，咱们了解了synchronized同步代码块，同步代码块在多线程场景下存在性能问题。接下来介绍一个轻量级的线程安全问题解决方案 volatile ，它比使用synchronized的成本更加低。</p>
+<p>Java语言对volatile的定义：Java允许线程访问共享变量，为了确保共享变量能被准确和一致地更新，线程应该确保通过排他锁单独获得这个变量。说人话：volatile可以保证多线程场景下变量的可见性和有序性。如果某变量用volatile修饰，则可以确保所有线程看到变量的值是一致的。</p>
+<ul>
+<li><p>可见性：保证此变量的修改对所有线程的可见性。</p>
+</li>
+<li><p>有序性：禁止指令重排序优化，编译器和处理器在进行指令优化时，不能把在volatile变量操作(读/写)后面的语句放到其前面执行，也不能将volatile变量操作前面的语句放在其后执行。遵循了JMM的happens-before规则</p>
+</li>
+</ul>
+<blockquote>
+<p>注：volatile虽然看起来比较简单，无非就是在某个变量前加上volatile，但要用好并不容易！</p>
+</blockquote>
+<h3 id="3-1-解决内存可见性问题"><a href="#3-1-解决内存可见性问题" class="headerlink" title="3.1 解决内存可见性问题"></a>3.1 解决内存可见性问题</h3><p>在可见性案例中，做如下修改：</p>
+<pre class="line-numbers language-none"><code class="language-none">// 添加volatile关键词
+private volatile boolean flag = true;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>volatile实现内存可见性的过程</p>
+<p>线程写volatile变量的过程：</p>
+<ol>
+<li><p>改变线程本地内存中volatile变量副本的值；</p>
+</li>
+<li><p>将改变后的副本的值从本地内存刷新到主内存</p>
+</li>
+</ol>
+<p>线程读volatile变量的过程：</p>
+<ol>
+<li><p>从主内存中读取volatile变量的最新值到线程的本地内存中</p>
+</li>
+<li><p>从本地内存中读取volatile变量的副本</p>
+</li>
+</ol>
+<h3 id="3-2-volatile实现原理-源码分析"><a href="#3-2-volatile实现原理-源码分析" class="headerlink" title="3.2 volatile实现原理-源码分析"></a>3.2 volatile实现原理-源码分析</h3><p>volatile实现内存可见性原理：内存屏障（Memory Barrier）</p>
+<p>内存屏障（Memory Barrier）是一种CPU指令，用于控制特定条件下的重排序和内存可见性问题。Java</p>
+<p>编译器也会根据内存屏障的规则禁止重排序</p>
+<ul>
+<li><p>写操作时，通过在写操作指令后加入一条store屏障指令，让本地内存中变量的值能够刷新到主内存中</p>
+</li>
+<li><p>读操作时，通过在读操作前加入一条load屏障指令，及时读取到变量在主内存的值</p>
+</li>
+</ul>
+<p>我们可以从源码角度，来理解volatile的可见性和有序性。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423143727190.png"></p>
+<p>有volatile修饰的变量，通过javap可以看到volatile字节码有个关键字ACC_VOLATILE，通过这个关键字</p>
+<p>定位到hotspot JVM源码文件 src\share\vm\utilities\accessFlags.hpp 文件，代码如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">public:
+    // Java access flags
+    bool is_public () const { return (_flags &amp; JVM_ACC_PUBLIC
+    ) != 0; }
+    bool is_private () const { return (_flags &amp; JVM_ACC_PRIVATE
+    ) != 0; }
+    bool is_protected () const { return (_flags &amp; JVM_ACC_PROTECTED
+    ) != 0; }
+    bool is_static () const { return (_flags &amp; JVM_ACC_STATIC
+    ) != 0; }
+    bool is_final () const { return (_flags &amp; JVM_ACC_FINAL
+    ) != 0; }
+    bool is_synchronized() const { return (_flags &amp;
+    JVM_ACC_SYNCHRONIZED) != 0; }
+    bool is_super () const { return (_flags &amp; JVM_ACC_SUPER
+    ) != 0; }
+    bool is_volatile () const { return (_flags &amp; JVM_ACC_VOLATILE
+    ) != 0; }
+    bool is_transient () const { return (_flags &amp; JVM_ACC_TRANSIENT
+    ) != 0; }
+    bool is_native () const { return (_flags &amp; JVM_ACC_NATIVE
+    ) != 0; }
+    bool is_interface () const { return (_flags &amp; JVM_ACC_INTERFACE
+    ) != 0; }
+    bool is_abstract () const { return (_flags &amp; JVM_ACC_ABSTRACT
+    ) != 0; }
+    bool is_strict () const { return (_flags &amp; JVM_ACC_STRICT
+    ) != 0; }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到</p>
+<pre class="line-numbers language-none"><code class="language-none">bool is_volatile () const { return (_flags &amp; JVM_ACC_VOLATILE ) != 0; }<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>再根据关键字is_volatile搜索，在 src\share\vm\interpreter\bytecodeInterpreter.cpp 可以看到</p>
+<p>如下代码：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//</span>
+<span class="token comment">// Now store the result</span>
+<span class="token comment">//</span>
+<span class="token keyword">int</span> field_offset <span class="token operator">=</span> cache<span class="token operator">-&gt;</span><span class="token function">f2_as_index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>cache<span class="token operator">-&gt;</span><span class="token function">is_volatile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> itos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_int_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_INT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> atos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">VERIFY_OOP</span><span class="token punctuation">(</span><span class="token function">STACK_OBJECT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token operator">-&gt;</span><span class="token function">release_obj_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_OBJECT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">OrderAccess</span><span class="token double-colon punctuation">::</span><span class="token function">release_store</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>BYTE_MAP_BASE<span class="token punctuation">[</span><span class="token punctuation">(</span>uintptr_t<span class="token punctuation">)</span>obj <span class="token operator">&gt;&gt;</span>
+        CardTableModRefBS<span class="token double-colon punctuation">::</span>card_shift<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> btos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_byte_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_INT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> ltos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_long_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_LONG</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> ctos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_char_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_INT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> stos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_short_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_INT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>tos_type <span class="token operator">==</span> ftos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_float_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_FLOAT</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    	obj<span class="token operator">-&gt;</span><span class="token function">release_double_field_put</span><span class="token punctuation">(</span>field_offset<span class="token punctuation">,</span> <span class="token function">STACK_DOUBLE</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">OrderAccess</span><span class="token double-colon punctuation">::</span><span class="token function">storeload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这段代码中，会先判断tos_type（volatile变量类型），后面有不同的基础类型的调用，比如int类型就调用release_int_field_put，byte就调用release_byte_field_put等等。</p>
+<p>我们可以看到后面执行的语句是</p>
+<pre class="line-numbers language-none"><code class="language-none">OrderAccess::storeload();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以在 src\share\vm\runtime\orderAccess.hpp 找到对应的实现方法：</p>
+<pre class="line-numbers language-none"><code class="language-none">static void storeload();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>实际上这个方法的实现针对不同的CPU有不同的实现的，在 src/os_cpu 目录下可以看到不同的实现，以 src\os_cpu\linux_x86\vm\orderAccess_linux_x86.inline.hpp 为例，是这么实现的：</p>
+<pre class="line-numbers language-none"><code class="language-none">inline void OrderAccess::loadload() { acquire(); }
+inline void OrderAccess::storestore() { release(); }
+inline void OrderAccess::loadstore() { acquire(); }
+inline void OrderAccess::storeload() { fence(); }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>fence()函数的实现：</p>
+<pre class="line-numbers language-none"><code class="language-none">inline void OrderAccess::fence() {
+    if (os::is_MP()) {
+        // always use locked addl since mfence is sometimes expensive
+        #ifdef AMD64
+        __asm__ volatile ("lock; addl $0,0(%%)" : : : "cc", "memory");
+        #else
+        __asm__ volatile ("lock; addl $0,0(%%esp)" : : : "cc", "memory");
+        #endif
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过这面代码可以看到 lock; addl ，其实这个就是内存屏障。 lock; addl $0,0(%%esp) 作为cpu的一个内存屏障。</p>
+<p>addl $0,0(%%rsp) 表示：将数值0加到rsp寄存器中，而该寄存器指向栈顶的内存单元。加上一个0，rsp寄存器的数值依然不变。即这是一条无用的汇编指令。在此利用addl指令来配合lock指令，用作cpu的内存屏障。</p>
+<p>Java编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。为保证在任意处理器平台下能得到正确的 volatile 内存操作语义，JMM 采取保守策略，下面是基于保守策略的JMM 内存屏障插入策略：</p>
+<ul>
+<li><p>在每个 volatile 写前，插入StoreStore 屏障。</p>
+</li>
+<li><p>在每个 volatile 写后，插入StoreLoad 屏障。</p>
+</li>
+<li><p>在每个 volatile 读后，插入LoadLoad 屏障。</p>
+</li>
+<li><p>在每个 volatile 读后，插入LoadStore 屏障。</p>
+</li>
+</ul>
+<p>结合JMM中四类内存屏障的作用，我们可以得出下面的结论：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423150003885.png"></p>
+<p><strong>重排序规则表：</strong></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/image-20250423151043100.png"></p>
+<ol>
+<li>当第一个操作是volatile读时，不管第二个操作是什么，都不能重排序</li>
+</ol>
+<p>​		确保 volatile 读到的是最新值：volatile 读之后的操作不会被编译器重排序到 volatile 读之前</p>
+<ol start="2">
+<li>当第一个操作是volatile写时，不管第二个操作是什么，都不能重排序</li>
+</ol>
+<p>​		确保 volatile 写操作对之后的操作可见</p>
+<ol start="3">
+<li>当第二个操作是volatile写时，第一个操作是普通写时，不能重排序</li>
+</ol>
+<h3 id="3-3-volatile缺陷：原子性Bug"><a href="#3-3-volatile缺陷：原子性Bug" class="headerlink" title="3.3 volatile缺陷：原子性Bug"></a>3.3 volatile缺陷：原子性Bug</h3><p>原子性的问题：虽然volatile可以保证可见性，但是不能满足原子性</p>
+<pre class="line-numbers language-none"><code class="language-none">package com.hero.multithreading;
+public class Demo06Volatile {
+    public static void main(String[] args) throws InterruptedException {
+        VolatileDemo demo = new VolatileDemo();
+        for (int i = 0; i &lt; 2; i++) {
+            Thread t = new Thread(demo);
+            t.start();
+        }
+        Thread.sleep(1000);
+        System.out.println("count = "+demo.count);
+   }
+   static class VolatileDemo implements Runnable {
+       public volatile int count;
+       //public volatile AtomicInteger count = new AtomicInteger(0);
+       public void run() {
+       		addCount();
+       }
+       public void addCount() {
+           for (int i = 0; i &lt; 10000; i++) {
+           		count++;//但是实际情况是三条汇编指令
+           }
+       }
+   }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>结果：count = 12205</p>
+<p>不应该是20000吗？问题分析：</p>
+<p>以上出现原子性问题的原因是count++并不是原子性操作。</p>
+<p>count = 5 开始，流程分析：</p>
+<ol>
+<li><p>线程1读取count的值为5</p>
+</li>
+<li><p>线程2读取count的值为5</p>
+</li>
+<li><p>线程2加1操作</p>
+</li>
+<li><p>线程2最新count的值为6</p>
+</li>
+<li><p>线程2写入值到主内存的最新值为6</p>
+</li>
+<li><p>线程1执行加1count=6，写入到主内存的值是6。</p>
+</li>
+<li><p>结果：对count进行了两次加1操作，主内存实际上只是加1一次。结果为6</p>
+</li>
+</ol>
+<p>解决方案：</p>
+<ol>
+<li><p>使用synchronized</p>
+</li>
+<li><p>使用ReentrantLock（可重入锁）</p>
+</li>
+<li><p>使用AtomicInteger（原子操作）</p>
+</li>
+</ol>
+<p>使用synchronized</p>
+<pre class="line-numbers language-none"><code class="language-none">public synchronized void addCount() {
+    for (int i = 0; i &lt; 10000; i++) {
+    	count++;
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>使用ReentrantLock（可重入锁）</p>
+<pre class="line-numbers language-none"><code class="language-none">//可重入锁
+private Lock lock = new ReentrantLock();
+public void addCount() {
+    for (int i = 0; i &lt; 10000; i++) {
+        lock.lock();
+        count++;
+        lock.unlock();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用AtomicInteger（原子操作）</p>
+<pre class="line-numbers language-none"><code class="language-none">public static AtomicInteger count = new AtomicInteger(0);
+public void addCount() {
+    for (int i = 0; i &lt; 10000; i++) {
+        //count++;
+        count.incrementAndGet();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-4-volatile适合使用场景"><a href="#3-4-volatile适合使用场景" class="headerlink" title="3.4 volatile适合使用场景"></a>3.4 volatile适合使用场景</h3><p>变量真正独立于其他变量和自己以前的值，在单独使用的时候，适合用volatile</p>
+<ul>
+<li><p>对变量的写入操作不依赖其当前值：例如++和–运算符的场景则不行</p>
+</li>
+<li><p>该变量没有包含在具有其他变量的不变式中</p>
+</li>
+</ul>
+<h3 id="3-5-synchronized和volatile比较"><a href="#3-5-synchronized和volatile比较" class="headerlink" title="3.5 synchronized和volatile比较"></a>3.5 synchronized和volatile比较</h3><ul>
+<li><p>volatile不需要加锁，比synchronized更轻便，不会阻塞线程</p>
+</li>
+<li><p>synchronized既能保证可见性，又能保证原子性，而volatile只能保证可见性，无法保证原子性</p>
+</li>
+<li><p>与synchronized相比volatile是一种非常简单的同步机制</p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/">https://gustavo1841.github.io/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-shang/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">并发编程</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-04-23T09-43-56',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/04/23/ji-suan-ji/java/bing-fa-bian-cheng/bing-fa-bian-cheng-zhong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/861.jpg" class="responsive-img" alt="并发编程——中">
+                        
+                        <span class="card-title">并发编程——中</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-04-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">并发编程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/04/21/ji-suan-ji/java/jvm/jvm-jian-kong-huan-jing-da-jian-zhi-grafana-prometheus-micrometer/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/801.jpg" class="responsive-img" alt="JVM监控环境搭建之(Grafana+Prometheus+Micrometer)">
+                        
+                        <span class="card-title">JVM监控环境搭建之(Grafana+Prometheus+Micrometer)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1405.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1311 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="初级宏观06：索洛增长模型, Gustavo">
+    <meta name="description" content="定义索洛增长模型的设计是为了说明在一个经济中，资本存量的增长、劳动力的增长和技术进步如何相互作用，以及它们如何影响一国产品与服务的总产出。
+建模——产品的供给与生产函数产品的供给与生产函数 索洛模型中产品的供给是基于生产函数的。生产函数是说">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>初级宏观06：索洛增长模型 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/635.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">初级宏观06：索洛增长模型</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                                <span class="chip bg-color">宏观金融</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                                <span class="chip bg-color">初级</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                宏观金融
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-03-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-03-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>索洛增长模型的设计是为了说明在一个经济中，资本存量的增长、劳动力的增长和技术进步如何相互作用，以及它们如何影响一国产品与服务的总产出。</p>
+<h2 id="建模——产品的供给与生产函数"><a href="#建模——产品的供给与生产函数" class="headerlink" title="建模——产品的供给与生产函数"></a>建模——产品的供给与生产函数</h2><p>产品的供给与生产函数 索洛模型中产品的供给是基于生产函数的。生产函数是说，产出取决于资本存量和劳动力:</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250316174845781.png"></p>
+<p>索洛模型假设生产函数具有不变规模报酬，那么，生产函数就具有不变规模报酬。也就是说，如果资本和劳动变为原来的z倍，那么，产出量也变为原来的z倍。</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250316174926856.png"></p>
+<p>规模报酬不变的生产函数使我们可以分析经济中所有数量相对于劳动力规模的值。为了看出这一点，设在前面的方程中x=1/L，得到</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250316175110552.png"></p>
+<p>这个方程表示，人均产出Y/L是人均资本量K/L的函数。(数字“1”是常数，从而可以忽略。)规模报酬不变的假设意味着，经济的规模——用工人人数来衡量——不影响人均产出和人均资本量之间的关系。</p>
+<p>由于经济规模是无关紧要的，所以，可以用人均值来表示所有数量。我们用小写字母表示人均量，因此，y=Y/L是人均产出，k=K/L是人均资本量。这样，我们可以把<strong>生产函数写为：y=f(k)</strong></p>
+<p>式中，我们定义f(k)=F(k，1)，于是我们得到一副这样的图</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250316175323185.png"></p>
+<blockquote>
+<p>生产函数表示人均资本量k如何决定人均产出量y=f(k)。生产丽数的斜率是资本的边际产量：如果k增加1单位，y增加MPK单位。随着k的增加，生产函数变得越来越平坦，这表明资本的边际产量递减。</p>
+</blockquote>
+<p>这一生产函数的斜率表示当给一个工人一单位额外资本时，他生产的额外产出是多少。这个量是资本的边际产量(MPK)。在数学上，我们写为</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250316175509504.png"></p>
+<h2 id="建模——产品的需求与消费函数"><a href="#建模——产品的需求与消费函数" class="headerlink" title="建模——产品的需求与消费函数"></a>建模——产品的需求与消费函数</h2><p>在索洛模型中，产品的需求来自消费和投资，人均产出y，被划分为<strong>人均消费c</strong>和<strong>人均投资i</strong>：y=c十i</p>
+<blockquote>
+<p>注意该方程假设是一个封闭经济，忽略了政府购买和净出口</p>
+</blockquote>
+<p>索洛模型假设每年人们储蓄s比例的收人，消费(1-s)比例的收人：c=(1-s)y</p>
+<p>为了看出这一消费函数对投资意味着什么，用(1-s)y代替国民收入核算恒等式中的c:<br>y=(1-s)y+i<br>整理后得到：<strong>i=sy</strong>，这个方程表明，投资等于储蓄。因此储蓄率s也是用于投资的产出比例。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>现在完成了索洛模型中的两个主要组成部分——生产函数和消费函数，它们描述了任何一个时点上的经济。对于任何一个给定的资本存量k，生产函数y=f(k)决定了经济生产多少产出，储蓄率s决定了产出在消费和投资之间的配置。</p>
+<h1 id="资本存量的增长与稳定状态"><a href="#资本存量的增长与稳定状态" class="headerlink" title="资本存量的增长与稳定状态"></a>资本存量的增长与稳定状态</h1><p><strong>人均投资i</strong>等于sy。通过用生产函数替代，我们可以把人均投资表示为人均资本存量的函数：<strong>i= sf(k)</strong>。这个方程把现有资本存量k与新资本的积累i联系在一起，就有了下图：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317110023960.png"></p>
+<blockquote>
+<p>储蓄率s决定了产出在消费和投资之间的配置。对于任意资本水平k，产出是f(k)，投资是sf(k)，消费是f(k)一sf(k)。</p>
+<p>该图说明了，对任何一个k值，产出量如何由生产函数f(k)决定以及那些产出在消费和储蓄之间的配置如何由储蓄率s决定。</p>
+</blockquote>
+<p>我们用δ表示折旧，每年折旧的资本量是δk，于是就会有下图：</p>
+<p>资本和折旧对资本存量的影响表示为如下方程：</p>
+<p>资本存量的变动=投资 - 折旧 =&gt;：Δk = i - δk，</p>
+<p>Δk为某年和下一年之间资本存量的变动，由于投资i等于sf(k)，我们可以把方程写为：Δk = sf(k) - δk</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317113836834.png"></p>
+<blockquote>
+<p>此图说明了折旧量是如何取决于资本存量</p>
+<p>每年有不变比例δ的资本存盘被磨损。因此，折旧与资本存量是成比例的。</p>
+</blockquote>
+<p>存在单一的资本存量k使得投资量等于折旧量。如果经济发现自身正处于这一资本存量水平，那么，资本存量就不会改变，因为作用于它的两种力量：投资和折旧，正好平衡了。也就是说，在k点，Δk=0，因此，资本存量k和产出f(k)随时间的推移是稳定的(既不增加也不减少)。因此，我们把k称为<strong>稳定状态(简称“稳态”)资本水平</strong>。</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317114546897.png"></p>
+<blockquote>
+<p>稳态资本水平k是投资等于折旧的水平，表示资本量不随时间而变化。低于k，投资大于折旧，因此资本存量增加;高于k，投资小于折旧，因此资本存量减少。</p>
+</blockquote>
+<h1 id="趋近稳态"><a href="#趋近稳态" class="headerlink" title="趋近稳态"></a>趋近稳态</h1><p>假设生产函数为：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317114730170.png"></p>
+<blockquote>
+<p>资本份额参数a等于1/2的柯布——道格拉斯生产函数，为了得到人均生产函数f(k)，把生产函数两边同时除以劳动力L</p>
+</blockquote>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317114900298.png"></p>
+<p>整理后可得：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317114922329.png"></p>
+<p>由于y=Y/L和k=K/L，那么这个方程就变成了：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317115007466.png"></p>
+<blockquote>
+<p>这个形式的生产函数是说，人均产出等于人均资本量的平方根</p>
+</blockquote>
+<p>假设产出的30%用于储蓄(s=0.3)，每年有10%的资本存量折旧(8=0.1)，经济的初始人均资本为4单位(k=4)。给定这些数字，我们现在可以考察经济随着时间的推移会发生什么变动。</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317134519863.png"></p>
+<p>我们对随后的每一年可以做同样的计算。表8-2显示了经济是如何发展的。每一年，由于投资超过折旧，所以，资本存量增加，产出增长。许多年后，经济达到人均资本为9单位的稳态。在这一稳态，0.9单位的投资正好抵消了0.9单位的折旧，因此，资本存量和产出不再增长。</p>
+<p>跟踪经济许多年的发展过程是找出稳态资本存量的一种方法，但还有另一种只要求更少量的计算方法：<strong>Δk = sf(k) - δk</strong></p>
+<p>由于稳态是使得Δk = 0的k值，所以可以推导出：</p>
+<p>0 = sf(k) - δk 等价于：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317135757812.png"></p>
+<p>将数字代入生产函数，可得：k=9，由此可知稳态人均资本的存量是9个单位，这也温和8-2表中的稳态计算。</p>
+<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>索洛模型表明，储蓄率是稳态资本存量的关键决定因素。如果储蓄率高，经济的稳态将会有大的资本存量和高的产出水平。如果储蓄率低，经济的稳态将会有小的资本存量和低的产出水平。更高的储蓄导致更快的增长，但只是暂时性的。储蓄率的提高加快了增长，但只是在经济达到新的稳态之前。如果经济保持高储蓄率，它会保持大的资本存量和高的产出水平，但它不会永远保持高经济增长率。改变人均收入的稳态增长率的政策被说成是有增长效应。</p>
+<h1 id="比较稳态"><a href="#比较稳态" class="headerlink" title="比较稳态"></a>比较稳态</h1><p>政策制定者的目的是使组成社会的个体的福利最大化。个体本身并不关心经济中的资本量，甚至也不关心产出量。他们关心的是他们可以消费的产品与服务的数量。因此，一个优秀的政策制定者要选择消费水平最高的稳态。使消费最大化的稳态k值被称为<strong>资本的黄金律水平</strong></p>
+<p>我们假设稳态的人均产出是f(k*)，其中k * 是稳态的人均资本存量，且稳态资本存量不变，所以投资等于折旧δk*，用f(k *)代替y，并用δk *代替i，我们可以把稳态人均消费写为</p>
+<p>c* = f(k *) -δk *</p>
+<p>稳态的消费是在扣除了稳态折旧之后所剩余的稳态产出，该方程表明稳态资本的增加对稳态消费有两种相反的效应</p>
+<ol>
+<li>更多的资本意味着更多的产出</li>
+<li>更多的资本也意味着更多的产出必须被用于替换损耗的资本</li>
+</ol>
+<p>下画出了作为稳态资本存量的函数的稳态产出和稳态折旧。稳态消费是产出与折旧之差。该图表明，存在一个使消费最大化的资本存量水平–黄金律水平</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317150731832.png"></p>
+<p>在比较稳态时，更高的资本水平既影响产出又影响折旧。如果资本存量低于黄金律水平，那么，资本存量的增加所引起的产出的增加大于折旧的增加，因此消费会上升。在这种情况下，生产函数比δk线陡峭。因此，两条曲线之间的距离等于消费——随着k的上升而增长。相反，如果资本存量高于黄金律水平，资本存量的增加减少了消费，这是因为产出的增加小于折旧的增加。在这种情况下，生产函数比 δk线平坦，因此，两条曲线之间的距离（消费）——随着k’的上升而缩小。在资本的黄金律水平，生产函数和δk线的斜率相同，消费位于其最高水平。</p>
+<p>黄金律可以用这个方程表示：MPK = δ，在资本的黄金律水平，资本的边际产量等于折旧率。如果MPK- δ&gt;0,那么资本的增加会提高消费，因此k必定低于黄金律水平。如果MPK- δ&lt;0，那么资本的增加会减少消费，因此k必定高于黄金律的水平。<strong>当MPK- δ=0时（资本的边际产量减去折旧），那么我们就可以使用这一条件找出一个经济的黄金律资本存量。</strong></p>
+<blockquote>
+<p><strong>经济并不会自动地趋向于黄金律稳态。如果我们想要任何一个特定的稳态资本存量，例如黄金律水平，那么，我们就需要一个特定的储蓄率来支持它</strong>。图8-7显示了储蓄率被设定为产生黄金律资本水平的情况下的稳态。如果储蓄率高于该图所使用的水平，稳态资本存量就太高了;如果储蓄率低于这个水平，稳态资本存量就太低了。在任何一种情况下，稳态消费都低于在黄金律稳态的水平。</p>
+</blockquote>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317163450565.png"></p>
+<h1 id="人口增长对索罗模型的影响"><a href="#人口增长对索罗模型的影响" class="headerlink" title="人口增长对索罗模型的影响"></a>人口增长对索罗模型的影响</h1><ul>
+<li>它让我们离解释持续的经济增长更接近</li>
+<li>索洛模型预测人口增长率更高的国家将会有更低的人均GDP水平。注意，与储蓄率的变动一样，人口增长率的变动对人均收人有水平效应，但不影响人均收人的稳态增长率。</li>
+<li>人口增长影响我们决定黄金律(消费最大化)资本水平的标准。</li>
+</ul>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317171420542.png"></p>
+<h1 id="技术进步对索罗模型的影响"><a href="#技术进步对索罗模型的影响" class="headerlink" title="技术进步对索罗模型的影响"></a>技术进步对索罗模型的影响</h1><p>技术进步导致工人的有效数量增加。我们用k=K/(L*E)代表有效工人的人均资本，用y=Y/(L *E)代表有效工人的人均产出。利用这些定义，我们可以再次写出y=f(k)。表示随着时间变动的方程现在变为：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317171732056.png"></p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317171831818.png"></p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317171852513.png"></p>
+<h1 id="经济增长源泉的核算"><a href="#经济增长源泉的核算" class="headerlink" title="经济增长源泉的核算"></a>经济增长源泉的核算</h1><p>生产要素的增加</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317175550120.png"></p>
+<p>资本的边际产量(MPK)的定义：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317175607601.png"></p>
+<p>劳动的增加</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317175705624.png"></p>
+<p>资本与劳动的增加</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317175723505.png"></p>
+<blockquote>
+<p>第一个括号中的项是资本增加所导致的产出增加，第二个括号中的项是劳动增加所导致的产出增加。这个方程向我们表明了如何把增长归因于每一种生产要素。现在我们想把最后一个方程变成更加容易解释的形式，并运用于可获得的数据。首先，通过一些代数整理，这个方程如下：</p>
+</blockquote>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317175849505.png"></p>
+<p>在生产函数为规模报酬不变的假设下，欧拉定理告诉我们，这两个份额之和为1。在这种情况下，我们可以写出：</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317180108304.png"></p>
+<p>生产函数写为如下形式来包括技术变动的影响:</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317180137569.png"></p>
+<blockquote>
+<p>式中，A为技术水平的衡量指标，被称为全要素生产率。现在资本和劳动增加与全要素生产率的提高都会导致产出增加。如果全要素生产率提高 1%而投人保持不变，那么产出也增加1%。</p>
+</blockquote>
+<p>将技术变动包括进来使我们的经济增长核算方程增加了一项（产出增长=资本的贡献十劳动的贡献十全要素生产率的增长）:</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317180217337.png"></p>
+<p>由于全要素生产率无法直接观察到，所以要间接地衡量。我们有产出、资本和劳动增长的数据;我们也有资本在产出中所占份额的数据。根据这些数据和增长核算方程，我们可以计算得到全要素生产率的增长;</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317180257977.png"></p>
+<blockquote>
+<p>ΔA/A 是不能用投入变动解释的产出变动。因此，全要素生产率的增长是作为-个余量计算出来的:它是我们考虑了可以直接衡量的增长决定因素后剩余的产出增长量。</p>
+</blockquote>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>在了解了如何衡量经济增长的源泉之后，现在我们来看看数据。表10-1使用美国的数据来衡量 1948-2019 年间增长的三种源泉的贡献。</p>
+<p>该表显示，在这一时期，非农产业部门的产出平均每年增长3.4%。在这3.4%中，1.3%是由于资本存量的增加，1.0%是由于劳动投入的增加，还有1.1%是由于全要素生产率的提高。这些数据表明，资本增加、劳动增加和生产率的提高对美国经济增长所做出的贡献几乎相等。</p>
+<p>表10-1还表明，在1973年左右，全要素生产率的增长大大减缓了。1973年以前，全要素生产率每年增长1.9%;1973年以来，其增长率每年只有0.7%。经过多年的积累之后，哪怕是增长率的微小变动也会对经济福利有很大的影响。如果生产率增长率一直保持在原先的水平，2019年美国的实际收入将会比现实值高大约 70%。</p>
+<p><img src="/../../../images/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/image-20250317181110468.png"></p>
+<p>为什么 1973年左右生产率增长会开始减缓呢?有许多假说解释这个现象。以下是其中的三个。<br><strong>衡量问题</strong> ，一种可能性是生产率减缓并没有真正发生，仅仅是数据存在缺陷。衡量通货膨胀的一个挑战是对产品与服务的质量变化进行校正。当衡量产出和生产率时也产生了同样的问题。例如，如果技术进步导致更多的电脑被生产出来，那么，产出和生产率的提高是易于衡量的。但是，如果技术进步导致运行速度更快的电脑被生产出来那么，产出和生产率提高了，但这种提高更为微妙和难以衡量。政府的统计人员努力校正质量的变动，但尽管他们做了最大的努力，得出的数据仍然远远不够完美。<br><strong>无法衡量的质量改进意味着，我们的生活水平比官方数据所表示的提高得更快。这个问题应该让我们对官方数据有所怀疑，但这个问题本身并不能解释生产率的减缓</strong>。为了解释增长的减缓，我们必须证明衡量问题变得更糟。有理由相信可能是这样。随着时间的推移，在农业和制造业这样的生产产品的行业的就业减少了，这些行业的产出是有形的而且易于街量，在教育和卫生保健这样的服务性行业的就业增加了，这些行业的产出是无形的而且不那么容易衡量。但是，很少有经济学家认为衡量问题就是故事的全部。</p>
+<p><strong>工人素质的下降</strong> 一些经济学家提出，生产率的减缓可能是由劳动力的变动造成的。在20世纪 70年代初，大批“婴儿潮”一代离开学校并参加工作。同时，社会规范的变化鼓励许多妇女改变全职家庭主妇的角色和进入劳动力队伍。这两种新情况都降低了工人的平均经验水平，从而降低了平均生产率。</p>
+<p>另一些经济学家指向了由人力资本来衡量的工人素质的变化。虽然劳动力的受教育程度在这一时期一直在提高，但在最近几十年提高得并不像过去那样快。此外，一些标准化考试的成绩下降表明教育质量在下降。这两个因素都可以解释生产率增长的减缓。</p>
+<p><strong>思想的枯竭</strong> 有一些经济学家提出，20世纪70年代初，世界上关于如何生产的新思想已经开始枯竭，使经济进入了一个技术进步减缓的时代。这些经济学家常常认为，这种异常情况不是 20世纪 70年代以来的生产率增长减缓，而是在此之前的20年里(即20世纪50年代和 60年代)生产率增长的加速。在20世纪40年代末，经济中有大量由于20世纪30年代的大萧条和 40年代上半期的第二次世界大战而未能充分实施的思想储备。这种论证继续说在经济用究这些思想储备之后，生产率增长减缓就是可能的了。的确，尽管1973 年以后的增长率与 20世纪50年代和 60年代相比令人失望，但并不比1870-1950年的平均增长率低。不幸的是，生产率增长的减缓仍然是一个谜。在20世纪90年代中期，生产率增长加速了，这一新情况常常被归功于计算机和信息技术的发展，但事实证明生产率增长加速只是暂时的。在 21世纪 10年代，全要素生产率的增长率只有每年0.7%。始于1973年左右、令人难以理解的生产率增长减缓仍然是当代经济的特征之一。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/03/16/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-06-suo-luo-zeng-chang-mo-xing/">https://gustavo1841.github.io/2025/03/16/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-06-suo-luo-zeng-chang-mo-xing/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                                    <span class="chip bg-color">宏观金融</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                                    <span class="chip bg-color">初级</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-03-16T17-29-57',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/03/20/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-07-jing-ji-zhou-qi-dao-lun/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/438.jpg" class="responsive-img" alt="初级宏观07：经济周期导论">
+                        
+                        <span class="card-title">初级宏观07：经济周期导论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-03-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/" class="post-category">
+                                    宏观金融
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/">
+                        <span class="chip bg-color">宏观金融</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%9D%E7%BA%A7/">
+                        <span class="chip bg-color">初级</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/03/13/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/yi-zhan-shi-ji-qi-xue-xi-ping-tai-jian-she-shi-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/246.jpg" class="responsive-img" alt="一站式机器学习平台建设实践">
+                        
+                        <span class="card-title">一站式机器学习平台建设实践</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">系统设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">推荐系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">推荐架构设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E6%B4%BE%E5%8D%95%E8%B0%83%E5%BA%A6/">
+                        <span class="chip bg-color">智能派单调度</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1405.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

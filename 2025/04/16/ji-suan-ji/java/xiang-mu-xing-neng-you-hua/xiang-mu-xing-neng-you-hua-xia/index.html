@@ -1,0 +1,1827 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="项目性能优化—下, Gustavo">
+    <meta name="description" content="分布式压测使用JMeter做大并发压力测试的场景下，单机受限与内存、CPU、网络IO，会出现服务器压力还没有上去，但是压测机压力太大已经死机！为了让JMeter拥有更强大的负载能力，JMeter提供分布式压测能力。
+
+单机网络带宽有限
+高延">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>项目性能优化—下 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/64.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">项目性能优化—下</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">性能优化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-04-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-04-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="分布式压测"><a href="#分布式压测" class="headerlink" title="分布式压测"></a>分布式压测</h1><p>使用JMeter做大并发压力测试的场景下，单机受限与内存、CPU、网络IO，会出现服务器压力还没有上去，但是压测机压力太大已经死机！为了让JMeter拥有更强大的负载能力，JMeter提供分布式压测能力。</p>
+<ul>
+<li>单机网络带宽有限</li>
+<li>高延时场景下，单机可模拟最大线程数有限</li>
+</ul>
+<p>如下是分布式压测架构：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417101830032.png"></p>
+<p>注意：在JMeter Master节点配置线程数10，循环100次【共1000次请求样本】。如果有3台Salve 节点。那么Master启动压测后，每台Salve都会对被测服务发起10x100次请求。因此，压测产生的总样本</p>
+<p>数量是：10 x 100 x 3 = 3000次。</p>
+<p>搭建JMeter Master控制机和JMeter Salve施压机</p>
+<ul>
+<li>第一步：三台JMeter Salve搭建在Linux【Centos7】环境下</li>
+<li>第二步：JMeter Master搭建在Windows Server环境下【当然也可以搭建在Linux里面，这里用win是为了方便观看】</li>
+</ul>
+<p>搭建注意事项：</p>
+<ul>
+<li>需保证Salve和Server都在一个网络中。如果在多网卡环境内，则需要保证启动的网卡都在一个网段。</li>
+<li>需保证Server和Salve之间的时间是同步的。</li>
+<li>需在内网配置JMeter主从通信端口【1个固定，1个随机】，简单的配置方式就是关闭防火墙，但存在安全隐患。</li>
+</ul>
+<h2 id="Linux部署JMeter-Salve"><a href="#Linux部署JMeter-Salve" class="headerlink" title="Linux部署JMeter Salve"></a>Linux部署JMeter Salve</h2><p>（1）下载安装</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> apache-jmeter-5.4.1.tgz
+<span class="token function">mv</span> apache-jmeter-5.4.1 ./apache-jmeter-5.4.1-salve<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>（2）配置修改rmi主机hostname</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1.改ip</span>
+<span class="token function">vim</span> jmeter-server
+<span class="token comment"># RMI_HOST_DEF=-Djava.rmi.server.hostname=本机ip</span>
+<span class="token comment"># 2.改端口</span>
+<span class="token function">vim</span> jmeter.properties
+<span class="token comment"># RMI port to be used by the server (must start rmiregistry with same port)</span>
+<span class="token assign-left variable">server_port</span><span class="token operator">=</span><span class="token number">1099</span>
+<span class="token comment"># To change the default port (1099) used to access the server:</span>
+<span class="token assign-left variable">server.rmi.port</span><span class="token operator">=</span><span class="token number">1098</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（3）配置关闭server.rmi.ssl</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># Set this if you don't want to use SSL for RMI</span>
+<span class="token key attr-name">server.rmi.ssl.disable</span><span class="token punctuation">=</span><span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>（4）启动jmeter-server服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> ./jmeter-server <span class="token operator">&gt;</span> ./jmeter.out <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="分布式环境配置"><a href="#分布式环境配置" class="headerlink" title="分布式环境配置"></a>分布式环境配置</h2><p>（1）确保JMeter Master和Salve安装正确。</p>
+<p>（2）Salve启动，并监听1099端口。</p>
+<p>（3）在JMeter Master机器安装目录bin下，找到jmeter.properties文件，修改远程主机选项，添加3个Salve服务器的地址。</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">remote_hosts</span><span class="token punctuation">=</span><span class="token value attr-value">172.17.187.78:1099,172.17.187.79:1099,172.17.187.81:1099</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（4）启动jmeter，如果是多网卡模式需要指定IP地址启动</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmeter <span class="token parameter variable">-Djava.rmi.server.hostname</span><span class="token operator">=</span><span class="token number">172.17</span>.187.82<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>（5）验证分布式环境是否搭建成功：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102209572.png"></p>
+<h1 id="服务容器优化"><a href="#服务容器优化" class="headerlink" title="服务容器优化"></a>服务容器优化</h1><h2 id="Tomcat调优"><a href="#Tomcat调优" class="headerlink" title="Tomcat调优"></a>Tomcat调优</h2><p>为什么对SpringBoot嵌入式的Tomcat进行调优？</p>
+<p>基于应用性能瓶颈分析得出结论，当响应时间比较长时，系统瓶颈主要存在与Tomcat中！</p>
+<p>系统异常率较高，与Tomcat内部IO模型有关系【多线程&amp;网络编程】</p>
+<p>问题：可不可以基于RT与TPS算出服务端并发线程数？</p>
+<blockquote>
+<p>服务端线程数计算公式：TPS/ (1000ms/ RT均值)</p>
+</blockquote>
+<h3 id="调优：嵌入式Tomcat配置"><a href="#调优：嵌入式Tomcat配置" class="headerlink" title="调优：嵌入式Tomcat配置"></a>调优：嵌入式Tomcat配置</h3><p>Springboot开发的服务使用嵌入式的Tomcat服务器，那么Tomcat配置使用的是默认配置，我们需要对Tomcat配置进行适当的优化，让Tomcat性能大幅提升。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102311902.png"></p>
+<p>修改配置如下所示：可以使用外挂配置，也可以修改配置文件application.yml。</p>
+<p>注意，做了任何修改一定要确认配置生效，否则干的再久也是白搭！</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># Tomcat的maxConnections、maxThreads、acceptCount三大配置，分别表示最大连接数，最大</span>
+线程数、最大的等待数，可以通过application.yml配置文件来改变这个三个值，一个标准的示例如
+下：
+<span class="token key attr-name">server.tomcat.uri-encoding</span><span class="token punctuation">:</span> <span class="token value attr-value">UTF-8</span>
+<span class="token comment"># 思考问题：一台服务器配置多少线程合适？</span>
+<span class="token key attr-name">server.tomcat.accept-count</span><span class="token punctuation">:</span> <span class="token value attr-value">1000 # 等待队列最多允许1000个请求在队列中等待</span>
+<span class="token key attr-name">server.tomcat.max-connections</span><span class="token punctuation">:</span> <span class="token value attr-value">20000 # 最大允许20000个链接被建立</span>
+<span class="token comment">## 最大工作线程数，默认200, 4核8g内存，线程数经验值800</span>
+<span class="token key attr-name">server.tomcat.threads.max</span><span class="token punctuation">:</span> <span class="token value attr-value">800 # 并发处理创建的最大的线程数量</span>
+<span class="token key attr-name">server.tomcat.threads.min-spare</span><span class="token punctuation">:</span> <span class="token value attr-value">100 # 最大空闲连接数，防止突发流量</span>
+<span class="token comment"># 暴露所有的监控点</span>
+<span class="token key attr-name">management.endpoints.web.exposure.include</span><span class="token punctuation">:</span> <span class="token value attr-value">''</span>
+<span class="token comment"># 定义Actuator访问路径</span>
+<span class="token key attr-name">management.endpoints.web.base-path</span><span class="token punctuation">:</span> <span class="token value attr-value">/actuator</span>
+<span class="token comment"># 开启endpoint 关闭服务功能</span>
+<span class="token key attr-name">management.endpoint.shutdown.enabled</span><span class="token punctuation">:</span> <span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1）maxThreads：最大线程数"><a href="#1）maxThreads：最大线程数" class="headerlink" title="1）maxThreads：最大线程数"></a>1）maxThreads：最大线程数</h4><ul>
+<li>每一次HTTP请求到达Web服务，Tomcat都会创建一个线程来处理该请求。</li>
+<li>最大线程数决定了Web服务容器可以同时处理多少个请求，默认值是200。</li>
+</ul>
+<p>最大线程数并不是越大越好！</p>
+<ul>
+<li>最大线程数只是TPS的影响因素之一，还不是最关键的哪个。</li>
+<li>增加线程是有成本的，不能无限制增大。线程过多不仅仅会带来线程上下文切换的成本，而且线程</li>
+<li>也需要消耗内存资源。</li>
+<li>JVM默认Xss堆栈大小1M</li>
+</ul>
+<p>那么最大线程数的值应该设置多少合适呢？</p>
+<ul>
+<li>这个需要基于业务系统的监控结果来定。RT均值很低，可以不用设置，RT均值很高，可以考虑加线程数</li>
+<li>当然，如果接口响应时间低于100毫秒，足以产生足够的TPS。系统瓶颈不在于此，则不建议设置最大线程数。</li>
+<li>我个人的最大线程数设置的经验值为：<ul>
+<li>1C2G，线程数200</li>
+<li>4C8G，线程数800</li>
+</ul>
+</li>
+</ul>
+<h4 id="2）accept-count：最大等待连接数"><a href="#2）accept-count：最大等待连接数" class="headerlink" title="2）accept-count：最大等待连接数"></a>2）accept-count：最大等待连接数</h4><p>当调用HTTP请求数达到Tomcat的最大线程数时，还有新的请求进来，这时Tomcat会将该剩余请</p>
+<p>求放到等待队列中</p>
+<p>acceptCount就是指队列能够接受的最大的等待连接数</p>
+<p>默认值是100，如果等待队列超了，新的请求会被拒绝（connection refused）</p>
+<h4 id="3）Max-Connections：最大连接数"><a href="#3）Max-Connections：最大连接数" class="headerlink" title="3）Max Connections：最大连接数"></a>3）Max Connections：最大连接数</h4><ul>
+<li>最大连接数是指在同一时间内，Tomcat能够接受的最大连接数。如果设置为-1，则表示不限制</li>
+<li>默认值：<ul>
+<li>对BIO模式，默认值是Max Threads；如果使用定制的Executor执行器，哪默认值将是执行器中Max Threads的值。</li>
+<li>对NIO模式，Max Connections 默认值是10000</li>
+</ul>
+</li>
+<li>Max Connections和accept-count关系：<ul>
+<li>当连接数达到最大值Max Connections后系统会继续接收连接，但不会超过acceptCount限制</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：在做优化的时候，一定要确定你的修改是生效【JVM、Tomcat、OpenResty…】</p>
+</blockquote>
+<h3 id="调优配置生效确认"><a href="#调优配置生效确认" class="headerlink" title="调优配置生效确认"></a>调优配置生效确认</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102802096.png"></p>
+<h3 id="调优前后的性能对比"><a href="#调优前后的性能对比" class="headerlink" title="调优前后的性能对比"></a>调优前后的性能对比</h3><p>调优前：压力机Active，RT、TPS、系统进程运行状态【应用活动线程数】</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102818074.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102823691.png"></p>
+<p>调优后：压力机Active，RT、TPS、系统进程运行状态【应用活动线程数】</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102833201.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102838822.png"></p>
+<p>结论：提升Tomcat最大线程数，在高负载场景下，TPS提升接近1倍，同时RT大幅降低；</p>
+<h2 id="网络IO模型调优"><a href="#网络IO模型调优" class="headerlink" title="网络IO模型调优"></a>网络IO模型调优</h2><h3 id="IO模型介绍"><a href="#IO模型介绍" class="headerlink" title="IO模型介绍"></a>IO模型介绍</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417102908800.png"></p>
+<p>众所周知文件读写性能是影响应用程序性能的关键因素之一。NIO与原来的IO有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的、基于通道的IO操作。NIO以更加高效的方式进行文件的读写操作。</p>
+<p>Java的NIO【new io】是从Java 1.4版本开始引入的一套新的IO API用于替代标准的Java IO API。</p>
+<p>JDK1.7之后，Java对NIO再次进行了极大的改进，增强了对文件处理和文件系统特性的支持。我们称之为AIO，也可以叫NIO2。</p>
+<p>优化：使用NIO2的Http协议实现，对请求连接器进行改写。</p>
+<p>结论：可以发现服务响应时间大幅缩短，并且稳定</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TomcatConfig</span> <span class="token punctuation">{</span>
+	<span class="token comment">//自定义SpringBoot嵌入式Tomcat</span>
+	<span class="token annotation punctuation">@Bean</span>
+	<span class="token keyword">public</span> <span class="token class-name">TomcatServletWebServerFactory</span> <span class="token function">servletContainer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">TomcatServletWebServerFactory</span> tomcat <span class="token operator">=</span> <span class="token keyword">new</span>
+		<span class="token class-name">TomcatServletWebServerFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+		tomcat<span class="token punctuation">.</span><span class="token function">addAdditionalTomcatConnectors</span><span class="token punctuation">(</span><span class="token function">http11Nio2Connector</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> tomcat<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//配置连接器nio2</span>
+	<span class="token keyword">public</span> <span class="token class-name">Connector</span> <span class="token function">http11Nio2Connector</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Connector</span> connector<span class="token operator">=</span><span class="token keyword">new</span>
+		<span class="token class-name">Connector</span><span class="token punctuation">(</span><span class="token string">"org.apache.coyote.http11.Http11Nio2Protocol"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">Http11Nio2Protocol</span> nio2Protocol <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Http11Nio2Protocol</span><span class="token punctuation">)</span>
+		connector<span class="token punctuation">.</span><span class="token function">getProtocolHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">//等待队列最多允许1000个线程在队列中等待</span>
+		nio2Protocol<span class="token punctuation">.</span><span class="token function">setAcceptCount</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 设置最大线程数</span>
+		nio2Protocol<span class="token punctuation">.</span><span class="token function">setMaxThreads</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 设置最大连接数</span>
+		nio2Protocol<span class="token punctuation">.</span><span class="token function">setMaxConnections</span><span class="token punctuation">(</span><span class="token number">20000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">//定制化keepalivetimeout,设置30秒内没有请求则服务端自动断开keepalive链接</span>
+		nio2Protocol<span class="token punctuation">.</span><span class="token function">setKeepAliveTimeout</span><span class="token punctuation">(</span><span class="token number">30000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">//当客户端发送超过10000个请求则自动断开keepalive链接</span>
+		nio2Protocol<span class="token punctuation">.</span><span class="token function">setMaxKeepAliveRequests</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">// 请求方式</span>
+		connector<span class="token punctuation">.</span><span class="token function">setScheme</span><span class="token punctuation">(</span><span class="token string">"http"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		connector<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token number">9003</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//自定义的端口，与源端口9001可以共用，知识改了连接器而已</span>
+		connector<span class="token punctuation">.</span><span class="token function">setRedirectPort</span><span class="token punctuation">(</span><span class="token number">8443</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> connector<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="调优前后的性能对比-1"><a href="#调优前后的性能对比-1" class="headerlink" title="调优前后的性能对比"></a>调优前后的性能对比</h3><p>调优前：RT、TPS</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103104408.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103109860.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103115390.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103121607.png"></p>
+<h3 id="调优后：RT、TPS"><a href="#调优后：RT、TPS" class="headerlink" title="调优后：RT、TPS"></a>调优后：RT、TPS</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103144244.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103149814.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103156494.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103202303.png"></p>
+<p>小结：将NIO升级为AIO之后，RT的毛刺大幅降低，异常数（超时3s）几乎为0。</p>
+<h2 id="容器优化Tomcat升级Undertow"><a href="#容器优化Tomcat升级Undertow" class="headerlink" title="容器优化Tomcat升级Undertow"></a>容器优化Tomcat升级Undertow</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://undertow.io/">https://undertow.io</a></p>
+</blockquote>
+<p>Undertow是一个用Java编写的灵活的高性能Web服务器，提供基于NIO的阻塞和非阻塞API。</p>
+<ul>
+<li>支持Http协议</li>
+<li>支持Http2协议</li>
+<li>支持Web Socket</li>
+<li>最高支持到Servlet4.0</li>
+<li>支持嵌入式</li>
+</ul>
+<p>SpringBoot的web环境中默认使用Tomcat作为内置服务器，其实SpringBoot提供了另外2种内置的服务器供我们选择，我们可以很方便的进行切换。</p>
+<ul>
+<li>Undertow红帽公司开发的一款基于 NIO 的高性能 Web 嵌入式服务器 。轻量级Servlet服务器，比Tomcat更轻量级没有可视化操作界面，没有其他的类似jsp的功能，只专注于服务器部署，因此undertow服务器性能略好于Tomcat服务器；</li>
+<li>Jetty开源的Servlet容器，它是Java的web容器。为JSP和servlet提供运行环境。Jetty也是使用Java语言编写的。</li>
+</ul>
+<h3 id="配置操作过程："><a href="#配置操作过程：" class="headerlink" title="配置操作过程："></a>配置操作过程：</h3><ol>
+<li><p>在spring-boot-starter-web排除tomcat</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusions</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>exclusion</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-tomcat<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusion</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>exclusions</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>导入其他容器的starter</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--导入undertow容器依赖--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-undertow<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>配置</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接</span>
+<span class="token key attr-name">server.undertow.threads.io</span><span class="token punctuation">:</span> <span class="token value attr-value">800</span>
+<span class="token comment"># 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程</span>
+<span class="token comment"># 默认值是IO线程数8</span>
+<span class="token key attr-name">server.undertow.threads.worker</span><span class="token punctuation">:</span> <span class="token value attr-value">8000</span>
+<span class="token comment"># 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理</span>
+<span class="token comment"># 每块buffer的空间大小越小，空间就被利用的越充分，不要设置太大，以免影响其他应用，合适即可</span>
+<span class="token key attr-name">server.undertow.buffer-size</span><span class="token punctuation">:</span> <span class="token value attr-value">1024</span>
+<span class="token comment"># 每个区分配的buffer数量 , 所以pool的大小是buffer-size  buffers-per-region</span>
+<span class="token comment"># 是否分配的直接内存(NIO直接分配的堆外内存)</span>
+<span class="token key attr-name">server.undertow.direct-buffers</span><span class="token punctuation">:</span> <span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>压测</p>
+</li>
+</ol>
+<h3 id="调优前后的性能对比-2"><a href="#调优前后的性能对比-2" class="headerlink" title="调优前后的性能对比"></a>调优前后的性能对比</h3><p>调优前：RT、TPS【这个是没有进行NIO2优化的Tomcat】</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103540445.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103546453.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103553206.png"></p>
+<h3 id="调优后：RT、TPS-1"><a href="#调优后：RT、TPS-1" class="headerlink" title="调优后：RT、TPS"></a>调优后：RT、TPS</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103606026.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103612022.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417103622773.png"></p>
+<p>小结：</p>
+<ul>
+<li>更换了服务容器之后，RT更加平稳，TPS的增长趋势更平稳，异常数（超时3s）几乎为0。</li>
+<li>在低延时情况下，接口通吐量不及Tomcat。</li>
+<li>稳定压倒一切，如果只是写json接口，且对接口响应稳定性要求高，可以选用Undertow</li>
+</ul>
+<p>还有很多可以优化的空间就不一一举例，这里我们更多的是教大家分析应用性能问题的方法，最直观的</p>
+<p>感受应用性能到底卡在什么地方。虽然算不上很全面，但是作为高级开发工程师，到这个程度就够了。</p>
+<p>其他可以优化的地方：</p>
+<ul>
+<li>ARP-IO模型</li>
+<li>Jetty 容器</li>
+<li>KeepAliveTimeout【默认】</li>
+<li>MaxKeepAliveRequests</li>
+</ul>
+<h2 id="数据库调优"><a href="#数据库调优" class="headerlink" title="数据库调优"></a>数据库调优</h2><p>这两条SQL语句有什么区别呢？</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment"># SQL01 - 效率更好</span>
+<span class="token keyword">select</span> id <span class="token keyword">from</span> tb_sku <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'华为 HUAWEI 麦芒7 6G+64G 魅海蓝 全网通 前置智慧双摄 移动联通电信4G手机 双卡双待'</span><span class="token punctuation">;</span>
+<span class="token comment"># SQL02 - 效率更好</span>
+<span class="token keyword">select</span> id <span class="token keyword">from</span> tb_sku <span class="token keyword">where</span> spu_id<span class="token operator">=</span><span class="token number">10000018913700</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="为什么要进行MySQL数据库调优？"><a href="#为什么要进行MySQL数据库调优？" class="headerlink" title="为什么要进行MySQL数据库调优？"></a>为什么要进行MySQL数据库调优？</h3><blockquote>
+<p>响应时间打下去，最重要的在数据库！</p>
+</blockquote>
+<ul>
+<li>提升网站整体通吐量，优化用户体验数据库是关键之一<ul>
+<li>流畅页面的访问速度，良好的网站功能体验</li>
+<li>避免网站页面出现访问错误<ul>
+<li>由于数据库连接timeout产生页面5xx错误</li>
+<li>由于慢查询造成页面无法加载</li>
+<li>由于阻塞造成数据无法提交</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>增加数据库的稳定性：很多数据库问题都是由于低效的查询引起的</li>
+</ul>
+<h2 id="什么影响数据库性能？"><a href="#什么影响数据库性能？" class="headerlink" title="什么影响数据库性能？"></a>什么影响数据库性能？</h2><ul>
+<li>服务器： OS、CPU、Memory、Network</li>
+<li>MySQL ：<ul>
+<li>数据库表结构【对性能影响最大】</li>
+<li>低下效率的SQL语句</li>
+<li>超大的表</li>
+<li>大事务</li>
+<li>数据库配置</li>
+<li>数据库整体架构</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库调优到底调什么？"><a href="#数据库调优到底调什么？" class="headerlink" title="数据库调优到底调什么？"></a>数据库调优到底调什么？</h3><ul>
+<li>优化SQL语句调：根据需求创建结构良好的SQL语句【实现同一个需求，SQL语句写法很多】</li>
+<li>数据库表结构调优：索引，主键，外键，多表关系等等</li>
+<li>MySQL配置调优：最大连接数，连接超时，线程缓存，查询缓存，排序缓存，连接查询缓存等等</li>
+<li>服务器硬件优化：多核CPU、更大内存</li>
+</ul>
+<h3 id="为什么使用索引就能加快查询速度呢？"><a href="#为什么使用索引就能加快查询速度呢？" class="headerlink" title="为什么使用索引就能加快查询速度呢？"></a>为什么使用索引就能加快查询速度呢？</h3><p>场景一：面试官问你，有没有做过数据库优化呀，我来问你一个特别简单的问题：查询的时候有没有给查询字段加过索引？为什么要加，加上之后怎么就会变快呢？请您简单描述一下原因</p>
+<ul>
+<li>索引就是事先排好顺序，从而在查询的时候可以使用二分法等高效率的算法查找</li>
+<li>除了索引查找，就是一般顺序查找，这两者的差异是数量级的差异。</li>
+<li>二分法查找的时间复杂度是O(log n)，而一般顺序查找的时间复杂度是O(n)</li>
+<li>索引的数据结构是B+树，是一种比二分法查找时间复杂度更好的数据结构</li>
+</ul>
+<p>数据库优化是一个很大的话题，里面涉及数据库架构，事务，索引，锁…等原理。这个部分要想弄明白，得铺垫很多底层理论，这里就不展开了。</p>
+<p>绝大多数小伙伴并不能正确的使用索引！</p>
+<ul>
+<li>全值匹配我最爱，最左前缀要遵守；</li>
+<li>带头大哥不能死，中间兄弟不能断；</li>
+<li>索引列上不计算，范围之后全失效；</li>
+<li>Like百分写最右，覆盖索引不写星；</li>
+<li>不等空值还有OR，索引失效要少用。</li>
+</ul>
+<h2 id="OpenResty调优"><a href="#OpenResty调优" class="headerlink" title="OpenResty调优"></a>OpenResty调优</h2><p>OpenResty是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。OpenResty的目标是让你的Web服务直接跑在 Nginx 服务内部，充分利用 Nginx 的非阻塞 I/O 模型，不仅仅对 HTTP 客户端请求,甚至于对远程后端诸如 MySQL、PostgreSQL、Memcached以及 Redis 等都进行一致的高性能响应。</p>
+<p>什么是Nginx?</p>
+<p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+<p>安装OpenResty到Linux服务器</p>
+<h3 id="配置域名映射"><a href="#配置域名映射" class="headerlink" title="配置域名映射"></a>配置域名映射</h3><p>访问主机名映射配置：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104326821.png"></p>
+<h3 id="压测配置"><a href="#压测配置" class="headerlink" title="压测配置"></a>压测配置</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104410495.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104417069.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104422918.png"></p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 指定你要代理的tomcat服务器列表</span>
+<span class="token key attr-name">upstream</span> <span class="token value attr-value">hero-server{</span>
+<span class="token comment"># 内网ip:端口号</span>
+<span class="token key attr-name">	server</span> <span class="token value attr-value">172.17.187.78:9003;</span>
+<span class="token key attr-name">	server</span> <span class="token value attr-value">172.17.187.79:9003;</span>
+}
+<span class="token key attr-name">server</span> <span class="token value attr-value">{</span>
+<span class="token key attr-name">	listen</span> <span class="token value attr-value">80;</span>
+<span class="token key attr-name">	server_name</span> <span class="token value attr-value">hero01;</span>
+<span class="token key attr-name">	location</span> <span class="token value attr-value">/ {</span>
+<span class="token comment"># 反向代理小英雄服务集群</span>
+<span class="token key attr-name">		proxy_pass</span> <span class="token value attr-value">http://hero-server;</span>
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p>JMeter：聚合报告、TPS、RT</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104526830.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104532639.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104538968.png"></p>
+<p>Nginx-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\07-低延时20ms-Nginx</li>
+</ul>
+<p>数据库服务-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\07-低延时20ms-Nginx</li>
+</ul>
+<p>小英雄服务-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\07-低延时20ms-Nginx</li>
+</ul>
+<p>小结：使用了OpenResty反向代理了服务，TPS会在原有的基础上再翻倍！</p>
+<h1 id="缓存调优"><a href="#缓存调优" class="headerlink" title="缓存调优"></a>缓存调优</h1><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104837539.png"></p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>需要在页面上显示广告的信息。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104854274.png"></p>
+<p>表结构分析：</p>
+<p>tb_ad （广告表）</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417104914987.png"></p>
+<p>position：系统定义的广告位置</p>
+<ol>
+<li><p>web_index_lb 首页轮播图</p>
+</li>
+<li><p>web_index_mobile_lb 手机分类轮播图</p>
+</li>
+<li><p>web_index_book_lb 图书分类轮播图</p>
+</li>
+</ol>
+<h2 id="直接查询数据库"><a href="#直接查询数据库" class="headerlink" title="直接查询数据库"></a>直接查询数据库</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="http://hero01/ad/read?position=web_index_lb">http://hero01/ad/read?position=web_index_lb</a></p>
+</blockquote>
+<p>数据库查询：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417105013625.png"></p>
+<p>之前接口都是查询数据库，这里本接口压力测试省略</p>
+<h2 id="多级缓存"><a href="#多级缓存" class="headerlink" title="多级缓存"></a>多级缓存</h2><p>缓存预热与二级缓存 查询思路分析</p>
+<p>步骤一：编写Lua脚本实现缓存预热（将mysql里的数据查询出来存入redis）</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417105033464.png"></p>
+<p>步骤二：编写Lua脚本实现二级缓存读取</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417105047419.png"></p>
+<h3 id="缓存预热"><a href="#缓存预热" class="headerlink" title="缓存预热"></a>缓存预热</h3><p>实现思路：定义请求：用于查询数据库中的数据更新到redis中。</p>
+<p>（1）连接mysql ，按照广告分类ID读取广告列表，转换为json字符串。</p>
+<p>（2）连接redis，将广告列表json字符串存入redis 。</p>
+<p>定义请求：</p>
+<pre class="line-numbers language-none"><code class="language-none">请求：
+	/ad_load
+参数：
+	position --指定广告位置
+返回值：
+	json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在/root/lua目录下创建ad_load.lua ，实现连接mysql 查询数据 并存储到redis中</p>
+<p><a target="_blank" rel="noopener" href="http://hero01/ad/load?position=xxx">http://hero01/ad/load?position=xxx</a></p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">-- 设置请求</span>
+ngx<span class="token punctuation">.</span>header<span class="token punctuation">.</span>content_type<span class="token operator">=</span><span class="token string">"application/json;charset=utf8"</span>
+<span class="token comment">-- 引入json第三方依赖</span>
+<span class="token keyword">local</span> cjson <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"cjson"</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"resty.mysql"</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> position <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">"position"</span><span class="token punctuation">]</span>
+<span class="token keyword">local</span> db <span class="token operator">=</span> mysql<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+db<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> props <span class="token operator">=</span> <span class="token punctuation">{</span>
+	host <span class="token operator">=</span> <span class="token string">"172.17.187.78"</span><span class="token punctuation">,</span>
+	port <span class="token operator">=</span> <span class="token number">3307</span><span class="token punctuation">,</span>
+	database <span class="token operator">=</span> <span class="token string">"hero_all"</span><span class="token punctuation">,</span>
+	user <span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">,</span>
+	password <span class="token operator">=</span> <span class="token string">"hero@202207"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">local</span> res <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+<span class="token keyword">local</span> select_sql <span class="token operator">=</span> "select url<span class="token punctuation">,</span>image from tb_ad where status <span class="token operator">=</span><span class="token string">'1'</span> <span class="token keyword">and</span>
+position<span class="token operator">=</span><span class="token string">'"..position.."'</span> <span class="token keyword">and</span> start_time<span class="token operator">&lt;=</span> <span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span> AND end_time<span class="token operator">&gt;=</span> <span class="token function">NOW</span><span class="token punctuation">(</span><span class="token punctuation">)</span>"
+res <span class="token operator">=</span> db<span class="token punctuation">:</span><span class="token function">query</span><span class="token punctuation">(</span>select_sql<span class="token punctuation">)</span>
+db<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">local</span> redis <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"resty.redis"</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> red <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+red<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">local</span> ip <span class="token operator">=</span><span class="token string">"172.17.187.78"</span>
+<span class="token keyword">local</span> port <span class="token operator">=</span> <span class="token number">6379</span>
+red<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span>ip<span class="token punctuation">,</span>port<span class="token punctuation">)</span>
+
+red<span class="token punctuation">:</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"ad_"</span><span class="token operator">..</span>position<span class="token punctuation">,</span>cjson<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span>
+red<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token string">"{flag:true}"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改/usr/local/hero/openresty/nginx/conf/nginx.conf文件：</p>
+<p>代码如下：</p>
+<pre class="line-numbers language-config" data-language="config"><code class="language-config">#user nobody;
+user root root;
+# 添加
+location /ad_load {
+	content_by_lua_file /root/lua/ad_load.lua;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重新加载nginx配置</p>
+<pre class="line-numbers language-none"><code class="language-none"># 启动nginx
+/usr/local/openresty/nginx/sbin/nginx -c
+/usr/local/openresty/nginx/conf/nginx.conf
+ps -ef | grep nginx
+# 停止nginx
+/usr/local/openresty/nginx/sbin/nginx -s stop #停止服务
+# 重新加载配置,修改配置后执行
+/usr/local/openresty/nginx/sbin/nginx -s reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>测试：<a target="_blank" rel="noopener" href="http://hero01/ad_load?position=web_index_lb">http://hero01/ad_load?position=web_index_lb</a></p>
+<h3 id="广告缓存读取"><a href="#广告缓存读取" class="headerlink" title="广告缓存读取"></a>广告缓存读取</h3><p>实现思路：</p>
+<p>定义请求，用户根据广告分类的ID 获取广告的列表。通过lua脚本直接从redis中获取数据即可。</p>
+<p>定义请求：</p>
+<pre class="line-numbers language-none"><code class="language-none">请求:/ad_read
+参数：position
+返回值：json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在/root/lua目录下创建ad_read.lua</p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">--设置响应头类型</span>
+ngx<span class="token punctuation">.</span>header<span class="token punctuation">.</span>content_type<span class="token operator">=</span><span class="token string">"application/json;charset=utf8"</span>
+<span class="token comment">--获取请求中的参数ID</span>
+<span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">local</span> position <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">"position"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">--引入redis库</span>
+<span class="token keyword">local</span> redis <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"resty.redis"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">--创建redis对象</span>
+<span class="token keyword">local</span> red <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">--设置超时时间</span>
+red<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span>
+<span class="token comment">--连接</span>
+<span class="token keyword">local</span> ok<span class="token punctuation">,</span> err <span class="token operator">=</span> red<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">"172.17.187.78"</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span>
+<span class="token comment">--获取key的值</span>
+<span class="token keyword">local</span> rescontent<span class="token operator">=</span>red<span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"ad_"</span><span class="token operator">..</span>position<span class="token punctuation">)</span>
+<span class="token comment">--输出到返回响应中</span>
+ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>rescontent<span class="token punctuation">)</span>
+<span class="token comment">--关闭连接</span>
+red<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在/usr/local/openresty/nginx/conf/nginx.conf中server下添加配置</p>
+<pre class="line-numbers language-none"><code class="language-none">location /ad_read {
+	content_by_lua_file /root/lua/ad_read.lua;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>测试 <a target="_blank" rel="noopener" href="http://hero01/ad_read?position=web_index_lb">http://hero01/ad_read?position=web_index_lb</a> 输出</p>
+<pre class="line-numbers language-none"><code class="language-none">[{"url":"img\/banner1.jpg","image":"img\/banner1.jpg"},
+{"url":"img\/banner2.jpg","image":"img\/banner2.jpg"}]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="测试结果-1"><a href="#测试结果-1" class="headerlink" title="测试结果"></a>测试结果</h3><p>JMeter：聚合报告、TPS、RT</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417105545045.png"></p>
+<p>Nginx-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\08-Nginx-Redis</li>
+</ul>
+<p>数据库服务-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\08-Nginx-Redis</li>
+</ul>
+<p>小英雄服务-CPU、内存、网络</p>
+<ul>
+<li>资料：压力测试\08-Nginx-Redis</li>
+</ul>
+<p>小结：TPS大幅提升，RT显著降低</p>
+<h2 id="进程内缓存"><a href="#进程内缓存" class="headerlink" title="进程内缓存"></a>进程内缓存</h2><p>如上的方式没有问题，但是如果请求都到redis，redis压力也很大，所以我们一般采用多级缓存的方式来减少下游系统的服务压力。</p>
+<h3 id="配置进程内缓存"><a href="#配置进程内缓存" class="headerlink" title="配置进程内缓存"></a>配置进程内缓存</h3><p>先查询openresty本地缓存 如果没有再查询redis中的数据</p>
+<ul>
+<li><p>修改/root/lua目录下ad_read_nginx_cache文件, 内容如下:</p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token comment">--设置响应头类型</span>
+ngx<span class="token punctuation">.</span>header<span class="token punctuation">.</span>content_type<span class="token operator">=</span><span class="token string">"application/json;charset=utf8"</span>
+<span class="token comment">--获取请求中的参数ID</span>
+<span class="token keyword">local</span> uri_args <span class="token operator">=</span> ngx<span class="token punctuation">.</span>req<span class="token punctuation">.</span><span class="token function">get_uri_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">local</span> position <span class="token operator">=</span> uri_args<span class="token punctuation">[</span><span class="token string">"position"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">--获取本地缓存</span>
+<span class="token keyword">local</span> cache_ngx <span class="token operator">=</span> ngx<span class="token punctuation">.</span>shared<span class="token punctuation">.</span>dis_cache<span class="token punctuation">;</span>
+<span class="token comment">--根据ID 获取本地缓存数据</span>
+<span class="token keyword">local</span> adCache <span class="token operator">=</span> cache_ngx<span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'ad_cache_'</span><span class="token operator">..</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> adCache <span class="token operator">==</span> <span class="token string">""</span> <span class="token keyword">or</span> adCache <span class="token operator">==</span> <span class="token keyword">nil</span> <span class="token keyword">then</span>
+<span class="token comment">--引入redis库</span>
+<span class="token keyword">local</span> redis <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"resty.redis"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">--创建redis对象</span>
+<span class="token keyword">local</span> red <span class="token operator">=</span> redis<span class="token punctuation">:</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">--设置超时时间</span>
+red<span class="token punctuation">:</span><span class="token function">set_timeout</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span>
+<span class="token comment">--连接</span>
+<span class="token keyword">local</span> ok<span class="token punctuation">,</span> err <span class="token operator">=</span> red<span class="token punctuation">:</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token string">"172.17.187.78"</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span>
+<span class="token comment">--获取key的值</span>
+<span class="token keyword">local</span> rescontent<span class="token operator">=</span>red<span class="token punctuation">:</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"ad_"</span><span class="token operator">..</span>position<span class="token punctuation">)</span>
+<span class="token comment">--输出到返回响应中</span>
+ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>rescontent<span class="token punctuation">)</span>
+<span class="token comment">--关闭连接</span>
+red<span class="token punctuation">:</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">--将redis中获取到的数据存入nginx本地缓存，缓存有效期10分钟</span>
+cache_ngx<span class="token punctuation">:</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'ad_cache_'</span><span class="token operator">..</span>position<span class="token punctuation">,</span> rescontent<span class="token punctuation">,</span> <span class="token number">1060</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+<span class="token comment">--nginx本地缓存中获取到数据直接输出</span>
+ngx<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span>adCache<span class="token punctuation">)</span>
+<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>修改nginx配置文件vi /usr/local/hero/openresty/nginx/conf/nginx.conf ，http节点下添加配置:</p>
+<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token operator">#</span>包含redis初始化模块
+lua_shared_dict dis_cache 5m<span class="token punctuation">;</span> <span class="token operator">#</span>共享内存开启
+location <span class="token operator">/</span><span class="token function">ad_read_nginx_cache</span> <span class="token punctuation">{</span>
+	content_by_lua_file <span class="token operator">/</span>root<span class="token operator">/</span>lua<span class="token operator">/</span>ad_read_nginx_cache<span class="token punctuation">.</span>lua<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://hero01/ad_read_nginx_cache?position=web_index_lb">http://hero01/ad_read_nginx_cache?position=web_index_lb</a></p>
+<h3 id="测试报告"><a href="#测试报告" class="headerlink" title="测试报告"></a>测试报告</h3><p>JMeter：聚合报告、TPS、RT</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417110027652.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417110033464.png"></p>
+<p>Nginx-CPU、内存、网络</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417110043508.png"></p>
+<p>小结：</p>
+<ul>
+<li>TPS继续提升，RT响应时间触底12-20ms之间</li>
+<li>网络带宽占用大幅下降</li>
+</ul>
+<h2 id="JVM调优"><a href="#JVM调优" class="headerlink" title="JVM调优"></a>JVM调优</h2><p>那种配置性能更好？当下的两个配置，完全不能反应性能。内存大小合适才好，不是越大越好！给多了反而影响性能！</p>
+<pre class="line-numbers language-none"><code class="language-none"># 配置01-用大内存，反而会适得其反
+JAVA_OPT="-Xms4096M -Xmx4096M -Xmn1024M"
+# 配置02-用大内存，反而会适得其反
+JAVA_OPT="-Xms512M -Xmx512M -Xmn256M"
+# 初始堆大小Xms
+# 最大堆大小Xmx
+# 年轻代大小Xmn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="为什么JVM调优？"><a href="#为什么JVM调优？" class="headerlink" title="为什么JVM调优？"></a>为什么JVM调优？</h3><p>调优的最终目的都是为了应用程序使用最小的硬件消耗来承载更大的吞吐量。JVM调优主要是针对垃圾收集器的收集性能进行优化，减少GC的频率和Full GC的次数。从而令运行在虚拟机上的应用，能够使用更少的内存，用更低的延迟，获得更大吞吐量，和减少应用的GC暂停时间！GC暂停会在高并发场景下，P99百分位的响应时间会产生影响。</p>
+<h3 id="什么时候JVM调优？"><a href="#什么时候JVM调优？" class="headerlink" title="什么时候JVM调优？"></a>什么时候JVM调优？</h3><p>遇到以下情况，就需要考虑进行JVM调优：</p>
+<ol>
+<li><p>系统吞吐量与响应性能不高或下降</p>
+</li>
+<li><p>Heap内存（老年代）持续上涨达到设置的最大内存值</p>
+</li>
+<li><p>Full GC 次数频繁</p>
+</li>
+<li><p>GC 停顿时间过长，运行P99百分位响应时间；</p>
+</li>
+<li><p>应用出现OutOfMemory 等内存异常；</p>
+</li>
+<li><p>应用中有使用本地缓存，且占用了大量的内存空间；</p>
+</li>
+</ol>
+<h3 id="调优调什么？"><a href="#调优调什么？" class="headerlink" title="调优调什么？"></a>调优调什么？</h3><blockquote>
+<p>JVM调优核心是什么？</p>
+</blockquote>
+<p>内存分配 + 垃圾回收！</p>
+<ol>
+<li><p>合理使用堆内存</p>
+</li>
+<li><p>GC高效回收垃圾对象，释放内存空间</p>
+</li>
+</ol>
+<p>是否可以把内存空间设置足够大，那么就不需要回收垃圾呢？</p>
+<p>问题背景：JVM回收垃圾时机，当JVM内存占满触发垃圾回收！</p>
+<p>不可以原因如下：</p>
+<ol>
+<li><p>不回收垃圾，内存增长巨快，再大的空间都不够用；10w请求，3GB垃圾对象</p>
+</li>
+<li><p>物理层面：64位操作系统可以支持非常大的内存，但不是无限</p>
+<ul>
+<li><p>32位操作系统： 2~32 = 4GB</p>
+</li>
+<li><p>64位操作系统： 2~64 =16384PB</p>
+</li>
+</ul>
+</li>
+<li><p>内存设置既不能太大，也不能太小需要基于业务场景平衡考量：内存空间设置过大，一旦内存空间触发垃圾回收，就会非常危险，寻找这个垃圾非常耗时，由于内存空间足够大，寻找这个垃圾的时候，极其的消耗时间，因此导致程序停顿；</p>
+</li>
+</ol>
+<blockquote>
+<p>举个栗子：房子足够大，是不是就可以不用打扫卫生？显然是不行的</p>
+</blockquote>
+<h3 id="调优原则及目标："><a href="#调优原则及目标：" class="headerlink" title="调优原则及目标："></a>调优原则及目标：</h3><ul>
+<li>优先原则：优先架构调优和代码调优，JVM优化是不得已的手段<ul>
+<li>大多数的Java应用不需要进行JVM优化</li>
+</ul>
+</li>
+<li>观测性原则：发现问题解决问题，没有问题不找问题</li>
+</ul>
+<p>调优目标：</p>
+<blockquote>
+<p>下面展示了一些JVM调优的量化目标的参考。注意：不同应用的JVM调优量化目标是不一样的。</p>
+</blockquote>
+<ul>
+<li>堆内存使用率 &lt;= 70%;</li>
+<li>老年代内存使用率&lt;= 70%;</li>
+<li>avg pause &lt;= 1秒;</li>
+<li>Full GC 次数0 或 avg pause interval &gt;= 24小时 ;</li>
+<li>创建更多的线程</li>
+</ul>
+<p>再写一个稍微复杂一点的调优配置：看的出来这两者配置之间的区别吗？</p>
+<p>JVM配置01</p>
+<pre class="line-numbers language-none"><code class="language-none">JAVA_OPT="${JAVA_OPT} -Xms836m -Xmx836m -XX:MetaspaceSize=128m -Xss512k"
+JAVA_OPT="${JAVA_OPT} -XX:+UseParallelGC -XX:+UseParallelOldGC "
+JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -
+XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:${BASE_DIR}/logs/gc-pspo.log"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>JVM配置02</p>
+<pre class="line-numbers language-none"><code class="language-none">JAVA_OPT="${JAVA_OPT} -Xms1024m -Xmx1024m -XX:MetaspaceSize=256m -Xss512k"
+JAVA_OPT="${JAVA_OPT} -XX:+UseParNewGC -XX:+UseConcMarkSweepGC "
+JAVA_OPT="${JAVA_OPT} -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -
+XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:${BASE_DIR}/logs/gc-parnewcms.log"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>到目前为止，压测和调优做完了。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><h2 id="项目性能测试报告模板"><a href="#项目性能测试报告模板" class="headerlink" title="项目性能测试报告模板"></a>项目性能测试报告模板</h2><a href="/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-ce-shi-bao-gao-mo-ban/" title="项目性能测试报告模板">项目性能测试报告模板</a>
+
+<h2 id="压测脚本"><a href="#压测脚本" class="headerlink" title="压测脚本"></a>压测脚本</h2><p>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/19O-tTSyWzkL_Oj6RNxUU4A?pwd=cjqf">https://pan.baidu.com/s/19O-tTSyWzkL_Oj6RNxUU4A?pwd=cjqf</a> 提取码: cjqf </p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-xia/">https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-xia/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">性能优化</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-04-16T15-57-54',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-huan-jing-da-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/214.jpg" class="responsive-img" alt="项目性能优化环境搭建">
+                        
+                        <span class="card-title">项目性能优化环境搭建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-04-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-shang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="项目性能优化—上">
+                        
+                        <span class="card-title">项目性能优化—上</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1405.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

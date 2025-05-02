@@ -1,0 +1,1909 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="项目性能优化—上, Gustavo">
+    <meta name="description" content="性能问题分析性能优化的目标
+后端：RT、TPS、并发数、Throughput、Footprint、Latency
+TPS和RT的影响因素：数据库读写、RPC、网络IO、逻辑计算复杂度、JVM
+
+
+WEB端：首屏时间、白屏时间、可交互时间、完">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>项目性能优化—上 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/63.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">项目性能优化—上</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                <span class="chip bg-color">性能优化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-04-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-04-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    26 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="性能问题分析"><a href="#性能问题分析" class="headerlink" title="性能问题分析"></a>性能问题分析</h1><h2 id="性能优化的目标"><a href="#性能优化的目标" class="headerlink" title="性能优化的目标"></a>性能优化的目标</h2><ul>
+<li>后端：RT、TPS、并发数、Throughput、Footprint、Latency<ul>
+<li>TPS和RT的影响因素：数据库读写、RPC、网络IO、逻辑计算复杂度、JVM</li>
+</ul>
+</li>
+<li>WEB端：首屏时间、白屏时间、可交互时间、完全加载时间…</li>
+<li>移动端：端到端的响应时间、Crash率、内存使用率、FPS…</li>
+</ul>
+<h2 id="影响性能的关键因素"><a href="#影响性能的关键因素" class="headerlink" title="影响性能的关键因素"></a>影响性能的关键因素</h2><ul>
+<li>产品设计：产品逻辑、功能交互、动态效果、页面元素</li>
+<li>基础网络：网络=连接介质+计算终端<ul>
+<li>连接介质：电缆、双绞线、光纤、微波、载波或通信卫星</li>
+<li>计算终端：PC、手机、可穿戴设备、家具家电</li>
+<li>基础网络设施：互联网、局域网、城域网、广域网</li>
+</ul>
+</li>
+<li>代码质量与架构<ul>
+<li>架构不合理</li>
+<li>研发功能和经验不足</li>
+<li>没有性能意识：只实现了业务功能不注意代码性能，新功能上线后整体性能下降，或当业务上量后系统出行连锁反应，导致性能问题叠加，直接影响到用户体验。</li>
+</ul>
+</li>
+<li>移动端环境</li>
+<li>硬件及云服务</li>
+</ul>
+<h1 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>压力测试（英语：Stress testing）是针对特定系统或是组件，为要确认其稳定性而特意进行的严格测试。会让系统在超过正常使用条件下运作，然后再确认其结果。</p>
+<p>压力测试是对系统不断施加压力，来预估系统服务能力的一种测试。</p>
+<p>为什么对系统压测呢？有没有必要。压不压测要看场景！</p>
+<p>一般而言，只有在系统基础功能测试验证完成、系统趋于稳定的情况下，才会进行压测。</p>
+<h2 id="配置环境信息"><a href="#配置环境信息" class="headerlink" title="配置环境信息"></a>配置环境信息</h2><ul>
+<li>server a：数据库与缓存服务器4c 4g：mysql、redis、mq、es</li>
+<li>server b：CICD服务器 3C 2G：Ngxin、Jmter、CICD</li>
+<li>server c：应用服务器  3C 2G：application</li>
+<li>server d：应用服务器  3C 2G：Grafana、Prometheus、InfluxDB</li>
+</ul>
+<h2 id="压测目的"><a href="#压测目的" class="headerlink" title="压测目的"></a>压测目的</h2><p>1.当负载逐渐增加时，观察系统各项性能指标的变化情况是否有异常</p>
+<p>2.发现系统的性能短板，进行针对性的性能优化</p>
+<p>3.判断系统在高并发情况下是否会报错，进程是否会挂掉</p>
+<p>4.测试在系统某个方面达到瓶颈时，粗略估计系统性能上限</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416161817595.png" alt="压测性能指标"></p>
+<p>以上主要的四种性能指标【响应时间、并发用户数、吞吐量、资源使用率】它们之间存在一定的相关性，共同反映出性能的不同方面。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416171413396.png"></p>
+<p>在这个图中，定义了三条曲线、三个区域、两个点以及三个状态描述。</p>
+<ul>
+<li>三条曲线<ul>
+<li>吞吐量的曲序，紫色</li>
+<li>利用率，绿色</li>
+<li>相应时间曲线，深蓝色</li>
+</ul>
+</li>
+<li>三个区域<ul>
+<li>轻负载区，Light Load</li>
+<li>重负载区，Heavy Load</li>
+<li>坍陷区，Buckle Zone</li>
+</ul>
+</li>
+<li>两个点<ul>
+<li>最优并发用户数，The Optimum Number if Concurrent Users</li>
+<li>最大并发用户数，The Maximum Number of Concurrent Users</li>
+</ul>
+</li>
+<li>三个状态描述：<ul>
+<li>资源饱和，Resource Saturated</li>
+<li>吞吐下降，Throughput Falling</li>
+<li>用户受影响，End Users Effected</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用压测工具："><a href="#常用压测工具：" class="headerlink" title="常用压测工具："></a>常用压测工具：</h2><ol>
+<li><p>Apache JMeter : 可视化的测试工具</p>
+</li>
+<li><p>Apache的ab压力测试</p>
+</li>
+<li><p>Nginter 韩国研发</p>
+</li>
+<li><p>PAS 阿里测试工具</p>
+</li>
+<li><p>MeterSphere ：国内持续测试的开源平台</p>
+</li>
+</ol>
+<p>Apache JMeter它可以用于测试静态和动态资源，例如静态文件、Java 小服务程序、CGI 脚本、Java 对象、数据库、FTP 服务器， 等等。</p>
+<blockquote>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://jmeter.apache.org/">https://jmeter.apache.org/</a></p>
+<p>中文社区：<a target="_blank" rel="noopener" href="http://www.jmeter.com.cn/2747.html">http://www.jmeter.com.cn/2747.html</a></p>
+</blockquote>
+<p>JMeter压测环境架构图：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416172321026.png"></p>
+<h1 id="压测实战案例"><a href="#压测实战案例" class="headerlink" title="压测实战案例"></a>压测实战案例</h1><p>步骤：</p>
+<ol>
+<li><p>创建测试计划</p>
+</li>
+<li><p>配置线程组、http请求、断言、结果监听器</p>
+</li>
+<li><p>执行测试</p>
+</li>
+<li><p>查看测试结果，分析测试结果</p>
+</li>
+</ol>
+<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><h3 id="1）新建测试计划"><a href="#1）新建测试计划" class="headerlink" title="1）新建测试计划"></a>1）新建测试计划</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173119989.png"></p>
+<h3 id="2）配置线程组："><a href="#2）配置线程组：" class="headerlink" title="2）配置线程组："></a>2）配置线程组：</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173136528.png"></p>
+<p>线程属性说明：ramp-up背后含义不好理解，案例做完有详细解释</p>
+<ul>
+<li>线程数：20， 线程数量，这里设置了20个线程</li>
+<li>ramp-up：表示在指定时间之内把这些线程全部启动起来。 如果n=1，那就表示要在1s以内把50个线程全部启动起来。</li>
+<li>循环次数：2000,表示把 20 thread 循环2000次，也就是说让每一个请求接口循环调用接口2000次</li>
+</ul>
+<h3 id="3）配置HTTP接口："><a href="#3）配置HTTP接口：" class="headerlink" title="3）配置HTTP接口："></a>3）配置HTTP接口：</h3><pre class="line-numbers language-none"><code class="language-none">http://ip:port/xx/xx/10000005620800<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173247049.png"></p>
+<p>选择keepalive方式，表示使用了长连接。使用长连接可以防止频繁的建立连接，关闭连接消耗性能。一般浏览器都支持keepalive，如果这里不勾选，这样我们的压测的部分性能消耗会发生在建立，关闭连接上，导致我们的压测数据不准确。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173307857.png"></p>
+<h3 id="4）配置断言："><a href="#4）配置断言：" class="headerlink" title="4）配置断言："></a>4）配置断言：</h3><p>JMeter断言常用有两种，一种是响应断言，一种是响应时间断言，如果响应内容不满足断言的配置，则认为这次的请求是失败的。</p>
+<ul>
+<li>响应断言：判断响应内容是否包含指定的字符信息，用于判断api接口返回内容是否正确。</li>
+<li>响应时间断言：判断响应时间，是否超过预期的时间，用于判断api接口返回时间是否超过预期。</li>
+</ul>
+<p>断言添加方式：右击测试计划的http请求，选择添加–&gt;断言–&gt;加响应断言和断言持续时间。</p>
+<p>（1）配置响应断言：我们接口正常返回code值为20001，如果接口返回code值不是20001表示接口异常，为了测试，这里修改为接口返回code值不为20001则表示访问失败。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173339966.png"></p>
+<p>（2）配置断言响应时间：设置请求接口时间超过3毫秒，则认为请求失败。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173353025.png"></p>
+<p>（3）验证断言配置：发起http请求，由于返回内容code值不为20000，以及访问时间超过10毫秒，所以认为访问失败。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173405587.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173412253.png"></p>
+<p>5）配置结果监听：</p>
+<p>配置监听器：监听压测结果【聚合报告和汇总结果很类似，看一个就行】</p>
+<ol>
+<li><p>聚合报告：查询结果信息聚合汇总，例如样本、平均值、通吐量、最大值、最小值…</p>
+</li>
+<li><p>察看结果树：记录每一次压测请求</p>
+</li>
+<li><p>图像结果：分析了所有请求的平均值、终止、偏离值和通吐量之间的关系。</p>
+</li>
+<li><p>汇总结果：汇总压测结果</p>
+</li>
+<li><p>汇总图：将压测结果以图像形式展示</p>
+</li>
+</ol>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173440253.png"></p>
+<h2 id="压测结果"><a href="#压测结果" class="headerlink" title="压测结果"></a>压测结果</h2><h3 id="1）聚合报告："><a href="#1）聚合报告：" class="headerlink" title="1）聚合报告："></a>1）聚合报告：</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173500874.png"></p>
+<ul>
+<li>样本（sample）: 发送请求的总样本数量</li>
+<li>响应时间【单位ms】：<ul>
+<li>平均值（average）：平均的响应时间</li>
+<li>中位数（median）: 中位数的响应时间，50%请求的响应时间</li>
+<li>90%百分位（90% Line）: 90%的请求的响应时间，意思就是说90%的请求是&lt;=1765ms返回，另外10%的请求是大于等于1765ms返回的。 </li>
+<li>95%百分位（95% Line）: 95%的请求的响应时间，95%的请求都落在1920ms之内返回的</li>
+<li>99%百分位（99% Line）: 99%的请求的响应时间</li>
+<li>最小值(min)：请求返回的最小时间，其中一个用时最少的请求</li>
+<li>最大值(max)：请求返回的最大时间，其中一个用时最大的请求异常（error）: 出现错误的百分比，错误率=错误的请求的数量/请求的总数</li>
+</ul>
+</li>
+<li>异常（error）: 出现错误的百分比，错误率=错误的请求的数量/请求的总数</li>
+<li>吞吐量TPS（throughout）: 吞吐能力</li>
+<li>Received KB/sec—-每秒从服务器端接收到的数据量</li>
+<li>Sent KB/sec—-每秒从客户端发送的请求的数量</li>
+</ul>
+<h3 id="2）察看结果树："><a href="#2）察看结果树：" class="headerlink" title="2）察看结果树："></a>2）察看结果树：</h3><p>记录了样本中的每一次请求</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173612680.png"></p>
+<h3 id="3）汇总图与图形结果"><a href="#3）汇总图与图形结果" class="headerlink" title="3）汇总图与图形结果"></a>3）汇总图与图形结果</h3><blockquote>
+<p>参考意义不大，且见文知意，所以略！</p>
+</blockquote>
+<p>图形结果：分析了所有请求的平均值、终止、偏离值和通吐量之间的关系</p>
+<p>横坐标：为请求数量，单位个数</p>
+<p>纵坐标：响应时间，单位ms</p>
+<h3 id="4）汇总报告【类似于聚合报告】"><a href="#4）汇总报告【类似于聚合报告】" class="headerlink" title="4）汇总报告【类似于聚合报告】"></a>4）汇总报告【类似于聚合报告】</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416173649290.png"></p>
+<ul>
+<li>样本（sample）: 发送请求的总样本数量</li>
+<li>响应时间【单位ms】：<ul>
+<li>平均值（average）：平均的响应时间</li>
+<li>最小值(min)：请求返回的最小时间，其中一个用时最少的请求</li>
+<li>最大值(max)：请求返回的最大时间，其中一个用时最大的请求</li>
+<li>标准偏差：度量响应时间分布的分散程度的标准，衡量响应时间值偏离平均响应时间的程度。标准偏差越小，偏离越少，反之亦然。</li>
+</ul>
+</li>
+<li>异常（error）: 出现错误的百分比，错误率=错误的请求的数量/请求的总数</li>
+<li>吞吐量TPS（throughout）: 吞吐能力，这个才是我们需要的并发数每秒接收 KB/sec—-每秒从服务器端接收到的数据量</li>
+<li>每秒发送KB/sec—-每秒从客户端发送的请求的数量</li>
+<li>平均字节数</li>
+</ul>
+<blockquote>
+<p>看到的是最终的结果数据！线性变化趋势</p>
+</blockquote>
+<h1 id="线程组配置详解"><a href="#线程组配置详解" class="headerlink" title="线程组配置详解"></a>线程组配置详解</h1><ul>
+<li><p>01-线程数：用来发送http请求的线程的数量</p>
+<ul>
+<li><p>线程组常用来模拟一组用户访问系统资源（API接口）。</p>
+</li>
+<li><p>假如客户机没有足够的能力来模拟较重的负载，可以使用JMeter的分布式测试功能，通过一个JMeter的Master来远程控制多个JMeter的Salve完成测试。</p>
+</li>
+</ul>
+</li>
+<li><p>02-循环次数：循环执行多少次操作</p>
+<ul>
+<li><p>循环次数表示了循环执行多少次操作！循环次数直接决定整个测试单个线程的执行时间，和整体测试执行时间。</p>
+<ul>
+<li><p>单线程执行时间 = 单请求平均响应时间  循环次数</p>
+</li>
+<li><p>整个测试耗时 = 单线程执行时间 + (Ramp-Up - Ramp-Up / 线程数)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>03-Ramp-Up：建立全部线程耗时</p>
+<ul>
+<li>Ramp-Up Period (in-seconds) 代表隔多长时间执行，默认值是0，0代表同时并发。用于告知JMeter 要在多长时间内建立全部的线程。</li>
+</ul>
+</li>
+</ul>
+<h1 id="JMeter常用插件"><a href="#JMeter常用插件" class="headerlink" title="JMeter常用插件"></a>JMeter常用插件</h1><p>已有内容的分析维度不够：需要加入新的插件</p>
+<ul>
+<li>TPS、QPS</li>
+<li>RT【平均响应时间】</li>
+<li>压力机活动线程数</li>
+<li>服务器资源信息</li>
+</ul>
+<p>开启插件下载：</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="http://jmeter-plugins.org/downloads/all/%EF%BC%8C%E5%AE%98%E7%BD%91%E4%B8%8A%E4%B8%8B%E8%BD%BDplugins-manager.jar%E7%9B%B4%E6%8E%A5%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD%EF%BC%8C%E7%84%B6%E5%90%8E%E6%89%A7%E8%A1%8C%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD%E5%8D%B3%E5%8F%AF%E3%80%82">http://jmeter-plugins.org/downloads/all/，官网上下载plugins-manager.jar直接在线下载，然后执行在线下载即可。</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174448339.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174453919.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">1、PerfMon：监控服务器硬件，如CPU，内存，硬盘读写速度等
+	Allows collecting target server resource metrics
+2、Basic Graphs：主要显示平均响应时间，活动线程数，成功/失败交易数等
+	Average Response Time 平均响应时间
+	Active Threads 活动线程数
+	Successful/Failed Transactions 成功/失败 事务数
+3、Additional Graphs：主要显示吞吐量，连接时间，每秒的点击数等
+	Response Codes
+	Bytes Throughput
+	Connect Times
+	Latency
+	Hits/s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174525608.png"></p>
+<h2 id="01-配置插件"><a href="#01-配置插件" class="headerlink" title="01-配置插件"></a>01-配置插件</h2><p>如果可以配置如下三个监听器，就表示插件已经安装成功！执行压力测试，就可以看见压测的每秒事务数、响应时间，活动线程数等压测结果</p>
+<ul>
+<li>响应时间：jp@gc - Response Times Over Time</li>
+<li>活动线程数：jp@gc - Active Threads Over Time</li>
+<li>每秒事务数：jp@gc - Transactions per Second</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174552993.png"></p>
+<h3 id="响应时间：jp-gc-Response-Times"><a href="#响应时间：jp-gc-Response-Times" class="headerlink" title="响应时间：jp@gc - Response Times"></a>响应时间：jp@gc - Response Times</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174604678.png"></p>
+<h3 id="活动线程数：jp-gc-Active-Threads"><a href="#活动线程数：jp-gc-Active-Threads" class="headerlink" title="活动线程数：jp@gc - Active Threads"></a>活动线程数：jp@gc - Active Threads</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174614748.png"></p>
+<h3 id="每秒事务数：jp-gc-Transactions-per-Second"><a href="#每秒事务数：jp-gc-Transactions-per-Second" class="headerlink" title="每秒事务数：jp@gc - Transactions per Second"></a>每秒事务数：jp@gc - Transactions per Second</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174626023.png"></p>
+<h2 id="02-性能关键指标分析"><a href="#02-性能关键指标分析" class="headerlink" title="02-性能关键指标分析"></a>02-性能关键指标分析</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174635954.png"></p>
+<h3 id="1）RT：响应时间"><a href="#1）RT：响应时间" class="headerlink" title="1）RT：响应时间"></a>1）RT：响应时间</h3><ul>
+<li><p>平均值： 请求响应的平均时间是332ms</p>
+</li>
+<li><p>中位数： 50%请求响应时间都在8ms之内</p>
+</li>
+<li><p>P90： 90%的请求都在514ms之内响应结束</p>
+</li>
+<li><p>P95： 95%的请求都在1051ms之内响应结束</p>
+</li>
+<li><p>P99：99%的请求都在6979ms之内响应结束</p>
+</li>
+<li><p>最小值： 请求响应最小时间2ms</p>
+</li>
+<li><p>最大值： 请求响应的最大时间是35s</p>
+</li>
+</ul>
+<h3 id="2）压力机活动线程数"><a href="#2）压力机活动线程数" class="headerlink" title="2）压力机活动线程数"></a>2）压力机活动线程数</h3><p>压力机活动线程数表明压测过程中施加的压力的情况</p>
+<h3 id="3）TPS：-每秒的事务数"><a href="#3）TPS：-每秒的事务数" class="headerlink" title="3）TPS： 每秒的事务数"></a>3）TPS： 每秒的事务数</h3><p>数字愈大，代表性能越好；</p>
+<h3 id="4）QPS：-每秒的查询数量"><a href="#4）QPS：-每秒的查询数量" class="headerlink" title="4）QPS： 每秒的查询数量"></a>4）QPS： 每秒的查询数量</h3><p>数字愈大，代表性能越好；（1tps &gt;= QPS）</p>
+<h3 id="5）吞吐量：-每秒的请求数量"><a href="#5）吞吐量：-每秒的请求数量" class="headerlink" title="5）吞吐量： 每秒的请求数量"></a>5）吞吐量： 每秒的请求数量</h3><p>数字愈大，代表性能越好；</p>
+<h1 id="服务器硬件资源监控【精简版】"><a href="#服务器硬件资源监控【精简版】" class="headerlink" title="服务器硬件资源监控【精简版】"></a>服务器硬件资源监控【精简版】</h1><p>压测的时候，我们需要实时了解服务器【CPU、内存、网络、服务器Load】的状态如何，哪如何监控服</p>
+<p>务器的资源占用情况呢？方法有很多种：</p>
+<p>使用操作系统命令：top、vmstat、iostat、iotop、dstat、sar…</p>
+<p>使用finalshell</p>
+<p>使用JMeter压测工具perfmon</p>
+<p>使用Grafana+Prometheus+node_exporter</p>
+<p>监控原理：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174749634.png"></p>
+<h2 id="01-配置服务端代理"><a href="#01-配置服务端代理" class="headerlink" title="01-配置服务端代理"></a>01-配置服务端代理</h2><p>注意：服务器硬件资源的监控，必须在服务端安装serverAgent代理服务，jmeter才能实现监控服务端</p>
+<p>的cpu、内存、io的使用情况。</p>
+<p>ServerAgent下载地址：<a target="_blank" rel="noopener" href="https://github.com/undera/perfmon-agent/blob/master/README.md">https://github.com/undera/perfmon-agent/blob/master/README.md</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174808726.png"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## 默认启动运行 startAgent.sh 脚本即可</span>
+<span class="token comment">## 服务启动默认4444端口，根本连接不上，因此自己创建一个部署脚本文件对此进行部署，且把端口修</span>
+改为7879
+<span class="token function">nohup</span> <span class="token function">java</span> <span class="token parameter variable">-jar</span> ./CMDRunner.jar <span class="token parameter variable">--tool</span> PerfMonAgent --udp-port <span class="token number">7879</span> --tcpport <span class="token number">7879</span> <span class="token operator">&gt;</span> log.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+<span class="token comment">## 赋予可执行权限</span>
+<span class="token function">chmod</span> <span class="token number">755</span> startAgent.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>启用7879端口后，服务器的cpu，io，内存使用情况就顺利的监控到了。</p>
+<h2 id="02-监控CPU："><a href="#02-监控CPU：" class="headerlink" title="02-监控CPU："></a>02-监控CPU：</h2><p>Elapse time：消耗时间</p>
+<p>Performance Metrics：性能指标</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174851333.png"></p>
+<ul>
+<li>idle：CPU空闲</li>
+<li>iowait：IO等待</li>
+<li>system：系统占用</li>
+<li>CPU user：CPU用户占用</li>
+</ul>
+<h2 id="03-监控网络："><a href="#03-监控网络：" class="headerlink" title="03-监控网络："></a>03-监控网络：</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174913955.png"></p>
+<ul>
+<li>接收字节：byteSrecv【单位：比特、KB、MB】</li>
+<li>发送字节：byteSent【单位：比特、KB、MB】</li>
+<li>发送(transport)：tx</li>
+<li>接收(receive)：rx</li>
+</ul>
+<h2 id="04-监控内存："><a href="#04-监控内存：" class="headerlink" title="04-监控内存："></a>04-监控内存：</h2><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416174935526.png"></p>
+<ul>
+<li>usedPerc：每分钟使用内存【单位：字节、KB、MB】</li>
+<li>freePerc：每分钟未使用内存【单位：字节、KB、MB】</li>
+</ul>
+<h2 id="05-监控系统整体负载情况："><a href="#05-监控系统整体负载情况：" class="headerlink" title="05-监控系统整体负载情况："></a>05-监控系统整体负载情况：</h2><p>服务器上执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#查询服务器资源使用情况</span>
+<span class="token function">top</span>
+<span class="token function">top</span> <span class="token parameter variable">-H</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如下图所示，可以看到系统负载 load average 情况，1分钟平均负载，5分钟平均负载，15分钟平均负</p>
+<p>载分别是 0.08, 0.03, 0.05 ；</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175017781.png"></p>
+<p>统计信息区前五行是系统整体的统计信息：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175035382.png"></p>
+<h2 id="06-性能关键指标分析Load-Average"><a href="#06-性能关键指标分析Load-Average" class="headerlink" title="06-性能关键指标分析Load Average"></a>06-性能关键指标分析Load Average</h2><h3 id="1）服务器：CPU、内存、网络IO"><a href="#1）服务器：CPU、内存、网络IO" class="headerlink" title="1）服务器：CPU、内存、网络IO"></a>1）服务器：CPU、内存、网络IO</h3><p>CPU</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175053749.png"></p>
+<p>内存</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175104733.png"></p>
+<p>网络IO</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175118578.png"></p>
+<h3 id="2）系统负载：-load-average"><a href="#2）系统负载：-load-average" class="headerlink" title="2）系统负载： load average"></a>2）系统负载： load average</h3><ol>
+<li>什么是Load Average？</li>
+</ol>
+<ul>
+<li>系统负载System Load是系统CPU繁忙程度的度量，即有多少进程在等待被CPU调度（进程等待队列的长度）。</li>
+<li>平均负载（Load Average）是一段时间内系统的平均负载，这个一段时间一般取1分钟、5分钟、15分钟。</li>
+<li>多核CPU和单核CPU的系统负载数据指标的理解还不一样。</li>
+</ul>
+<blockquote>
+<p>维基百科定义：In Unix computing, the system load is ameasure of the amount of computational work that a computer system performs.</p>
+<p>在类Unix系统中，系统负载是衡量计算机系统执行的计算工作量的指标。</p>
+</blockquote>
+<p>举个栗子：while(true) 这样程序不耗时，cpu会飙高，但是load average不会走高。说明程序在计算，</p>
+<p>但是并没有执行耗时工作，所以Load Average并不高。我们在核查服务器负载因需要重点关注load average。</p>
+<ol start="2">
+<li>Load的数值是什么含义？</li>
+</ol>
+<p>不同的CPU性质不同：单核，双核，四核 –&gt;&gt;</p>
+<p>单核CPU三种Load情况</p>
+<ul>
+<li>举例说明：把CPU比喻成一条（单核）马路，进程任务比喻成马路上跑着的汽车，Load则表示马路的繁忙程度。</li>
+<li>情况1-Load小于1：不堵车，汽车在马路上跑得游刃有余：<ul>
+<li><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175239181.png"></li>
+</ul>
+</li>
+<li>情况2-Load等于1：马路已无额外的资源跑更多的汽车了：<ul>
+<li><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175300561.png"></li>
+</ul>
+</li>
+<li>情况3-Load大于1：汽车都堵着等待进入马路：<ul>
+<li><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175317118.png"></li>
+</ul>
+</li>
+</ul>
+<p>双核CPU</p>
+<ul>
+<li>如果有两个CPU，则表示有两条马路，此时即使Load大于1也不代表有汽车在等待：<ul>
+<li><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175350571.png"></li>
+</ul>
+</li>
+<li>[Load==2，双核，没有等待]</li>
+</ul>
+<ol start="3">
+<li>什么样的Load值得警惕？</li>
+</ol>
+<blockquote>
+<p>如下分析针对单核CPU</p>
+</blockquote>
+<ul>
+<li><p>【0.0 - 0.7】 ：系统很闲，马路上没什么车，要考虑多部署一些服务</p>
+</li>
+<li><p>【0.7 - 1.0】：系统状态不错，马路可以轻松应对</p>
+</li>
+<li><p>【等于1.0】 ：系统马上要处理不多来了，赶紧找一下原因</p>
+</li>
+<li><p>【大于5.0】 ：马路已经非常繁忙了，进入马路的每辆汽车都要无法很快的运行</p>
+</li>
+</ul>
+<ol start="4">
+<li>不同Load值说明什么问题？</li>
+</ol>
+<p>如下分析针对单核CPU的四种情况：</p>
+<p>情况1：1分钟负载 &gt; 5，5分钟负载 &lt; 1，15分钟负载 &lt; 1</p>
+<ul>
+<li><p>举例： 5.18 , 0.05 , 0.03</p>
+</li>
+<li><p>短期内繁忙，中长期空闲，初步判断是一个“抖动”或者是“拥塞前兆”</p>
+</li>
+</ul>
+<p>情况2：1分钟负载 &gt; 5，5分钟负载 &gt; 1，15分钟负载 &lt; 1</p>
+<ul>
+<li>举例： 5.18 , 1.05 , 0.03</li>
+<li>短期内繁忙，中期内紧张，很可能是一个“拥塞的开始”</li>
+</ul>
+<p>情况3：1分钟负载 &gt; 5，5分钟负载 &gt; 5，15分钟负载 &gt; 5</p>
+<ul>
+<li>举例： 5.18 , 5.05 , 5.03</li>
+<li>短中长期都繁忙，系统“正在拥塞”</li>
+</ul>
+<p>情况4：1分钟负载 &lt; 1，5分钟负载 &gt; 1，15分钟负载 &gt; 5</p>
+<ul>
+<li>举例： 0.18 , 1.05 , 5.03</li>
+<li>短期内空闲，中长期繁忙，不用紧张，系统“拥塞正在好转</li>
+</ul>
+<h1 id="压测监控平台"><a href="#压测监控平台" class="headerlink" title="压测监控平台"></a>压测监控平台</h1><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250416175537211.png"></p>
+<blockquote>
+<p>Docker+JMeter+InfluxDB+Grafana+node_exporter</p>
+</blockquote>
+<h2 id="配置Docker环境"><a href="#配置Docker环境" class="headerlink" title="配置Docker环境"></a>配置Docker环境</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#yum 包更新到最新</span>
+<span class="token function">sudo</span> yum update <span class="token parameter variable">-y</span>
+<span class="token comment">#安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> yum-utils device-mapper-persistent-data lvm2
+<span class="token comment">#设置yum源为阿里云</span>
+<span class="token function">sudo</span> yum-config-manager --add-repo http://mirrors.aliyun.com/docker.ce/linux/centos/docker-ce.repo
+<span class="token comment">#安装docker</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> docker-ce <span class="token parameter variable">-y</span>
+systemctl start <span class="token function">docker</span>
+<span class="token function">docker</span> <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="安装InfluxDB"><a href="#安装InfluxDB" class="headerlink" title="安装InfluxDB"></a>安装InfluxDB</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#docker安装influxDB</span>
+<span class="token function">docker</span> pull influxdb:1.8
+<span class="token comment">#启动InfluxDB的容器，并将端口 8083 和 8086 映射出来：</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> influxdb <span class="token parameter variable">-p</span> <span class="token number">8086</span>:8086 <span class="token parameter variable">-p</span> <span class="token number">8083</span>:8083 influxdb:1.8
+<span class="token comment">#进入容器内部，创建名为jmeter的数据库</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> influxdb /bin/bash
+influx
+create database jmeter
+show databases
+<span class="token comment">#使用JMeter 库， select 查看数据，这个时候是没有数据的：</span>
+use jmeter
+<span class="token keyword">select</span>  from jmeter
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="设置JMeter脚本后置监听器"><a href="#设置JMeter脚本后置监听器" class="headerlink" title="设置JMeter脚本后置监听器"></a>设置JMeter脚本后置监听器</h2><p>1）配置后置监听器</p>
+<p>想要将 JMeter的测试数据导入 InfluxDB ，就需要在 JMeter中使用 Backend Listener 配置</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417091443504.png"></p>
+<p>2）主要配置说明</p>
+<p> implementation 选择 InfluxDB所对应的：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417091459870.png"></p>
+<ul>
+<li>influxdbUrl：需要改为自己influxdb的部署ip和映射端口，我这里是部署在阿里云服务器，所以就是xxx.xxx.xxx.xxx，口是容器启动时映射的xx端口，db后面跟的是刚才创建的数据库名称</li>
+<li>application：可根据需要自由定义，只是注意后面在 grafana 中选对即可</li>
+<li>measurement：表名，默认是 jmeter ，也可以自定义summaryOnly：选择true的话就只有总体的数据。false会记录总体数据，然后再将每个</li>
+<li>transaction都分别记录</li>
+<li>samplersRegex：样本正则表达式，将匹配的样本发送到数据库</li>
+<li>percentiles：响应时间的百分位P90、P95、P99</li>
+<li>testTitle：events表中的text字段的内容</li>
+<li>eventTags：任务标签，配合Grafana一起使用</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">influxdbMetricsSender
+org.apache.jmeter.visualizers.backend.influxdb.HttpMetricsSender
+influxdbUrl http://47.93.59.248:8086/write?db<span class="token operator">=</span>jmeter
+application hero_mall_one
+measurement jmeter
+summaryOnly <span class="token boolean">false</span>
+samplersRegex RT
+percentiles <span class="token number">90</span><span class="token punctuation">;</span><span class="token number">95</span><span class="token punctuation">;</span><span class="token number">99</span>
+testTitle 压力测试案例01
+eventTags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>3）运行验证</p>
+<p>运行 Jmeter 脚本，然后再次在 influxdb 中查看数据，发现类似下面的数据说明输入导入成功：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094150636.png"></p>
+<h2 id="安装Grafana"><a href="#安装Grafana" class="headerlink" title="安装Grafana"></a>安装Grafana</h2><h3 id="1）下载Grafana镜像："><a href="#1）下载Grafana镜像：" class="headerlink" title="1）下载Grafana镜像："></a>1）下载Grafana镜像：</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull grafana/grafana
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> grafana <span class="token parameter variable">-p</span> <span class="token number">3000</span>:3000 grafana/grafana<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="2-验证部署成功"><a href="#2-验证部署成功" class="headerlink" title="2)验证部署成功"></a>2)验证部署成功</h3><p>网页端访问<a href="http://ip:port验证部署成功">http://ip:port验证部署成功</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094414725.png"></p>
+<p>默认账户密码：admin\admin</p>
+<h3 id="3-选择添加数据源"><a href="#3-选择添加数据源" class="headerlink" title="3)选择添加数据源"></a>3)选择添加数据源</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094451643.png"></p>
+<h3 id="4）找到并选择-influxdb"><a href="#4）找到并选择-influxdb" class="headerlink" title="4）找到并选择 influxdb"></a>4）找到并选择 influxdb</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094510983.png"></p>
+<h3 id="5）配置数据源"><a href="#5）配置数据源" class="headerlink" title="5）配置数据源"></a>5）配置数据源</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094535954.png"></p>
+<p>数据源创建成功时会有绿色的提示：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094628809.png"></p>
+<h3 id="6）导入模板"><a href="#6）导入模板" class="headerlink" title="6）导入模板"></a>6）导入模板</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094647026.png"></p>
+<p>模板导入分别有以下3种方式：</p>
+<ul>
+<li>直接输入模板id号</li>
+<li>直接上传模板json文件</li>
+<li>直接输入模板json内容</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094705046.png"></p>
+<h3 id="7）找展示模板"><a href="#7）找展示模板" class="headerlink" title="7）找展示模板"></a>7）找展示模板</h3><p>在Grafana的官网找到我们需要的展示模板</p>
+<ul>
+<li>Apache JMeter Dashboard<ul>
+<li>dashboad-ID：5496</li>
+</ul>
+</li>
+<li>JMeter Dashboard(3.2 and up)<ul>
+<li>dashboad-ID：3351</li>
+</ul>
+</li>
+</ul>
+<h3 id="8）导入找到的模板，使用模板id"><a href="#8）导入找到的模板，使用模板id" class="headerlink" title="8）导入找到的模板，使用模板id"></a>8）导入找到的模板，使用模板id</h3><p>导入模板，我这里选择输入模板id号，导入后如下，配置好模板名称和对应的数据源，然后 import 即可</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094843942.png"></p>
+<h3 id="9）查看效果"><a href="#9）查看效果" class="headerlink" title="9）查看效果"></a>9）查看效果</h3><p>展示设置，首先选择创建的application</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417094903712.png"></p>
+<p>注意： 如果我们修改过表名，也就是在jmeter的Backend Listener的measurement配置(默认为jmeter)，这个时候就需要去设置中进行修改，我这里使用的就是默认的，所以无需修改。</p>
+<h2 id="安装node-exporter"><a href="#安装node-exporter" class="headerlink" title="安装node_exporter"></a>安装node_exporter</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载</span>
+<span class="token function">wget</span> <span class="token parameter variable">-c</span>
+https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_ex
+porter-0.18.1.linux-amd64.tar.gz
+<span class="token comment"># 解压</span>
+<span class="token function">mkdir</span> /usr/local/hero/
+<span class="token function">tar</span> zxvf node_exporter-0.18.1.linux-amd64.tar.gz <span class="token parameter variable">-C</span> /usr/local/hero/
+<span class="token comment"># 启动</span>
+<span class="token builtin class-name">cd</span> /usr/local/hero/node_exporter-0.18.1.linux-amd64
+<span class="token function">nohup</span> ./node_exporter <span class="token operator">&gt;</span> node.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意：在被监控服务器中配置开启端口9100</p>
+<p><a target="_blank" rel="noopener" href="http://ip:9100/metrics">http://ip:9100/metrics</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095022270.png"></p>
+<h2 id="安装Prometheus"><a href="#安装Prometheus" class="headerlink" title="安装Prometheus"></a>安装Prometheus</h2><h3 id="1）下载解压运行"><a href="#1）下载解压运行" class="headerlink" title="1）下载解压运行"></a>1）下载解压运行</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载</span>
+<span class="token function">wget</span> <span class="token parameter variable">-c</span>
+https://github.com/prometheus/prometheus/releases/download/v2.15.1/prometheus
+-2.15.1.linux-amd64.tar.gz
+<span class="token comment"># 解压</span>
+<span class="token function">tar</span> zxvf prometheus-2.15.1.linux-amd64.tar.gz <span class="token parameter variable">-C</span> /usr/local/hero/
+<span class="token builtin class-name">cd</span> /usr/local/hero/prometheus-2.15.1.linux-amd64
+<span class="token comment"># 运行</span>
+<span class="token function">nohup</span> ./prometheus <span class="token operator">&gt;</span> prometheus.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2）配置prometheus"><a href="#2）配置prometheus" class="headerlink" title="2）配置prometheus"></a>2）配置prometheus</h3><p>在prometheus.yml中加入如下配置：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">	<span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">'hero-Linux'</span>
+		<span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+		<span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+<span class="token punctuation">[</span><span class="token string">'172.17.187.78:9100'</span><span class="token punctuation">,</span><span class="token string">'172.17.187.79:9100'</span><span class="token punctuation">,</span><span class="token string">'172.17.187.81:9100'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3）测试Prometheus"><a href="#3）测试Prometheus" class="headerlink" title="3）测试Prometheus"></a>3）测试Prometheus</h3><p>测试Prometheus是否安装配置成功</p>
+<p><a target="_blank" rel="noopener" href="http://ip:9090/targets">http://ip:9090/targets</a></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095202058.png"></p>
+<h3 id="4）在Grafana中配置Prometheus的数据源"><a href="#4）在Grafana中配置Prometheus的数据源" class="headerlink" title="4）在Grafana中配置Prometheus的数据源"></a>4）在Grafana中配置Prometheus的数据源</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095229231.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095237363.png"></p>
+<h3 id="5）Grafana导入Linux展示模板"><a href="#5）Grafana导入Linux展示模板" class="headerlink" title="5）Grafana导入Linux展示模板"></a>5）Grafana导入Linux展示模板</h3><p>导入Linux系统dashboard</p>
+<ul>
+<li>Node Exporter for Prometheus Dashboard EN 20201010<ul>
+<li>dashboard-ID: 11074</li>
+</ul>
+</li>
+<li>Node Exporter Dashboard<ul>
+<li>dashboard-ID: 16098</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095309063.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095315986.png"></p>
+<h1 id="梯度压测：分析接口性能瓶颈"><a href="#梯度压测：分析接口性能瓶颈" class="headerlink" title="梯度压测：分析接口性能瓶颈"></a>梯度压测：分析接口性能瓶颈</h1><p>以上主要的四种性能指标【响应时间、并发用户数、吞吐量、资源使用率】它们之间存在一定的相关性，共同反映出性能的不同方面。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095338652.png"></p>
+<p>压测接口：响应时间20ms，响应数据包3.8kb，请求数据包0.421kb</p>
+<pre class="line-numbers language-none"><code class="language-none">http://ip:9001/spu/goods/10000005620800<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="压测配置"><a href="#压测配置" class="headerlink" title="压测配置"></a>压测配置</h2><p>情况01-模拟低延时场景，用户访问接口并发逐渐增加的过程。</p>
+<p>预计接口的响应时间为20ms</p>
+<ul>
+<li>线程梯度：5、10、15、20、25、30、35、40个线程</li>
+<li>循环请求次数5000次</li>
+<li>时间设置：Ramp-up period(inseconds)的值设为对应线程数<ul>
+<li>测试总时长：约等于20ms x 5000次 x 8 = 800s = 13分</li>
+</ul>
+</li>
+<li>配置断言：超过3s，响应状态码不为20000，则为无效请求</li>
+</ul>
+<h2 id="机器环境"><a href="#机器环境" class="headerlink" title="机器环境"></a>机器环境</h2><ul>
+<li>应用服务器配置：4C8G<ul>
+<li>外网-网络带宽25Mbps （峰值）</li>
+<li>内网-网络带宽基础1.5/最高10Gbit/s</li>
+</ul>
+</li>
+<li>集群规模：单节点</li>
+<li>服务版本：v1.0</li>
+<li>数据库服务器配置：4C8G</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Mbps <span class="token builtin class-name">:</span> Megabit per second <span class="token punctuation">(</span>Mbit/s or Mb/s<span class="token punctuation">)</span>
+MB/s <span class="token builtin class-name">:</span> Megabyte per second
+<span class="token number">1</span> byte <span class="token operator">=</span> <span class="token number">8</span> bits
+<span class="token number">1</span> bit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span>/8<span class="token punctuation">)</span> bytes
+<span class="token number">1</span> bit <span class="token operator">=</span> <span class="token number">0.125</span> bytes
+<span class="token number">1</span> megabyte <span class="token operator">=</span> <span class="token number">10002</span> bytes
+<span class="token number">1</span> megabit <span class="token operator">=</span> <span class="token number">10002</span> bits
+<span class="token number">1</span> megabit <span class="token operator">=</span> <span class="token number">0.125</span> megabytes
+<span class="token number">1</span> megabit/second <span class="token operator">=</span> <span class="token number">0.125</span> megabytes/second
+<span class="token number">1</span> Mbps <span class="token operator">=</span> <span class="token number">0.125</span> MB/s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>结论：</p>
+<p>1 Gbit/s = 1 Gbps = 125 MB/s</p>
+<p>1 Mbps = 0.125 MB/s</p>
+</blockquote>
+<h2 id="配置监听器："><a href="#配置监听器：" class="headerlink" title="配置监听器："></a>配置监听器：</h2><ol>
+<li><p>聚合报告：添加聚合报告</p>
+</li>
+<li><p>查看结果树：添加查看结果树</p>
+</li>
+<li><p>活动线程数：压力机中活动的线程数</p>
+</li>
+<li><p>TPS统计分析：每秒事务树</p>
+</li>
+<li><p>RT统计分析：响应时间</p>
+</li>
+<li><p>后置监听器，将压测信息汇总到InfluxDB，在Grafana中呈现</p>
+</li>
+<li><p>压测监控平台：</p>
+<ul>
+<li><p>JMeter DashBoard</p>
+</li>
+<li><p>应用服务器：内存、网络、磁盘、系统负载情况</p>
+</li>
+<li><p>MySQL服务器：内存、网络、磁盘、系统负载情况</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="性能瓶颈剖析"><a href="#性能瓶颈剖析" class="headerlink" title="性能瓶颈剖析"></a>性能瓶颈剖析</h2><h3 id="1）梯度压测，测出瓶颈"><a href="#1）梯度压测，测出瓶颈" class="headerlink" title="1）梯度压测，测出瓶颈"></a>1）梯度压测，测出瓶颈</h3><p>进一步提升压力，发现性能瓶颈</p>
+<ul>
+<li>使用线程：5，然后循环5000次，共2.5万个样本</li>
+<li>使用线程：10，然后循环5000次，共5万个样本</li>
+<li>使用线程：15，然后循环5000次，共7.5万个样本</li>
+<li>使用线程：20，然后循环5000次，共10万个样本</li>
+<li>使用线程：25，然后循环5000次，共12.5万个样本</li>
+<li>使用线程：30，然后循环5000次，共15万个样本</li>
+<li>使用线程：35，然后循环5000次，共17.5万个样本</li>
+<li>使用线程：40，然后循环5000次，共20万个样本</li>
+</ul>
+<p>聚合报告</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095720575.png"></p>
+<p>Active Threads</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095733231.png"></p>
+<p>RT</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095743148.png"></p>
+<p>TPS</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095753132.png"></p>
+<p>压测监控平台与JMeter压测结果一致</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095802541.png"></p>
+<p>压测中服务器监控指标</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095813384.png"></p>
+<h3 id="2）问题1：网络到达瓶颈"><a href="#2）问题1：网络到达瓶颈" class="headerlink" title="2）问题1：网络到达瓶颈"></a>2）问题1：网络到达瓶颈</h3><blockquote>
+<p>注意：系统网络带宽上限（25Mbps）</p>
+</blockquote>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095858175.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417095904311.png"></p>
+<p>结论：随着压力的上升，TPS不再增加，接口响应时间逐渐在增加，偶尔出现异常，瓶颈凸显。系统的</p>
+<p>负载不高。CPU、内存正常，说明系统这部分资源利用率不高。带宽带宽显然已经触顶了。</p>
+<p>优化方案：</p>
+<ul>
+<li>方案01-降低接口响应数据包大小<ul>
+<li>返回数据量小的接口，响应数据包0.6kb，请求数据包0.421kb</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">http://ip:9001/spu/goods/10000023827800<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p>方案02-提升带宽【或者在内网压测】</p>
+<ul>
+<li><p>25Mbps –&gt; 100Mbps</p>
+</li>
+<li><p>云服务器内网：这里在Linux中执行JMeter压测脚本</p>
+<pre class="line-numbers language-none"><code class="language-none">jmeter -n -t 02-jmeter-example.jmx -l 02-jmeter-example.jtl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<p>优化之后：</p>
+<p>方案01-降低接口响应数据包大小，压测结果</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100036519.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100043452.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100051129.png"></p>
+<p>方案02-提升带宽【或者在内网压测】，压测结果</p>
+<p>略</p>
+<p>问题：可不可以基于RT与TPS算出服务端并发线程数？</p>
+<blockquote>
+<p>服务端线程数计算公式：TPS/ (1000ms/ RT均值)</p>
+<p>RT=21ms，TPS=800，服务端线程数：= 800/ (1000ms/ RT均值) = 17 </p>
+<p>RT=500ms，TPS=800，服务端线程数：= 800/ (1000ms/ RT均值) = 400</p>
+<p>RT=1000ms，TPS=800，服务端线程数：= 800/ (1000ms/ RT均值) = 800</p>
+</blockquote>
+<p>结论：</p>
+<p>在低延时场景下，服务瓶颈主要在服务器带宽。</p>
+<p>TPS数量等于服务端线程数 乘以 (1000ms/ RT均值)</p>
+<p>RT=21ms，TPS=800，服务端线程数：= 800/ (1000ms/ RT均值) = 17</p>
+<h3 id="3）问题2：接口的响应时间是否正常？是不是所有的接口响应都可以这么快"><a href="#3）问题2：接口的响应时间是否正常？是不是所有的接口响应都可以这么快" class="headerlink" title="3）问题2：接口的响应时间是否正常？是不是所有的接口响应都可以这么快"></a>3）问题2：接口的响应时间是否正常？是不是所有的接口响应都可以这么快</h3><p>情况02-模拟高延时场景，用户访问接口并发逐渐增加的过程。接口的响应时间为500ms，</p>
+<ul>
+<li>线程梯度：100、200、300、400、500、600、700、800个线程;</li>
+<li>循环请求次数200次</li>
+<li>时间设置：Ramp-up period(inseconds)的值设为对应线程数的1/10；<ul>
+<li>测试总时长：约等于500ms x 200次 x 8 = 800s = 13分</li>
+</ul>
+</li>
+<li>配置断言：超过3s，响应状态码不为20000，则为无效请求</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//慢接口</span>
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/goods/slow/{spuId}"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">findGoodsBySpuIdTwo</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">String</span> spuId<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token class-name">Goods</span> goods <span class="token operator">=</span> spuService<span class="token punctuation">.</span><span class="token function">findBySpuId</span><span class="token punctuation">(</span>spuId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">//模拟慢接口</span>
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+		<span class="token comment">//休眠500ms</span>
+		<span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">MILLISECONDS</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Result</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token class-name">StatusCode</span><span class="token punctuation">.</span><span class="token constant">OK</span><span class="token punctuation">,</span> <span class="token string">"查询成功"</span><span class="token punctuation">,</span> goods<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>响应慢接口：500ms+，响应数据包3.8kb，请求数据包0.421k</p>
+<p><a target="_blank" rel="noopener" href="http://ip:9001/spu/goods/slow/10000005620800">http://ip:9001/spu/goods/slow/10000005620800</a></p>
+<p>测试结果：RT、TPS、网络IO、CPU、内存、磁盘IO</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100439403.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100446002.png"></p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/Java/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/image-20250417100452578.png"></p>
+<p>结论：</p>
+<ul>
+<li>在高延时场景下，服务瓶颈主要在容器最大并发线程数。</li>
+<li>RT=500ms，TPS=800，服务端线程数：= 800/ (1000ms/ RT) = 400<ul>
+<li>Tomcat默认的最大的线程数？200</li>
+</ul>
+</li>
+<li>观察服务容器最大线程数，发现处理能力瓶颈卡在容器端</li>
+</ul>
+<h3 id="4）问题3：TPS在上升到一定的值之后，异常率较高"><a href="#4）问题3：TPS在上升到一定的值之后，异常率较高" class="headerlink" title="4）问题3：TPS在上升到一定的值之后，异常率较高"></a>4）问题3：TPS在上升到一定的值之后，异常率较高</h3><p>可以理解为与IO模型有关系，因为当前使用的是阻塞式IO模型。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><a href="/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-huan-jing-da-jian/" title="项目性能优化环境搭建">项目性能优化环境搭建</a>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-shang/">https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-shang/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                                    <span class="chip bg-color">性能优化</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-04-16T15-57-47',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-xia/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/64.jpg" class="responsive-img" alt="项目性能优化—下">
+                        
+                        <span class="card-title">项目性能优化—下</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-04-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+                        <span class="chip bg-color">性能优化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/04/14/ren-sheng-yu-zhi-chang/he-li-yong-yao-ju-jue-wu-xiao-chan-pin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/244.jpg" class="responsive-img" alt="合理用药，拒绝无效产品">
+                        
+                        <span class="card-title">合理用药，拒绝无效产品</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/" class="post-category">
+                                    世事洞明皆学问
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E7%94%9F/">
+                        <span class="chip bg-color">人生</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%81%A5%E5%BA%B7/">
+                        <span class="chip bg-color">健康</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1405.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

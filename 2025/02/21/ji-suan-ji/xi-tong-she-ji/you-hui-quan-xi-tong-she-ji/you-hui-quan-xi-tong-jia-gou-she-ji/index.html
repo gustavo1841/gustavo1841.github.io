@@ -1,0 +1,1431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="优惠券系统架构设计, Gustavo">
+    <meta name="description" content="1.内容介绍优惠券系统在业务层面承接O2O一小时达业务核心促销，是京东到家营销工具的核心利器，为了支持复杂的业务和高流量的场景，对缓存Redis的应用必不可少。本章内容主要介绍京东到家优惠券系统的架构演化，以及承接高流量的Redis集群实战">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>优惠券系统架构设计 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/485.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">优惠券系统架构设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                <span class="chip bg-color">计算机</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">系统设计</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BC%98%E6%83%A0%E5%88%B8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">优惠券架构设计</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                计算机
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-02-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-04-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="1-内容介绍"><a href="#1-内容介绍" class="headerlink" title="1.内容介绍"></a>1.内容介绍</h3><p>优惠券系统在业务层面承接O2O一小时达业务核心促销，是京东到家营销工具的核心利器，为了支持复杂的业务和高流量的场景，对缓存Redis的应用必不可少。本章内容主要介绍京东到家优惠券系统的架构演化，以及承接高流量的Redis集群实战经验。本文的数据支撑进行了脱敏处理，如有不清晰之处，请见谅。</p>
+<h3 id="2-缓存现状"><a href="#2-缓存现状" class="headerlink" title="2.缓存现状"></a>2.缓存现状</h3><p>1.数量多</p>
+<p>5大缓存集群，缓存支持了约200种业务场景。</p>
+<p>2.流量高</p>
+<p>集群总内存使用量为T级，QPS高峰期能有每秒千万调用量。</p>
+<p>3.场景复杂，IO多</p>
+<p>​      </p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/JV6ibFERResxw.png" alt="图片"></p>
+<p>上图为到家门店主页，在门店主页优惠券系统承接5处利益曝光，从上向下分别为：门店运费优惠、门店商品券、红包、商品预估到手价、购物车领券结算，其中有6个优惠券接口承接这5处资源位。介绍下商品预估到手价和购物车领券结算。</p>
+<p>预估到手价：承接以商品维度利益优惠，到家平台有商品售卖的地方几乎都承接商品维度的优惠券利益点，涉及商品曝光场景都有预估到手价，调用量50个商品批量调用，能达几百万/分钟调用量，同时优惠券会涉及剩余库存校验、每日领取数量库存校验、总领券数量校验、用户每日领取库存、用户总领取库存，所以优惠券的IO量级比较高。</p>
+<p>购物车领券结算：目前该功能为O2O行业最先投入使用，并且用户体验较好。其中图上黄条区域（底部红框的内容）主要是告诉用户购物车当前商品可以使用的优惠，目前主要承载优惠券和运费券优惠提醒，该功能如下图：</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/aGvNQsFNgrNulA.png" alt="图片"></p>
+<p>用户已领券50～200张券，未领券大概50～150张券，用户一次请求对应的优惠券自身大概裂变400～1000次网络IO，其中主要列表为券数量以及每张券各种库存校验，大概算一下8次rpc+一张未领券6次io<em>未领券50张+ 1次券信息io</em>用券100张=400多次，按购物车高峰期几十万/每分钟调用量，优惠券领券结算需要承载百万QPS的IO。</p>
+<p>综上所述：优惠券是一个高并发、高复杂、大数据量的单体系统。对于这种系统面临许多问题和挑战，为了迎接挑战优惠券进行一系列架构调整，实战部分Redis的也进行一系列优化措施。</p>
+<h3 id="3架构演化"><a href="#3架构演化" class="headerlink" title="3架构演化"></a>3架构演化</h3><p>随着公司发展扩大，业务的急剧增长以及研发规模的扩大，原有系统已不能满足业务发展的需求，面临着业务需求推进慢、系统性能调优困难、人员耦合问题频现，在此需要降低系统复杂度，进行一系列系统拆分措施。</p>
+<h3 id="3-1架构演化-框架介绍"><a href="#3-1架构演化-框架介绍" class="headerlink" title="3.1架构演化-框架介绍"></a>3.1架构演化-框架介绍</h3><p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/V6ibFERResxw6jOG4XiaGv.png" alt="图片"></p>
+<p>总共分为7层，分别是用户层、接入层、应用层、服务层、数据缓存层、数据存储层、基础层。</p>
+<p>应用层：建券、展示券、领券、结算页用券、优惠券中台、优惠券网关、闭环业务。闭环业务（上游业务）是指依赖优惠券中台形成自己独特玩法的上游业务。</p>
+<p>服务层：大方便分为B端和C端，C端主要有优惠券展示服务、结算页用券、优惠券网关等；B端主要优惠券中台、建券、领券等。</p>
+<p>数据缓存层：5个集群，优惠券打标集群、门店券集群、用户券集群、活动集群、已使用集群。</p>
+<p>数据存储层：主要有Mysql和ES进行存储，其中用户下优惠券券数据量比较多，日均亿级的数据体量。</p>
+<p>基础层：主要依赖京东私有云体系和京东自研中间件。</p>
+<h3 id="3-2架构演化-系统拆分"><a href="#3-2架构演化-系统拆分" class="headerlink" title="3.2架构演化-系统拆分"></a>3.2架构演化-系统拆分</h3><p>大部分的系统可以按业务维度进行拆分，足以能解决自己耦合问题，但是优惠券是一个复杂的单体系统，我们一起来看下单体系统我们是如何拆分的。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/jOG4Xia.png" alt="图片"></p>
+<p><strong>调整前</strong>：所有的业务基本分为建券、领券、用券和查券，系统分为open（对C端服务）、inner（对B端服务）、web（运营端）三个项目，随着业务不断发展，带来了一系列问题。</p>
+<p>问题描述：1.随着C端机器不断增多扩容，数据库连接数不够。2.高并发场景对核心交易流程用券产生了影响。3.业务、系统、人员耦合在一起，推动需求进度和系统维护带来一定困难。</p>
+<p><strong>调整后</strong>：将优惠券进行B端、C端、上游业务三个维度进行拆分。</p>
+<p>1.C端提供门店券、商品券、红包、以及核心交易流程用券业务；C端系统由原来一个系统拆分为展示系统和用券核心交易流程系统。</p>
+<p>2.B端业务分为建券、中台、领券、补贴规则；B端系统形成了中台open（通用对C端服务）、中台inner（通用对B端服务）、WEB（运营端）、MQ消息（将原有分散的消费MQ统一形成一个系统）。</p>
+<p>3.闭环业务（上游业务）依赖优惠券中台通用能力实现自有业务独立部署。</p>
+<h3 id="4缓存优化"><a href="#4缓存优化" class="headerlink" title="4缓存优化"></a>4缓存优化</h3><p>优惠券系统C端使用Redis承接高流量，对Redis的深度了解和学习是优化实战的重要一部分。下面会分别介绍常见的实战优化经验,选取的常用的优化点：大Key、热Key、过期策略。</p>
+<h3 id="4-1消灭缓存大Key问题"><a href="#4-1消灭缓存大Key问题" class="headerlink" title="4.1消灭缓存大Key问题"></a>4.1消灭缓存大Key问题</h3><p>Redis主线程是单线程模型。大Key表面理解为单个存储Key的Value比较大，参考值：String类型长度大于8000;对于List、Set、Hash、Zset的元素数量大于8000。该数据仅供参考，实际业务不同也可有一定调整。</p>
+<p>如果一次操作比较大，会导致主线程处理时间变长，单点阻塞；另外大Key的删除或是过期，也会导致节点阻塞，极端情况会导致主从出现问题，Redis无法响应，所以在使用层面根据业务应拆尽拆。</p>
+<p>如果是复杂度比较低的应用，定位大Key是比较简单的事情，通常开发人员根据经验就能定位到，但是优惠券系统有200多缓存Key场景，靠经验值很难定位，针对大Key问题下面拿具体案例进行说明，如何定位、如何解决。</p>
+<p><strong>案例背景（优惠券适用门店缓存优化）</strong></p>
+<p>1.高峰期响应时长高，所有接口都出现问题。</p>
+<p>2.某分片新建连接数飙升、流出量高，并且问题分片每天都变化。</p>
+<p>3.定位场景复杂：200多个接口无法确定某个业务；缓存Key和接口之间存在多对多关系。</p>
+<p>4.Redis没有慢日志，定位问题困难。</p>
+<p>5.大Key存在但是不一定是问题Key；热Key也存在但也不一定是问题，如何找到影响性能具体的Key。</p>
+<p><strong>排查过程</strong>：</p>
+<p>1.根据方法耗时最终可以定位到具体集群，但是不能定位到某个缓存Key，因为Redis是单点阻塞，所以表现为该集群所有缓存都变慢。</p>
+<p>2.寻找该集群涉及数据源代码中重复调用过程优化，优化后无效。</p>
+<p>3.降级+限流无效。</p>
+<p>4.使用主从切换方式定位到问题Key，发现分片流出量从主分片到了从分片。定位到券适用门店缓存，此缓存是CouponId为Key，Value是门店ID，接近上万门店，用来判断券和门店是否适用。</p>
+<p><strong>解决方案：</strong></p>
+<p>将缓存结构Key是CouponId，Value是适用门店结构，改造为缓存Key是CouponId+门店的维度，B端进行一次写入，C端只判断有没有来做到用户已领取的券在不在该门店展示。</p>
+<p><img src="/../../../../images/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/bFERResxw6jOG4Xia.png" alt="图片"></p>
+<p> 结果：总的每秒流出量由几G/s直接降到几十M/s，单分片由几百M/s降低为几M/s。</p>
+<p><strong>总结如何发现大Key：</strong></p>
+<p>1.业务经验，假设问题Key。</p>
+<p>2.客户端代理，收集大Key信息。</p>
+<p>3.查看Redis记录的慢日志。</p>
+<p>4.在从集群Scan大Key，以免影响生产环境稳定。</p>
+<p>5.读写分离笨办法，对怀疑的Key一个一个进行主从分片切换，观察节点的流出量，这个方法虽然不能快速定位，但是一定能帮助定位到问题。</p>
+<p><strong>总结解决大Key</strong>：</p>
+<p>1.根据业务场景解决，散列足够均匀，足够小。个人认为根据场景解决为首选。</p>
+<p>2.对于大Key，要想办法进行业务拆解，无法业务拆分的考虑使用技术手段路由拆分。</p>
+<p>3.精简缓存Key的长度，使用缩写替代，例如coupon_info_base改为c_i_b。</p>
+<p>4.对字段属性进行精简，使用单字母表示，例如couponName对应存储字母a。</p>
+<p>5.数据优先使用整数，比字符串省空间。</p>
+<p>6.对缓存数据进行冷热分离，比较热的字段放入一个Key，减少请求的网络流出量。</p>
+<p>7.在清理大Key数据时，特别注意不要直接删除，也会造成单点阻塞，使用Scan进行清理。4.0以上引入了unlink，异步删除。</p>
+<h3 id="4-2解决缓存热Key问题"><a href="#4-2解决缓存热Key问题" class="headerlink" title="4.2解决缓存热Key问题"></a>4.2解决缓存热Key问题</h3><p>Redis单节点可以承受10万+QPS，如果突然有几十万请求访问某一固定Key，那会达到网卡上限，导致节点无法响应。当然这里的量级也是参考值，和实际场景的Key大小和机器性能许多因素都有关系。常见的突出业务场景是秒杀，其他的业务场景也会存在请求量大的热Key，热Key的发现和处理与大Key有些共通之处，也有不一样之处。</p>
+<p><strong>热Key发现：</strong></p>
+<p>1.业务经验，假设问题Key。</p>
+<p>2.抽样抓取请求，这里分为服务端和客户端两个维度抓取，客户端便向集群维度抓取，服务端便向单节点维度抓取。例如：尝试抓10s内的请求然后按请求量对Key排序。</p>
+<p>3.Redis自带命令，Redis 4+版本后提供热点Key发现。</p>
+<p>4 .查看Redis记录的慢日志。</p>
+<p>5.读写分离笨办法，对怀疑的Key一个一个进行主从分片切换，观察节点QPS变化，这个和大Key发现思路一致。</p>
+<p><strong>解决热Key：</strong></p>
+<p>1.业务优化减少请求量，例如秒杀，网上有各种降流量措施。</p>
+<p>2.缓存隔离，减少热Key对其他业务影响。</p>
+<p>3.散列多份，放许多份，读取数据时进行随机读取一份，这个方法比较通用。</p>
+<p>4.对于热Key前置缓存到应用服务器上，尽量是占用空间小并且不怎么发生变的数据进行前置，不然Gc也是件比较麻烦的事情。</p>
+<p><strong>注意</strong>：实际生产环境会比较复杂，会存在一些场景比较难以定位。例如：不是大Key也不是热Key，但是会是阻塞节点的主要流量Key。定位方法可以参考读写分离方法，观察节点出流量以及QPS变化。</p>
+<h3 id="4-3重视缓存过期策略"><a href="#4-3重视缓存过期策略" class="headerlink" title="4.3重视缓存过期策略"></a>4.3重视缓存过期策略</h3><p>实际生产环境经常需要做的是优化Redis的使用空间，减少集群大小，节省成本。经常不增加过期时间，过期时间使用不合理现象。</p>
+<p>过期策略是Redis很重要的一部分，了解过期策略有什么好处呢。第一：我们可以学习到一些好的设计思想；第二可以对Redis过期有足够了解，能从原理层知道平时使用Redis应该注意什么。</p>
+<p><strong>过期策略</strong>：</p>
+<p>1.定时删除：插入过期键的同时，开一个定时任务，在键的过期来临时执行删除任务。优点是删除快，对内存友好，但是频繁的执行对CPU不友好。</p>
+<p>2.惰性删除：用户查询的时候判断是否过期，过期则删除，用户不查则永远不删除。对CPU友好，对内存不友好。</p>
+<p>3.定期删除：每隔一段时间进行一次删除任务，遍历多少个DB，删多少个键由算法决定。一、二的折中，当然如果执行的太频繁，或者每次删除的过多，就跟方式一没什么区别。</p>
+<p>Redis是使用了惰性删除和定期删除两种方式。</p>
+<p><strong>redisDb结构体</strong>：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct redisDb {
+    dict *dict;                
+    dict *expires;             
+    ...
+    unsigned long expires_cursor; 
+} redisDb;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Redis数据存储使用redisDb的结构体，其中Dict存储数据，Expires是存储过期时间，不设置过期时间不会存放在Expires中，因此Redis过期策略主要针对Expires进行处理。</p>
+<p><strong>惰性删除策略</strong>：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int expireIfNeeded(redisDb *db, robj *key) {
+    if (!keyIsExpired(db,key)) return 0;
+    if (server.masterhost != NULL) return 1;、
+    /* Delete the key */
+    server.stat_expiredkeys++;
+    propagateExpire(db,key,server.lazyfree_lazy_expire);
+    notifyKeyspaceEvent(NOTIFY_EXPIRED,
+        "expired",key,db-&gt;id);
+    int retval = server.lazyfree_lazy_expire ? dbAsyncDelete(db,key) :
+                                               dbSyncDelete(db,key);
+    if (retval) signalModifiedKey(NULL,db,key);
+    return retval;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>该代码主要体现以下4点：</p>
+<p>1.调用ExpireIfNeeded函数进行是否过期判断并删除。</p>
+<p>2.如果没过期返回0，如果是从库返回1。</p>
+<p>3.如果过期并且是主库，删除返回1。</p>
+<p>4.Redis只会从主库删除过期键，主库再同步从库。</p>
+<p>这里之前一同事想清理一次过期没删除的数据，问Scan能否触发过期删除？</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void scanGenericCommand(client *c, robj *o, unsigned long cursor) {
+    /* Step 1: 解析 */
+    /* Step 2: 遍历各种类型集合 */
+    /* Step 3: 过滤元素 */
+    while (node) {
+        ...
+        /* Filter element if it is an expired key. */
+        if (!filter &amp;&amp; o == NULL &amp;&amp; expireIfNeeded(c-&gt;db, kobj)) filter = 1;
+        ...
+        node = nextnode;
+    }
+    /* Step 4: 回复客户端 */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面一段是Scan大体的4步过程，第一步解析参数，第二步遍历各种类型集合，然后第3步过滤元素中明确调用了ExpireIfNeeded函数进行了惰性删除，所以使用Scan是可以清理过期没删除的数据。第四步回复客户端。</p>
+<p><strong>定期删除策略</strong>：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define ACTIVE_EXPIRE_CYCLE_KEYS_PER_LOOP 20 /* 默认每个数据库检测的键数量 Keys for each DB loop. */
+#define ACTIVE_EXPIRE_CYCLE_FAST_DURATION 1000 /* 快周期时间 微秒 Microseconds. */
+#define ACTIVE_EXPIRE_CYCLE_SLOW_TIME_PERC 25 /* 慢周期最多占用cpu资源 Max % of CPU to use. */
+#define ACTIVE_EXPIRE_CYCLE_ACCEPTABLE_STALE 10 /* 可容忍的过期键所占内存比例 % of stale keys after which
+                                                   we do extra efforts. */
+
+void activeExpireCycle(int type) {
+
+    effort = server.active_expire_effort-1, /* Rescale from 0 to 9. */
+    config_keys_per_loop = ACTIVE_EXPIRE_CYCLE_KEYS_PER_LOOP +
+                           ACTIVE_EXPIRE_CYCLE_KEYS_PER_LOOP/4*effort,
+    config_cycle_fast_duration = ACTIVE_EXPIRE_CYCLE_FAST_DURATION +
+                                 ACTIVE_EXPIRE_CYCLE_FAST_DURATION/4*effort,
+    config_cycle_slow_time_perc = ACTIVE_EXPIRE_CYCLE_SLOW_TIME_PERC +
+                                  2*effort,
+    config_cycle_acceptable_stale = ACTIVE_EXPIRE_CYCLE_ACCEPTABLE_STALE-
+                                    effort;
+    ...
+
+    if (type == ACTIVE_EXPIRE_CYCLE_FAST) {
+        //如果上次不是因为超时而结束，并且当前过期键数量小于可容忍的过期键数量，不处理。
+        if (!timelimit_exit &amp;&amp;
+            server.stat_expired_stale_perc &lt; config_cycle_acceptable_stale)
+            return;
+        //如果距离上次fast模式的运行时间小于两倍的fast模式的周期，不处理。    
+        if (start &lt; last_fast_cycle + (long long)config_cycle_fast_duration*2)
+            return;
+        last_fast_cycle = start;
+    }
+    ...
+    timelimit = config_cycle_slow_time_perc*1000000/server.hz/100;
+    ...    
+    if (type == ACTIVE_EXPIRE_CYCLE_FAST)
+        redisDb *db = server.db+(current_db % server.dbnum);
+     //循环db
+     for (j = 0; j &lt; dbs_per_call &amp;&amp; timelimit_exit == 0; j++) {
+        do {
+            ...
+            while (sampled &lt; num &amp;&amp; checked_buckets &lt; max_buckets) {
+                for (int table = 0; table &lt; 2; table++) {
+                    if (table == 1 &amp;&amp; !dictIsRehashing(db-&gt;expires)) break;
+
+                    unsigned long idx = db-&gt;expires_cursor;//当前db过期游标开始检测。
+                    idx &amp;= db-&gt;expires-&gt;ht[table].sizemask;
+                    dictEntry *de = db-&gt;expires-&gt;ht[table].table[idx];
+                    while(de) {
+                       ...
+                        ttl = dictGetSignedIntegerVal(e)-now;
+                        //操作过期删除
+                        if (activeExpireCycleTryExpire(db,e,now)) expired++;
+                        if (ttl &gt; 0) {
+                            ttl_sum += ttl;
+                            ttl_samples++;
+                        }
+                        sampled++;
+                    }
+                }
+                db-&gt;expires_cursor++;
+            }
+            ...
+            //每循环16次，看下执行时间和超时时间，如果超时跳出结束
+            if ((iteration &amp; 0xf) == 0) { /* check once every 16 iterations. */
+                elapsed = ustime()-start;
+                if (elapsed &gt; timelimit) {
+                    timelimit_exit = 1;
+                    server.stat_expired_time_cap_reached_count++;
+                    break;
+                }
+            }
+        //如果已清理的过期键*100/所有检索的键&gt;可容忍过期键所占比内存
+        } while (sampled == 0 ||
+                 (expired*100/sampled) &gt; config_cycle_acceptable_stale);
+    }
+    ...
+    double current_perc;
+    if (total_sampled) {
+        current_perc = (double)total_expired/total_sampled;
+    } else
+        current_perc = 0;
+    //动态变化
+    server.stat_expired_stale_perc = (current_perc*0.05)+
+                                     (server.stat_expired_stale_perc*0.95);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上源码有省略，只选取核心逻辑，定期删除主要是调用activeExpireCycle函数：</p>
+<p>1.两个地方调用，一个是server.c/databasesCron()函数，每100ms执行一次，一个是server.c/beforeSleep()函数，在redis的事件主循环中，每次循环都会执行一次。</p>
+<p>2.activeExpireCycle两种模式：快周期和慢周期。</p>
+<p><strong>常量说明：</strong></p>
+<p>1.ACTIVE_EXPIRE_CYCLE_KEYS_PER_LOOP默认每个数据库检测键数量。</p>
+<p>2.ACTIVE_EXPIRE_CYCLE_FAST_DURATION 快周期，1000us。</p>
+<p>3.ACTIVE_EXPIRE_CYCLE_SLOW_TIME_PERC慢周期多占用CPU时间25%。</p>
+<p>4.ACTIVE_EXPIRE_CYCLE_ACCEPTABLE_STALE可容忍的过期键所占内存比例10%。</p>
+<p>5.Effort调节速度， Effort越大，CPU负担越重，所以根据自己的需要设置effort的值。</p>
+<p>6.server.active_expire_effort默认1。</p>
+<p><strong>删除过程</strong>：</p>
+<p>1.For循环DB。</p>
+<p>2.Do while循环进行容忍度校验，如果已清理的过期键*100/所有检索的键&gt;可容忍过期键所占比内存，一直循环。</p>
+<ol>
+<li><p>跳出条件：每循环16次，看下执行时间和超时时间，如果超时跳出结束。</p>
+</li>
+<li><p>慢周期25ms，快周期1000us。</p>
+</li>
+<li><p>db-&gt;expires_cursor当前db过期游标开始检测。每次执行都是根据全局游标接着上次位置进行。6.0新版本才有该游标。</p>
+</li>
+<li><p>activeExpireCycleTryExpire操作删除。</p>
+</li>
+</ol>
+<p>3.server.stat_expired_stale_perc = (current perc<em>0.05)+(server.stat_expired_stale_perc</em>0.95)，动态变化，在此体现了activeExpireCycle使用的是自适应算法。</p>
+<p><strong>总结：</strong></p>
+<p>1.activeExpireCycle函数使用的是自适应算法。</p>
+<p>2.过期 Key 最好不要太密集，每次检测会耗尽分配的时间片，达到可接受的密度比例，对Key过期时间设置进行一定的随机，减少集中过期影响CPU。</p>
+<p>3.db-&gt;expires_cursor 6.0才有。4.0是随机20个Key。</p>
+<p>4.业务使用时尽量都设置过期时间。</p>
+<p>5.使用Scan触发惰性删除操作，非高峰期扫描主节点。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/02/21/ji-suan-ji/xi-tong-she-ji/you-hui-quan-xi-tong-she-ji/you-hui-quan-xi-tong-jia-gou-she-ji/">https://gustavo1841.github.io/2025/02/21/ji-suan-ji/xi-tong-she-ji/you-hui-quan-xi-tong-she-ji/you-hui-quan-xi-tong-jia-gou-she-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                                    <span class="chip bg-color">计算机</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">系统设计</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BC%98%E6%83%A0%E5%88%B8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">优惠券架构设计</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-02-21T15-18-52',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2025/02/22/ji-suan-ji/xi-tong-she-ji/tui-jian-xi-tong-she-ji/cong-0-dao-10-rang-ni-che-di-li-jie-xin-xi-liu-tou-fang-xi-tong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/480.jpg" class="responsive-img" alt="信息流投放系统">
+                        
+                        <span class="card-title">信息流投放系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">系统设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">推荐系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%A8%E8%8D%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">推荐架构设计</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/02/20/ji-suan-ji/xi-tong-she-ji/quan-xian-xi-tong-jia-gou-she-ji/quan-xian-xi-tong-jia-gou-she-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/702.jpg" class="responsive-img" alt="权限系统架构设计">
+                        
+                        <span class="card-title">权限系统架构设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                        <span class="chip bg-color">计算机</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">系统设计</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9D%83%E9%99%90%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">权限架构设计</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1405.8k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

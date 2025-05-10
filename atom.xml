@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-05-07T13:52:06.496Z</updated>
+  <updated>2025-05-10T08:04:45.764Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,40 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>技术分析-移动平均线收敛/发散</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/ji-zhu-fen-xi-yi-dong-ping-jun-xian-shou-lian-fa-san/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/ji-zhu-fen-xi-yi-dong-ping-jun-xian-shou-lian-fa-san/</id>
-    <published>2025-05-07T13:48:26.000Z</published>
-    <updated>2025-05-07T13:52:06.496Z</updated>
+    <title>过度交易：为什么交易成功少即是多</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/overtrading-why-less-is-more-in-trading-success/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/overtrading-why-less-is-more-in-trading-success/</id>
+    <published>2025-05-10T05:31:56.000Z</published>
+    <updated>2025-05-10T08:04:45.764Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;em&gt;MACD（移动平均收敛/发散）指标结合了趋势指标和动量振荡指标的特点。这使得它的用途非常广泛。今天，我们将探讨几种使用该指标的方法。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;MACD 指标展示了所选工具两条指数移动平均线之间的关系。在基本设置中，MACD 的计算方法是用周期为</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>RSI：技术指标</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/rsi-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/rsi-technical-indicator/</id>
-    <published>2025-05-07T01:31:56.000Z</published>
-    <updated>2025-05-07T14:12:34.574Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是相对强弱指数（RSI）？&quot;&gt;&lt;a href=&quot;#什么是相对强弱指数（RSI）？&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;什么是过度交易？&quot;&gt;&lt;a href=&quot;#什么是过度交易？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -64,44 +42,18 @@
   </entry>
   
   <entry>
-    <title>多时间框架分析</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/multiple-timeframe-analysis/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/multiple-timeframe-analysis/</id>
-    <published>2025-05-06T22:31:56.000Z</published>
-    <updated>2025-05-07T13:33:22.530Z</updated>
+    <title>交易策略的前瞻性测试</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/forward-testing-of-trading-strategies/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/forward-testing-of-trading-strategies/</id>
+    <published>2025-05-10T03:31:56.000Z</published>
+    <updated>2025-05-10T07:48:03.909Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;人们常说，为交易日做好充分的准备就等于成功了一半。这并非空穴来风。我们不能直接面对一张空白的图表，立即开始交易，然后以为就能获利。我们需要一个计划，一个交易计划。我们将学习如何直接在图表上绘制一个简单的交易计划，以及如何立即执行该计划来开始交易。&lt;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何识别突破和假突破</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/how-to-spot-breakouts-and-fakeouts/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/how-to-spot-breakouts-and-fakeouts/</id>
-    <published>2025-05-06T21:31:56.000Z</published>
-    <updated>2025-05-07T14:23:00.645Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;交易突破和假突破&quot;&gt;&lt;a href=&quot;#交易突破和假突破&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;1-先决条件&quot;&gt;&lt;a href=&quot;#1-先决条件&quot; class=&quot;headerlink&quot; title=&quot;1. 先决条件&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.</summary>
         
       
     
@@ -115,44 +67,18 @@
   </entry>
   
   <entry>
-    <title>背离交易</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/divergence-trading/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/divergence-trading/</id>
-    <published>2025-05-06T20:31:56.000Z</published>
-    <updated>2025-05-07T12:54:48.795Z</updated>
+    <title>制定交易计划：综合指南</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/developing-a-trading-plan-comprehensive-guide/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/developing-a-trading-plan-comprehensive-guide/</id>
+    <published>2025-05-10T02:31:56.000Z</published>
+    <updated>2025-05-10T07:23:18.297Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;什么是背离交易？&quot;&gt;&lt;a href=&quot;#什么是背离交易？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术指标</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/technical-indicators/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/technical-indicators/</id>
-    <published>2025-05-06T19:31:56.000Z</published>
-    <updated>2025-05-07T14:07:26.198Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在交易中使用技术指标一直是交易者们永无止境的讨论话题。有人认为它们毫无用处，有人则无法想象没有它们，交易会是什么样子。理解技术指标是每个交易者都应该掌握的技能，无论他或她是否决定使用它们。我们挑选了11个我们认为最好的技术指标，它们可以显著提升您的</summary>
+    <summary type="html">&lt;h2 id=&quot;什么是交易计划？&quot;&gt;&lt;a href=&quot;#什么是交易计划？&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -166,43 +92,18 @@
   </entry>
   
   <entry>
-    <title>斐波那契交易</title>
-    <link href="https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/fibonacci-trading/"/>
-    <id>https://gustavo1841.github.io/2025/05/07/jiao-yi-ti-xi/fibonacci-trading/</id>
-    <published>2025-05-06T17:31:56.000Z</published>
-    <updated>2025-05-07T13:43:49.966Z</updated>
+    <title>如何回测交易策略</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-backtest-trading-strategies/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-backtest-trading-strategies/</id>
+    <published>2025-05-10T02:31:56.000Z</published>
+    <updated>2025-05-10T08:06:43.287Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;斐波那契回撤&quot;&gt;&lt;a href=&quot;#斐波那契回撤&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>供需交易</title>
-    <link href="https://gustavo1841.github.io/2025/05/05/jiao-yi-ti-xi/supply-and-demand-trading/"/>
-    <id>https://gustavo1841.github.io/2025/05/05/jiao-yi-ti-xi/supply-and-demand-trading/</id>
-    <published>2025-05-05T15:31:56.000Z</published>
-    <updated>2025-05-05T14:44:46.209Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是供需交易？&quot;&gt;&lt;a href=&quot;#什么是供需交易？&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;什么是回溯测试&quot;&gt;&lt;a href=&quot;#什么是回溯测试&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -216,43 +117,18 @@
   </entry>
   
   <entry>
-    <title>图表模式交易</title>
-    <link href="https://gustavo1841.github.io/2025/05/05/jiao-yi-ti-xi/chart-patterns-trading/"/>
-    <id>https://gustavo1841.github.io/2025/05/05/jiao-yi-ti-xi/chart-patterns-trading/</id>
-    <published>2025-05-04T17:31:56.000Z</published>
-    <updated>2025-05-07T12:00:24.312Z</updated>
+    <title>如何创建交易理念</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-create-a-trading-idea/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-create-a-trading-idea/</id>
+    <published>2025-05-10T02:31:56.000Z</published>
+    <updated>2025-05-10T07:30:34.757Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;图表模式交易&quot;&gt;&lt;a href=&quot;#图表模式交易&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>支撑位与阻力位</title>
-    <link href="https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/support-and-resistance/"/>
-    <id>https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/support-and-resistance/</id>
-    <published>2025-05-01T15:31:56.000Z</published>
-    <updated>2025-05-05T14:18:47.114Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;支撑位和阻力位&quot;&gt;&lt;a href=&quot;#支撑位和阻力位&quot; class=&quot;headerlink&quot; title=&quot;支撑位和阻力位&quot;&gt;&lt;/a&gt;支撑位和阻力位&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h2 id=&quot;基本元素&quot;&gt;&lt;a href=&quot;#基本元素&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -266,44 +142,18 @@
   </entry>
   
   <entry>
-    <title>市场环境 – 区间与趋势</title>
-    <link href="https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/market-environment-ranges-vs-trends/"/>
-    <id>https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/market-environment-ranges-vs-trends/</id>
-    <published>2025-04-30T19:31:56.000Z</published>
-    <updated>2025-05-05T02:39:42.191Z</updated>
+    <title>风险管理</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/risk-management/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/risk-management/</id>
+    <published>2025-05-10T01:31:56.000Z</published>
+    <updated>2025-05-10T05:51:35.187Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;市场环境-–-范围与趋势&quot;&gt;&lt;a href=&quot;#市场环境-–-范围与趋势&quot; class=&quot;headerlink&quot; title=&quot;市场环境 – 范围与趋势&quot;&gt;&lt;/a&gt;市场环境 –</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>交易图表的类型</title>
-    <link href="https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/types-of-trading-charts/"/>
-    <id>https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/types-of-trading-charts/</id>
-    <published>2025-04-30T17:31:56.000Z</published>
-    <updated>2025-05-03T05:33:35.045Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;实时观察市场波动和波动性是一项必不可少的技能。图表上显示数据的方式多种多样，从简单的K线图到砖形图或平均足图。这些图表的具体特点是什么？它们之间有何不同？您将在本课中了解详情。&lt;/p&gt;
-&lt;h2 id=&quot;交易图表类型——蜡烛图、砖形图、平均足图&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;风险管理&quot;&gt;&lt;a href=&quot;#风险管理&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -317,45 +167,18 @@
   </entry>
   
   <entry>
-    <title>日本蜡烛图</title>
-    <link href="https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/japanese-candlesticks/"/>
-    <id>https://gustavo1841.github.io/2025/05/01/jiao-yi-ti-xi/japanese-candlesticks/</id>
-    <published>2025-04-30T16:31:56.000Z</published>
-    <updated>2025-05-02T10:02:54.085Z</updated>
+    <title>如何建立稳健的交易策略</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-build-a-robust-trading-strategy/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-build-a-robust-trading-strategy/</id>
+    <published>2025-05-10T00:31:56.000Z</published>
+    <updated>2025-05-10T05:35:12.485Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;蜡烛图形态是最常见的价格行为技术之一。我们可以在网上找到数百种不同的蜡烛图形态。我们需要了解所有这些形态吗？当然不需要。我们挑选了一些最常见、最重要的形态，并将它们列在日本蜡烛图上。&lt;/p&gt;
-&lt;h3 id=&quot;什么是日本蜡烛图？&quot;&gt;&lt;a href=&quot;#什么是日本蜡烛图？&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>保证金交易</title>
-    <link href="https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/margin-trading/"/>
-    <id>https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/margin-trading/</id>
-    <published>2025-04-29T15:59:56.000Z</published>
-    <updated>2025-05-03T04:22:20.973Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我们将探讨与交易本身密切相关的一些问题，如果您不理解这一点，账户爆仓将不可避免。这就是保证金交易。在本课中，我们将讲解保证金以及所有其他有助于您有效管理交易业务的事项。外汇交易远不止买卖货币，因此您必须了解账户可能发生的所有细微变化。&lt;/p&gt;
-&lt;h2</summary>
+    <summary type="html">&lt;h2 id=&quot;如何建立稳健的交易策略&quot;&gt;&lt;a href=&quot;#如何建立稳健的交易策略&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -369,87 +192,11 @@
   </entry>
   
   <entry>
-    <title>外汇市场结构和参与者</title>
-    <link href="https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/forex-market-structure-and-participants/"/>
-    <id>https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/forex-market-structure-and-participants/</id>
-    <published>2025-04-29T15:31:56.000Z</published>
-    <updated>2025-05-03T04:21:43.286Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;谁在进行外汇交易以及为什么？&quot;&gt;&lt;a href=&quot;#谁在进行外汇交易以及为什么？&quot; class=&quot;headerlink&quot; title=&quot;谁在进行外汇交易以及为什么？&quot;&gt;&lt;/a&gt;谁在进行外汇交易以及为什么？&lt;/h2&gt;&lt;p&gt;现在我们知道了&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术分析、基本面分析、情绪分析和统计分析。哪一个最好？</title>
-    <link href="https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/technical-fundamental-sentiment-and-statistical-analysis.which-one-is-best/"/>
-    <id>https://gustavo1841.github.io/2025/04/29/jiao-yi-ti-xi/technical-fundamental-sentiment-and-statistical-analysis.which-one-is-best/</id>
-    <published>2025-04-29T15:31:56.000Z</published>
-    <updated>2025-05-07T13:42:12.353Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我们知道两种分析类型：技术分析和基本面分析。这两种分析是交易者最常用的，它们可以单独使用或组合使用。此外，还有两种不太常被提及的分析类型：情绪分析和统计分析。我们将涵盖这四种分析类型，并分析它们的优缺点。&lt;/p&gt;
-&lt;h2 id=&quot;技术分析&quot;&gt;&lt;a href=&quot;#技术分析&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ATR：技术指标</title>
-    <link href="https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/atr-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/atr-technical-indicator/</id>
-    <published>2025-04-28T15:31:56.000Z</published>
-    <updated>2025-05-07T14:12:49.386Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;平均真实波动幅度是多少？&quot;&gt;&lt;a href=&quot;#平均真实波动幅度是多少？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Backtesting a trading strategy</title>
-    <link href="https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/backtesting-a-trading-strategy/"/>
-    <id>https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/backtesting-a-trading-strategy/</id>
-    <published>2025-04-28T15:31:56.000Z</published>
-    <updated>2025-05-03T04:15:17.253Z</updated>
+    <title>回测交易策略</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/backtesting-a-trading-strategy/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/backtesting-a-trading-strategy/</id>
+    <published>2025-05-09T23:31:56.000Z</published>
+    <updated>2025-05-10T03:43:35.034Z</updated>
     
     
       
@@ -470,18 +217,18 @@
   </entry>
   
   <entry>
-    <title>Bollinger Bands Technical Indicator</title>
-    <link href="https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/bollinger-bands-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/bollinger-bands-technical-indicator/</id>
-    <published>2025-04-28T15:31:56.000Z</published>
-    <updated>2025-05-03T04:15:19.992Z</updated>
+    <title>如何解读 COT</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-read-cot/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/how-to-read-cot/</id>
+    <published>2025-05-09T23:31:56.000Z</published>
+    <updated>2025-05-10T04:33:40.717Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;什么是布林带？&quot;&gt;&lt;a href=&quot;#什么是布林带？&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;交易商持仓报告&quot;&gt;&lt;a href=&quot;#交易商持仓报告&quot; class=&quot;headerlink&quot; title=&quot;交易商持仓报告&quot;&gt;&lt;/a&gt;交易商持仓报告&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
         
       
     
@@ -495,11 +242,213 @@
   </entry>
   
   <entry>
-    <title>CCI Technical Indicator</title>
-    <link href="https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/cci-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/04/28/jiao-yi-ti-xi/cci-technical-indicator/</id>
-    <published>2025-04-28T15:31:56.000Z</published>
-    <updated>2025-05-03T04:21:21.565Z</updated>
+    <title>统计应用</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/statistical-application/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/statistical-application/</id>
+    <published>2025-05-09T23:31:56.000Z</published>
+    <updated>2025-05-10T04:08:33.102Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;统计应用&quot;&gt;&lt;a href=&quot;#统计应用&quot; class=&quot;headerlink&quot; title=&quot;统计应用&quot;&gt;&lt;/a&gt;统计应用&lt;/h1&gt;&lt;p&gt;对许多交易者来说，统计数据枯燥乏味，却又必不可少，但经验丰富的交易者深谙如何利用它们为自己谋利。</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>市场相关性</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/market-correlations/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/market-correlations/</id>
+    <published>2025-05-09T22:31:56.000Z</published>
+    <updated>2025-05-10T03:36:11.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;市场相关性&quot;&gt;&lt;a href=&quot;#市场相关性&quot; class=&quot;headerlink&quot; title=&quot;市场相关性&quot;&gt;&lt;/a&gt;市场相关性&lt;/h2&gt;&lt;p&gt;除了外汇市场的相关性之外，大宗商品和指数市场也存在一些有趣的相关性。由于 FTMO</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>风险偏好 VS 风险规避</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/risk-on-vs-risk-off/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/risk-on-vs-risk-off/</id>
+    <published>2025-05-09T21:31:56.000Z</published>
+    <updated>2025-05-10T03:03:51.735Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;风险偏好与风险规避&quot;&gt;&lt;a href=&quot;#风险偏好与风险规避&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>经济日历</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/economic-calendar/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/economic-calendar/</id>
+    <published>2025-05-09T19:31:56.000Z</published>
+    <updated>2025-05-10T02:25:36.889Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;经济日历&quot;&gt;&lt;a href=&quot;#经济日历&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基本面指标</title>
+    <link href="https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/fundamental-indicators/"/>
+    <id>https://gustavo1841.github.io/2025/05/10/jiao-yi-ti-xi/fundamental-indicators/</id>
+    <published>2025-05-09T16:31:56.000Z</published>
+    <updated>2025-05-10T02:27:24.419Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基本面指标&quot;&gt;&lt;a href=&quot;#基本面指标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用公允价值差距策略提升您的交易优势</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/li-yong-gong-yun-jie-zhi-chai-ju-ce-lue-ti-sheng-nin-de-jiao-yi-you-shi/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/li-yong-gong-yun-jie-zhi-chai-ju-ce-lue-ti-sheng-nin-de-jiao-yi-you-shi/</id>
+    <published>2025-05-09T15:03:51.000Z</published>
+    <updated>2025-05-09T15:19:42.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;*您是否曾留意过市场中突然出现的价格波动，并思考如何利用这些波动？&lt;strong&gt;公允价值缺口 (FVG) 策略&lt;/strong&gt;是一种强大的价格行为方法，可帮助交易者发现激进的市场走势。*&lt;/p&gt;
+&lt;h2 id=&quot;什么是公允价值差距策略？&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>技术分析——如何使用随机震荡指标</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/ji-zhu-fen-xi-ru-he-shi-yong-sui-ji-zhen-dang-zhi-biao/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/ji-zhu-fen-xi-ru-he-shi-yong-sui-ji-zhen-dang-zhi-biao/</id>
+    <published>2025-05-09T14:55:46.000Z</published>
+    <updated>2025-05-09T15:19:39.133Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;随机震荡指标由乔治·莱恩 (George Lane) 于 20 世纪 50</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>技术分析——布林带作为趋势和波动性的结合</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/ji-zhu-fen-xi-bu-lin-dai-zuo-wei-qu-shi-he-bo-dong-xing-de-jie-he/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/ji-zhu-fen-xi-bu-lin-dai-zuo-wei-qu-shi-he-bo-dong-xing-de-jie-he/</id>
+    <published>2025-05-09T09:55:33.000Z</published>
+    <updated>2025-05-09T14:08:02.772Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;布林线是追踪投资工具趋势和波动性的最著名、最受欢迎的指标之一。为什么它如此受投资者青睐？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;布林带指标是基于带状线或包络线的指标之一，这些带状线或包络线标记了某一工具最高价和最低价的相对比例。技术分析中存在几种类似的方法，其中带</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CCI：技术指标</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/cci-technical-indicator/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/cci-technical-indicator/</id>
+    <published>2025-05-08T21:31:56.000Z</published>
+    <updated>2025-05-09T15:09:46.442Z</updated>
     
     
       
@@ -507,6 +456,56 @@
         
         
     <summary type="html">&lt;h2 id=&quot;什么是-CCI：商品通道指数？&quot;&gt;&lt;a href=&quot;#什么是-CCI：商品通道指数？&quot; class=&quot;headerlink&quot; title=&quot;什么是 CCI：商品通道指数？&quot;&gt;&lt;/a&gt;什么是 CCI：商品通道指数？&lt;/h2&gt;&lt;p&gt;**商品通道指数</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MACD：技术指标</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/macd-technical-indicator/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/macd-technical-indicator/</id>
+    <published>2025-05-08T20:31:56.000Z</published>
+    <updated>2025-05-09T14:52:13.189Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是移动平均收敛散度-MACD-？&quot;&gt;&lt;a href=&quot;#什么是移动平均收敛散度-MACD-？&quot; class=&quot;headerlink&quot; title=&quot;什么是移动平均收敛散度 (MACD)？&quot;&gt;&lt;/a&gt;什么是移动平均收敛散度</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>交易量加权平均价格 (VWAP)：技术指标</title>
+    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/vwap-technical-indicator/"/>
+    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/vwap-technical-indicator/</id>
+    <published>2025-05-08T20:31:56.000Z</published>
+    <updated>2025-05-09T14:40:36.420Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是VWAP（成交量加权平均价格）？&quot;&gt;&lt;a href=&quot;#什么是VWAP（成交量加权平均价格）？&quot; class=&quot;headerlink&quot;</summary>
         
       
     

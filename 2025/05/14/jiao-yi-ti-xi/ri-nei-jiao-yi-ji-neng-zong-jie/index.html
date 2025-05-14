@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: trader, Gustavo">
-    <meta name="description" content="Gustavo">
+    <meta name="keywords" content="日内交易技能总结, Gustavo">
+    <meta name="description" content="风险计算Reward to risk ratio – RRR
+风险回报率很简单，就是你承担的风险与你能获得的收益之比。
+如果您冒 100 美元的风险，获得 300 美元的收益，您的风险回报率3：1。如果您冒 100 美元的风险，而您的收益固">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类: trader | Gustavo</title>
+    <title>日内交易技能总结 | Gustavo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -341,453 +343,505 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                Gustavo
-                
-            </div>
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
-            <div class="description center-align">
-                
-                    
-                
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/100.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">日内交易技能总结</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
-    
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 864) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
 
 
-    </div>
-</div>
-
-<main class="content">
+<main class="post-container content">
 
     
-
-<div id="category-cloud" class="container chip-container">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
             </div>
-            <div class="tag-chips">
+
+            <div class="post-info">
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2025-05-14
+                </div>
                 
+
                 
-                <a href="/categories/%E5%AF%BC%E8%88%AA%E9%A1%B5/" title="导航页: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">导航页
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2025-05-15
+                </div>
                 
+
                 
-                <a href="/categories/trader/" title="trader: 45">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F5EEF8;">trader
-                        <span class="tag-length">45</span>
-                    </span>
-                </a>
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
                 
+
                 
-                <a href="/categories/%E4%B8%96%E4%BA%8B%E6%B4%9E%E6%98%8E%E7%9A%86%E5%AD%A6%E9%97%AE/" title="世事洞明皆学问: 32">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">世事洞明皆学问
-                        <span class="tag-length">32</span>
-                    </span>
-                </a>
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    5 分
+                </div>
                 
+
                 
-                <a href="/categories/%E5%8E%86%E5%8F%B2%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BA%BA%E7%89%A9%E4%BC%A0%E8%AE%B0/" title="历史事件与人物传记: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #E8F8F5;">历史事件与人物传记
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" title="会计与财管: 55">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">会计与财管
-                        <span class="tag-length">55</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/Quickly-Question-By-AI/" title="Quickly Question By AI: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">Quickly Question By AI
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E8%92%B2%E5%85%AC%E8%8B%B1%E9%9A%8F%E7%AC%94/" title="蒲公英随笔: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #82E0AA;">蒲公英随笔
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E6%8D%AE%E6%BA%90/" title="数据源: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D7BDE2;">数据源
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E5%BE%AE%E8%A7%82%E9%87%91%E8%9E%8D/" title="微观金融: 11">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #A3E4D7;">微观金融
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E5%AE%8F%E8%A7%82%E9%87%91%E8%9E%8D/" title="宏观金融: 9">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #85C1E9;">宏观金融
-                        <span class="tag-length">9</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E5%AD%A6/" title="数学: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8C471;">数学
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E9%87%91%E8%9E%8D/" title="金融: 17">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9E79F;">金融
-                        <span class="tag-length">17</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%93%8D%E7%9B%98%E8%AE%B0%E5%BD%95/" title="操盘记录: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9E79F;">操盘记录
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" title="计算机: 77">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">计算机
-                        <span class="tag-length">77</span>
-                    </span>
-                </a>
-                
-                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
-    </div>
-</div>
+        <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="风险计算"><a href="#风险计算" class="headerlink" title="风险计算"></a>风险计算</h1><h2 id="Reward-to-risk-ratio-–-RRR"><a href="#Reward-to-risk-ratio-–-RRR" class="headerlink" title="Reward to risk ratio – RRR"></a>Reward to risk ratio – RRR</h2><p><img src="D:\workspace\blog\financial_notes\source\images\交易体系\image-20250502122200269.png"></p>
+<p>风险回报率很简单，就是你承担的风险与你能获得的收益之比。</p>
+<p>如果您冒 100 美元的风险，获得 300 美元的收益，您的风险回报率3：1。如果您冒 100 美元的风险，而您的收益固定为 100 美元，那么您只需要超过 50% 的时间预测正确就能盈利。如果风险回报率为2：1，那么您只需要 40% 的时间预测正确就能盈利。您的风险回报率越高，您成为盈利交易者所需的成功率就越低。</p>
+<p>我们网站上的股票模拟器是一个很好的工具，您可以用它来显示基于执行率和风险回报率的交易预期。</p>
+<h2 id="盈亏平衡公式推导"><a href="#盈亏平衡公式推导" class="headerlink" title="盈亏平衡公式推导"></a>盈亏平衡公式推导</h2><h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><ul>
+<li>风险（Risk）：每次交易可能损失的最大金额，记为 ( R )。<br>例如：止损设置为$100，则 ( R = 100 )。</li>
+<li>回报（Reward）：每次交易可能盈利的金额，记为 ( kR )。<br>其中 ( k ) 是风险回报率（Reward/Risk）。<br>例如：止盈设置为$300，则 ( k = 3 )，回报为 ( 3R )。</li>
+<li>正确率（Strike Rate）：预测成功的概率，记为 ( p )。<br>例如：正确率40%即 ( p = 0.4 )。</li>
+</ul>
+<h3 id="计算期望收益"><a href="#计算期望收益" class="headerlink" title="计算期望收益"></a>计算期望收益</h3><p>每次交易的期望收益（Expected Value, EV）是盈利和亏损的加权平均：<br>$EV = (\text{正确时的盈利} \times p) + (\text{错误时的亏损} \times (1-p))$</p>
+<p>代入变量定义：<br>$EV = (kR \times p) + (-R \times (1-p))$</p>
+<p>简化公式：<br>$EV = kRp - R(1-p)$</p>
+<h3 id="计算盈利"><a href="#计算盈利" class="headerlink" title="计算盈利"></a>计算盈利</h3><p>设定以下变量：</p>
+<ul>
+<li><strong>W</strong>：胜率（例如 75% 或 0.75）</li>
+<li><strong>L</strong>：失败率（1 - W）</li>
+<li><strong>R</strong>：每次交易的回报</li>
+<li><strong>X</strong>：每次交易的风险（亏损）</li>
+<li><strong>N</strong>：交易次数</li>
+</ul>
+<p>$总利润 = （胜利交易带来的总利润）−（失败交易带来的总亏损）$</p>
+<p>$总利润=(W×N×R)−((1−W)×N×X)$</p>
+<h3 id="盈亏平衡条件"><a href="#盈亏平衡条件" class="headerlink" title="盈亏平衡条件"></a>盈亏平衡条件</h3><p>当期望收益 $( EV \geq 0 )$ 时，长期交易不亏损：<br>$kRp - R(1-p) \geq 0$</p>
+<p>步骤分解：  </p>
+<ol>
+<li>提取公因子 ( R )：<br>$R \times [kp - (1-p)] \geq 0$</li>
+<li>消去 ( R )（因为 ( R &gt; 0 )，不影响不等式方向）：<br>$kp - (1-p) \geq 0$</li>
+<li>合并同类项：<br>$kp + p \geq 1 \quad \Rightarrow \quad p(k+1) \geq 1$</li>
+<li>解出正确率 ( p )：<br>$p \geq \frac{1}{k+1}$</li>
+</ol>
+<h3 id="凯利公式"><a href="#凯利公式" class="headerlink" title="凯利公式"></a>凯利公式</h3><p>$f=\frac{p(k+1)-1}{k}，其中p为胜率，k为RRR$</p>
+<h2 id="Trading-sessions"><a href="#Trading-sessions" class="headerlink" title="Trading sessions"></a>Trading sessions</h2><p>外汇交易有三个主要交易时段：</p>
+<ul>
+<li>亚洲</li>
+<li>欧洲的</li>
+<li>北美</li>
+</ul>
+<p>由于交易量全天都在变化，所有这些交易时段都为不同的市场提供了交易机会。如果您在亚洲交易时段交易，那么像欧元/英镑这样的货币对就没什么意义了。但关注澳元/日元应该会带来绝佳的交易机会。</p>
+<p>欧洲和北美交易时段的交易量最大，市场在这些交易时段全面波动。</p>
+<h1 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h1><p>技术分析的一个关键论点是，<strong>支撑位和阻力位</strong>、<strong>斐波那契数列</strong>、<strong>枢轴点</strong>或<strong>移动平均线</strong>等工具受到许多投资者的关注，因此价格水平吸引了大量的供求。</p>
+<h2 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h2><a href="/2025/05/07/jiao-yi-ti-xi/fibonacci-trading/" title="斐波那契交易">斐波那契交易</a>
+
+<h2 id="均线"><a href="#均线" class="headerlink" title="均线"></a>均线</h2><ul>
+<li>当 50 移动平均线向上穿过100、200 移动平均线并继续高于 200 移动平均线时，就会出现<strong>黄金交叉</strong>。</li>
+<li>当 50 移动平均线向下穿过100、200 移动平均线并继续低于 200 移动平均线时，就会发生<strong>死亡交叉。</strong></li>
+</ul>
+<h1 id="基本面分析"><a href="#基本面分析" class="headerlink" title="基本面分析"></a>基本面分析</h1><p>关注决定供求关系的不同经济、社会和政治因素。例如，他们可以做多日元兑英镑，因为他们认为日本的经济状况可能比英国更好。因此，日元应该更有价值。但在市场上，事情并非总是如此简单。<strong>基本面分析师必须关注通货膨胀、利率、政府决策、央行决策以及几乎每天都会发布的宏观经济事件。他们最好的朋友是宏观经济日历，它可以告知他们即将发布的事件，以及精心策划的数据发布。</strong></p>
+<h1 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h1><p>情绪分析着眼于金融市场中不同参与者的行为。它检查市场上是买家多还是卖家多。交易者持仓报告 (COT) 是情绪分析的主要指标。交易者持仓报告 (COT) 由美国商品期货交易委员会 (CFTC) 每周发布。该报告显示了所有必须向 CFTC 报告持仓的主体的未平仓头寸。 这些主体是大型机构。这些大型参与者每周二晚上报告其持仓情况，报告于每周五东部时间下午 3:30 发布。COT报告显示了期货市场约 70% 至 90% 的未平仓头寸。</p>
+<p><img src="D:\workspace\blog\financial_notes\source\images\交易体系\cotrepot23-1030x264-1.png"></p>
+<p>这些报告旨在提高期货市场的透明度，防止价格操纵。虽然这些报告来自期货市场，但我们可以在现货货币和差价合约交易中使用这些信息，因为现货外汇对与货币期货息息相关，而且期货商品、金属和指数也与差价合约相同。情绪分析的优点在于，<strong>它能让我们非常清楚地了解市场动态。我们可以在几分钟内了解大型和小型参与者的动向</strong>。但这并没有明确的答案。有时大型参与者可能是错的，而散户可能是对的。此外，<strong>当我们看到大型机构持有某种工具的头寸时，这可能意味着他们刚刚开始大量建仓，因此预期的走势可能需要数周或数月的时间才能发生</strong>。</p>
+<h1 id="支撑位和阻力位"><a href="#支撑位和阻力位" class="headerlink" title="支撑位和阻力位"></a>支撑位和阻力位</h1><a href="/2025/05/01/jiao-yi-ti-xi/market-environment-ranges-vs-trends/" title="市场环境–区间与趋势">市场环境–区间与趋势</a>
+
+<a href="/2025/05/01/jiao-yi-ti-xi/support-and-resistance/" title="支撑位与阻力位">支撑位与阻力位</a>
+
+<a href="/2025/05/05/jiao-yi-ti-xi/supply-and-demand-trading/" title="供需交易">供需交易</a>
+
+<h1 id="经典点位形态"><a href="#经典点位形态" class="headerlink" title="经典点位形态"></a>经典点位形态</h1><a href="/2025/05/05/jiao-yi-ti-xi/chart-patterns-trading/" title="图表模式交易">图表模式交易</a>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/">https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/04/28/jiao-yi-ti-xi/what-is-forex-and-how-it-diferes-from-other-markets/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/514.jpg" class="responsive-img" alt="什么是外汇，它与其他市场有何不同">
-                            
-                            <span class="card-title">什么是外汇，它与其他市场有何不同</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是外汇？外汇（Forex，全称FOR eign EX exchange）是一个去中心化的全球市场，所有世界货币均可在此交易。它是一个场外交易 (OTC) 市场，这意味着没有一个中心化的场所。换句话说，外汇是一个去中心化的市场。由于该市场
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+</div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/trader/">
-                            <span class="chip bg-color">trader</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/04/27/jiao-yi-ti-xi/cfd-contracts-for-difference/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/654.jpg" class="responsive-img" alt="CFD contracts for difference">
-                            
-                            <span class="card-title">CFD contracts for difference</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是差价合约（CFD）？差价合约 (CFD) 是买卖双方之间的协议，卖方有义务向买方支付资产当前价值与合约成交时资产价值之间的差额。如果买方做多且差额为负，则买方支付给卖方，反之亦然。差价合约 (CFD) 是一种金融衍生品，使我们能够在不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/trader/">
-                            <span class="chip bg-color">trader</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/04/26/jiao-yi-ti-xi/instrument-traded-in-the-financial-markets/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/195.jpg" class="responsive-img" alt="instrument traded in the financial markets">
-                            
-                            <span class="card-title">instrument traded in the financial markets</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                股票股票是一种证券，持有者成为公司股东。股东拥有多项权利。例如，股东有权以股息的形式分享公司利润，也有权参与公司管理，包括在股东大会上投票或在公司清算时参与清算余额。
-股票为什么要交易？首先，公司通过在证券交易所出售股票来筹集资金存在激励机
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/trader/">
-                            <span class="chip bg-color">trader</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/04/26/jiao-yi-ti-xi/traders-dictionary/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/484.jpg" class="responsive-img" alt="trader&#39;s dictionary">
-                            
-                            <span class="card-title">trader&#39;s dictionary</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Forex(FORegin Exchange)外汇（Forex）的全称是“外汇交易”（ FOR eign EX exchange）。外汇也被称为外汇交易、货币交易、外汇市场或FX。它是一个用于兑换主要货币和次要货币的国际交易体系，即外汇市场
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/trader/">
-                            <span class="chip bg-color">trader</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/04/25/jiao-yi-ti-xi/introduction-to-financial-markets/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/95.jpg" class="responsive-img" alt="introduction to financial markets">
-                            
-                            <span class="card-title">introduction to financial markets</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是金融市场和机构？金融市场是提供不同金融资产交易机会的场所。通过这种交易，您可以买卖外币、股票、债券、商品等资产，以换取资金。资本市场是金融市场的重要组成部分之一。投资者和发行人每天都在交易所见面。发行人在交易所获得自身业务的资金，而投
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/trader/">
-                            <span class="chip bg-color">trader</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/categories/trader/page/4/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">5 / 5</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
             
         </div>
     </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
 </div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2025-05-14T23-17-55',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="日内交易技能总结">
+                        
+                        <span class="card-title">日内交易技能总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Gustavo
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/05/14/cao-pan-ri-ji/2025/01/5-yue-jiao-yi-ji-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/130.jpg" class="responsive-img" alt="交易流水">
+                        
+                        <span class="card-title">交易流水</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%93%8D%E7%9B%98%E8%AE%B0%E5%BD%95/" class="post-category">
+                                    操盘记录
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E7%9B%98/">
+                        <span class="chip bg-color">操盘</span>
+                    </a>
+                    
+                    <a href="/tags/forex/">
+                        <span class="chip bg-color">forex</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
 
 
 
@@ -809,7 +863,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1408k</span>
+                        class="white-color">1377.9k</span>
             
             
             

@@ -392,205 +392,27 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/fen-kuai-pai-xu/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/zhan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/458.jpg" class="responsive-img" alt="分块查找">
+                            <img src="/medias/featureimages/712.jpg" class="responsive-img" alt="栈">
                             
-                            <span class="card-title">分块查找</span>
+                            <span class="card-title">栈</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                分块查找（Block Search）实现概念介绍分块查找是一种 改进的顺序查找方法，适用于 静态数据，即数据不频繁增删的情况。它的基本思想是 将有序数据分成若干块，然后进行两步查找：
+                                顺序栈结构体定义
+#include &lt;iostream&gt;
+using namespace std;
 
-索引查找（块定位）：使用索引表快速定位元素所在的块。
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                            <span class="chip bg-color">计算机</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/zhe-ban-cha-zhao/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/555.jpg" class="responsive-img" alt="折半查找">
-                            
-                            <span class="card-title">折半查找</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                折半查找（Binary Search）折半查找（也称二分查找）是一种在 有序数组 中查找目标值的高效算法。它的基本思想是：
-
-每次取数组的中间元素，与目标值进行比较。
-如果目标值小于中间元素，则查找范围缩小到左半部分；
-如果目标值大于中间元
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                            <span class="chip bg-color">计算机</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/cha-zhao/shun-xu-cha-zhao/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/110.jpg" class="responsive-img" alt="顺序查找">
-                            
-                            <span class="card-title">顺序查找</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                顺序查找（Sequential Search）顺序查找（又称线性查找，Linear Search）是一种最简单的查找算法。它的基本思想是 从数据序列的第一个元素开始，依次与目标值进行比较，直到找到匹配项或遍历完整个序列。
-
-1. 顺序查找的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
-                                    计算机
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
-                            <span class="chip bg-color">计算机</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/fei-xian-xing-biao/shu-yu-sen-lin/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/134.jpg" class="responsive-img" alt="树与森林">
-                            
-                            <span class="card-title">树与森林</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                双亲表示法定义一个数组，数组中存放输的节点，每个节点包含数据域与双亲域。
-双亲域表示当前节点的双亲的在数组中的下标
-typedef struct PTNode{
-    ElemType data;
-    int parent;
-}PTN
+#define MaxSize 50
+typedef struct {
+    int data[MaxSize];
+    
                             
                         </div>
                         <div class="publish-info">
@@ -630,22 +452,28 @@ typedef struct PTNode{
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/wai-bu-pai-xu/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/lian-biao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/495.jpg" class="responsive-img" alt="外部排序">
+                            <img src="/medias/featureimages/810.jpg" class="responsive-img" alt="链表">
                             
-                            <span class="card-title">外部排序</span>
+                            <span class="card-title">链表</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                外部排序（External Sorting）1. 什么是外部排序？当数据太大，无法一次性加载到内存时，需要使用外部存储（如磁盘）进行排序，称为外部排序。
-2. 外部排序的核心思想
-分块排序（分段排序）：先将大文件分成多个可以放入内存的小块，
+                                引言没啥好说的，双向链表
+实现初始化
+typedef struct DNode{
+    int data;
+    struct DNode* prior,* next;
+}DNode,DLinkList;
+
+//初始化
+DLinkLis
                             
                         </div>
                         <div class="publish-info">
@@ -674,10 +502,6 @@ typedef struct PTNode{
                         
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
                         </a>
                         
                     </div>
@@ -689,23 +513,25 @@ typedef struct PTNode{
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/suan-fa/pai-xu/nei-bu-pai-xu/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/shun-xu-biao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/160.jpg" class="responsive-img" alt="内部排序">
+                            <img src="/medias/featureimages/211.jpg" class="responsive-img" alt="顺序表">
                             
-                            <span class="card-title">内部排序</span>
+                            <span class="card-title">顺序表</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                内部排序（Internal Sorting）内部排序 指的是在**主存（内存）**中进行的排序，所有数据都能存储在内存中进行排序操作，不需要借助外部存储（如磁盘）。 内部排序的常见算法包括：
-
-插入排序（Insertion Sort）
-选择
+                                引言顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次
+实现初始化
+#include &lt;iostream&gt;
+using namespace std;
+#define InitSize 2
+#define M
                             
                         </div>
                         <div class="publish-info">
@@ -736,8 +562,192 @@ typedef struct PTNode{
                             <span class="chip bg-color">数据结构</span>
                         </a>
                         
-                        <a href="/tags/%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">算法</span>
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/02/26/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qu-na-er-gong-si-fen-xiang-de-zhi-fu-chan-pin-jia-gou/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/332.jpg" class="responsive-img" alt="去哪儿公司分享的支付产品架构">
+                            
+                            <span class="card-title">去哪儿公司分享的支付产品架构</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                去哪儿支付系统自 2011 年搭建以来，在五年的时间里逐渐从一个高耦合的单一系统发展为众多子系统组成的高并发、高可用、支持多种交易支付业务的分布式系统。业务从最初的非代收到现在多种非代收、代收场景的支持，B2B 业务的从无到有，支付方式从单
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/02/25/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-bao-qian-bao-xi-tong-jia-gou-nei-bu-pou-xi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/119.jpg" class="responsive-img" alt="支付宝钱包系统架构内部剖析">
+                            
+                            <span class="card-title">支付宝钱包系统架构内部剖析</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                支付宝系统架构概况典型处理默认
+资金处理平台
+财务会计
+支付清算
+核算中心
+交易
+柔性事务
+
+
+
+
+
+
+
+
+
+支付宝的开源分布式消息中间件–Metamorphosis(MetaQ)Metamorphosis (MetaQ) 是一个高性能、高
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2025/02/24/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/jing-dong-zhi-fu-ping-tai-zong-ti-jia-gou-she-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/671.jpg" class="responsive-img" alt="京东支付平台总体架构设计">
+                            
+                            <span class="card-title">京东支付平台总体架构设计</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                进步就需要变革，完美则需要经常变革–丘吉尔
+随着新兴互联网金融业务的迅速崛起，对支付服务提出更高的要求，原有的系统架构很难满足快速变化、日益复杂的新兴业务需求；与此同时，随着用户量、业务量爆发式增长，系统的处理容量和稳定运行也面临考验。要进
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
                         </a>
                         
                     </div>
@@ -763,7 +773,7 @@ typedef struct PTNode{
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">23 / 44</div>
+            <div class="center-align b-text-gray">23 / 42</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -796,7 +806,7 @@ typedef struct PTNode{
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1408k</span>
+                        class="white-color">1377.9k</span>
             
             
             

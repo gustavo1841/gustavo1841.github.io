@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-05-10T08:04:45.764Z</updated>
+  <updated>2025-05-14T16:07:31.721Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日内交易技能总结</title>
+    <link href="https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/"/>
+    <id>https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/</id>
+    <published>2025-05-14T15:17:55.000Z</published>
+    <updated>2025-05-14T16:07:31.721Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;风险计算&quot;&gt;&lt;a href=&quot;#风险计算&quot; class=&quot;headerlink&quot; title=&quot;风险计算&quot;&gt;&lt;/a&gt;风险计算&lt;/h1&gt;&lt;h2 id=&quot;Reward-to-risk-ratio-–-RRR&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>交易流水</title>
+    <link href="https://gustavo1841.github.io/2025/05/14/cao-pan-ri-ji/2025/01/5-yue-jiao-yi-ji-lu/"/>
+    <id>https://gustavo1841.github.io/2025/05/14/cao-pan-ri-ji/2025/01/5-yue-jiao-yi-ji-lu/</id>
+    <published>2025-05-14T15:11:31.000Z</published>
+    <updated>2025-05-14T15:20:26.421Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;交易流水&lt;/p&gt;
+&lt;h2 id=&quot;GBPUSD&quot;&gt;&lt;a href=&quot;#GBPUSD&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="操盘记录" scheme="https://gustavo1841.github.io/categories/%E6%93%8D%E7%9B%98%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="操盘" scheme="https://gustavo1841.github.io/tags/%E6%93%8D%E7%9B%98/"/>
+    
+    <category term="forex" scheme="https://gustavo1841.github.io/tags/forex/"/>
+    
+  </entry>
   
   <entry>
     <title>过度交易：为什么交易成功少即是多</title>
@@ -456,56 +505,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;什么是-CCI：商品通道指数？&quot;&gt;&lt;a href=&quot;#什么是-CCI：商品通道指数？&quot; class=&quot;headerlink&quot; title=&quot;什么是 CCI：商品通道指数？&quot;&gt;&lt;/a&gt;什么是 CCI：商品通道指数？&lt;/h2&gt;&lt;p&gt;**商品通道指数</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MACD：技术指标</title>
-    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/macd-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/macd-technical-indicator/</id>
-    <published>2025-05-08T20:31:56.000Z</published>
-    <updated>2025-05-09T14:52:13.189Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是移动平均收敛散度-MACD-？&quot;&gt;&lt;a href=&quot;#什么是移动平均收敛散度-MACD-？&quot; class=&quot;headerlink&quot; title=&quot;什么是移动平均收敛散度 (MACD)？&quot;&gt;&lt;/a&gt;什么是移动平均收敛散度</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>交易量加权平均价格 (VWAP)：技术指标</title>
-    <link href="https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/vwap-technical-indicator/"/>
-    <id>https://gustavo1841.github.io/2025/05/09/jiao-yi-ti-xi/vwap-technical-indicator/</id>
-    <published>2025-05-08T20:31:56.000Z</published>
-    <updated>2025-05-09T14:40:36.420Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是VWAP（成交量加权平均价格）？&quot;&gt;&lt;a href=&quot;#什么是VWAP（成交量加权平均价格）？&quot; class=&quot;headerlink&quot;</summary>
         
       
     

@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-05-16T09:43:02.227Z</updated>
+  <updated>2025-05-20T09:18:06.164Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>COT持仓报告概述与主要分类</title>
+    <link href="https://gustavo1841.github.io/2025/05/20/cao-pan-ri-ji/zi-xue-jiao-yi/cot-chi-cang-bao-gao-gai-shu-yu-zhu-yao-fen-lei/"/>
+    <id>https://gustavo1841.github.io/2025/05/20/cao-pan-ri-ji/zi-xue-jiao-yi/cot-chi-cang-bao-gao-gai-shu-yu-zhu-yao-fen-lei/</id>
+    <published>2025-05-20T08:34:01.000Z</published>
+    <updated>2025-05-20T09:18:06.164Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;明白了。我将为你整理一份全面指南，帮助你作为日内和波段交易者，学会如何解读CME Group发布的股指期货（如标普500和纳斯达克）的持仓报告，并应用于美股及其衍生品的交易策略中。完成后我会通知你查看。&lt;/p&gt;
+&lt;h1 id=&quot;COT持仓报告概述与主要分类&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
+    
+    
+    <category term="金融" scheme="https://gustavo1841.github.io/tags/%E9%87%91%E8%9E%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黄金期货持仓报告使用指南</title>
+    <link href="https://gustavo1841.github.io/2025/05/20/cao-pan-ri-ji/zi-xue-jiao-yi/huang-jin-qi-huo-chi-cang-bao-gao-shi-yong-zhi-nan/"/>
+    <id>https://gustavo1841.github.io/2025/05/20/cao-pan-ri-ji/zi-xue-jiao-yi/huang-jin-qi-huo-chi-cang-bao-gao-shi-yong-zhi-nan/</id>
+    <published>2025-05-20T07:28:33.000Z</published>
+    <updated>2025-05-20T07:35:39.654Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/../../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/c1ab1dec-2f0a-4d50-8b67-44a05b32911d.png&quot;&gt;&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="金融" scheme="https://gustavo1841.github.io/categories/%E9%87%91%E8%9E%8D/"/>
+    
+    
+    <category term="金融" scheme="https://gustavo1841.github.io/tags/%E9%87%91%E8%9E%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>日内交易员一天应该做的和应该思考的</title>
@@ -510,64 +562,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;项目性能测试报告&quot;&gt;&lt;a href=&quot;#项目性能测试报告&quot; class=&quot;headerlink&quot; title=&quot;项目性能测试报告&quot;&gt;&lt;/a&gt;项目性能测试报告&lt;/h1&gt;&lt;h2 id=&quot;01-测试目的&quot;&gt;&lt;a href=&quot;#01-测试目的&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
-    
-    <category term="性能优化" scheme="https://gustavo1841.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目性能优化环境搭建</title>
-    <link href="https://gustavo1841.github.io/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-huan-jing-da-jian/"/>
-    <id>https://gustavo1841.github.io/2025/04/17/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-huan-jing-da-jian/</id>
-    <published>2025-04-17T02:09:55.000Z</published>
-    <updated>2025-04-17T03:18:27.937Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;01-Linux版本JDK安装&quot;&gt;&lt;a href=&quot;#01-Linux版本JDK安装&quot; class=&quot;headerlink&quot; title=&quot;01-Linux版本JDK安装&quot;&gt;&lt;/a&gt;01-Linux版本JDK安装&lt;/h1&gt;&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
-    
-    <category term="性能优化" scheme="https://gustavo1841.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目性能优化—下</title>
-    <link href="https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-xia/"/>
-    <id>https://gustavo1841.github.io/2025/04/16/ji-suan-ji/java/xiang-mu-xing-neng-you-hua/xiang-mu-xing-neng-you-hua-xia/</id>
-    <published>2025-04-16T07:57:54.000Z</published>
-    <updated>2025-04-17T03:56:10.263Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;分布式压测&quot;&gt;&lt;a href=&quot;#分布式压测&quot; class=&quot;headerlink&quot;</summary>
         
       
     

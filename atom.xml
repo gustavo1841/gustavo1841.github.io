@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-07-23T06:04:20.161Z</updated>
+  <updated>2025-09-04T07:06:26.540Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>技术面的那些事儿(一)</title>
+    <link href="https://gustavo1841.github.io/2025/09/04/jiao-yi-ti-xi/01-ji-zhu-mian-de-na-xie-shi-er/"/>
+    <id>https://gustavo1841.github.io/2025/09/04/jiao-yi-ti-xi/01-ji-zhu-mian-de-na-xie-shi-er/</id>
+    <published>2025-09-04T03:06:30.000Z</published>
+    <updated>2025-09-04T07:06:26.540Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;常用的交易技术&quot;&gt;&lt;a href=&quot;#常用的交易技术&quot; class=&quot;headerlink&quot; title=&quot;常用的交易技术&quot;&gt;&lt;/a&gt;常用的交易技术&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;①-裸K跟交易（Price-Action-Trading）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
+    
+    
+    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
+    
+  </entry>
   
   <entry>
     <title>12-基本面的那些事儿(十二)</title>
@@ -408,7 +434,7 @@
     <link href="https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/"/>
     <id>https://gustavo1841.github.io/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/</id>
     <published>2025-05-14T15:17:55.000Z</published>
-    <updated>2025-07-02T08:07:19.740Z</updated>
+    <updated>2025-08-07T01:15:25.960Z</updated>
     
     
       
@@ -507,35 +533,6 @@
     <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
     
     <category term="数据库" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络编程—下</title>
-    <link href="https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/"/>
-    <id>https://gustavo1841.github.io/2025/04/24/ji-suan-ji/java/wang-luo-bian-cheng/wang-luo-bian-cheng-xia/</id>
-    <published>2025-04-24T01:30:54.000Z</published>
-    <updated>2025-04-25T08:36:03.435Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;4-案例01：手写一个RPC框架&quot;&gt;&lt;a href=&quot;#4-案例01：手写一个RPC框架&quot; class=&quot;headerlink&quot; title=&quot;4. 案例01：手写一个RPC框架&quot;&gt;&lt;/a&gt;4. 案例01：手写一个RPC框架&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    
-    <category term="计算机" scheme="https://gustavo1841.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="Java" scheme="https://gustavo1841.github.io/tags/Java/"/>
-    
-    <category term="网络编程" scheme="https://gustavo1841.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   

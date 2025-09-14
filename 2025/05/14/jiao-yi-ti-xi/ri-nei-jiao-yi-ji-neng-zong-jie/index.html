@@ -64,7 +64,119 @@
 
 <meta name="generator" content="Hexo 7.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
 </head>
 
 
@@ -347,7 +459,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '1882b4902a76e8c86c625e052a430d8dc794a9c12761d7a5456ee9117165fde5';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -387,12 +499,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/trader/">
+                                <span class="chip bg-color">trader</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/trader/" class="post-category">
+                                trader
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -408,21 +533,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-05-15
+                    2025-08-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    7.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    26 分
                 </div>
                 
 
@@ -450,7 +575,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="风险计算"><a href="#风险计算" class="headerlink" title="风险计算"></a>风险计算</h1><h2 id="Reward-to-risk-ratio-–-RRR"><a href="#Reward-to-risk-ratio-–-RRR" class="headerlink" title="Reward to risk ratio – RRR"></a>Reward to risk ratio – RRR</h2><p><img src="D:\workspace\blog\financial_notes\source\images\交易体系\image-20250502122200269.png"></p>
+                <h1 id="风险计算"><a href="#风险计算" class="headerlink" title="风险计算"></a>风险计算</h1><h2 id="Reward-to-risk-ratio-–-RRR"><a href="#Reward-to-risk-ratio-–-RRR" class="headerlink" title="Reward to risk ratio – RRR"></a>Reward to risk ratio – RRR</h2><p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/image-20250502122200269.png"></p>
 <p>风险回报率很简单，就是你承担的风险与你能获得的收益之比。</p>
 <p>如果您冒 100 美元的风险，获得 300 美元的收益，您的风险回报率3：1。如果您冒 100 美元的风险，而您的收益固定为 100 美元，那么您只需要超过 50% 的时间预测正确就能盈利。如果风险回报率为2：1，那么您只需要 40% 的时间预测正确就能盈利。您的风险回报率越高，您成为盈利交易者所需的成功率就越低。</p>
 <p>我们网站上的股票模拟器是一个很好的工具，您可以用它来显示基于执行率和风险回报率的交易预期。</p>
@@ -459,9 +584,9 @@
 <li>回报（Reward）：每次交易可能盈利的金额，记为 ( kR )。<br>其中 ( k ) 是风险回报率（Reward/Risk）。<br>例如：止盈设置为$300，则 ( k = 3 )，回报为 ( 3R )。</li>
 <li>正确率（Strike Rate）：预测成功的概率，记为 ( p )。<br>例如：正确率40%即 ( p = 0.4 )。</li>
 </ul>
-<h3 id="计算期望收益"><a href="#计算期望收益" class="headerlink" title="计算期望收益"></a>计算期望收益</h3><p>每次交易的期望收益（Expected Value, EV）是盈利和亏损的加权平均：<br>$EV = (\text{正确时的盈利} \times p) + (\text{错误时的亏损} \times (1-p))$</p>
-<p>代入变量定义：<br>$EV = (kR \times p) + (-R \times (1-p))$</p>
-<p>简化公式：<br>$EV = kRp - R(1-p)$</p>
+<h3 id="计算期望收益"><a href="#计算期望收益" class="headerlink" title="计算期望收益"></a>计算期望收益</h3><p>每次交易的期望收益（Expected Value, EV）是盈利和亏损的加权平均：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="53.385ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 23596.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mi" transform="translate(764,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mo" transform="translate(1810.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(2866.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mtext" transform="translate(3255.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">正</text><text data-variant="normal" transform="translate(1000,0) scale(1,-1)" font-size="884px" font-family="serif">确</text><text data-variant="normal" transform="translate(2000,0) scale(1,-1)" font-size="884px" font-family="serif">时</text><text data-variant="normal" transform="translate(3000,0) scale(1,-1)" font-size="884px" font-family="serif">的</text><text data-variant="normal" transform="translate(4000,0) scale(1,-1)" font-size="884px" font-family="serif">盈</text><text data-variant="normal" transform="translate(5000,0) scale(1,-1)" font-size="884px" font-family="serif">利</text></g><g data-mml-node="mo" transform="translate(9477.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(10478,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(10981,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(11592.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(12592.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mtext" transform="translate(12981.4,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">错</text><text data-variant="normal" transform="translate(1000,0) scale(1,-1)" font-size="884px" font-family="serif">误</text><text data-variant="normal" transform="translate(2000,0) scale(1,-1)" font-size="884px" font-family="serif">时</text><text data-variant="normal" transform="translate(3000,0) scale(1,-1)" font-size="884px" font-family="serif">的</text><text data-variant="normal" transform="translate(4000,0) scale(1,-1)" font-size="884px" font-family="serif">亏</text><text data-variant="normal" transform="translate(5000,0) scale(1,-1)" font-size="884px" font-family="serif">损</text></g><g data-mml-node="mo" transform="translate(19203.7,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mo" transform="translate(20203.9,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(20592.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(21315.1,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(22315.3,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(22818.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(23207.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<p>代入变量定义：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="32.609ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 14413.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mi" transform="translate(764,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mo" transform="translate(1810.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(2866.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(3255.6,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(3776.6,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(4757.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(5758,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(6261,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(6872.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(7872.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(8261.4,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(9039.4,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(10020.7,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mo" transform="translate(11020.9,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(11409.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(12132.1,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(13132.3,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(13635.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(14024.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<p>简化公式：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="21.797ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 9634.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mi" transform="translate(764,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mo" transform="translate(1810.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2866.6,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(3387.6,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mi" transform="translate(4146.6,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(4871.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(5872,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(6631,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(7020,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(7742.2,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(8742.4,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(9245.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
 <h3 id="计算盈利"><a href="#计算盈利" class="headerlink" title="计算盈利"></a>计算盈利</h3><p>设定以下变量：</p>
 <ul>
 <li><strong>W</strong>：胜率（例如 75% 或 0.75）</li>
@@ -470,17 +595,17 @@
 <li><strong>X</strong>：每次交易的风险（亏损）</li>
 <li><strong>N</strong>：交易次数</li>
 </ul>
-<p>$总利润 = （胜利交易带来的总利润）−（失败交易带来的总亏损）$</p>
-<p>$总利润=(W×N×R)−((1−W)×N×X)$</p>
-<h3 id="盈亏平衡条件"><a href="#盈亏平衡条件" class="headerlink" title="盈亏平衡条件"></a>盈亏平衡条件</h3><p>当期望收益 $( EV \geq 0 )$ 时，长期交易不亏损：<br>$kRp - R(1-p) \geq 0$</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.452ex;" xmlns="http://www.w3.org/2000/svg" width="66.869ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 29556 950"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">总</text></g><g data-mml-node="mi" transform="translate(1000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">利</text></g><g data-mml-node="mi" transform="translate(2000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">润</text></g><g data-mml-node="mo" transform="translate(3277.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(4333.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">（</text></g><g data-mml-node="mi" transform="translate(5333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">胜</text></g><g data-mml-node="mi" transform="translate(6333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">利</text></g><g data-mml-node="mi" transform="translate(7333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">交</text></g><g data-mml-node="mi" transform="translate(8333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">易</text></g><g data-mml-node="mi" transform="translate(9333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">带</text></g><g data-mml-node="mi" transform="translate(10333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">来</text></g><g data-mml-node="mi" transform="translate(11333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">的</text></g><g data-mml-node="mi" transform="translate(12333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">总</text></g><g data-mml-node="mi" transform="translate(13333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">利</text></g><g data-mml-node="mi" transform="translate(14333.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">润</text></g><g data-mml-node="mi" transform="translate(15333.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">）</text></g><g data-mml-node="mo" transform="translate(16555.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(17556,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">（</text></g><g data-mml-node="mi" transform="translate(18556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">失</text></g><g data-mml-node="mi" transform="translate(19556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">败</text></g><g data-mml-node="mi" transform="translate(20556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">交</text></g><g data-mml-node="mi" transform="translate(21556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">易</text></g><g data-mml-node="mi" transform="translate(22556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">带</text></g><g data-mml-node="mi" transform="translate(23556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">来</text></g><g data-mml-node="mi" transform="translate(24556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">的</text></g><g data-mml-node="mi" transform="translate(25556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">总</text></g><g data-mml-node="mi" transform="translate(26556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">亏</text></g><g data-mml-node="mi" transform="translate(27556,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">损</text></g><g data-mml-node="mi" transform="translate(28556,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">）</text></g></g></g></svg></mjx-container></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="41.193ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 18207.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">总</text></g><g data-mml-node="mi" transform="translate(1000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">利</text></g><g data-mml-node="mi" transform="translate(2000,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">润</text></g><g data-mml-node="mo" transform="translate(3277.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(4333.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4722.6,0)"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(5770.6,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(6548.6,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mi" transform="translate(7436.6,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(8214.6,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(8973.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(9584.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mo" transform="translate(10585,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(10974,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(11363,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(12085.2,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(13085.4,0)"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mo" transform="translate(14133.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mi" transform="translate(14522.4,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(15300.4,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mi" transform="translate(16188.4,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(16966.4,0)"><path data-c="1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path></g><g data-mml-node="mo" transform="translate(17818.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<h3 id="盈亏平衡条件"><a href="#盈亏平衡条件" class="headerlink" title="盈亏平衡条件"></a>盈亏平衡条件</h3><p>当期望收益 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="9.377ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4144.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(389,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mi" transform="translate(1153,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mo" transform="translate(2199.8,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(3255.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(3755.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 时，长期交易不亏损：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="19.46ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8601.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(521,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mi" transform="translate(1280,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(2005.2,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(3005.4,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(3764.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(4153.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(4875.7,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(5875.9,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(6378.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(7045.7,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(8101.4,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg></mjx-container></p>
 <p>步骤分解：  </p>
 <ol>
-<li>提取公因子 ( R )：<br>$R \times [kp - (1-p)] \geq 0$</li>
-<li>消去 ( R )（因为 ( R &gt; 0 )，不影响不等式方向）：<br>$kp - (1-p) \geq 0$</li>
-<li>合并同类项：<br>$kp + p \geq 1 \quad \Rightarrow \quad p(k+1) \geq 1$</li>
-<li>解出正确率 ( p )：<br>$p \geq \frac{1}{k+1}$</li>
+<li>提取公因子 ( R )：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="21.767ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 9620.9 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mo" transform="translate(981.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mo" transform="translate(1981.4,0)"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mi" transform="translate(2259.4,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(2780.4,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(3505.7,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mo" transform="translate(4505.9,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(4894.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5617.1,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(6617.3,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(7120.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(7509.3,0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g><g data-mml-node="mo" transform="translate(8065.1,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(9120.9,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg></mjx-container></li>
+<li>消去 ( R )（因为 ( R &gt; 0 )，不影响不等式方向）：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="16.026ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 7083.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(521,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(1246.2,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mo" transform="translate(2246.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(2635.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3357.7,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(4357.9,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(4860.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5527.7,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(6583.4,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg></mjx-container></li>
+<li>合并同类项：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="30.535ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 13496.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(521,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(1246.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2246.4,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(3027.2,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(4083,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mstyle" transform="translate(4583,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(5860.8,0)"><path data-c="21D2" d="M580 514Q580 525 596 525Q601 525 604 525T609 525T613 524T615 523T617 520T619 517T622 512Q659 438 720 381T831 300T927 263Q944 258 944 250T935 239T898 228T840 204Q696 134 622 -12Q618 -21 615 -22T600 -24Q580 -24 580 -17Q580 -13 585 0Q620 69 671 123L681 133H70Q56 140 56 153Q56 168 72 173H725L735 181Q774 211 852 250Q851 251 834 259T789 283T735 319L725 327H72Q56 332 56 347Q56 360 70 367H681L671 377Q638 412 609 458T580 514Z"></path></g><g data-mml-node="mstyle" transform="translate(6860.8,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mi" transform="translate(8138.6,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(8641.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(9030.6,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mo" transform="translate(9773.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(10774,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(11274,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(11940.8,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(12996.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></li>
+<li>解出正确率 ( p )：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.912ex;" xmlns="http://www.w3.org/2000/svg" width="8.029ex" height="2.869ex" role="img" focusable="false" viewBox="0 -864.9 3548.6 1267.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(780.8,0)"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mfrac" transform="translate(1836.6,0)"><g data-mml-node="mn" transform="translate(679.3,394) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mrow" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mo" transform="translate(521,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(1299,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g><rect width="1472.1" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></li>
 </ol>
-<h3 id="凯利公式"><a href="#凯利公式" class="headerlink" title="凯利公式"></a>凯利公式</h3><p>$f=\frac{p(k+1)-1}{k}，其中p为胜率，k为RRR$</p>
+<h3 id="凯利公式"><a href="#凯利公式" class="headerlink" title="凯利公式"></a>凯利公式</h3><p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.798ex;" xmlns="http://www.w3.org/2000/svg" width="37.797ex" height="3.167ex" role="img" focusable="false" viewBox="0 -1047.1 16706.1 1399.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(827.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(1883.6,0)"><g data-mml-node="mrow" transform="translate(220,516.8) scale(0.707)"><g data-mml-node="mi"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(503,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(892,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mo" transform="translate(1413,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2191,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2691,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(3080,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(3858,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g><g data-mml-node="mi" transform="translate(1576.6,-345) scale(0.707)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><rect width="3281.6" height="60" x="120" y="220"></rect></g><g data-mml-node="mi" transform="translate(5405.1,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(6405.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">其</text></g><g data-mml-node="mi" transform="translate(7405.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">中</text></g><g data-mml-node="mi" transform="translate(8405.1,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mi" transform="translate(8908.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">为</text></g><g data-mml-node="mi" transform="translate(9908.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">胜</text></g><g data-mml-node="mi" transform="translate(10908.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">率</text></g><g data-mml-node="mi" transform="translate(11908.1,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">，</text></g><g data-mml-node="mi" transform="translate(12908.1,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path></g><g data-mml-node="mi" transform="translate(13429.1,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">为</text></g><g data-mml-node="mi" transform="translate(14429.1,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mi" transform="translate(15188.1,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="mi" transform="translate(15947.1,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g></g></svg></mjx-container></p>
 <h2 id="Trading-sessions"><a href="#Trading-sessions" class="headerlink" title="Trading sessions"></a>Trading sessions</h2><p>外汇交易有三个主要交易时段：</p>
 <ul>
 <li>亚洲</li>
@@ -490,23 +615,278 @@
 <p>由于交易量全天都在变化，所有这些交易时段都为不同的市场提供了交易机会。如果您在亚洲交易时段交易，那么像欧元/英镑这样的货币对就没什么意义了。但关注澳元/日元应该会带来绝佳的交易机会。</p>
 <p>欧洲和北美交易时段的交易量最大，市场在这些交易时段全面波动。</p>
 <h1 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h1><p>技术分析的一个关键论点是，<strong>支撑位和阻力位</strong>、<strong>斐波那契数列</strong>、<strong>枢轴点</strong>或<strong>移动平均线</strong>等工具受到许多投资者的关注，因此价格水平吸引了大量的供求。</p>
+<p>目的：<strong>依靠价格模式、交易量和指标来快速做出决策</strong>。</p>
+<h2 id="交易时段"><a href="#交易时段" class="headerlink" title="交易时段"></a>交易时段</h2><a href="/2025/04/29/jiao-yi-ti-xi/wai-hui-jiao-yi-shi-jian-he-shi-duan/" title="外汇交易时间和时段">外汇交易时间和时段</a>
+
 <h2 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h2><a href="/2025/05/07/jiao-yi-ti-xi/fibonacci-trading/" title="斐波那契交易">斐波那契交易</a>
 
 <h2 id="均线"><a href="#均线" class="headerlink" title="均线"></a>均线</h2><ul>
 <li>当 50 移动平均线向上穿过100、200 移动平均线并继续高于 200 移动平均线时，就会出现<strong>黄金交叉</strong>。</li>
 <li>当 50 移动平均线向下穿过100、200 移动平均线并继续低于 200 移动平均线时，就会发生<strong>死亡交叉。</strong></li>
 </ul>
+<p>箱体会导致均线无效，你看到猛跌然后在一个区域上下波动就是箱体，持续时间超过20分钟就别看了</p>
+<p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/image-20250522180728545.png"></p>
+<p>这片区域，你要么在猛跌那时候抄底然后马上走，要么就什么都不要做，它突破后很难回头的，耐心点，昨晚更恶心，持续了大约2小时。所以让你看期货啊，期货更明显一点，这都是经验堆出来的。</p>
+<p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/image-20250522180824899.png"></p>
+<h2 id="CCI"><a href="#CCI" class="headerlink" title="CCI"></a>CCI</h2><p>CCI 有助于确定趋势的<strong>方向</strong>和<strong>强度。</strong></p>
+<ul>
+<li>当价格突破+100 时，通常表示正在出现上升趋势。</li>
+<li>当它跌破-100时，表明趋势下降。</li>
+<li><strong>此外，高于 +200</strong>或<strong>低于 -200 的</strong>读数可能表示非常强劲的趋势。</li>
+</ul>
+<p>CCI 也可以作为<strong>市场极端情况的指标</strong>。如果 CCI<strong>高于 +100</strong>，则市场可能<strong>超买</strong>，从而导致价格回调。相反，如果 CCI<strong>低于 -100</strong>，则可能表明市场<strong>超卖</strong>，存在潜在的买入机会。因此，此用例可以帮助交易者更有效地把握入场和出场时机。</p>
+<p>CCI 的另一个强大应用是<strong>识别背离</strong>，背离通常预示着趋势反转。<br><strong>看跌背离</strong>：当价格形成更高的高点，而 CCI 形成更低的高点时出现。这可能预示着动能减弱，并可能出现卖出机会。<br><strong>看涨背离</strong>：当价格形成更低的低点，而 CCI 形成更高的低点时出现，表明抛售压力正在减弱，可能出现反转。</p>
+<a href="/2025/05/09/jiao-yi-ti-xi/cci-technical-indicator/" title="CCI：技术指标">CCI：技术指标</a>
+
+<a href="/2025/05/09/jiao-yi-ti-xi/li-yong-gong-yun-jie-zhi-chai-ju-ce-lue-ti-sheng-nin-de-jiao-yi-you-shi/" title="利用公允价值差距策略提升您的交易优势">利用公允价值差距策略提升您的交易优势</a>
+
+<h2 id="箱体"><a href="#箱体" class="headerlink" title="箱体"></a>箱体</h2><h2 id="突破与假突破"><a href="#突破与假突破" class="headerlink" title="突破与假突破"></a>突破与假突破</h2><a href="/2025/05/07/jiao-yi-ti-xi/how-to-spot-breakouts-and-fakeouts/" title="如何识别突破和假突破">如何识别突破和假突破</a>
+
 <h1 id="基本面分析"><a href="#基本面分析" class="headerlink" title="基本面分析"></a>基本面分析</h1><p>关注决定供求关系的不同经济、社会和政治因素。例如，他们可以做多日元兑英镑，因为他们认为日本的经济状况可能比英国更好。因此，日元应该更有价值。但在市场上，事情并非总是如此简单。<strong>基本面分析师必须关注通货膨胀、利率、政府决策、央行决策以及几乎每天都会发布的宏观经济事件。他们最好的朋友是宏观经济日历，它可以告知他们即将发布的事件，以及精心策划的数据发布。</strong></p>
-<h1 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h1><p>情绪分析着眼于金融市场中不同参与者的行为。它检查市场上是买家多还是卖家多。交易者持仓报告 (COT) 是情绪分析的主要指标。交易者持仓报告 (COT) 由美国商品期货交易委员会 (CFTC) 每周发布。该报告显示了所有必须向 CFTC 报告持仓的主体的未平仓头寸。 这些主体是大型机构。这些大型参与者每周二晚上报告其持仓情况，报告于每周五东部时间下午 3:30 发布。COT报告显示了期货市场约 70% 至 90% 的未平仓头寸。</p>
-<p><img src="D:\workspace\blog\financial_notes\source\images\交易体系\cotrepot23-1030x264-1.png"></p>
+<p>目的：更适用于长期策略，例如<strong>投资或头寸交易，交易者根据经济数据、收益报告或地缘政治事件评估资产的内在价值</strong></p>
+<h2 id="如何阅读经济日历"><a href="#如何阅读经济日历" class="headerlink" title="如何阅读经济日历"></a>如何阅读经济日历</h2><p><strong>每天查看经济日历，并了解市场对重要事件的反应</strong>。<strong>在等待趋势改变或技术形态被突破或终结，那么重要的新闻就足以推动市场走向新的方向</strong>。例如，根据FSSI的数据，央行会议是2020年对外汇市场平均影响最大的新闻，其影响高达150点。新闻发布后的波动性通常持续30分钟到2小时。与新闻发布相关的波动性可能看起来很有吸引力，有时会造成巨额潜在利润的假象。然而，新闻发布可能与价格大幅上涨和价差扩大有关，这可能会意外触发止损或导致价格滑点。因此，关注经济日历并关注关键经济事件应该成为每一项资金管理的一部分。</p>
+<h1 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h1><p><strong>每周五美国东部时间下午 3:30（欧洲中部时间晚上 9:30）发布</strong></p>
+<p>情绪分析着眼于金融市场中不同参与者的行为。它检查市场上是买家多还是卖家多。交易者持仓报告 (COT) 是情绪分析的主要指标。交易者持仓报告 (COT) 由美国商品期货交易委员会 (CFTC) 每周发布。该报告显示了所有必须向 CFTC 报告持仓的主体的未平仓头寸。 这些主体是大型机构。这些大型参与者每周二晚上报告其持仓情况，报告于每周五东部时间下午 3:30 发布。COT报告显示了期货市场约 70% 至 90% 的未平仓头寸。</p>
+<p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/cotrepot23-1030x264-1.png"></p>
 <p>这些报告旨在提高期货市场的透明度，防止价格操纵。虽然这些报告来自期货市场，但我们可以在现货货币和差价合约交易中使用这些信息，因为现货外汇对与货币期货息息相关，而且期货商品、金属和指数也与差价合约相同。情绪分析的优点在于，<strong>它能让我们非常清楚地了解市场动态。我们可以在几分钟内了解大型和小型参与者的动向</strong>。但这并没有明确的答案。有时大型参与者可能是错的，而散户可能是对的。此外，<strong>当我们看到大型机构持有某种工具的头寸时，这可能意味着他们刚刚开始大量建仓，因此预期的走势可能需要数周或数月的时间才能发生</strong>。</p>
-<h1 id="支撑位和阻力位"><a href="#支撑位和阻力位" class="headerlink" title="支撑位和阻力位"></a>支撑位和阻力位</h1><a href="/2025/05/01/jiao-yi-ti-xi/market-environment-ranges-vs-trends/" title="市场环境–区间与趋势">市场环境–区间与趋势</a>
+<a href="/2025/05/10/jiao-yi-ti-xi/how-to-read-cot/" title="如何解读COT">如何解读COT</a>
+
+<p>目的：衡量市场的整体情绪或情感，通常来自新闻、社交媒体或调查。这有助于使交易与更广泛的市场心理保持一致</p>
+<h1 id="支撑位和阻力位"><a href="#支撑位和阻力位" class="headerlink" title="支撑位和阻力位"></a>支撑位和阻力位</h1><h3 id="支撑位与阻力位"><a href="#支撑位与阻力位" class="headerlink" title="支撑位与阻力位"></a>支撑位与阻力位</h3><p>技术分析的关键要素是支撑位和阻力位，它们可以帮助交易者判断价格可能反转或暂停的水平。关键因素包括：</p>
+<ul>
+<li><strong>图表结构</strong>：使用图表上数据的历史结构来识别支撑区域和阻力区域。</li>
+<li><strong>成交量</strong>：分析特定价格水平的成交量以确认支撑或阻力的强度。</li>
+<li><strong>蜡烛形态</strong>：使用特定的蜡烛形态（例如十字星、锤子）来确定入场/出场点。</li>
+</ul>
+<h3 id="确认"><a href="#确认" class="headerlink" title="确认"></a>确认</h3><p>在支撑/阻力位附近交易时，确认是提高成功概率的必要手段。常见的确认工具包括：</p>
+<ul>
+<li><strong>时间</strong>：等待蜡烛收盘价高于/低于某个水平后再进行交易。</li>
+<li><strong>形态/模式</strong>：识别经典图表形态，如头肩、支撑/阻力位的双顶/双底，以确认方向。</li>
+</ul>
+<a href="/2025/05/01/jiao-yi-ti-xi/market-environment-ranges-vs-trends/" title="市场环境–区间与趋势">市场环境–区间与趋势</a>
 
 <a href="/2025/05/01/jiao-yi-ti-xi/support-and-resistance/" title="支撑位与阻力位">支撑位与阻力位</a>
 
 <a href="/2025/05/05/jiao-yi-ti-xi/supply-and-demand-trading/" title="供需交易">供需交易</a>
 
+
+
 <h1 id="经典点位形态"><a href="#经典点位形态" class="headerlink" title="经典点位形态"></a>经典点位形态</h1><a href="/2025/05/05/jiao-yi-ti-xi/chart-patterns-trading/" title="图表模式交易">图表模式交易</a>
+
+
+
+<h1 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h1><h2 id="交易时机"><a href="#交易时机" class="headerlink" title="交易时机"></a>交易时机</h2><p>市场交易时段（例如伦敦、纽约、亚洲交易时段）会影响交易策略。某些工具在特定时段流动性更强或波动性更大，这会影响交易时机。例如，关注高波动性和流动性的交易者可能更倾向于在<strong>伦敦和纽约交易时段重叠的时段进行交易</strong>。</p>
+<h2 id="交易品种"><a href="#交易品种" class="headerlink" title="交易品种"></a>交易品种</h2><p>选择合适的交易工具是确保你的策略与交易市场相匹配的关键。你可以从以下工具开始：</p>
+<ul>
+<li><strong>差价合约 (CFD)</strong> ：一种流行的衍生品，允许交易者在不持有标的资产的情况下对价格走势进行投机。差价合约提供灵活性、杠杆和广泛的市场选择，但由于杠杆作用，其风险也较高。</li>
+<li><strong>期货</strong>：指在未来某个日期以固定价格买卖资产的合约。期货交易既受投机者青睐，也受套期保值者青睐。由于合约规模标准化，期货交易通常需要对市场有更深入的了解，并投入更大的资金。</li>
+<li><strong>期权</strong>：赋予投资者以预定价格买卖资产的权利，而非义务。期权赋予投资者更大的战略灵活性，但需要投资者对市场走势有更深入的理解。</li>
+<li><strong>股票</strong>：公司股份，提供所有权，通常交易时间较长，但也可用于日内交易等短期策略。</li>
+<li><strong>ETF（交易所交易基金）</strong>：一篮子资产，交易方式类似股票，提供多元化投资。这类基金通常更适合长期投资者或波段交易者。</li>
+</ul>
+<h2 id="如何建立稳健的交易策略"><a href="#如何建立稳健的交易策略" class="headerlink" title="如何建立稳健的交易策略"></a>如何建立稳健的交易策略</h2><p>基本面分析，试图根据微观和宏观基本面事件来预测资产的价值。如果你在外汇市场进行基本面分析，你可能会关注两个国家的经济状况以及你交易的货币。在交易标普500等指数时，你需要关注整体的风险承受和风险规避环境。关注所有重要的经济数据，例如非农就业数据、联邦公开市场委员会数据或消费者物价指数，始终至关重要。</p>
+<p>技术分析，基于观察某种工具的价格，并寻找过去发生的不同模式和行为，以便它们在未来可能再次发生。尽管大多数交易者试图只关注一种分析类型而完全忽略其他分析类型，但事实上，两种（或多种）分析类型的结合将为您带来最大的交易成功。一旦您决定了要在交易中使用哪种分析类型，就该设置具体的入场和出场规则了。每个稳健的交易策略都应该有明确的入场和出场规则。您几乎可以使用任何方法来入场和出场。</p>
+<h2 id="策略：方法与规则"><a href="#策略：方法与规则" class="headerlink" title="策略：方法与规则"></a>策略：方法与规则</h2><p>制定清晰明确的战略对于成功至关重要。该战略应概述以下方面的具体方法和规则：</p>
+<ul>
+<li><strong>入场</strong>：哪些信号将触发交易入场（例如，移动平均线交叉或价格达到关键水平）？</li>
+<li><strong>退出</strong>：何时以及如何退出交易，包括止损单和获利策略。</li>
+<li><strong>风险管理</strong>：头寸规模和风险/回报率，以确保一致且可持续的交易。</li>
+</ul>
+<h2 id="策略类型"><a href="#策略类型" class="headerlink" title="策略类型"></a>策略类型</h2><ol>
+<li><p>交易策略的类型</p>
+<p>用交易术语来说，我们可以根据市场状况和关键水平对策略进行分类。两种主要的市场状况是：</p>
+<ol>
+<li><strong>趋势市场</strong>：价格持续朝一个方向移动，要么上涨（看涨趋势），要么下跌（看跌趋势）。</li>
+<li><strong>区间震荡市场（盘整）</strong>：价格在既定的支撑位和阻力位之间波动，不会向任何方向突破。市场大部分时间都处于区间震荡状态。</li>
+</ol>
+<p>此外，在这些市场条件下，我们可以确定交易者关注的关键价格水平：</p>
+<ol>
+<li><strong>突破水平</strong>：一个重要的价格水平，一旦突破，预示着趋势可能延续或新趋势的开始。在趋势市场中，这通常是价格突破以延续趋势的水平。</li>
+<li><strong>保持水平（支撑/阻力）</strong>：预计价格将保持的水平，从该水平反弹（下降趋势中的支撑或上升趋势中的阻力）或继续在一定范围内波动。</li>
+</ol>
+<p>根据这些定义，我们可以将交易策略分为<strong>四大类：</strong></p>
+<h3 id="1-趋势跟踪——突破策略"><a href="#1-趋势跟踪——突破策略" class="headerlink" title="1. 趋势跟踪——突破策略"></a><strong>1. 趋势跟踪——突破策略</strong></h3><ul>
+<li>在这一策略中，交易者通过识别关键突破水平来寻找现有趋势的延续。当这些水平被突破时，表明趋势可能会持续下去。</li>
+<li>执行思路：<ul>
+<li>当价格突破看涨趋势中的关键阻力位时，做多（买入），预期上涨趋势将继续。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-趋势跟踪-–-持仓策略"><a href="#2-趋势跟踪-–-持仓策略" class="headerlink" title="2. 趋势跟踪 – 持仓策略"></a><strong>2. 趋势跟踪 – 持仓策略</strong></h3><ul>
+<li>交易者预期趋势在回调至关键支撑位或阻力位后会恢复。预期该水平将维持，趋势将持续。</li>
+<li>在看涨趋势中，交易者可能会在价格回落至支撑位时买入，预期价格反弹并延续上涨趋势。</li>
+</ul>
+<h3 id="3-区间波动-突破策略"><a href="#3-区间波动-突破策略" class="headerlink" title="3. 区间波动 - 突破策略"></a><strong>3. 区间波动 - 突破策略</strong></h3><ul>
+<li>该策略涉及识别区间波动市场，并等待突破。交易者按照突破方向建仓，预期新趋势即将开启。</li>
+<li>当价格突破盘整区间的阻力位时，交易者可能会建立多头头寸，预期看涨趋势将开始。</li>
+</ul>
+<h3 id="4-区间波动-–-持仓策略"><a href="#4-区间波动-–-持仓策略" class="headerlink" title="4. 区间波动 – 持仓策略"></a><strong>4. 区间波动 – 持仓策略</strong></h3><ul>
+<li>在这种方法中，交易者的目标是从价格保持在区间内获利。他们在支撑位买入，在阻力位卖出，并预期这些水平能够维持。</li>
+<li>交易者可能会在盘整区间内的支撑位附近买入，并在价格接近阻力位时卖出，预期价格将保持在该区间内。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-平仓时机"><a href="#5-平仓时机" class="headerlink" title="5.平仓时机"></a><strong>5.平仓时机</strong></h3><ul>
+<li><p>在蜡烛图对了的趋势情况下，已经触底且，均线仍然是向下，但是没有明显的突破，并且1分钟的均线已经趋势改变，SRA两张图都是位于自己的反转情况下，立即平仓。</p>
+<p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/image-20250702160433319.png"></p>
+</li>
+<li><p>辅助判断，如果现货黄金走势和成交量明显收紧，与上面的期货黄金反转信号吻合，说明判断大概率是正确的，抓时间平仓，别犹豫</p>
+<p><img src="/../../images/%E4%BA%A4%E6%98%93%E4%BD%93%E7%B3%BB/image-20250702160625572.png"></p>
+</li>
+</ul>
+<h2 id="多时间框架分析"><a href="#多时间框架分析" class="headerlink" title="多时间框架分析"></a>多时间框架分析</h2><h2 id="1、确定市场方向"><a href="#1、确定市场方向" class="headerlink" title="1、确定市场方向"></a>1、确定市场方向</h2><p>查看周线图时，我们应该始终问自己以下问题：</p>
+<ul>
+<li>市场走向何方？</li>
+<li>过去几周的总体方向是什么？</li>
+<li>上周发生了什么？市场是趋势性上涨还是震荡？</li>
+</ul>
+<h2 id="2、确定趋势"><a href="#2、确定趋势" class="headerlink" title="2、确定趋势"></a>2、确定趋势</h2><p>我们将回顾过去一周的交易，并提出以下问题：</p>
+<ol>
+<li>上周的方向是什么？</li>
+<li>市场处于区间震荡还是趋势中？我们应该寻找趋势延续还是均值回归？</li>
+<li>市场是否过度扩张？</li>
+<li>如果我们只能使用日线图进行交易，我们会预测市场将朝哪个方向发展？</li>
+<li>下周计划举办哪些宏观经济活动？具体时间、日期是什么时候？</li>
+</ol>
+<h2 id="3、执行图"><a href="#3、执行图" class="headerlink" title="3、执行图"></a>3、执行图</h2><a href="/2025/05/07/jiao-yi-ti-xi/multiple-timeframe-analysis/" title="多时间框架分析">多时间框架分析</a>
+
+<h3 id="描述您将在图表上发现的情况"><a href="#描述您将在图表上发现的情况" class="headerlink" title="描述您将在图表上发现的情况"></a><strong>描述您将在图表上发现的情况</strong></h3><ul>
+<li>清晰地描述您计划识别的具体市场情况或模式。您会关注突破、回调、反转还是区间波动？明确您要寻找的条件，例如突破盘整区域、关键价位回调或移动平均线交叉。</li>
+<li><strong>例如</strong>：“经过一段时间的盘整后，我将发现突破关键阻力位的迹象，并在重新测试突破的关键阻力位时执行交易。”</li>
+</ul>
+<h3 id="时间范围或时间范围组合"><a href="#时间范围或时间范围组合" class="headerlink" title="时间范围或时间范围组合"></a><strong>时间范围或时间范围组合</strong></h3><ul>
+<li>指定您将用于交易设置的时间范围。您是专注于单一时间范围（例如日线图或小时图），还是组合多个时间范围以获得更好的确认和风险回报率？</li>
+<li><strong>例如</strong>：“我将使用 1 小时图来判断整体市场方向，使用 15 分钟图来微调切入点。”</li>
+</ul>
+<h3 id="支撑位和阻力位（SR）定义方法"><a href="#支撑位和阻力位（SR）定义方法" class="headerlink" title="支撑位和阻力位（SR）定义方法"></a><strong>支撑位和阻力位（SR）定义方法</strong></h3><ul>
+<li>定义识别支撑位和阻力位的方法。您会依赖水平线、斐波那契回撤线、移动平均线还是趋势线？确保您定义这些水平的方法是一致且客观的。</li>
+<li><strong>示例</strong>：“我将根据最近的波动高点和低点以及每日时间范围内可见的重要枢轴点来定义 SR 水平。”</li>
+<li>定义 SR 水平或区域的方法有很多，这些方法的复杂性和对交易者技能和注意力的要求也随之增加。请参阅技术分析。</li>
+</ul>
+<h3 id="策略类型和市场条件"><a href="#策略类型和市场条件" class="headerlink" title="策略类型和市场条件"></a><strong>策略类型和市场条件</strong></h3><ul>
+<li>明确您正在开发的策略类型（趋势跟踪、均值回归、突破等），并明确该策略预期在哪些市场条件下发挥作用。您的策略在趋势市场、区间波动市场还是高波动环境中表现最佳？</li>
+<li><strong>例如</strong>：“这是一种突破策略，旨在在盘整阶段之后的趋势市场中发挥作用，预计波动性将会增加。”</li>
+</ul>
+<h3 id="确认：有还是无？"><a href="#确认：有还是无？" class="headerlink" title="确认：有还是无？"></a><strong>确认：有还是无？</strong></h3><ul>
+<li>在进行交易前，确定是否需要额外的确认。确认可以采用K线形态（例如吞没形态或pin bar）、成交量峰值或其他技术指标（例如移动平均线或震荡指标）的形式。</li>
+<li><strong>例如</strong>：“只有当突破后出现看涨吞没蜡烛图并伴随交易量增加时，我才会进行交易。”</li>
+</ul>
+<h3 id="风险管理"><a href="#风险管理" class="headerlink" title="风险管理"></a><strong>风险管理</strong></h3><ul>
+<li>定义您的风险管理规则，包括初始止损的设置、交易过程中的管理方式，以及是否追踪止损或根据新的价格走势调整止损。此外，还要明确您的目标价位以及是否计划部分获利了结。</li>
+<li><strong>初始止损</strong>：根据最近的价格走势确定止损位置（例如，在长期交易中，止损位置略低于最后的波动低点）。</li>
+<li><strong>追踪止损</strong>：当交易走势对您有利时，您会追踪止损以锁定利润吗？如果会，您将如何追踪止损——基于新的止损水平、移动平均线还是其他规则？</li>
+<li><strong>目标</strong>：明确您的盈利目标。您的目标是固定的风险回报率（例如 1:2），还是以关键阻力位或支撑位等特定水平为目标？</li>
+<li><strong>部分获利</strong>：你会在特定点位止盈吗？例如，当价格达到 1:1 的风险回报率时，你可能会平掉 50% 的仓位。</li>
+<li><strong>例如</strong>：“初始止损位将设在阻力位 (SR) 略下方。一旦交易盈利达到 1:1，我将使用 20 周期移动平均线追踪止损。目标价位将是下一个重要阻力位，当价格达到 1:2 的风险回报率时，我将止盈（50%）。”</li>
+</ul>
+<h3 id="为你的策略设定一些明确的规则"><a href="#为你的策略设定一些明确的规则" class="headerlink" title="为你的策略设定一些明确的规则"></a>为你的策略设定一些明确的规则</h3><ul>
+<li><strong>时间范围</strong>：指定应用策略的时间范围或其组合（例如，每日、4 小时、15 分钟）。</li>
+<li><strong>入场和出场规则</strong>：明确规定入场和出场的条件。这些规则应具体且客观可观察，例如“如果市场在1天时间范围内呈上升趋势，且止损位与最近阻力位之间的距离至少为2:1，则当30分钟K线图整体收于关键阻力位上方时买入。”</li>
+<li><strong>风险管理</strong>：定义每笔交易的风险、在哪里设置止损订单以及如何确定头寸规模。</li>
+</ul>
+<a href="/2025/05/10/jiao-yi-ti-xi/how-to-create-a-trading-idea/" title="如何创建交易理念">如何创建交易理念</a>
+
+<a href="/2025/05/10/jiao-yi-ti-xi/developing-a-trading-plan-comprehensive-guide/" title="制定交易计划：综合指南">交易计划示例</a>
+
+<h1 id="市场风险偏好和风险规避"><a href="#市场风险偏好和风险规避" class="headerlink" title="市场风险偏好和风险规避"></a>市场风险偏好和风险规避</h1><a href="/2025/05/10/jiao-yi-ti-xi/risk-on-vs-risk-off/" title="风险偏好VS风险规避">风险偏好VS风险规避</a>
+
+<p>了解不同工具之间的相关性对于风险管理至关重要。例如，交易者可能会避免持有高度相关的资产（例如黄金和白银）的多个头寸，以最大程度地降低相同市场风险的敞口。</p>
+<a href="/2025/05/10/jiao-yi-ti-xi/market-correlations/" title="市场相关性">市场相关性</a>
+
+<a href="/2025/05/10/jiao-yi-ti-xi/statistical-application/" title="统计应用">统计应用</a>
+
+<h1 id="回测"><a href="#回测" class="headerlink" title="回测"></a>回测</h1><p>目的：<strong>积极学习识别市场中的视觉线索、模式及其变化</strong>，这种亲身实践的方法可以加深您对市场行为的理解，并帮助您增强对策略的信心。随着时间的推移，这个过程不仅会强化您的交易规则，还会磨练您在实时交易中识别盈利机会的能力。</p>
+<p>您可以使用 MS Excel 或 Google Sheets 等电子表格进行手动回测。这包括查看历史数据、应用策略规则并记录结果。</p>
+<ul>
+<li>最简单的方法是打开您的平台，使用所有可视化效果和指标设置您的图表，然后向后滚动。</li>
+<li>然后逐个蜡烛地向前滚动，以避免任何偏见，不要让你的大脑说服你相信虚构的情况。</li>
+<li>注释您的图表、突出显示情况并截取屏幕截图。</li>
+<li>将数据收集到电子表格中，以便最终进行统计。</li>
+</ul>
+<p>手动回测步骤：</p>
+<ul>
+<li><strong>从历史数据开始</strong>：使用图表平台回顾过去并尽可能接近实时交易的模拟交易。</li>
+<li><strong>应用您的策略</strong>：对于每个交易信号（买入/卖出），记录入场价、止损价、获利水平以及任何其他相关细节。</li>
+<li><strong>跟踪结果</strong>：逐条移动（一根蜡烛一根蜡烛地移动）并记录每笔交易的结果（盈利/亏损）。</li>
+<li><strong>记录结果</strong>：在电子表格或其他工具中单独保存每笔交易的详细日志，并记录所有重要的观察结果。</li>
+</ul>
+<p>自动回测步骤：</p>
+<ul>
+<li><strong>输入您的策略</strong>：将您的策略规则输入回溯测试软件。</li>
+<li><strong>运行回测</strong>：软件将根据您选择的历史时期内的策略模拟交易。</li>
+<li><strong>分析结果</strong>：软件将生成一份报告，显示您的策略的绩效指标，包括总利润/损失、胜率、亏损和其他关键统计数据。</li>
+</ul>
+<p>收集到电子表格或数据库中的基本数据：</p>
+<ul>
+<li>工具（用于对更多工具进行回测）</li>
+<li>入境时间和日期</li>
+<li>按市价单或限价单入场</li>
+<li>入场价格</li>
+<li>退出价格</li>
+<li>进入模式和时间范围（如果适用）</li>
+<li>退出模式和时间范围（如果适用）</li>
+<li>您的交易账户的仓位规模和风险百分比</li>
+<li>MAE – 最大不利偏移（以点/刻度、百分比或风险回报率衡量）</li>
+<li>MFE – 最大有利偏移（以点/刻度、百分比或风险回报率衡量）</li>
+<li>以风险回报率或点数/点差衡量的交易结果</li>
+<li>交易须知——信念水平、情感方面</li>
+</ul>
+<p>如果可以的话，最好把所有交易的截图都添加到回测中。这样，以后就可以轻松地回溯查看。</p>
+<h2 id="分析回测结果"><a href="#分析回测结果" class="headerlink" title="分析回测结果"></a>分析回测结果</h2><p><strong>胜率</strong>：计算盈利交易与亏损交易的百分比。</p>
+<p><strong>风险回报率</strong>：评估每笔交易相对于平均风险的平均回报。</p>
+<p><strong>盈利能力</strong>：评估该策略是否能够长期盈利。</p>
+<p><strong>最大回撤</strong>：查看最大回撤，即回测期间您的投资组合中从峰顶到谷底的最大跌幅。</p>
+<p><strong>一致性</strong>：检查该策略在不同的市场条件或时间段内是否表现一致。</p>
+<p><strong>蒙特卡洛分析</strong>：使用蒙特卡洛分析，通过随机化回测中的交易顺序来模拟各种潜在的交易场景。这有助于评估您的策略在不同盈利和亏损交易序列中的稳健性，从而帮助您识别潜在的弱点，并增强策略的整体韧性。</p>
+<p><strong>股权曲线模拟器</strong>：您还可以使用我们的工具模拟各种可能的结果，该工具将根据您的胜率、风险回报率和初始资本向您显示潜在的股权曲线情景。</p>
+<p><strong>统计显著性</strong>：有些交易者可能会测试前十笔交易，如果发现策略有效，就认为这已经足够了，然后放弃进一步的回测。这绝对不是一个好方法，因为我们没有一个稳健的数据样本。为了真正确保我们的交易系统稳定稳健，我们需要至少 100-200 笔交易的样本量。这样，我们会对交易更有信心。我们会更加确信我们的策略长期来看具有正向预期收益。</p>
+<h3 id="利润因素"><a href="#利润因素" class="headerlink" title="利润因素"></a>利润因素</h3><ul>
+<li>盈利因子是指特定时期或特定交易组合内总盈利与总亏损的比率。盈利因子大于1表示该策略整体盈利。</li>
+<li>该比率通过比较每损失一美元能获得多少利润，从而洞察交易策略的整体效率。这是一种衡量盈利能力的简单方法。</li>
+<li>利润系数为 2 意味着该策略每损失 1 美元就会赚取 2 美元的利润。</li>
+</ul>
+<h3 id="平均赢-输"><a href="#平均赢-输" class="headerlink" title="平均赢/输"></a>平均赢/输</h3><ul>
+<li>平均盈亏是盈利交易的平均规模与亏损交易的平均规模之比。</li>
+<li>此指标可帮助交易者了解盈利与亏损的潜在规模。即使胜率相对较低，平均胜负比较高的策略也能保持盈利。</li>
+<li>例如，平均胜负比为 3 意味着，平均而言，盈利交易的规模是亏损交易的三倍。</li>
+</ul>
+<h3 id="夏普比率"><a href="#夏普比率" class="headerlink" title="夏普比率"></a>夏普比率</h3><ul>
+<li>夏普比率是一种风险调整后的收益指标，它<strong>表明交易者承担的额外波动（风险）带来了多少超额收益</strong>。它是金融领域比较不同策略最常用的指标之一。</li>
+<li>夏普比率可以帮助交易者评估策略的回报是源于精明的交易，还是仅仅源于承担了过多的风险。<strong>夏普比率越高，风险调整后的回报就越高</strong>。</li>
+<li>高于 1 的比例通常被认为是好的，而高于 2 的比例则是优秀的。</li>
+</ul>
+<h3 id="平均风险回报率（RRR）"><a href="#平均风险回报率（RRR）" class="headerlink" title="平均风险回报率（RRR）"></a>平均风险回报率（RRR）</h3><ul>
+<li>平均风险回报率 (RRR) 是将交易的潜在风险与潜在回报进行比较。其计算方法是将交易的预期利润除以预期损失。</li>
+<li>该比率帮助交易者评估一笔交易是否值得进行。即使胜率较低，如果盈利交易的收益远远超过亏损，良好的风险回报率也能带来盈利。</li>
+<li>例如，风险回报率为 1:2，意味着潜在回报是潜在风险的两倍。</li>
+</ul>
+<h3 id="胜率"><a href="#胜率" class="headerlink" title="胜率"></a>胜率</h3><ul>
+<li>胜率是成功交易占已执行交易总数的百分比。</li>
+<li>虽然高胜率固然诱人，但它并非盈利的唯一因素。即使胜率较低，但平均盈利额（相对于亏损额）较高的策略，仍然可以盈利。</li>
+<li>例如，60% 的胜率意味着每 100 笔交易中，有 60 笔是盈利的。</li>
+</ul>
+<h3 id="最大回撤"><a href="#最大回撤" class="headerlink" title="最大回撤"></a>最大回撤</h3><ul>
+<li>最大回撤 (MDD) 是指特定时间段内交易组合价值从峰值到谷底的最大跌幅。它衡量的是投资组合从高点（峰值）到最低点（谷底）直至恢复前的最大百分比损失。最大回撤是评估交易策略下行风险的关键风险指标。</li>
+<li>最大回撤让交易者能够洞察交易策略中资本损失的最坏情况。较大的回撤可能表明风险敞口较高，而较小的回撤则表明策略较为保守。它在风险管理中尤其有用，因为它可以帮助交易者和投资者在预期复苏之前了解潜在损失。</li>
+</ul>
+<h2 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h2><ul>
+<li><strong>重新开始</strong>：保存回测结果非常重要，这样您就可以重新审视和完善它们，而无需从头开始。为了节省时间，建议您先观察市场情况，并评估哪些参数变化适合纳入回测，因为重新开始可能会很耗时。</li>
+<li><strong>参数调整</strong>：调整策略参数（例如，不同的确认模式、止损水平），看看效果是否提升。注意不要过度优化，例如添加过多条件，这可能会导致曲线拟合——这种策略在历史数据上表现良好，但在实际交易中却表现不佳。</li>
+<li><strong>多个市场</strong>：在不同的货币对或资产上测试您的策略，以确保其在各个市场中都稳健，或者确定其是否更适合特定市场。</li>
+</ul>
+<h2 id="样本外和前向测试"><a href="#样本外和前向测试" class="headerlink" title="样本外和前向测试"></a>样本外和前向测试</h2><ul>
+<li><strong>样本外测试</strong>：评估回测过程中未使用的数据的表现。这有助于确保您的策略不会过度拟合历史数据，并且能够在实际市场条件下表现良好。该流程与回测相同。</li>
+<li><strong>纸上交易</strong>：回溯测试后，考虑纸上交易（使用模拟账户进行模拟交易），以便在投入真钱之前查看该策略在实时条件下的表现。</li>
+</ul>
+<h2 id="审查和完善"><a href="#审查和完善" class="headerlink" title="审查和完善"></a>审查和完善</h2><ul>
+<li><strong>持续分析</strong>：随着数据和经验的积累，定期审查和完善您的策略。市场环境瞬息万变，过去有效的策略可能需要调整才能保持有效性。</li>
+</ul>
+<h1 id="交易日志"><a href="#交易日志" class="headerlink" title="交易日志"></a>交易日志</h1><a href="/2025/05/10/jiao-yi-ti-xi/forward-testing-of-trading-strategies/" title="交易策略的前瞻性测试">交易策略的前瞻性测试</a>
+
+
+
+<h1 id="操作行为规范"><a href="#操作行为规范" class="headerlink" title="操作行为规范"></a>操作行为规范</h1><p>1、不要贪得无厌，设置一些过高的盈利目标，这样到后面可能还会适得其反。</p>
+<p>2、止损后不要立即开单，应当冷静观察一段时间，若是还继续亏损，应当结束今天的交易。</p>
 
                 
             </div>
@@ -570,7 +950,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/trader/">
+                                    <span class="chip bg-color">trader</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -641,18 +1025,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2025/05/14/jiao-yi-ti-xi/ri-nei-jiao-yi-ji-neng-zong-jie/">
+                <a href="/2025/05/16/jiao-yi-ti-xi/ri-nei-jiao-yi-yuan-yi-tian-ying-gai-zuo-de-he-ying-gai-si-kao-de/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/100.jpg" class="responsive-img" alt="日内交易技能总结">
+                        <img src="/medias/featureimages/594.jpg" class="responsive-img" alt="日内交易员一天应该做的和应该思考的">
                         
-                        <span class="card-title">日内交易技能总结</span>
+                        <span class="card-title">日内交易员一天应该做的和应该思考的</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -662,18 +1045,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-16
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Gustavo
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/trader/" class="post-category">
+                                    trader
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/trader/">
+                        <span class="chip bg-color">trader</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -844,6 +1238,13 @@
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -863,7 +1264,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1377.9k</span>
+                        class="white-color">1369.7k</span>
             
             
             

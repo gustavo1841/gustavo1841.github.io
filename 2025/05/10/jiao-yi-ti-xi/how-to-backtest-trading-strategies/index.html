@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>如何回测交易策略 | Gustavo</title>
+    <title>如何回测交易策略 | Gustavo</title><meta name="robots" content="noindex">
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-05-10
+                    2025-05-25
                 </div>
                 
 
@@ -468,11 +468,11 @@
 <p><strong>手动回测</strong>是一个相当繁琐的过程，很容易耗费数十甚至数百个小时。为了充分利用时间，建议您首先从概念上定义您的策略，然后检查图表上大约20个可能触发交易机会的实例。这项初步探索有助于您了解回测电子表格中应包含的关键要素。另一方面，它还有一个显著的优势，那就是让您的大脑完全投入并相信该策略。通过手动测试，您不仅仅是在计算数字，而是在<strong>积极学习识别市场中的视觉线索、模式及其变化</strong>。这种亲身实践的方法可以加深您对市场行为的理解，并帮助您增强对策略的信心。随着时间的推移，这个过程不仅会强化您的交易规则，还会磨练您在实时交易中识别盈利机会的能力。</p>
 <h2 id="回溯测试需要考虑的变量"><a href="#回溯测试需要考虑的变量" class="headerlink" title="回溯测试需要考虑的变量"></a>回溯测试需要考虑的变量</h2><p>我们将在另一节课中介绍优化的具体细节，但这里有一些示例可供参考：</p>
 <ul>
-<li>**风险回报率与胜率：**这涉及在持续的小额盈利与通过把握偶尔带来可观回报的趋势而获得更大收益的潜在机会之间取得平衡。然而，这必须与盈利交易与亏损交易的频率进行对比。较高的风险回报率可能意味着盈利交易较少，从而可能导致亏损周期更长。相反，较低的风险回报率可能意味着盈利频率更高，但利润却更少。了解您的盈利频率并预测可能的盈利和亏损周期，对于管理预期并在交易过程中保持心理韧性至关重要。</li>
-<li>**确认方法及其频率：**尝试不同类型的确认信号对于确定哪种信号在不同的市场条件下最有效至关重要。此外，还可以考虑测试多种确认信号的组合，看看它们是否能提供更强大或更可靠的交易设置。</li>
-<li>**市场波动时机：**分析您的交易触发后市场波动所需的时间。有时，您可以预期市场会立即做出反应。然而，在其他情况下，您可能需要耐心等待。了解市场波动的典型时机和波动性可以帮助您设置更合适的止损和止盈水平。</li>
-<li>**固定风险回报率 vs. 自主目标：**决定是否使用固定风险回报率，例如每笔交易 2:1，或者在预期达到特定水平时应用自主目标。或者，您可以使用追踪止损等技术来锁定利润。</li>
-<li>**扩大和缩小：**考虑逐步增加或减少头寸规模的策略，以管理风险并最大化回报。</li>
+<li><strong>风险回报率与胜率</strong>：这涉及在持续的小额盈利与通过把握偶尔带来可观回报的趋势而获得更大收益的潜在机会之间取得平衡。然而，这必须与盈利交易与亏损交易的频率进行对比。较高的风险回报率可能意味着盈利交易较少，从而可能导致亏损周期更长。相反，较低的风险回报率可能意味着盈利频率更高，但利润却更少。了解您的盈利频率并预测可能的盈利和亏损周期，对于管理预期并在交易过程中保持心理韧性至关重要。</li>
+<li><strong>确认方法及其频率</strong>：尝试不同类型的确认信号对于确定哪种信号在不同的市场条件下最有效至关重要。此外，还可以考虑测试多种确认信号的组合，看看它们是否能提供更强大或更可靠的交易设置。</li>
+<li><strong>市场波动时机</strong>：分析您的交易触发后市场波动所需的时间。有时，您可以预期市场会立即做出反应。然而，在其他情况下，您可能需要耐心等待。了解市场波动的典型时机和波动性可以帮助您设置更合适的止损和止盈水平。</li>
+<li><strong>固定风险回报率 vs. 自主目标</strong>：决定是否使用固定风险回报率，例如每笔交易 2:1，或者在预期达到特定水平时应用自主目标。或者，您可以使用追踪止损等技术来锁定利润。</li>
+<li><strong>扩大和缩小</strong>：考虑逐步增加或减少头寸规模的策略，以管理风险并最大化回报。</li>
 </ul>
 <p>记住要保持规则简单，以确保它们易于执行和复制。</p>
 <p>以下是有关如何回测交易策略的分步指南：</p>
@@ -487,23 +487,23 @@
 <li>将数据收集到电子表格中，以便最终进行统计。</li>
 </ul>
 </li>
-<li><p>**自动回溯测试：**使用允许自动回溯测试的软件或交易平台，例如 MetaTrader 和 TradingView，或具有专门回溯测试模块的高级交易平台，如 NinjaTrader、Amibroker 或 Tradestation。</p>
+<li><p><strong>自动回溯测试</strong>：使用允许自动回溯测试的软件或交易平台，例如 MetaTrader 和 TradingView，或具有专门回溯测试模块的高级交易平台，如 NinjaTrader、Amibroker 或 Tradestation。</p>
 </li>
 </ul>
 </li>
 <li><h3 id="为你的策略设定一些明确的规则"><a href="#为你的策略设定一些明确的规则" class="headerlink" title="为你的策略设定一些明确的规则"></a>为你的策略设定一些明确的规则</h3><ul>
-<li>**时间范围：**指定应用策略的时间范围或其组合（例如，每日、4 小时、15 分钟）。</li>
-<li>**入场和出场规则：**明确规定入场和出场的条件。这些规则应具体且客观可观察，例如“如果市场在1天时间范围内呈上升趋势，且止损位与最近阻力位之间的距离至少为2:1，则当30分钟K线图整体收于关键阻力位上方时买入。”</li>
-<li>**风险管理：**定义每笔交易的风险、在哪里设置止损订单以及如何确定头寸规模。</li>
+<li><strong>时间范围</strong>：指定应用策略的时间范围或其组合（例如，每日、4 小时、15 分钟）。</li>
+<li><strong>入场和出场规则</strong>：明确规定入场和出场的条件。这些规则应具体且客观可观察，例如“如果市场在1天时间范围内呈上升趋势，且止损位与最近阻力位之间的距离至少为2:1，则当30分钟K线图整体收于关键阻力位上方时买入。”</li>
+<li><strong>风险管理</strong>：定义每笔交易的风险、在哪里设置止损订单以及如何确定头寸规模。</li>
 <li>欲了解更多信息，请参阅我们的课程“如何创建交易计划和策略”。</li>
 </ul>
 </li>
 <li><h3 id="收集历史数据"><a href="#收集历史数据" class="headerlink" title="收集历史数据"></a>收集历史数据</h3><ul>
-<li>**选择市场和时间范围：**选择您想要测试的货币对、股票或其他工具，并确保您拥有适当时间范围的历史数据。</li>
-<li>**查找并下载准确的市场数据：**您需要从可靠的来源获取高质量的历史价格数据，因为差价合约经纪商和自营交易公司在定价、费用和点差方面往往存在差异。根据您需要的回溯时间和感兴趣的时间范围，您可能需要付费购买数据，或者从交易平台或金融网站免费获取。</li>
+<li><strong>选择市场和时间范围</strong>：选择您想要测试的货币对、股票或其他工具，并确保您拥有适当时间范围的历史数据。</li>
+<li><strong>查找并下载准确的市场数据</strong>：您需要从可靠的来源获取高质量的历史价格数据，因为差价合约经纪商和自营交易公司在定价、费用和点差方面往往存在差异。根据您需要的回溯时间和感兴趣的时间范围，您可能需要付费购买数据，或者从交易平台或金融网站免费获取。</li>
 <li>数据集：<ul>
-<li>**样本内数据：**这是用于开发、优化和微调交易策略的历史数据部分。在此阶段，您可以调整参数并测试不同的变体，以提升策略的表现。样本内数据的风险在于过度拟合，即策略过于贴近历史数据，而可能无法在新的、未知的数据中表现良好。</li>
-<li>**样本外数据：**这是一组单独的历史数据，在回测和/或优化过程中未使用。它用于在策略开发后进行测试，以确保其在不同的市场条件下表现良好。</li>
+<li><strong>样本内数据</strong>：这是用于开发、优化和微调交易策略的历史数据部分。在此阶段，您可以调整参数并测试不同的变体，以提升策略的表现。样本内数据的风险在于过度拟合，即策略过于贴近历史数据，而可能无法在新的、未知的数据中表现良好。</li>
+<li><strong>样本外数据</strong>：这是一组单独的历史数据，在回测和/或优化过程中未使用。它用于在策略开发后进行测试，以确保其在不同的市场条件下表现良好。</li>
 </ul>
 </li>
 </ul>
@@ -511,17 +511,17 @@
 <li><h3 id="运行回测"><a href="#运行回测" class="headerlink" title="运行回测"></a>运行回测</h3><ul>
 <li><p>手动回测步骤：</p>
 <ul>
-<li>**从历史数据开始：**使用图表平台回顾过去并尽可能接近实时交易的模拟交易。</li>
-<li>**应用您的策略：**对于每个交易信号（买入/卖出），记录入场价、止损价、获利水平以及任何其他相关细节。</li>
-<li>**跟踪结果：**逐条移动（一根蜡烛一根蜡烛地移动）并记录每笔交易的结果（盈利/亏损）。</li>
-<li>**记录结果：**在电子表格或其他工具中单独保存每笔交易的详细日志，并记录所有重要的观察结果。</li>
+<li><strong>从历史数据开始</strong>：使用图表平台回顾过去并尽可能接近实时交易的模拟交易。</li>
+<li><strong>应用您的策略</strong>：对于每个交易信号（买入/卖出），记录入场价、止损价、获利水平以及任何其他相关细节。</li>
+<li><strong>跟踪结果</strong>：逐条移动（一根蜡烛一根蜡烛地移动）并记录每笔交易的结果（盈利/亏损）。</li>
+<li><strong>记录结果</strong>：在电子表格或其他工具中单独保存每笔交易的详细日志，并记录所有重要的观察结果。</li>
 </ul>
 </li>
 <li><p>自动回测步骤：</p>
 <ul>
-<li>**输入您的策略：**将您的策略规则输入回溯测试软件。</li>
-<li>**运行回测：**软件将根据您选择的历史时期内的策略模拟交易。</li>
-<li>**分析结果：**软件将生成一份报告，显示您的策略的绩效指标，包括总利润/损失、胜率、亏损和其他关键统计数据。</li>
+<li><strong>输入您的策略</strong>：将您的策略规则输入回溯测试软件。</li>
+<li><strong>运行回测</strong>：软件将根据您选择的历史时期内的策略模拟交易。</li>
+<li><strong>分析结果</strong>：软件将生成一份报告，显示您的策略的绩效指标，包括总利润/损失、胜率、亏损和其他关键统计数据。</li>
 </ul>
 </li>
 <li><p>收集到电子表格或数据库中的基本数据：</p>
@@ -544,14 +544,14 @@
 </ul>
 </li>
 <li><h3 id="分析回测结果"><a href="#分析回测结果" class="headerlink" title="分析回测结果"></a>分析回测结果</h3><ul>
-<li>**胜率：**计算盈利交易与亏损交易的百分比。</li>
-<li>**风险回报率：**评估每笔交易相对于平均风险的平均回报。</li>
-<li>**盈利能力：**评估该策略是否能够长期盈利。</li>
-<li>**最大回撤：**查看最大回撤，即回测期间您的投资组合中从峰顶到谷底的最大跌幅。</li>
-<li>**一致性：**检查该策略在不同的市场条件或时间段内是否表现一致。</li>
-<li>**蒙特卡洛分析：**使用蒙特卡洛分析，通过随机化回测中的交易顺序来模拟各种潜在的交易场景。这有助于评估您的策略在不同盈利和亏损交易序列中的稳健性，从而帮助您识别潜在的弱点，并增强策略的整体韧性。</li>
-<li>**股权曲线模拟器：**您还可以使用我们的工具模拟各种可能的结果，该工具将根据您的胜率、风险回报率和初始资本向您显示潜在的股权曲线情景。</li>
-<li>**统计显著性：**有些交易者可能会测试前十笔交易，如果发现策略有效，就认为这已经足够了，然后放弃进一步的回测。这绝对不是一个好方法，因为我们没有一个稳健的数据样本。为了真正确保我们的交易系统稳定稳健，我们需要至少 100-200 笔交易的样本量。这样，我们会对交易更有信心。我们会更加确信我们的策略长期来看具有正向预期收益。</li>
+<li><strong>胜率</strong>：计算盈利交易与亏损交易的百分比。</li>
+<li><strong>风险回报率</strong>：评估每笔交易相对于平均风险的平均回报。</li>
+<li><strong>盈利能力</strong>：评估该策略是否能够长期盈利。</li>
+<li><strong>最大回撤</strong>：查看最大回撤，即回测期间您的投资组合中从峰顶到谷底的最大跌幅。</li>
+<li><strong>一致性</strong>：检查该策略在不同的市场条件或时间段内是否表现一致。</li>
+<li><strong>蒙特卡洛分析</strong>：使用蒙特卡洛分析，通过随机化回测中的交易顺序来模拟各种潜在的交易场景。这有助于评估您的策略在不同盈利和亏损交易序列中的稳健性，从而帮助您识别潜在的弱点，并增强策略的整体韧性。</li>
+<li><strong>股权曲线模拟器</strong>：您还可以使用我们的工具模拟各种可能的结果，该工具将根据您的胜率、风险回报率和初始资本向您显示潜在的股权曲线情景。</li>
+<li><strong>统计显著性</strong>：有些交易者可能会测试前十笔交易，如果发现策略有效，就认为这已经足够了，然后放弃进一步的回测。这绝对不是一个好方法，因为我们没有一个稳健的数据样本。为了真正确保我们的交易系统稳定稳健，我们需要至少 100-200 笔交易的样本量。这样，我们会对交易更有信心。我们会更加确信我们的策略长期来看具有正向预期收益。</li>
 </ul>
 </li>
 </ol>
@@ -591,18 +591,18 @@
 <li>最大回撤让交易者能够洞察交易策略中资本损失的最坏情况。较大的回撤可能表明风险敞口较高，而较小的回撤则表明策略较为保守。它在风险管理中尤其有用，因为它可以帮助交易者和投资者在预期复苏之前了解潜在损失。</li>
 </ul>
 <h2 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h2><ul>
-<li>**重新开始：**保存回测结果非常重要，这样您就可以重新审视和完善它们，而无需从头开始。为了节省时间，建议您先观察市场情况，并评估哪些参数变化适合纳入回测，因为重新开始可能会很耗时。</li>
-<li>**参数调整：**调整策略参数（例如，不同的确认模式、止损水平），看看效果是否提升。注意不要过度优化，例如添加过多条件，这可能会导致曲线拟合——这种策略在历史数据上表现良好，但在实际交易中却表现不佳。</li>
-<li>**多个市场：**在不同的货币对或资产上测试您的策略，以确保其在各个市场中都稳健，或者确定其是否更适合特定市场。</li>
+<li><strong>重新开始</strong>：保存回测结果非常重要，这样您就可以重新审视和完善它们，而无需从头开始。为了节省时间，建议您先观察市场情况，并评估哪些参数变化适合纳入回测，因为重新开始可能会很耗时。</li>
+<li><strong>参数调整</strong>：调整策略参数（例如，不同的确认模式、止损水平），看看效果是否提升。注意不要过度优化，例如添加过多条件，这可能会导致曲线拟合——这种策略在历史数据上表现良好，但在实际交易中却表现不佳。</li>
+<li><strong>多个市场</strong>：在不同的货币对或资产上测试您的策略，以确保其在各个市场中都稳健，或者确定其是否更适合特定市场。</li>
 </ul>
 <h2 id="样本外和前向测试"><a href="#样本外和前向测试" class="headerlink" title="样本外和前向测试"></a>样本外和前向测试</h2><ul>
-<li>**样本外测试：**评估回测过程中未使用的数据的表现。这有助于确保您的策略不会过度拟合历史数据，并且能够在实际市场条件下表现良好。该流程与回测相同。</li>
-<li>**纸上交易：**回溯测试后，考虑纸上交易（使用模拟账户进行模拟交易），以便在投入真钱之前查看该策略在实时条件下的表现。</li>
+<li><strong>样本外测试</strong>：评估回测过程中未使用的数据的表现。这有助于确保您的策略不会过度拟合历史数据，并且能够在实际市场条件下表现良好。该流程与回测相同。</li>
+<li><strong>纸上交易</strong>：回溯测试后，考虑纸上交易（使用模拟账户进行模拟交易），以便在投入真钱之前查看该策略在实时条件下的表现。</li>
 </ul>
 <h2 id="审查和完善"><a href="#审查和完善" class="headerlink" title="审查和完善"></a>审查和完善</h2><ul>
-<li>**持续分析：**随着数据和经验的积累，定期审查和完善您的策略。市场环境瞬息万变，过去有效的策略可能需要调整才能保持有效性。</li>
+<li><strong>持续分析</strong>：随着数据和经验的积累，定期审查和完善您的策略。市场环境瞬息万变，过去有效的策略可能需要调整才能保持有效性。</li>
 </ul>
-
+<!-- flag of hidden posts -->
                 
             </div>
             <hr/>
@@ -740,66 +740,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2025/05/10/jiao-yi-ti-xi/developing-a-trading-plan-comprehensive-guide/">
+                <a href="/2025/05/10/jiao-yi-ti-xi/how-to-backtest-trading-strategies/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/78.jpg" class="responsive-img" alt="制定交易计划：综合指南">
+                        <img src="/medias/featureimages/862.jpg" class="responsive-img" alt="如何回测交易策略">
                         
-                        <span class="card-title">制定交易计划：综合指南</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/trader/" class="post-category">
-                                    trader
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/trader/">
-                        <span class="chip bg-color">trader</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/05/10/jiao-yi-ti-xi/how-to-create-a-trading-idea/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/144.jpg" class="responsive-img" alt="如何创建交易理念">
-                        
-                        <span class="card-title">如何创建交易理念</span>
+                        <span class="card-title">如何回测交易策略</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -824,6 +776,57 @@
                         </span>
                     </div>
                 </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/trader/">
+                        <span class="chip bg-color">trader</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/05/10/jiao-yi-ti-xi/how-to-backtest-trading-strategies/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/862.jpg" class="responsive-img" alt="如何回测交易策略">
+                        
+                        <span class="card-title">如何回测交易策略</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/trader/" class="post-category">
+                                    trader
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -968,7 +971,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1377.9k</span>
+                        class="white-color">1369.7k</span>
             
             
             

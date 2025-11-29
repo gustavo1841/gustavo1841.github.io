@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-11-29T09:49:54.155Z</updated>
+  <updated>2025-11-29T14:27:48.105Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>导数、斜率、速度和变化率</title>
+    <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/02-1-dao-shu-xie-lu-su-du-he-bian-hua-lu/"/>
+    <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/02-1-dao-shu-xie-lu-su-du-he-bian-hua-lu/</id>
+    <published>2025-11-29T14:20:29.000Z</published>
+    <updated>2025-11-29T14:27:48.105Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>三角函数</title>
     <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/"/>
     <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/</id>
     <published>2025-11-29T09:48:13.000Z</published>
-    <updated>2025-11-29T09:49:54.155Z</updated>
+    <updated>2025-11-29T11:48:22.801Z</updated>
     
     
       
@@ -517,31 +544,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;经济复苏中期&quot;&gt;&lt;a href=&quot;#经济复苏中期&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>05-基本面的那些事儿(五)</title>
-    <link href="https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/05-ji-ben-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/05-ji-ben-mian-de-na-xie-shi-er/</id>
-    <published>2025-07-23T03:05:42.000Z</published>
-    <updated>2025-11-29T03:56:59.184Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;经济扩张期&quot;&gt;&lt;a href=&quot;#经济扩张期&quot; class=&quot;headerlink&quot;</summary>
         
       
     

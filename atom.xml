@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-12-01T02:23:20.654Z</updated>
+  <updated>2025-12-01T07:13:37.929Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>链式法则和高阶导数</title>
+    <title>02-5-隐式微分和逆</title>
+    <link href="https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-5-yin-shi-wei-fen-he-ni/"/>
+    <id>https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-5-yin-shi-wei-fen-he-ni/</id>
+    <published>2025-12-01T07:06:07.000Z</published>
+    <updated>2025-12-01T07:13:37.929Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;隐式微分和逆&quot;&gt;&lt;a href=&quot;#隐式微分和逆&quot; class=&quot;headerlink&quot; title=&quot;隐式微分和逆&quot;&gt;&lt;/a&gt;隐式微分和逆&lt;/h1&gt;&lt;h2 id=&quot;隐函数微分法&quot;&gt;&lt;a href=&quot;#隐函数微分法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>02-4-链式法则和高阶导数</title>
     <link href="https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-4-lian-shi-fa-ze-he-gao-jie-dao-shu/"/>
     <id>https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-4-lian-shi-fa-ze-he-gao-jie-dao-shu/</id>
     <published>2025-12-01T02:14:14.000Z</published>
-    <updated>2025-12-01T02:23:20.654Z</updated>
+    <updated>2025-12-01T07:13:42.203Z</updated>
     
     
       
@@ -44,11 +71,11 @@
   </entry>
   
   <entry>
-    <title>乘积、商、正弦、余弦的导数</title>
+    <title>02-3-乘积、商、正弦、余弦的导数</title>
     <link href="https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-3-cheng-ji-shang-zheng-xian-yu-xian-de-dao-shu/"/>
     <id>https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-3-cheng-ji-shang-zheng-xian-yu-xian-de-dao-shu/</id>
     <published>2025-11-30T12:14:52.000Z</published>
-    <updated>2025-11-30T13:32:29.411Z</updated>
+    <updated>2025-12-01T07:13:23.507Z</updated>
     
     
       
@@ -71,11 +98,11 @@
   </entry>
   
   <entry>
-    <title>极限与连续性三角极限</title>
+    <title>02-2-极限与连续性三角极限</title>
     <link href="https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-2-ji-xian-yu-lian-xu-xing-san-jiao-ji-xian/"/>
     <id>https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-2-ji-xian-yu-lian-xu-xing-san-jiao-ji-xian/</id>
     <published>2025-11-30T01:48:46.000Z</published>
-    <updated>2025-11-30T02:05:28.523Z</updated>
+    <updated>2025-12-01T07:13:15.573Z</updated>
     
     
       
@@ -98,11 +125,11 @@
   </entry>
   
   <entry>
-    <title>导数、斜率、速度和变化率</title>
+    <title>02-1-导数、斜率、速度和变化率</title>
     <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/02-1-dao-shu-xie-lu-su-du-he-bian-hua-lu/"/>
     <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/02-1-dao-shu-xie-lu-su-du-he-bian-hua-lu/</id>
     <published>2025-11-29T14:20:29.000Z</published>
-    <updated>2025-11-30T13:15:49.677Z</updated>
+    <updated>2025-12-01T07:13:07.836Z</updated>
     
     
       
@@ -125,11 +152,11 @@
   </entry>
   
   <entry>
-    <title>三角函数</title>
+    <title>01-11-三角函数</title>
     <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/"/>
     <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/</id>
     <published>2025-11-29T09:48:13.000Z</published>
-    <updated>2025-11-29T11:48:22.801Z</updated>
+    <updated>2025-12-01T07:13:00.437Z</updated>
     
     
       
@@ -152,11 +179,11 @@
   </entry>
   
   <entry>
-    <title>任何函数求导</title>
+    <title>01-10-任何函数求导</title>
     <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-10-ren-he-han-shu-qiu-dao/"/>
     <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-10-ren-he-han-shu-qiu-dao/</id>
     <published>2025-11-29T03:19:02.000Z</published>
-    <updated>2025-11-29T03:55:22.106Z</updated>
+    <updated>2025-12-01T07:12:53.355Z</updated>
     
     
       
@@ -182,11 +209,11 @@
   </entry>
   
   <entry>
-    <title>数学归纳法</title>
+    <title>01-9-数学归纳法</title>
     <link href="https://gustavo1841.github.io/2025/11/28/shu-xue/wei-ji-fen/01-9-shu-xue-gui-na-fa/"/>
     <id>https://gustavo1841.github.io/2025/11/28/shu-xue/wei-ji-fen/01-9-shu-xue-gui-na-fa/</id>
     <published>2025-11-28T02:16:28.000Z</published>
-    <updated>2025-11-28T02:18:23.611Z</updated>
+    <updated>2025-12-01T07:12:46.003Z</updated>
     
     
       
@@ -209,11 +236,11 @@
   </entry>
   
   <entry>
-    <title>解析几何</title>
+    <title>01-8-解析几何</title>
     <link href="https://gustavo1841.github.io/2025/11/27/shu-xue/wei-ji-fen/01-8-jie-xi-ji-he/"/>
     <id>https://gustavo1841.github.io/2025/11/27/shu-xue/wei-ji-fen/01-8-jie-xi-ji-he/</id>
     <published>2025-11-27T01:24:58.000Z</published>
-    <updated>2025-11-27T13:30:08.414Z</updated>
+    <updated>2025-12-01T07:12:37.355Z</updated>
     
     
       
@@ -236,11 +263,11 @@
   </entry>
   
   <entry>
-    <title>初等基本函数</title>
+    <title>01-7-初等基本函数</title>
     <link href="https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-7-chu-deng-ji-ben-han-shu/"/>
     <id>https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-7-chu-deng-ji-ben-han-shu/</id>
     <published>2025-11-26T01:29:25.000Z</published>
-    <updated>2025-11-26T14:10:52.005Z</updated>
+    <updated>2025-12-01T07:12:29.807Z</updated>
     
     
       
@@ -263,11 +290,11 @@
   </entry>
   
   <entry>
-    <title>一元二次方程</title>
+    <title>01-6-一元二次方程</title>
     <link href="https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-6-yi-yuan-er-ci-fang-cheng/"/>
     <id>https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-6-yi-yuan-er-ci-fang-cheng/</id>
     <published>2025-11-26T01:29:13.000Z</published>
-    <updated>2025-11-26T14:10:52.005Z</updated>
+    <updated>2025-12-01T07:12:23.659Z</updated>
     
     
       
@@ -290,11 +317,11 @@
   </entry>
   
   <entry>
-    <title>不等式</title>
+    <title>01-5-不等式</title>
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-5-bu-deng-shi/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-5-bu-deng-shi/</id>
     <published>2025-11-25T09:43:15.000Z</published>
-    <updated>2025-11-25T12:38:37.814Z</updated>
+    <updated>2025-12-01T07:12:18.668Z</updated>
     
     
       
@@ -317,11 +344,11 @@
   </entry>
   
   <entry>
-    <title>基本算数公式</title>
+    <title>01-4-基本算数公式</title>
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/</id>
     <published>2025-11-25T09:43:08.000Z</published>
-    <updated>2025-11-25T12:38:37.814Z</updated>
+    <updated>2025-12-01T07:12:13.925Z</updated>
     
     
       
@@ -344,11 +371,11 @@
   </entry>
   
   <entry>
-    <title>命题</title>
+    <title>01-3-命题</title>
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-3-ming-ti/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-3-ming-ti/</id>
     <published>2025-11-25T09:43:01.000Z</published>
-    <updated>2025-11-26T14:10:52.005Z</updated>
+    <updated>2025-12-01T07:12:07.502Z</updated>
     
     
       
@@ -371,11 +398,11 @@
   </entry>
   
   <entry>
-    <title>数列</title>
+    <title>01-2-数列</title>
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-2-shu-lie/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-2-shu-lie/</id>
     <published>2025-11-25T09:42:55.000Z</published>
-    <updated>2025-11-25T12:38:37.814Z</updated>
+    <updated>2025-12-01T07:10:48.344Z</updated>
     
     
       
@@ -400,11 +427,11 @@
   </entry>
   
   <entry>
-    <title>集合</title>
+    <title>01-1-集合</title>
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-1-ji-he/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-1-ji-he/</id>
     <published>2025-11-25T09:40:53.000Z</published>
-    <updated>2025-11-26T14:10:51.994Z</updated>
+    <updated>2025-12-01T07:09:48.274Z</updated>
     
     
       
@@ -517,33 +544,6 @@
         
         
     <summary type="html">&lt;p&gt;判断是否处于&lt;strong&gt;经济下行 /</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>09-基本面的那些事儿(九)</title>
-    <link href="https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/09-ji-ben-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/09-ji-ben-mian-de-na-xie-shi-er/</id>
-    <published>2025-07-23T03:05:59.000Z</published>
-    <updated>2025-11-29T03:57:11.180Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这是价值投资者必须掌握的“利率-资产联动”节奏。你问得非常关键。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;✅-一、如何判断利率见顶-→-降息初期的阶段转换？&quot;&gt;&lt;a href=&quot;#✅-一、如何判断利率见顶-→-降息初期的阶段转换？&quot; class=&quot;headerlink&quot;</summary>
         
       
     

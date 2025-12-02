@@ -58,9 +58,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Gustavo" type="application/atom+xml">
 </head>
 
 
@@ -392,48 +392,39 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/31/hui-ji-yu-cai-guan/hui-ji/hui-ji-17-suo-de-shui/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/zhan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/553.jpg" class="responsive-img" alt="会计17-所得税">
+                            <img src="/medias/featureimages/712.jpg" class="responsive-img" alt="栈">
                             
-                            <span class="card-title">会计17-所得税</span>
+                            <span class="card-title">栈</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
+                                顺序栈结构体定义
+#include &lt;iostream&gt;
+using namespace std;
 
-
-项目
-资产
-负债
-
-
-
-账面价值＞计税基础
-应纳税暂时性差异（递延所得税负债=差异×未来税率）
-可抵扣暂时性差异（递延所得税资产=差异×未来税率）
-
-
-账面价值＜计税基础
-可抵扣暂时性差异（递延所得税资产=差异×未来税率）
-应纳税暂时
+#define MaxSize 50
+typedef struct {
+    int data[MaxSize];
+    
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                    会计与财管
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -444,8 +435,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                            <span class="chip bg-color">会计</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                     </div>
@@ -457,37 +452,40 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/30/hui-ji-yu-cai-guan/hui-ji/hui-ji-16-zhai-wu-chong-zu/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/lian-biao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/95.jpg" class="responsive-img" alt="会计16-债务重组">
+                            <img src="/medias/featureimages/810.jpg" class="responsive-img" alt="链表">
                             
-                            <span class="card-title">会计16-债务重组</span>
+                            <span class="card-title">链表</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                债务重组概述一、债务重组的定义（一）含义债务重组：是指在不改变交易对手方的情况下，经债权人和债务人协定或法院裁定，就清偿债务的时间、金额或方式等重新达成协议的交易（债权重组、债务重组）。
-（二）对含义的相关理解1.交易对手方
+                                引言没啥好说的，双向链表
+实现初始化
+typedef struct DNode{
+    int data;
+    struct DNode* prior,* next;
+}DNode,DLinkList;
 
-
-
-基本原则
+//初始化
+DLinkLis
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                    会计与财管
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -498,8 +496,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                            <span class="chip bg-color">会计</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                     </div>
@@ -511,41 +513,37 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/29/hui-ji-yu-cai-guan/hui-ji/hui-ji-15-fei-huo-bi-xing-zi-chan-jiao-huan/">
+                    <a href="/2025/02/27/ji-suan-ji/shu-ju-jie-gou/xian-xing-biao/shun-xu-biao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/622.jpg" class="responsive-img" alt="会计15-非货币性资产交换">
+                            <img src="/medias/featureimages/211.jpg" class="responsive-img" alt="顺序表">
                             
-                            <span class="card-title">会计15-非货币性资产交换</span>
+                            <span class="card-title">顺序表</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                非货币性资产交换的认定一、非货币性资产交换的定义（一）概述
-
-
-货币性资产
-是指企业持有的货币资金和收取固定或可确定的金额的货币资金的权利，包括库存现金、银行存款、应收账款和应收票据等。(钱、短期债权等)
-
-
-
-非货币性资产
-是指货币性资产
+                                引言顺序表插入一个元素平均需要移动n/2次，删除一个元素平均移动n-1/2次
+实现初始化
+#include &lt;iostream&gt;
+using namespace std;
+#define InitSize 2
+#define M
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                    会计与财管
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -556,8 +554,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                            <span class="chip bg-color">会计</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                     </div>
@@ -569,56 +571,32 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/28/cao-pan-ri-ji/2025/01/1-yue-jiao-yi-ji-lu/">
+                    <a href="/2025/02/26/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/qu-na-er-gong-si-fen-xiang-de-zhi-fu-chan-pin-jia-gou/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/811.jpg" class="responsive-img" alt="1月交易记录">
+                            <img src="/medias/featureimages/332.jpg" class="responsive-img" alt="去哪儿公司分享的支付产品架构">
                             
-                            <span class="card-title">1月交易记录</span>
+                            <span class="card-title">去哪儿公司分享的支付产品架构</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、单笔交易记录表英伟达
-
-
-字段
-说明
-数据说明
-
-
-
-日期
-交易日期（买入/卖出）
-2025-01-28（买入）
-
-
-标的代码
-股票/期权代码
-NVDA（英伟达）
-
-
-交易类型
-买入/卖出/做空/期权（Call/Put）
-买入股票
-
-
-
+                                去哪儿支付系统自 2011 年搭建以来，在五年的时间里逐渐从一个高耦合的单一系统发展为众多子系统组成的高并发、高可用、支持多种交易支付业务的分布式系统。业务从最初的非代收到现在多种非代收、代收场景的支持，B2B 业务的从无到有，支付方式从单
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-26
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%93%8D%E7%9B%98%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    操盘记录
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -629,12 +607,16 @@ NVDA（英伟达）
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%93%8D%E7%9B%98/">
-                            <span class="chip bg-color">操盘</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
                         </a>
                         
-                        <a href="/tags/%E7%BE%8E%E8%82%A1/">
-                            <span class="chip bg-color">美股</span>
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
                         </a>
                         
                     </div>
@@ -646,40 +628,48 @@ NVDA（英伟达）
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/27/hui-ji-yu-cai-guan/hui-ji/hui-ji-14-zheng-fu-bu-zhu/">
+                    <a href="/2025/02/25/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/zhi-fu-bao-qian-bao-xi-tong-jia-gou-nei-bu-pou-xi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/356.jpg" class="responsive-img" alt="会计14-政府补助">
+                            <img src="/medias/featureimages/119.jpg" class="responsive-img" alt="支付宝钱包系统架构内部剖析">
                             
-                            <span class="card-title">会计14-政府补助</span>
+                            <span class="card-title">支付宝钱包系统架构内部剖析</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                引言本章重点
+                                支付宝系统架构概况典型处理默认
+资金处理平台
+财务会计
+支付清算
+核算中心
+交易
+柔性事务
 
-政府补助的概念
-
-政府补助的特征及分类一、政府补助的定义及其特征（一）政府补助的定义
 
 
-定义
-政府补助：是指企业从政府无偿取得货币性资产或非货币性资产。其主要形式包括政府对企业的无偿拨款、税收返还、财政贴息，以及无偿给予非
+
+
+
+
+
+
+支付宝的开源分布式消息中间件–Metamorphosis(MetaQ)Metamorphosis (MetaQ) 是一个高性能、高
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-25
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                    会计与财管
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -690,8 +680,16 @@ NVDA（英伟达）
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                            <span class="chip bg-color">会计</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
                         </a>
                         
                     </div>
@@ -703,38 +701,33 @@ NVDA（英伟达）
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2025/01/27/hui-ji-yu-cai-guan/hui-ji/hui-ji-13-he-tong-cheng-ben/">
+                    <a href="/2025/02/24/ji-suan-ji/xi-tong-she-ji/zhi-fu-xi-tong-she-ji/jing-dong-zhi-fu-ping-tai-zong-ti-jia-gou-she-ji/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/388.jpg" class="responsive-img" alt="会计13-合同成本">
+                            <img src="/medias/featureimages/671.jpg" class="responsive-img" alt="京东支付平台总体架构设计">
                             
-                            <span class="card-title">会计13-合同成本</span>
+                            <span class="card-title">京东支付平台总体架构设计</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                引言本章重点
-
-合同成本概念
-合同的摊销与减值
-合同的会计处理
-
-合同成本一、合同履约成本（一）确认原则企业为履行合同发生的成本，不属于其他章节规范范围（如：存货、固定资产、无形资产等）且同时满足下列条件的，应当作为合同履约成本确认为一项资
+                                进步就需要变革，完美则需要经常变革–丘吉尔
+随着新兴互联网金融业务的迅速崛起，对支付服务提出更高的要求，原有的系统架构很难满足快速变化、日益复杂的新兴业务需求；与此同时，随着用户量、业务量爆发式增长，系统的处理容量和稳定运行也面临考验。要进
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-02-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
-                                    会计与财管
+                                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category">
+                                    计算机
                                 </a>
                                 
                                 
@@ -745,8 +738,16 @@ NVDA（英伟达）
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E4%BC%9A%E8%AE%A1/">
-                            <span class="chip bg-color">会计</span>
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+                            <span class="chip bg-color">计算机</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">系统设计</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%94%AF%E4%BB%98%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
+                            <span class="chip bg-color">支付架构设计</span>
                         </a>
                         
                     </div>
@@ -772,7 +773,7 @@ NVDA（英伟达）
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">30 / 41</div>
+            <div class="center-align b-text-gray">30 / 49</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -805,7 +806,7 @@ NVDA（英伟达）
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1371k</span>
+                        class="white-color">1413.7k</span>
             
             
             

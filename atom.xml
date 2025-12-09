@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-12-01T07:13:37.929Z</updated>
+  <updated>2025-12-09T13:58:26.710Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -17,11 +17,174 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>03-5-牛顿法及其他应用</title>
+    <link href="https://gustavo1841.github.io/2025/12/09/shu-xue/wei-ji-fen/03-5-niu-dun-fa-ji-qi-ta-ying-yong/"/>
+    <id>https://gustavo1841.github.io/2025/12/09/shu-xue/wei-ji-fen/03-5-niu-dun-fa-ji-qi-ta-ying-yong/</id>
+    <published>2025-12-09T13:34:41.000Z</published>
+    <updated>2025-12-09T13:58:26.710Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;牛顿法及其他应用&quot;&gt;&lt;a href=&quot;#牛顿法及其他应用&quot; class=&quot;headerlink&quot; title=&quot;牛顿法及其他应用&quot;&gt;&lt;/a&gt;牛顿法及其他应用&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;牛顿法&lt;/strong&gt;&lt;br&gt;牛顿法是求解形如</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-4-相关变化率</title>
+    <link href="https://gustavo1841.github.io/2025/12/09/shu-xue/wei-ji-fen/03-4-xiang-guan-bian-hua-lu/"/>
+    <id>https://gustavo1841.github.io/2025/12/09/shu-xue/wei-ji-fen/03-4-xiang-guan-bian-hua-lu/</id>
+    <published>2025-12-09T13:30:36.000Z</published>
+    <updated>2025-12-09T13:56:56.219Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;相关变化率&quot;&gt;&lt;a href=&quot;#相关变化率&quot; class=&quot;headerlink&quot; title=&quot;相关变化率&quot;&gt;&lt;/a&gt;相关变化率&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;例1.&lt;/strong&gt; 警察位于距离路边 30 英尺处。当你的车距离雷达枪 50</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-3-最大值和最小值问题</title>
+    <link href="https://gustavo1841.github.io/2025/12/05/shu-xue/wei-ji-fen/03-3-zui-da-zhi-he-zui-xiao-zhi-wen-ti/"/>
+    <id>https://gustavo1841.github.io/2025/12/05/shu-xue/wei-ji-fen/03-3-zui-da-zhi-he-zui-xiao-zhi-wen-ti/</id>
+    <published>2025-12-05T04:51:35.000Z</published>
+    <updated>2025-12-06T11:47:19.411Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;最大值-最小值问题&quot;&gt;&lt;a href=&quot;#最大值-最小值问题&quot; class=&quot;headerlink&quot; title=&quot;最大值/最小值问题&quot;&gt;&lt;/a&gt;最大值/最小值问题&lt;/h1&gt;&lt;p&gt;例 1. &lt;mjx-container class=&quot;MathJax&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-2-曲线草图的绘制</title>
+    <link href="https://gustavo1841.github.io/2025/12/04/shu-xue/wei-ji-fen/03-2-qu-xian-cao-tu-de-hui-zhi/"/>
+    <id>https://gustavo1841.github.io/2025/12/04/shu-xue/wei-ji-fen/03-2-qu-xian-cao-tu-de-hui-zhi/</id>
+    <published>2025-12-04T03:21:26.000Z</published>
+    <updated>2025-12-06T11:47:19.402Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;曲线草图&quot;&gt;&lt;a href=&quot;#曲线草图&quot; class=&quot;headerlink&quot; title=&quot;曲线草图&quot;&gt;&lt;/a&gt;曲线草图&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;目标：&lt;/strong&gt; 使用 &lt;mjx-container class=&quot;MathJax&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-1-线性和二次逼近</title>
+    <link href="https://gustavo1841.github.io/2025/12/03/shu-xue/wei-ji-fen/03-1-xian-xing-he-er-ci-bi-jin/"/>
+    <id>https://gustavo1841.github.io/2025/12/03/shu-xue/wei-ji-fen/03-1-xian-xing-he-er-ci-bi-jin/</id>
+    <published>2025-12-03T02:39:43.000Z</published>
+    <updated>2025-12-06T11:47:19.393Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;线性和二次逼近&quot;&gt;&lt;a href=&quot;#线性和二次逼近&quot; class=&quot;headerlink&quot; title=&quot;线性和二次逼近&quot;&gt;&lt;/a&gt;线性和二次逼近&lt;/h1&gt;&lt;p&gt;今天，我们将使用微分来进行逼近。&lt;/p&gt;
+&lt;h2 id=&quot;线性逼近&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>02-6-指数和对数、对数微分法、双曲函数</title>
+    <link href="https://gustavo1841.github.io/2025/12/02/shu-xue/wei-ji-fen/02-6-zhi-shu-he-dui-shu-dui-shu-wei-fen-fa-shuang-qu-han-shu/"/>
+    <id>https://gustavo1841.github.io/2025/12/02/shu-xue/wei-ji-fen/02-6-zhi-shu-he-dui-shu-dui-shu-wei-fen-fa-shuang-qu-han-shu/</id>
+    <published>2025-12-02T06:02:40.000Z</published>
+    <updated>2025-12-06T11:47:19.386Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;指数和对数、对数微分法、双曲函数&quot;&gt;&lt;a href=&quot;#指数和对数、对数微分法、双曲函数&quot; class=&quot;headerlink&quot; title=&quot;指数和对数、对数微分法、双曲函数&quot;&gt;&lt;/a&gt;指数和对数、对数微分法、双曲函数&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>02-5-隐式微分和逆</title>
     <link href="https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-5-yin-shi-wei-fen-he-ni/"/>
     <id>https://gustavo1841.github.io/2025/12/01/shu-xue/wei-ji-fen/02-5-yin-shi-wei-fen-he-ni/</id>
     <published>2025-12-01T07:06:07.000Z</published>
-    <updated>2025-12-01T07:13:37.929Z</updated>
+    <updated>2025-12-06T11:47:19.378Z</updated>
     
     
       
@@ -156,7 +319,7 @@
     <link href="https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/"/>
     <id>https://gustavo1841.github.io/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/</id>
     <published>2025-11-29T09:48:13.000Z</published>
-    <updated>2025-12-01T07:13:00.437Z</updated>
+    <updated>2025-12-06T11:47:19.363Z</updated>
     
     
       
@@ -348,7 +511,7 @@
     <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/"/>
     <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/</id>
     <published>2025-11-25T09:43:08.000Z</published>
-    <updated>2025-12-01T07:12:13.925Z</updated>
+    <updated>2025-12-06T11:47:19.370Z</updated>
     
     
       
@@ -394,165 +557,6 @@
     <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
     <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-2-数列</title>
-    <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-2-shu-lie/"/>
-    <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-2-shu-lie/</id>
-    <published>2025-11-25T09:42:55.000Z</published>
-    <updated>2025-12-01T07:10:48.344Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;等差数列：&lt;ul&gt;
-&lt;li&gt;递推公式：&lt;mjx-container class=&quot;MathJax&quot; jax=&quot;SVG&quot;&gt;&lt;svg style=&quot;vertical-align: -0.471ex;&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-1-集合</title>
-    <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-1-ji-he/"/>
-    <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-1-ji-he/</id>
-    <published>2025-11-25T09:40:53.000Z</published>
-    <updated>2025-12-01T07:09:48.274Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;绝对值&quot;&gt;&lt;a href=&quot;#绝对值&quot; class=&quot;headerlink&quot; title=&quot;绝对值&quot;&gt;&lt;/a&gt;绝对值&lt;/h1&gt;&lt;p&gt;&lt;mjx-container class=&quot;MathJax&quot; jax=&quot;SVG&quot;&gt;&lt;svg</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>技术面的那些事儿(一)</title>
-    <link href="https://gustavo1841.github.io/2025/09/04/jiao-yi-ti-xi/01-ji-zhu-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/09/04/jiao-yi-ti-xi/01-ji-zhu-mian-de-na-xie-shi-er/</id>
-    <published>2025-09-04T03:06:30.000Z</published>
-    <updated>2025-11-29T03:56:46.594Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;常用的交易技术&quot;&gt;&lt;a href=&quot;#常用的交易技术&quot; class=&quot;headerlink&quot; title=&quot;常用的交易技术&quot;&gt;&lt;/a&gt;常用的交易技术&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;①-裸K跟交易（Price-Action-Trading）&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>12-基本面的那些事儿(十二)</title>
-    <link href="https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/12-ji-ben-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/12-ji-ben-mian-de-na-xie-shi-er/</id>
-    <published>2025-07-23T05:48:21.000Z</published>
-    <updated>2025-11-29T03:57:20.520Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、重点关注的宏观日期和事件&quot;&gt;&lt;a href=&quot;#一、重点关注的宏观日期和事件&quot; class=&quot;headerlink&quot; title=&quot;一、重点关注的宏观日期和事件&quot;&gt;&lt;/a&gt;一、重点关注的宏观日期和事件&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>11-基本面的那些事儿(十一)</title>
-    <link href="https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/11-ji-ben-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/11-ji-ben-mian-de-na-xie-shi-er/</id>
-    <published>2025-07-23T05:48:02.000Z</published>
-    <updated>2025-11-29T03:57:17.067Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这是关键的宏观周期判断问题，关系到你是否该提前布局&lt;strong&gt;资源股、大宗商品、化工、工业制造&lt;/strong&gt;等周期性行业。以下是系统化判断方法、信号来源、历史案例和具体操作建议。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10-基本面的那些事儿(十)</title>
-    <link href="https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/10-ji-ben-mian-de-na-xie-shi-er/"/>
-    <id>https://gustavo1841.github.io/2025/07/23/jiao-yi-ti-xi/10-ji-ben-mian-de-na-xie-shi-er/</id>
-    <published>2025-07-23T03:06:04.000Z</published>
-    <updated>2025-11-29T03:57:14.057Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;判断是否处于&lt;strong&gt;经济下行 /</summary>
-        
-      
-    
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/categories/trader/"/>
-    
-    
-    <category term="trader" scheme="https://gustavo1841.github.io/tags/trader/"/>
     
   </entry>
   

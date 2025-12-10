@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-12-09T13:58:26.710Z</updated>
+  <updated>2025-12-10T02:15:14.358Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>03-8-微分方程和变量分离</title>
+    <link href="https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-8-wei-fen-fang-cheng-he-bian-liang-fen-chi/"/>
+    <id>https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-8-wei-fen-fang-cheng-he-bian-liang-fen-chi/</id>
+    <published>2025-12-10T01:43:59.000Z</published>
+    <updated>2025-12-10T02:15:14.358Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;微分方程与分离变量法&quot;&gt;&lt;a href=&quot;#微分方程与分离变量法&quot; class=&quot;headerlink&quot; title=&quot;微分方程与分离变量法&quot;&gt;&lt;/a&gt;微分方程与分离变量法&lt;/h2&gt;&lt;h3 id=&quot;常微分方程-ODEs&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-7-微分与原函数</title>
+    <link href="https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-7-wei-fen-yu-yuan-han-shu/"/>
+    <id>https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-7-wei-fen-yu-yuan-han-shu/</id>
+    <published>2025-12-10T01:43:52.000Z</published>
+    <updated>2025-12-10T02:08:22.612Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;微分与原函数&quot;&gt;&lt;a href=&quot;#微分与原函数&quot; class=&quot;headerlink&quot; title=&quot;微分与原函数&quot;&gt;&lt;/a&gt;微分与原函数&lt;/h1&gt;&lt;p&gt;新记法：&lt;br&gt; 微分&lt;br&gt; &lt;mjx-container class=&quot;MathJax&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>03-6-中值定理与不等式</title>
+    <link href="https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-6-zhong-zhi-ding-li-yu-bu-deng-shi/"/>
+    <id>https://gustavo1841.github.io/2025/12/10/shu-xue/wei-ji-fen/03-6-zhong-zhi-ding-li-yu-bu-deng-shi/</id>
+    <published>2025-12-10T01:43:17.000Z</published>
+    <updated>2025-12-10T02:10:35.169Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;中值定理与不等式&quot;&gt;&lt;a href=&quot;#中值定理与不等式&quot; class=&quot;headerlink&quot; title=&quot;中值定理与不等式&quot;&gt;&lt;/a&gt;中值定理与不等式&lt;/h1&gt;&lt;p&gt; &lt;strong&gt;中值定理&lt;/strong&gt;&lt;br&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>03-5-牛顿法及其他应用</title>
@@ -75,7 +156,7 @@
     <link href="https://gustavo1841.github.io/2025/12/05/shu-xue/wei-ji-fen/03-3-zui-da-zhi-he-zui-xiao-zhi-wen-ti/"/>
     <id>https://gustavo1841.github.io/2025/12/05/shu-xue/wei-ji-fen/03-3-zui-da-zhi-he-zui-xiao-zhi-wen-ti/</id>
     <published>2025-12-05T04:51:35.000Z</published>
-    <updated>2025-12-06T11:47:19.411Z</updated>
+    <updated>2025-12-10T02:12:39.455Z</updated>
     
     
       
@@ -265,7 +346,7 @@
     <link href="https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-2-ji-xian-yu-lian-xu-xing-san-jiao-ji-xian/"/>
     <id>https://gustavo1841.github.io/2025/11/30/shu-xue/wei-ji-fen/02-2-ji-xian-yu-lian-xu-xing-san-jiao-ji-xian/</id>
     <published>2025-11-30T01:48:46.000Z</published>
-    <updated>2025-12-01T07:13:15.573Z</updated>
+    <updated>2025-12-10T02:12:05.471Z</updated>
     
     
       
@@ -465,87 +546,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;一元二次方程&quot;&gt;&lt;a href=&quot;#一元二次方程&quot; class=&quot;headerlink&quot; title=&quot;一元二次方程&quot;&gt;&lt;/a&gt;一元二次方程&lt;/h1&gt;&lt;p&gt;&lt;mjx-container class=&quot;MathJax&quot; jax=&quot;SVG&quot;&gt;&lt;svg</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-5-不等式</title>
-    <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-5-bu-deng-shi/"/>
-    <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-5-bu-deng-shi/</id>
-    <published>2025-11-25T09:43:15.000Z</published>
-    <updated>2025-12-01T07:12:18.668Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;不等式&quot;&gt;&lt;a href=&quot;#不等式&quot; class=&quot;headerlink&quot; title=&quot;不等式&quot;&gt;&lt;/a&gt;不等式&lt;/h1&gt;&lt;h2 id=&quot;如何比较两个数的大小？&quot;&gt;&lt;a href=&quot;#如何比较两个数的大小？&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-4-基本算数公式</title>
-    <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/"/>
-    <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/</id>
-    <published>2025-11-25T09:43:08.000Z</published>
-    <updated>2025-12-06T11:47:19.370Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;基本算术公式&quot;&gt;&lt;a href=&quot;#基本算术公式&quot; class=&quot;headerlink&quot; title=&quot;基本算术公式&quot;&gt;&lt;/a&gt;基本算术公式&lt;/h1&gt;&lt;h2 id=&quot;平方差公式&quot;&gt;&lt;a href=&quot;#平方差公式&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-3-命题</title>
-    <link href="https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-3-ming-ti/"/>
-    <id>https://gustavo1841.github.io/2025/11/25/shu-xue/wei-ji-fen/01-3-ming-ti/</id>
-    <published>2025-11-25T09:43:01.000Z</published>
-    <updated>2025-12-01T07:12:07.502Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;命题&quot;&gt;&lt;a href=&quot;#命题&quot; class=&quot;headerlink&quot; title=&quot;命题&quot;&gt;&lt;/a&gt;命题&lt;/h1&gt;&lt;h2 id=&quot;充分条件和必要条件&quot;&gt;&lt;a href=&quot;#充分条件和必要条件&quot; class=&quot;headerlink&quot;</summary>
         
       
     

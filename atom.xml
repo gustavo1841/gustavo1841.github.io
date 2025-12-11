@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-12-10T02:15:14.358Z</updated>
+  <updated>2025-12-11T03:17:23.641Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>04-1-定积分</title>
+    <link href="https://gustavo1841.github.io/2025/12/11/shu-xue/wei-ji-fen/04-1-ding-ji-fen/"/>
+    <id>https://gustavo1841.github.io/2025/12/11/shu-xue/wei-ji-fen/04-1-ding-ji-fen/</id>
+    <published>2025-12-11T03:11:34.000Z</published>
+    <updated>2025-12-11T03:17:23.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;定积分&quot;&gt;&lt;a href=&quot;#定积分&quot; class=&quot;headerlink&quot; title=&quot;定积分&quot;&gt;&lt;/a&gt;定积分&lt;/h2&gt;&lt;p&gt;积分可用于计算累计总量、平均值和面积。&lt;/p&gt;
+&lt;p&gt;曲线下的面积：(见图</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>03-8-微分方程和变量分离</title>
@@ -519,33 +547,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;初等基本函数&quot;&gt;&lt;a href=&quot;#初等基本函数&quot; class=&quot;headerlink&quot; title=&quot;初等基本函数&quot;&gt;&lt;/a&gt;初等基本函数&lt;/h1&gt;&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-6-一元二次方程</title>
-    <link href="https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-6-yi-yuan-er-ci-fang-cheng/"/>
-    <id>https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-6-yi-yuan-er-ci-fang-cheng/</id>
-    <published>2025-11-26T01:29:13.000Z</published>
-    <updated>2025-12-01T07:12:23.659Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一元二次方程&quot;&gt;&lt;a href=&quot;#一元二次方程&quot; class=&quot;headerlink&quot; title=&quot;一元二次方程&quot;&gt;&lt;/a&gt;一元二次方程&lt;/h1&gt;&lt;p&gt;&lt;mjx-container class=&quot;MathJax&quot; jax=&quot;SVG&quot;&gt;&lt;svg</summary>
         
       
     

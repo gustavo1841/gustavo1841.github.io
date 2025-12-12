@@ -6,7 +6,7 @@
   <link href="https://gustavo1841.github.io/atom.xml" rel="self"/>
   
   <link href="https://gustavo1841.github.io/"/>
-  <updated>2025-12-11T03:17:23.641Z</updated>
+  <updated>2025-12-12T04:19:26.147Z</updated>
   <id>https://gustavo1841.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>04-3-微积分第二基本定理</title>
+    <link href="https://gustavo1841.github.io/2025/12/12/shu-xue/wei-ji-fen/04-3-wei-ji-fen-di-er-ji-ben-ding-li/"/>
+    <id>https://gustavo1841.github.io/2025/12/12/shu-xue/wei-ji-fen/04-3-wei-ji-fen-di-er-ji-ben-ding-li/</id>
+    <published>2025-12-12T04:16:46.000Z</published>
+    <updated>2025-12-12T04:19:26.147Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;微积分第二基本定理&quot;&gt;&lt;a href=&quot;#微积分第二基本定理&quot; class=&quot;headerlink&quot; title=&quot;微积分第二基本定理&quot;&gt;&lt;/a&gt;微积分第二基本定理&lt;/h1&gt;&lt;h3 id=&quot;回顾：微积分第一基本定理-FTC-1&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>04-2-微积分第一基本定理</title>
+    <link href="https://gustavo1841.github.io/2025/12/12/shu-xue/wei-ji-fen/04-2-wei-ji-fen-di-yi-ji-ben-ding-li/"/>
+    <id>https://gustavo1841.github.io/2025/12/12/shu-xue/wei-ji-fen/04-2-wei-ji-fen-di-yi-ji-ben-ding-li/</id>
+    <published>2025-12-12T04:16:36.000Z</published>
+    <updated>2025-12-12T04:19:22.317Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;微积分第一基本定理&quot;&gt;&lt;a href=&quot;#微积分第一基本定理&quot; class=&quot;headerlink&quot; title=&quot;微积分第一基本定理&quot;&gt;&lt;/a&gt;微积分第一基本定理&lt;/h1&gt;&lt;h3 id=&quot;微积分基本定理（FTC-1）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>04-1-定积分</title>
@@ -493,60 +547,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;数学归纳法&quot;&gt;&lt;a href=&quot;#数学归纳法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-8-解析几何</title>
-    <link href="https://gustavo1841.github.io/2025/11/27/shu-xue/wei-ji-fen/01-8-jie-xi-ji-he/"/>
-    <id>https://gustavo1841.github.io/2025/11/27/shu-xue/wei-ji-fen/01-8-jie-xi-ji-he/</id>
-    <published>2025-11-27T01:24:58.000Z</published>
-    <updated>2025-12-01T07:12:37.355Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;几何向量&quot;&gt;&lt;a href=&quot;#几何向量&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="数学" scheme="https://gustavo1841.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="微积分" scheme="https://gustavo1841.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01-7-初等基本函数</title>
-    <link href="https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-7-chu-deng-ji-ben-han-shu/"/>
-    <id>https://gustavo1841.github.io/2025/11/26/shu-xue/wei-ji-fen/01-7-chu-deng-ji-ben-han-shu/</id>
-    <published>2025-11-26T01:29:25.000Z</published>
-    <updated>2025-12-01T07:12:29.807Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;初等基本函数&quot;&gt;&lt;a href=&quot;#初等基本函数&quot; class=&quot;headerlink&quot; title=&quot;初等基本函数&quot;&gt;&lt;/a&gt;初等基本函数&lt;/h1&gt;&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot;</summary>
         
       
     

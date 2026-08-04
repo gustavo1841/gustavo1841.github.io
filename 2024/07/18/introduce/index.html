@@ -1,0 +1,1868 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="读书笔记导航页, Gustavo">
+    <meta name="description" content="数学微积分
+01-微积分基础
+
+01-1-集合
+01-2-数列
+01-3-命题
+01-4-基本算数公式
+01-5-不等式
+01-6-一元二次方程
+01-7-初等基本函数
+01-8-解析几何
+01-9-数学归纳法
+01-10-任何函数求导
+0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="referrer" content="no-referrer"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>读书笔记导航页 | Gustavo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Gustavo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Gustavo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/gustavo1841" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/gustavo1841" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/832.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">读书笔记导航页</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AF%BC%E8%88%AA%E9%A1%B5/">
+                                <span class="chip bg-color">导航页</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AF%BC%E8%88%AA%E9%A1%B5/" class="post-category">
+                                导航页
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-07-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2026-08-04
+                </div>
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><h2 id="微积分"><a href="#微积分" class="headerlink" title="微积分"></a>微积分</h2><ul>
+<li><a href="/2025/01/14/shu-xue/wei-ji-fen/01-wei-ji-fen-ji-chu/" title="01-微积分基础">01-微积分基础</a>
+<ul>
+<li><a href="/2025/11/25/shu-xue/wei-ji-fen/01-1-ji-he/" title="01-1-集合">01-1-集合</a></li>
+<li><a href="/2025/11/25/shu-xue/wei-ji-fen/01-2-shu-lie/" title="01-2-数列">01-2-数列</a></li>
+<li><a href="/2025/11/25/shu-xue/wei-ji-fen/01-3-ming-ti/" title="01-3-命题">01-3-命题</a></li>
+<li><a href="/2025/11/25/shu-xue/wei-ji-fen/01-4-ji-ben-suan-shu-gong-shi/" title="01-4-基本算数公式">01-4-基本算数公式</a></li>
+<li><a href="/2025/11/25/shu-xue/wei-ji-fen/01-5-bu-deng-shi/" title="01-5-不等式">01-5-不等式</a></li>
+<li><a href="/2025/11/26/shu-xue/wei-ji-fen/01-6-yi-yuan-er-ci-fang-cheng/" title="01-6-一元二次方程">01-6-一元二次方程</a></li>
+<li><a href="/2025/11/26/shu-xue/wei-ji-fen/01-7-chu-deng-ji-ben-han-shu/" title="01-7-初等基本函数">01-7-初等基本函数</a></li>
+<li><a href="/2025/11/27/shu-xue/wei-ji-fen/01-8-jie-xi-ji-he/" title="01-8-解析几何">01-8-解析几何</a></li>
+<li><a href="/2025/11/28/shu-xue/wei-ji-fen/01-9-shu-xue-gui-na-fa/" title="01-9-数学归纳法">01-9-数学归纳法</a></li>
+<li><a href="/2025/11/29/shu-xue/wei-ji-fen/01-10-ren-he-han-shu-qiu-dao/" title="01-10-任何函数求导">01-10-任何函数求导</a></li>
+<li><a href="/2025/11/29/shu-xue/wei-ji-fen/01-11-san-jiao-han-shu/" title="01-11-三角函数">01-11-三角函数</a></li>
+</ul>
+</li>
+<li>微积分02:单变量微积分<ul>
+<li>导数<ul>
+<li><a href="/2025/11/29/shu-xue/wei-ji-fen/02-1-dao-shu-xie-lu-su-du-he-bian-hua-lu/" title="02-1-导数、斜率、速度和变化率">02-1-导数、斜率、速度和变化率</a></li>
+<li><a href="/2025/11/30/shu-xue/wei-ji-fen/02-2-ji-xian-yu-lian-xu-xing-san-jiao-ji-xian/" title="02-2-极限与连续性三角极限">02-2-极限与连续性三角极限</a></li>
+<li><a href="/2025/11/30/shu-xue/wei-ji-fen/02-3-cheng-ji-shang-zheng-xian-yu-xian-de-dao-shu/" title="02-3-乘积、商、正弦、余弦的导数">02-3-乘积、商、正弦、余弦的导数</a></li>
+<li><a href="/2025/12/01/shu-xue/wei-ji-fen/02-4-lian-shi-fa-ze-he-gao-jie-dao-shu/" title="02-4-链式法则和高阶导数">02-4-链式法则和高阶导数</a></li>
+<li><a href="/2025/12/01/shu-xue/wei-ji-fen/02-5-yin-shi-wei-fen-he-ni/" title="02-5-隐式微分和逆">02-5-隐式微分和逆</a></li>
+<li><a href="/2025/12/02/shu-xue/wei-ji-fen/02-6-zhi-shu-he-dui-shu-dui-shu-wei-fen-fa-shuang-qu-han-shu/" title="02-6-指数和对数、对数微分法、双曲函数">02-6-指数和对数、对数微分法、双曲函数</a></li>
+</ul>
+</li>
+<li>微分的应用<ul>
+<li><a href="/2025/12/03/shu-xue/wei-ji-fen/03-1-xian-xing-he-er-ci-bi-jin/" title="03-1-线性和二次逼近">03-1-线性和二次逼近</a></li>
+<li><a href="/2025/12/04/shu-xue/wei-ji-fen/03-2-qu-xian-cao-tu-de-hui-zhi/" title="03-2-曲线草图的绘制">03-2-曲线草图的绘制</a></li>
+<li><a href="/2025/12/05/shu-xue/wei-ji-fen/03-3-zui-da-zhi-he-zui-xiao-zhi-wen-ti/" title="03-3-最大值和最小值问题">03-3-最大值和最小值问题</a></li>
+<li><a href="/2025/12/09/shu-xue/wei-ji-fen/03-4-xiang-guan-bian-hua-lu/" title="03-4-相关变化率">03-4-相关变化率</a></li>
+<li><a href="/2025/12/09/shu-xue/wei-ji-fen/03-5-niu-dun-fa-ji-qi-ta-ying-yong/" title="03-5-牛顿法及其他应用">03-5-牛顿法及其他应用</a></li>
+<li><a href="/2025/12/10/shu-xue/wei-ji-fen/03-6-zhong-zhi-ding-li-yu-bu-deng-shi/" title="03-6-中值定理与不等式">03-6-中值定理与不等式</a></li>
+<li><a href="/2025/12/10/shu-xue/wei-ji-fen/03-7-wei-fen-yu-yuan-han-shu/" title="03-7-微分与原函数">03-7-微分与原函数</a></li>
+<li><a href="/2025/12/10/shu-xue/wei-ji-fen/03-8-wei-fen-fang-cheng-he-bian-liang-fen-chi/" title="03-8-微分方程和变量分离">03-8-微分方程和变量分离</a></li>
+</ul>
+</li>
+<li>积分<ul>
+<li><a href="/2025/12/11/shu-xue/wei-ji-fen/04-1-ding-ji-fen/" title="04-1-定积分">04-1-定积分</a></li>
+<li><a href="/2025/12/12/shu-xue/wei-ji-fen/04-2-wei-ji-fen-di-yi-ji-ben-ding-li/" title="04-2-微积分第一基本定理">04-2-微积分第一基本定理</a></li>
+<li><a href="/2025/12/12/shu-xue/wei-ji-fen/04-3-wei-ji-fen-di-er-ji-ben-ding-li/" title="04-3-微积分第二基本定理">04-3-微积分第二基本定理</a></li>
+<li><a href="/2025/12/12/shu-xue/wei-ji-fen/04-4-dui-shu-he-ji-he-de-ying-yong/" title="04-4-对数和几何的应用">04-4-对数和几何的应用</a></li>
+<li><a href="/2025/12/13/shu-xue/wei-ji-fen/04-5-yuan-pan-fa-yu-yuan-zhu-ke-fa-qiu-ti-ji/" title="04-5-圆盘法与圆柱壳法求体积">04-5-圆盘法与圆柱壳法求体积</a></li>
+<li><a href="/2025/12/18/shu-xue/wei-ji-fen/04-6-gong-ping-jun-zhi-gai-lu/" title="04-6-功、平均值、概率">04-6-功、平均值、概率</a></li>
+<li><a href="/2025/12/18/shu-xue/wei-ji-fen/04-7-shu-zhi-ji-fen/" title="04-7-数值积分">04-7-数值积分</a></li>
+</ul>
+</li>
+<li>积分方法<ul>
+<li><a href="/2025/12/19/shu-xue/wei-ji-fen/05-1-san-jiao-ji-fen-yu-san-jiao-huan-yuan/" title="05-1-三角积分与三角换元">05-1-三角积分与三角换元</a></li>
+<li><a href="/2025/12/20/shu-xue/wei-ji-fen/05-2-fan-xiang-huan-yuan-yu-pei-fang-fa/" title="05-2-反向换元与配方法">05-2-反向换元与配方法</a></li>
+<li><a href="/2025/12/21/shu-xue/wei-ji-fen/05-3-bu-fen-fen-shi/" title="05-3-部分分式">05-3-部分分式</a></li>
+<li><a href="/2025/12/22/shu-xue/wei-ji-fen/05-4-fen-bu-ji-fen-di-tui-gong-shi-yu-hu-chang/" title="05-4-分部积分递推公式与弧长">05-4-分部积分递推公式与弧长</a></li>
+<li><a href="/2025/12/23/shu-xue/wei-ji-fen/05-5-can-shu-fang-cheng-hu-chang-yu-biao-mian-ji/" title="05-5-参数方程弧长与表面积">05-5-参数方程弧长与表面积</a></li>
+<li><a href="/2025/12/24/shu-xue/wei-ji-fen/05-6-ji-zuo-biao-yu-ji-zuo-biao-mian-ji/" title="05-6-极坐标与极坐标面积">05-6-极坐标与极坐标面积</a></li>
+<li><a href="/2025/12/25/shu-xue/wei-ji-fen/05-7-bu-ding-shi-yu-luo-bi-da-fa-ze/" title="05-7-不定式与洛必达法则">05-7-不定式与洛必达法则</a></li>
+<li><a href="/2025/12/26/shu-xue/wei-ji-fen/05-8-fan-chang-ji-fen/" title="05-8-反常积分">05-8-反常积分</a></li>
+<li><a href="/2025/12/27/shu-xue/wei-ji-fen/05-9-wu-qiong-ji-shu-yu-shou-lian-pan-bie/" title="05-9-无穷级数与收敛判别">05-9-无穷级数与收敛判别</a></li>
+<li><a href="/2025/12/28/shu-xue/wei-ji-fen/05-10-tai-le-ji-shu/" title="05-10-泰勒级数">05-10-泰勒级数</a></li>
+<li><a href="/2026/01/20/shu-xue/wei-ji-fen/05-33-qi-mo-fu-xi/" title="05-33-期末复习">05-33-期末复习</a></li>
+<li><a href="/2026/01/21/shu-xue/wei-ji-fen/05-34-xi-ti-ji-1/" title="05-34-习题集1">05-34-习题集1</a></li>
+<li><a href="/2026/01/22/shu-xue/wei-ji-fen/05-35-di-san-ci-kao-shi-fu-xi/" title="05-35-第三次考试复习">05-35-第三次考试复习</a></li>
+<li><a href="/2026/01/23/shu-xue/wei-ji-fen/05-36-di-si-ci-kao-shi-fu-xi/" title="05-36-第四次考试复习">05-36-第四次考试复习</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微积分03:多变量微积分<ul>
+<li>向量和矩阵<ul>
+<li><a href="/2026/01/24/shu-xue/wei-ji-fen/06-1-xiang-liang-dian-ji-yu-cha-ji/" title="06-1-向量点积与叉积">06-1-向量点积与叉积</a></li>
+<li><a href="/2026/01/25/shu-xue/wei-ji-fen/06-2-ju-zhen-ping-mian-zhi-xian-yu-can-shu-qu-xian/" title="06-2-矩阵平面直线与参数曲线">06-2-矩阵平面直线与参数曲线</a></li>
+<li><a href="/2026/01/26/shu-xue/wei-ji-fen/06-3-su-du-jia-su-du-yu-kepler-di-er-ding-lu/" title="06-3-速度加速度与Kepler第二定律">06-3-速度加速度与Kepler第二定律</a></li>
+</ul>
+</li>
+<li>偏导数<ul>
+<li><a href="/2026/01/27/shu-xue/wei-ji-fen/06-4-duo-bian-liang-han-shu-pian-dao-shu-yu-er-jie-dao-shu-pan-bie/" title="06-4-多变量函数偏导数与二阶导数判别">06-4-多变量函数偏导数与二阶导数判别</a></li>
+<li><a href="/2026/01/28/shu-xue/wei-ji-fen/06-5-quan-wei-fen-ti-du-fang-xiang-dao-shu-yu-lagrange-cheng-zi/" title="06-5-全微分梯度方向导数与Lagrange乘子">06-5-全微分梯度方向导数与Lagrange乘子</a></li>
+<li><a href="/2026/01/29/shu-xue/wei-ji-fen/06-6-fei-du-li-bian-liang-yu-yue-shu-pian-dao-shu/" title="06-6-非独立变量与约束偏导数">06-6-非独立变量与约束偏导数</a></li>
+</ul>
+</li>
+<li>平面上的二重积分和线积分<ul>
+<li><a href="/2026/01/30/shu-xue/wei-ji-fen/06-7-er-chong-ji-fen-ji-zuo-biao-yu-zhi-liang-xing-zhi/" title="06-7-二重积分极坐标与质量性质">06-7-二重积分极坐标与质量性质</a></li>
+<li><a href="/2026/01/31/shu-xue/wei-ji-fen/06-8-bian-liang-ti-huan-xiang-liang-chang-yu-xian-ji-fen/" title="06-8-变量替换向量场与线积分">06-8-变量替换向量场与线积分</a></li>
+<li><a href="/2026/02/01/shu-xue/wei-ji-fen/06-9-xuan-du-green-ding-li-tong-liang-yu-san-du/" title="06-9-旋度Green定理通量与散度">06-9-旋度Green定理通量与散度</a></li>
+<li><a href="/2026/02/02/shu-xue/wei-ji-fen/06-10-dan-lian-tong-qu-yu-yu-san-chong-ji-fen-dao-lun/" title="06-10-单连通区域与三重积分导论">06-10-单连通区域与三重积分导论</a></li>
+</ul>
+</li>
+<li>三维空间中的三重积分和曲面积分<ul>
+<li><a href="/2026/02/03/shu-xue/wei-ji-fen/06-11-qiu-zuo-biao-kong-jian-xiang-liang-chang-yu-qu-mian-ji-fen/" title="06-11-球坐标空间向量场与曲面积分">06-11-球坐标空间向量场与曲面积分</a></li>
+<li><a href="/2026/02/04/shu-xue/wei-ji-fen/06-12-san-du-ding-li-del-suan-zi-yu-kuo-san-fang-cheng/" title="06-12-散度定理del算子与扩散方程">06-12-散度定理del算子与扩散方程</a></li>
+<li><a href="/2026/02/05/shu-xue/wei-ji-fen/06-13-kong-jian-xuan-du-stokes-ding-li-yu-lu-jing-wu-guan/" title="06-13-空间旋度Stokes定理与路径无关">06-13-空间旋度Stokes定理与路径无关</a></li>
+<li><a href="/2026/02/06/shu-xue/wei-ji-fen/06-14-div-yu-curl-de-wu-li-ying-yong/" title="06-14-div与curl的物理应用">06-14-div与curl的物理应用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>微积分04:微分方程<ul>
+<li>一阶微分方程<ul>
+<li><a href="/2026/02/07/shu-xue/wei-ji-fen/07-1-dao-lun-yu-chu-bu-fang-fa/" title="07-1-导论与初步方法">07-1-导论与初步方法</a></li>
+<li><a href="/2026/02/08/shu-xue/wei-ji-fen/07-2-shu-zhi-fang-fa/" title="07-2-数值方法">07-2-数值方法</a></li>
+<li><a href="/2026/02/09/shu-xue/wei-ji-fen/07-3-yi-jie-xian-xing-fang-cheng-yu-xi-tong-xin-hao/" title="07-3-一阶线性方程与系统信号">07-3-一阶线性方程与系统信号</a></li>
+<li><a href="/2026/02/10/shu-xue/wei-ji-fen/07-4-ji-fen-yin-zi/" title="07-4-积分因子">07-4-积分因子</a></li>
+<li><a href="/2026/02/11/shu-xue/wei-ji-fen/07-5-fu-shu-yu-dan-wei-gen/" title="07-5-复数与单位根">07-5-复数与单位根</a></li>
+<li><a href="/2026/02/12/shu-xue/wei-ji-fen/07-6-fu-zhi-shu/" title="07-6-复指数">07-6-复指数</a></li>
+<li><a href="/2026/02/13/shu-xue/wei-ji-fen/07-7-zhi-shu-yu-zheng-xian-shu-ru-shu-chu/" title="07-7-指数与正弦输入输出">07-7-指数与正弦输入输出</a></li>
+<li><a href="/2026/02/14/shu-xue/wei-ji-fen/07-8-zi-zhi-fang-cheng/" title="07-8-自治方程">07-8-自治方程</a></li>
+<li><a href="/2026/02/15/shu-xue/wei-ji-fen/07-9-xian-xing-yu-fei-xian-xing/" title="07-9-线性与非线性">07-9-线性与非线性</a></li>
+</ul>
+</li>
+<li>二阶线性方程组<ul>
+<li><a href="/2026/02/16/shu-xue/wei-ji-fen/07-11-er-jie-xian-xing-fang-cheng/" title="07-11-二阶线性方程">07-11-二阶线性方程</a></li>
+<li><a href="/2026/02/17/shu-xue/wei-ji-fen/07-12-zu-ni-zhen-dong/" title="07-12-阻尼振动">07-12-阻尼振动</a></li>
+<li><a href="/2026/02/18/shu-xue/wei-ji-fen/07-13-shou-po-xian-xing-fang-cheng/" title="07-13-受迫线性方程">07-13-受迫线性方程</a></li>
+<li><a href="/2026/02/19/shu-xue/wei-ji-fen/07-14-fu-zeng-yi/" title="07-14-复增益">07-14-复增益</a></li>
+<li><a href="/2026/02/20/shu-xue/wei-ji-fen/07-15-suan-zi-duo-xiang-shi-xin-hao-yu-gong-zhen/" title="07-15-算子多项式信号与共振">07-15-算子多项式信号与共振</a></li>
+<li><a href="/2026/02/21/shu-xue/wei-ji-fen/07-16-pin-lu-xiang-ying/" title="07-16-频率响应">07-16-频率响应</a></li>
+<li><a href="/2026/02/22/shu-xue/wei-ji-fen/07-17-xian-xing-yu-shi-bu-bian-xing/" title="07-17-线性与时不变性">07-17-线性与时不变性</a></li>
+<li><a href="/2026/02/23/shu-xue/wei-ji-fen/07-18-gong-cheng-zhen-dong-ying-yong/" title="07-18-工程振动应用">07-18-工程振动应用</a></li>
+</ul>
+</li>
+<li>傅里叶级数<ul>
+<li><a href="/2026/02/24/shu-xue/wei-ji-fen/07-20-zhou-qi-xin-hao-yu-fu-li-xie-ji-shu/" title="07-20-周期信号与傅里叶级数">07-20-周期信号与傅里叶级数</a></li>
+<li><a href="/2026/02/25/shu-xue/wei-ji-fen/07-21-fu-li-xie-ji-shu-er/" title="07-21-傅里叶级数二">07-21-傅里叶级数二</a></li>
+<li><a href="/2026/02/26/shu-xue/wei-ji-fen/07-22-fu-li-xie-ji-shu-san/" title="07-22-傅里叶级数三">07-22-傅里叶级数三</a></li>
+<li><a href="/2026/02/27/shu-xue/wei-ji-fen/07-23-jie-yue-yu-chong-ji/" title="07-23-阶跃与冲激">07-23-阶跃与冲激</a></li>
+<li><a href="/2026/02/28/shu-xue/wei-ji-fen/07-24-dan-wei-jie-yue-yu-chong-ji-xiang-ying/" title="07-24-单位阶跃与冲激响应">07-24-单位阶跃与冲激响应</a></li>
+<li><a href="/2026/03/01/shu-xue/wei-ji-fen/07-25-juan-ji/" title="07-25-卷积">07-25-卷积</a></li>
+</ul>
+</li>
+<li>拉普拉斯变换<ul>
+<li><a href="/2026/03/02/shu-xue/wei-ji-fen/07-26-la-pu-la-si-bian-huan-ji-chu/" title="07-26-拉普拉斯变换基础">07-26-拉普拉斯变换基础</a></li>
+<li><a href="/2026/03/03/shu-xue/wei-ji-fen/07-27-la-pu-la-si-bian-huan-er/" title="07-27-拉普拉斯变换二">07-27-拉普拉斯变换二</a></li>
+<li><a href="/2026/03/04/shu-xue/wei-ji-fen/07-28-la-pu-la-si-bian-huan-san/" title="07-28-拉普拉斯变换三">07-28-拉普拉斯变换三</a></li>
+<li><a href="/2026/03/05/shu-xue/wei-ji-fen/07-29-ji-dian-tu/" title="07-29-极点图">07-29-极点图</a></li>
+<li><a href="/2026/03/06/shu-xue/wei-ji-fen/07-30-ji-dian-yu-fu-pin-xiang-ying/" title="07-30-极点与幅频响应">07-30-极点与幅频响应</a></li>
+</ul>
+</li>
+<li>一阶系统<ul>
+<li><a href="/2026/03/07/shu-xue/wei-ji-fen/07-32-yi-jie-xian-xing-xi-tong-dao-lun/" title="07-32-一阶线性系统导论">07-32-一阶线性系统导论</a></li>
+<li><a href="/2026/03/08/shu-xue/wei-ji-fen/07-33-te-zheng-zhi-yu-te-zheng-xiang-liang/" title="07-33-特征值与特征向量">07-33-特征值与特征向量</a></li>
+<li><a href="/2026/03/09/shu-xue/wei-ji-fen/07-34-fu-te-zheng-zhi-yu-chong-te-zheng-zhi/" title="07-34-复特征值与重特征值">07-34-复特征值与重特征值</a></li>
+<li><a href="/2026/03/10/shu-xue/wei-ji-fen/07-35-xian-xing-xiang-tu-fen-lei/" title="07-35-线性相图分类">07-35-线性相图分类</a></li>
+<li><a href="/2026/03/11/shu-xue/wei-ji-fen/07-36-ju-zhen-zhi-shu/" title="07-36-矩阵指数">07-36-矩阵指数</a></li>
+<li><a href="/2026/03/12/shu-xue/wei-ji-fen/07-37-xiang-liang-chang-yu-fei-xian-xing-xi-tong/" title="07-37-向量场与非线性系统">07-37-向量场与非线性系统</a></li>
+<li><a href="/2026/03/13/shu-xue/wei-ji-fen/07-38-fei-xian-xing-bai-yu-gong-cheng-xian-xing-hua/" title="07-38-非线性摆与工程线性化">07-38-非线性摆与工程线性化</a></li>
+<li><a href="/2026/03/14/shu-xue/wei-ji-fen/07-39-xian-xing-hua-de-ju-xian-ji-xian-huan-yu-hun-dun/" title="07-39-线性化的局限极限环与混沌">07-39-线性化的局限极限环与混沌</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del><a href="/2025/01/20/shu-xue/wei-ji-fen/02-ji-xian/" title="02-极限">02-极限</a></del></li>
+<li><del><a href="/2025/01/24/shu-xue/wei-ji-fen/03-dao-shu/" title="03-导数">03-导数</a></del></li>
+</ul>
+<h2 id="概率论"><a href="#概率论" class="headerlink" title="概率论"></a>概率论</h2><ul>
+<li><a href="/2026/04/09/shu-xue/gai-lu-lun/01-di-1-jiang-ji-he-yu-ji-shu/" title="01-第1讲-集合与计数">01-第1讲-集合与计数</a></li>
+<li><a href="/2026/04/10/shu-xue/gai-lu-lun/02-di-2-jiang-gai-lu-zhu-yu-yu-li-ti/" title="02-第2讲-概率术语与例题">02-第2讲-概率术语与例题</a></li>
+<li><a href="/2026/04/11/shu-xue/gai-lu-lun/03-di-3-jiang-tiao-jian-gai-lu-du-li-xing-yu-bei-xie-si-ding-li/" title="03-第3讲-条件概率独立性与贝叶斯定理">03-第3讲-条件概率独立性与贝叶斯定理</a></li>
+<li><a href="/2026/04/12/shu-xue/gai-lu-lun/04-di-4-jiang-chi-san-sui-ji-bian-liang-yu-qi-wang/" title="04-第4讲-离散随机变量与期望">04-第4讲-离散随机变量与期望</a></li>
+<li><a href="/2026/04/13/shu-xue/gai-lu-lun/05-di-5a-jiang-fang-chai-yu-lian-xu-sui-ji-bian-liang/" title="05-第5a讲-方差与连续随机变量">05-第5a讲-方差与连续随机变量</a></li>
+<li><a href="/2026/04/14/shu-xue/gai-lu-lun/06-di-5b-jiang-chang-jian-lian-xu-fen-bu-yu-zhi-fang-tu/" title="06-第5b讲-常见连续分布与直方图">06-第5b讲-常见连续分布与直方图</a></li>
+<li><a href="/2026/04/15/shu-xue/gai-lu-lun/07-di-6a-jiang-lian-xu-xing-qi-wang-fen-wei-shu-yu-da-shu-ding-lu/" title="07-第6a讲-连续型期望分位数与大数定律">07-第6a讲-连续型期望分位数与大数定律</a></li>
+<li><a href="/2026/04/16/shu-xue/gai-lu-lun/08-di-6b-jiang-zhong-xin-ji-xian-ding-li/" title="08-第6b讲-中心极限定理">08-第6b讲-中心极限定理</a></li>
+<li><a href="/2026/04/17/shu-xue/gai-lu-lun/09-di-7-jiang-lian-he-fen-bu-xie-fang-chai-yu-xiang-guan/" title="09-第7讲-联合分布协方差与相关">09-第7讲-联合分布协方差与相关</a></li>
+<li><a href="/2026/04/18/shu-xue/gai-lu-lun/10-di-8-jiang-di-yi-ci-kao-shi-fu-xi/" title="10-第8讲-第一次考试复习">10-第8讲-第一次考试复习</a></li>
+<li><a href="/2026/04/19/shu-xue/gai-lu-lun/11-di-10-jiang-tong-ji-xue-dao-lun-yu-zui-da-si-ran-gu-ji/" title="11-第10讲-统计学导论与最大似然估计">11-第10讲-统计学导论与最大似然估计</a></li>
+<li><a href="/2026/04/20/shu-xue/gai-lu-lun/12-di-11-jiang-bei-xie-si-geng-xin-yu-chi-san-xian-yan/" title="12-第11讲-贝叶斯更新与离散先验">12-第11讲-贝叶斯更新与离散先验</a></li>
+<li><a href="/2026/04/21/shu-xue/gai-lu-lun/13-di-12-jiang-gai-lu-yu-ce-pei-lu-yu-bei-xie-si-yin-zi/" title="13-第12讲-概率预测赔率与贝叶斯因子">13-第12讲-概率预测赔率与贝叶斯因子</a></li>
+<li><a href="/2026/04/22/shu-xue/gai-lu-lun/14-di-13-jiang-lian-xu-xian-yan-yu-bei-xie-si-geng-xin/" title="14-第13讲-连续先验与贝叶斯更新">14-第13讲-连续先验与贝叶斯更新</a></li>
+<li><a href="/2026/04/23/shu-xue/gai-lu-lun/15-di-15-jiang-gong-e-xian-yan-beta-yu-zheng-tai/" title="15-第15讲-共轭先验Beta与正态">15-第15讲-共轭先验Beta与正态</a></li>
+<li><a href="/2026/04/24/shu-xue/gai-lu-lun/16-di-16-jiang-xian-yan-xuan-ze-yu-gai-lu-qu-jian/" title="16-第16讲-先验选择与概率区间">16-第16讲-先验选择与概率区间</a></li>
+<li><a href="/2026/04/25/shu-xue/gai-lu-lun/17-di-17-jiang-pin-lu-xue-pai-tong-ji-yu-jia-she-jian-yan/" title="17-第17讲-频率学派统计与假设检验">17-第17讲-频率学派统计与假设检验</a></li>
+<li><a href="/2026/04/26/shu-xue/gai-lu-lun/18-di-18-jiang-p-zhi-gong-xiao-yu-t-jian-yan/" title="18-第18讲-p值功效与t检验">18-第18讲-p值功效与t检验</a></li>
+<li><a href="/2026/04/27/shu-xue/gai-lu-lun/19-di-19-jiang-qia-fang-jian-yan-anova-yu-duo-chong-jian-yan/" title="19-第19讲-卡方检验ANOVA与多重检验">19-第19讲-卡方检验ANOVA与多重检验</a></li>
+<li><a href="/2026/04/28/shu-xue/gai-lu-lun/20-di-20-jiang-bei-xie-si-yu-pin-lu-xue-pai-tui-duan-bi-jiao/" title="20-第20讲-贝叶斯与频率学派推断比较">20-第20讲-贝叶斯与频率学派推断比较</a></li>
+<li><a href="/2026/04/29/shu-xue/gai-lu-lun/21-di-21-jiang-di-er-ci-kao-shi-fu-xi/" title="21-第21讲-第二次考试复习">21-第21讲-第二次考试复习</a></li>
+<li><a href="/2026/04/30/shu-xue/gai-lu-lun/22-di-22-jiang-zheng-tai-shu-ju-de-zhi-xin-qu-jian/" title="22-第22讲-正态数据的置信区间">22-第22讲-正态数据的置信区间</a></li>
+<li><a href="/2026/05/01/shu-xue/gai-lu-lun/23-di-23-jiang-zhi-xin-qu-jian-ii/" title="23-第23讲-置信区间II">23-第23讲-置信区间II</a></li>
+<li><a href="/2026/05/02/shu-xue/gai-lu-lun/24-di-24-jiang-zi-zhu-fa/" title="24-第24讲-自助法">24-第24讲-自助法</a></li>
+<li><a href="/2026/05/03/shu-xue/gai-lu-lun/25-di-26-jiang-xian-xing-hui-gui/" title="25-第26讲-线性回归">25-第26讲-线性回归</a></li>
+</ul>
+<h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><ul>
+<li><a href="/2026/03/29/shu-xue/xian-xing-dai-shu/01-qian-yan-yu-xian-xing-dai-shu-de-ji-ben-si-xiang/" title="01-前言与线性代数的基本思想">01-前言与线性代数的基本思想</a></li>
+<li><a href="/2026/03/30/shu-xue/xian-xing-dai-shu/02-qiu-jie-xian-xing-fang-cheng/" title="02-求解线性方程">02-求解线性方程</a></li>
+<li><a href="/2026/03/31/shu-xue/xian-xing-dai-shu/03-xiang-liang-kong-jian-yu-zi-kong-jian/" title="03-向量空间与子空间">03-向量空间与子空间</a></li>
+<li><a href="/2026/04/01/shu-xue/xian-xing-dai-shu/04-zheng-jiao-ju-zhen-yu-zui-xiao-er-cheng/" title="04-正交矩阵与最小二乘">04-正交矩阵与最小二乘</a></li>
+<li><a href="/2026/04/02/shu-xue/xian-xing-dai-shu/05-fang-zhen-de-xing-lie-shi/" title="05-方阵的行列式">05-方阵的行列式</a></li>
+<li><a href="/2026/04/03/shu-xue/xian-xing-dai-shu/06-te-zheng-zhi-yu-te-zheng-xiang-liang/" title="06-特征值与特征向量">06-特征值与特征向量</a></li>
+<li><a href="/2026/04/04/shu-xue/xian-xing-dai-shu/07-qi-yi-zhi-yu-qi-yi-xiang-liang/" title="07-奇异值与奇异向量">07-奇异值与奇异向量</a></li>
+<li><a href="/2026/04/05/shu-xue/xian-xing-dai-shu/08-xian-xing-bian-huan-ji-qi-ju-zhen/" title="08-线性变换及其矩阵">08-线性变换及其矩阵</a></li>
+<li><a href="/2026/04/06/shu-xue/xian-xing-dai-shu/09-fu-shu-yu-fourier-ju-zhen/" title="09-复数与Fourier矩阵">09-复数与Fourier矩阵</a></li>
+<li><a href="/2026/04/07/shu-xue/xian-xing-dai-shu/10-cong-shu-ju-zhong-xue-xi/" title="10-从数据中学习">10-从数据中学习</a></li>
+<li><a href="/2026/04/08/shu-xue/xian-xing-dai-shu/11-ji-chu-tong-ji/" title="11-基础统计">11-基础统计</a></li>
+<li><a href="/2026/04/08/shu-xue/xian-xing-dai-shu/12-zhu-yu-biao/" title="12-术语表">12-术语表</a></li>
+</ul>
+<h2 id="实分析"><a href="#实分析" class="headerlink" title="实分析"></a>实分析</h2><ul>
+<li><a href="/2026/04/09/shu-xue/shi-fen-xi/01-ji-he-ji-he-yun-suan-yu-shu-xue-gui-na-fa/" title="01-集合、集合运算与数学归纳法">01-集合、集合运算与数学归纳法</a></li>
+<li><a href="/2026/04/09/shu-xue/shi-fen-xi/02-cantor-de-ji-shu-li-lun/" title="02-Cantor 的基数理论">02-Cantor 的基数理论</a></li>
+<li><a href="/2026/04/10/shu-xue/shi-fen-xi/03-cantor-ding-li-yu-you-li-shu-de-shang-que-jie-que-xian/" title="03-Cantor 定理与有理数的上确界缺陷">03-Cantor 定理与有理数的上确界缺陷</a></li>
+<li><a href="/2026/04/10/shu-xue/shi-fen-xi/04-shi-shu-de-ke-hua/" title="04-实数的刻画">04-实数的刻画</a></li>
+<li><a href="/2026/04/11/shu-xue/shi-fen-xi/05-archimedes-xing-zhi-you-li-shu-chou-mi-xing-yu-jue-dui-zhi/" title="05-Archimedes 性质、有理数稠密性与绝对值">05-Archimedes 性质、有理数稠密性与绝对值</a></li>
+<li><a href="/2026/04/11/shu-xue/shi-fen-xi/06-shi-shu-de-bu-ke-shu-xing/" title="06-实数的不可数性">06-实数的不可数性</a></li>
+<li><a href="/2026/04/12/shu-xue/shi-fen-xi/07-shi-shu-shou-lian-xu-lie/" title="07-实数收敛序列">07-实数收敛序列</a></li>
+<li><a href="/2026/04/12/shu-xue/shi-fen-xi/08-jia-bi-ding-li-yu-shou-lian-xu-lie-de-yun-suan/" title="08-夹逼定理与收敛序列的运算">08-夹逼定理与收敛序列的运算</a></li>
+<li><a href="/2026/04/13/shu-xue/shi-fen-xi/09-shang-ji-xian-xia-ji-xian-yu-bolzano-weierstrass-ding-li/" title="09-上极限、下极限与 Bolzano–Weierstrass 定理">09-上极限、下极限与 Bolzano–Weierstrass 定理</a></li>
+<li><a href="/2026/04/13/shu-xue/shi-fen-xi/10-shi-shu-wan-bei-xing-yu-wu-qiong-ji-shu-ji-chu/" title="10-实数完备性与无穷级数基础">10-实数完备性与无穷级数基础</a></li>
+<li><a href="/2026/04/14/shu-xue/shi-fen-xi/11-jue-dui-shou-lian-yu-bi-jiao-pan-bie-fa/" title="11-绝对收敛与比较判别法">11-绝对收敛与比较判别法</a></li>
+<li><a href="/2026/04/14/shu-xue/shi-fen-xi/12-bi-zhi-gen-zhi-yu-jiao-cuo-ji-shu-pan-bie-fa/" title="12-比值、根值与交错级数判别法">12-比值、根值与交错级数判别法</a></li>
+<li><a href="/2026/04/15/shu-xue/shi-fen-xi/13-han-shu-ji-xian/" title="13-函数极限">13-函数极限</a></li>
+<li><a href="/2026/04/15/shu-xue/shi-fen-xi/14-yong-xu-lie-miao-shu-han-shu-ji-xian-yu-lian-xu-xing/" title="14-用序列描述函数极限与连续性">14-用序列描述函数极限与连续性</a></li>
+<li><a href="/2026/04/16/shu-xue/shi-fen-xi/15-zheng-xian-yu-xian-de-lian-xu-xing-yu-dirichlet-han-shu/" title="15-正弦、余弦的连续性与 Dirichlet 函数">15-正弦、余弦的连续性与 Dirichlet 函数</a></li>
+<li><a href="/2026/04/16/shu-xue/shi-fen-xi/16-zui-da-zui-xiao-zhi-ding-li-yu-bolzano-jie-zhi-ding-li/" title="16-最大最小值定理与 Bolzano 介值定理">16-最大最小值定理与 Bolzano 介值定理</a></li>
+<li><a href="/2026/04/17/shu-xue/shi-fen-xi/17-yi-zhi-lian-xu-yu-dao-shu-ding-yi/" title="17-一致连续与导数定义">17-一致连续与导数定义</a></li>
+<li><a href="/2026/04/17/shu-xue/shi-fen-xi/18-weierstrass-lian-xu-dan-chu-chu-bu-ke-wei-han-shu/" title="18-Weierstrass 连续但处处不可微函数">18-Weierstrass 连续但处处不可微函数</a></li>
+<li><a href="/2026/04/18/shu-xue/shi-fen-xi/19-qiu-dao-fa-ze-rolle-ding-li-yu-zhong-zhi-ding-li/" title="19-求导法则、Rolle 定理与中值定理">19-求导法则、Rolle 定理与中值定理</a></li>
+<li><a href="/2026/04/18/shu-xue/shi-fen-xi/20-taylor-ding-li-yu-riemann-he/" title="20-Taylor 定理与 Riemann 和">20-Taylor 定理与 Riemann 和</a></li>
+<li><a href="/2026/04/19/shu-xue/shi-fen-xi/21-lian-xu-han-shu-de-riemann-ji-fen/" title="21-连续函数的 Riemann 积分">21-连续函数的 Riemann 积分</a></li>
+<li><a href="/2026/04/19/shu-xue/shi-fen-xi/22-wei-ji-fen-ji-ben-ding-li-fen-bu-ji-fen-yu-huan-yuan/" title="22-微积分基本定理、分部积分与换元">22-微积分基本定理、分部积分与换元</a></li>
+<li><a href="/2026/04/20/shu-xue/shi-fen-xi/23-han-shu-lie-de-zhu-dian-shou-lian-yu-yi-zhi-shou-lian/" title="23-函数列的逐点收敛与一致收敛">23-函数列的逐点收敛与一致收敛</a></li>
+<li><a href="/2026/04/20/shu-xue/shi-fen-xi/24-yi-zhi-shou-lian-weierstrass-m-pan-bie-fa-yu-ji-xian-jiao-huan/" title="24-一致收敛、Weierstrass M 判别法与极限交换">24-一致收敛、Weierstrass M 判别法与极限交换</a></li>
+<li><a href="/2026/04/21/shu-xue/shi-fen-xi/25-mi-ji-shu-yu-weierstrass-bi-jin-ding-li/" title="25-幂级数与 Weierstrass 逼近定理">25-幂级数与 Weierstrass 逼近定理</a></li>
+</ul>
+<h2 id="数学及其在金融领域的应用专题"><a href="#数学及其在金融领域的应用专题" class="headerlink" title="数学及其在金融领域的应用专题"></a>数学及其在金融领域的应用专题</h2><ul>
+<li><a href="/2026/07/24/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/01-jin-rong-chan-pin-ru-he-jiao-yi/" title="01-金融产品如何交易？">01-金融产品如何交易？</a></li>
+<li><a href="/2026/07/24/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/02-xian-xing-dai-shu/" title="02-线性代数">02-线性代数</a></li>
+<li><a href="/2026/07/25/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/03-gai-lu-lun/" title="03-概率论">03-概率论</a></li>
+<li><a href="/2026/07/25/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/04-sui-ji-guo-cheng-i/" title="04-随机过程 I">04-随机过程 I</a></li>
+<li><a href="/2026/07/26/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/05-hui-gui-fen-xi/" title="05-回归分析">05-回归分析</a></li>
+<li><a href="/2026/07/26/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/06-feng-xian-jie-zhi-var-mo-xing/" title="06-风险价值（VaR）模型">06-风险价值（VaR）模型</a></li>
+<li><a href="/2026/07/27/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/07-shi-jian-xu-lie-fen-xi/" title="07-时间序列分析">07-时间序列分析</a></li>
+<li><a href="/2026/07/27/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/08-bo-dong-lu-jian-mo/" title="08-波动率建模">08-波动率建模</a></li>
+<li><a href="/2026/07/28/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/09-zheng-ze-hua-ding-jie-yu-feng-xian-mo-xing/" title="09-正则化定价与风险模型">09-正则化定价与风险模型</a></li>
+<li><a href="/2026/07/28/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/10-shi-jian-xu-lie-fen-xi-ii/" title="10-时间序列分析 II">10-时间序列分析 II</a></li>
+<li><a href="/2026/07/29/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/11-shi-jian-xu-lie-fen-xi-iii/" title="11-时间序列分析 III">11-时间序列分析 III</a></li>
+<li><a href="/2026/07/29/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/12-shang-pin-jian-mo/" title="12-商品建模">12-商品建模</a></li>
+<li><a href="/2026/07/30/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/13-tou-zi-zu-he-li-lun/" title="13-投资组合理论">13-投资组合理论</a></li>
+<li><a href="/2026/07/30/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/14-yin-zi-mo-xing/" title="14-因子模型">14-因子模型</a></li>
+<li><a href="/2026/07/31/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/15-tou-zi-zu-he-guan-li/" title="15-投资组合管理">15-投资组合管理</a></li>
+<li><a href="/2026/08/01/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/16-sui-ji-guo-cheng-ii/" title="16-随机过程 II">16-随机过程 II</a></li>
+<li><a href="/2026/08/01/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/17-ito-wei-ji-fen/" title="17-Itō 微积分">17-Itō 微积分</a></li>
+<li><a href="/2026/08/02/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/18-feng-xian-zhong-xing-ding-jie-yu-black-scholes-gong-shi/" title="18-风险中性定价与 Black–Scholes 公式">18-风险中性定价与 Black–Scholes 公式</a></li>
+<li><a href="/2026/08/02/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/19-sui-ji-wei-fen-fang-cheng/" title="19-随机微分方程">19-随机微分方程</a></li>
+<li><a href="/2026/08/03/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/20-quanto-xin-yong-dui-chong/" title="20-Quanto 信用对冲">20-Quanto 信用对冲</a></li>
+<li><a href="/2026/08/03/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/21-li-lu-yu-xin-yong-de-hjm-mo-xing/" title="21-利率与信用的 HJM 模型">21-利率与信用的 HJM 模型</a></li>
+<li><a href="/2026/08/04/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/22-wo-men-neng-fou-hui-fu-gai-lu/" title="22-我们能否恢复概率？">22-我们能否恢复概率？</a></li>
+<li><a href="/2026/08/04/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/23-jiao-yi-dui-shou-xin-yong-feng-xian-dao-lun/" title="23-交易对手信用风险导论">23-交易对手信用风险导论</a></li>
+</ul>
+<h2 id="高等概率论"><a href="#高等概率论" class="headerlink" title="高等概率论"></a>高等概率论</h2><ul>
+<li><a href="/2026/05/04/shu-xue/gao-deng-gai-lu-lun/01-gai-lu-kong-jian-yu-sigma-dai-shu/" title="01-概率空间与 sigma-代数">01-概率空间与 sigma-代数</a></li>
+<li><a href="/2026/05/05/shu-xue/gao-deng-gai-lu-lun/02-kuo-zhang-ding-li-gou-zao-ce-du-de-gong-ju/" title="02-扩张定理——构造测度的工具">02-扩张定理——构造测度的工具</a></li>
+<li><a href="/2026/05/06/shu-xue/gao-deng-gai-lu-lun/03-sui-ji-bian-liang-yu-fen-bu/" title="03-随机变量与分布">03-随机变量与分布</a></li>
+<li><a href="/2026/05/07/shu-xue/gao-deng-gai-lu-lun/04-ji-fen/" title="04-积分">04-积分</a></li>
+<li><a href="/2026/05/08/shu-xue/gao-deng-gai-lu-lun/05-ji-fen-yu-qi-wang-xu/" title="05-积分与期望（续）">05-积分与期望（续）</a></li>
+<li><a href="/2026/05/09/shu-xue/gao-deng-gai-lu-lun/06-da-shu-ding-lu-yu-du-li-xing/" title="06-大数定律与独立性">06-大数定律与独立性</a></li>
+<li><a href="/2026/05/10/shu-xue/gao-deng-gai-lu-lun/07-sui-ji-bian-liang-zhi-he/" title="07-随机变量之和">07-随机变量之和</a></li>
+<li><a href="/2026/05/11/shu-xue/gao-deng-gai-lu-lun/08-ruo-da-shu-ding-lu-yu-ju-mu-han-shu-te-zheng-han-shu/" title="08-弱大数定律与矩母函数／特征函数">08-弱大数定律与矩母函数／特征函数</a></li>
+<li><a href="/2026/05/12/shu-xue/gao-deng-gai-lu-lun/09-borel-cantelli-yin-li-yu-qiang-da-shu-ding-lu/" title="09-Borel—Cantelli 引理与强大数定律">09-Borel—Cantelli 引理与强大数定律</a></li>
+<li><a href="/2026/05/13/shu-xue/gao-deng-gai-lu-lun/10-ling-yi-lu-yu-ji-da-bu-deng-shi/" title="10-零一律与极大不等式">10-零一律与极大不等式</a></li>
+<li><a href="/2026/05/14/shu-xue/gao-deng-gai-lu-lun/11-du-li-sui-ji-bian-liang-de-he-yu-da-pian-chai/" title="11-独立随机变量的和与大偏差">11-独立随机变量的和与大偏差</a></li>
+<li><a href="/2026/05/15/shu-xue/gao-deng-gai-lu-lun/12-de-moivre-laplace-ding-li-yu-ruo-shou-lian/" title="12-De Moivre–Laplace 定理与弱收敛">12-De Moivre–Laplace 定理与弱收敛</a></li>
+<li><a href="/2026/05/16/shu-xue/gao-deng-gai-lu-lun/13-geng-duo-da-pian-chai/" title="13-更多大偏差">13-更多大偏差</a></li>
+<li><a href="/2026/05/17/shu-xue/gao-deng-gai-lu-lun/14-ruo-shou-lian-yu-te-zheng-han-shu/" title="14-弱收敛与特征函数">14-弱收敛与特征函数</a></li>
+<li><a href="/2026/05/18/shu-xue/gao-deng-gai-lu-lun/15-te-zheng-han-shu-yu-zhong-xin-ji-xian-ding-li/" title="15-特征函数与中心极限定理">15-特征函数与中心极限定理</a></li>
+<li><a href="/2026/05/19/shu-xue/gao-deng-gai-lu-lun/16-zhong-xin-ji-xian-ding-li-de-ruo-gan-bian-ti/" title="16-中心极限定理的若干变体">16-中心极限定理的若干变体</a></li>
+<li><a href="/2026/05/20/shu-xue/gao-deng-gai-lu-lun/17-bo-song-sui-ji-bian-liang/" title="17-泊松随机变量">17-泊松随机变量</a></li>
+<li><a href="/2026/05/21/shu-xue/gao-deng-gai-lu-lun/18-bo-song-sui-ji-bian-liang/" title="18-泊松随机变量">18-泊松随机变量</a></li>
+<li><a href="/2026/05/22/shu-xue/gao-deng-gai-lu-lun/20-wu-qiong-ke-fen-xing-yu-levy-guo-cheng/" title="20-无穷可分性与 Lévy 过程">20-无穷可分性与 Lévy 过程</a></li>
+<li><a href="/2026/05/23/shu-xue/gao-deng-gai-lu-lun/23-sui-ji-you-zou/" title="23-随机游走">23-随机游走</a></li>
+<li><a href="/2026/05/24/shu-xue/gao-deng-gai-lu-lun/25-fan-she-yu-yang/" title="25-反射与鞅">25-反射与鞅</a></li>
+<li><a href="/2026/05/25/shu-xue/gao-deng-gai-lu-lun/26-guan-yu-yang-de-jin-yi-bu-tao-lun/" title="26-关于鞅的进一步讨论">26-关于鞅的进一步讨论</a></li>
+<li><a href="/2026/05/26/shu-xue/gao-deng-gai-lu-lun/27-yang-de-jin-yi-bu-nei-rong/" title="27-鞅的进一步内容">27-鞅的进一步内容</a></li>
+<li><a href="/2026/05/27/shu-xue/gao-deng-gai-lu-lun/28-guan-yu-yang-de-geng-duo-nei-rong/" title="28-关于鞅的更多内容">28-关于鞅的更多内容</a></li>
+<li><a href="/2026/05/28/shu-xue/gao-deng-gai-lu-lun/29-yang-xu/" title="29-鞅续">29-鞅续</a></li>
+<li><a href="/2026/05/29/shu-xue/gao-deng-gai-lu-lun/30-ma-er-ke-fu-lian/" title="30-马尔可夫链">30-马尔可夫链</a></li>
+<li><a href="/2026/05/30/shu-xue/gao-deng-gai-lu-lun/31-markov-lian-de-geng-duo-nei-rong/" title="31-Markov 链的更多内容">31-Markov 链的更多内容</a></li>
+<li><a href="/2026/05/31/shu-xue/gao-deng-gai-lu-lun/32-markov-lian-de-jin-yi-bu-nei-rong/" title="32-Markov 链的进一步内容">32-Markov 链的进一步内容</a></li>
+<li><a href="/2026/06/01/shu-xue/gao-deng-gai-lu-lun/33-bian-li-li-lun/" title="33-遍历理论">33-遍历理论</a></li>
+<li><a href="/2026/06/02/shu-xue/gao-deng-gai-lu-lun/34-bian-li-li-lun/" title="34-遍历理论">34-遍历理论</a></li>
+<li><a href="/2026/06/03/shu-xue/gao-deng-gai-lu-lun/35-bian-li-li-lun/" title="35-遍历理论">35-遍历理论</a></li>
+<li><a href="/2026/06/04/shu-xue/gao-deng-gai-lu-lun/36-bu-lang-yun-dong/" title="36-布朗运动">36-布朗运动</a></li>
+<li><a href="/2026/06/05/shu-xue/gao-deng-gai-lu-lun/37-bu-lang-yun-dong-xu/" title="37-布朗运动续">37-布朗运动续</a></li>
+<li><a href="/2026/06/06/shu-xue/gao-deng-gai-lu-lun/38-bu-lang-yun-dong-zai-xu/" title="38-布朗运动再续">38-布朗运动再续</a></li>
+<li><a href="/2026/06/07/shu-xue/gao-deng-gai-lu-lun/39-zui-hou-yi-jiang/" title="39-最后一讲">39-最后一讲</a></li>
+</ul>
+<h2 id="随机微积分"><a href="#随机微积分" class="headerlink" title="随机微积分"></a>随机微积分</h2><ul>
+<li><a href="/2026/07/24/shu-xue/sui-ji-wei-ji-fen/01-sigma-dai-shu-yu-tiao-jian-qi-wang/" title="01-sigma-代数与条件期望">01-sigma-代数与条件期望</a></li>
+<li><a href="/2026/07/25/shu-xue/sui-ji-wei-ji-fen/02-tiao-jian-fang-chai-yu-yang/" title="02-条件方差与鞅">02-条件方差与鞅</a></li>
+<li><a href="/2026/07/26/shu-xue/sui-ji-wei-ji-fen/03-wiener-guo-cheng-yu-brownian-yun-dong/" title="03-Wiener过程与Brownian运动">03-Wiener过程与Brownian运动</a></li>
+<li><a href="/2026/07/27/shu-xue/sui-ji-wei-ji-fen/04-cong-wiener-guo-cheng-dao-ito-ji-fen/" title="04-从Wiener过程到Ito积分">04-从Wiener过程到Ito积分</a></li>
+<li><a href="/2026/07/28/shu-xue/sui-ji-wei-ji-fen/05-ito-ji-fen-xu/" title="05-Ito积分续">05-Ito积分续</a></li>
+<li><a href="/2026/07/29/shu-xue/sui-ji-wei-ji-fen/06-black-scholes-mo-xing/" title="06-Black-Scholes模型">06-Black-Scholes模型</a></li>
+<li><a href="/2026/07/30/shu-xue/sui-ji-wei-ji-fen/07-ito-ji-fen-ji-suan-yu-xi-ti/" title="07-Ito积分计算与习题">07-Ito积分计算与习题</a></li>
+<li><a href="/2026/07/31/shu-xue/sui-ji-wei-ji-fen/08-icef-2024-nian-jia-ting-zuo-ye/" title="08-ICEF 2024年家庭作业">08-ICEF 2024年家庭作业</a></li>
+<li><a href="/2026/07/31/shu-xue/sui-ji-wei-ji-fen/09-icef-2024-nian-kao-shi/" title="09-ICEF 2024年考试">09-ICEF 2024年考试</a></li>
+<li><a href="/2026/08/01/shu-xue/sui-ji-wei-ji-fen/10-icef-2024-nian-bu-kao/" title="10-ICEF 2024年补考">10-ICEF 2024年补考</a></li>
+</ul>
+<h2 id="随机过程导论"><a href="#随机过程导论" class="headerlink" title="随机过程导论"></a>随机过程导论</h2><ul>
+<li><a href="/2026/06/08/shu-xue/sui-ji-guo-cheng-dao-lun/01-you-xian-markov-lian-dao-lun/" title="01-有限 Markov 链导论">01-有限 Markov 链导论</a></li>
+<li><a href="/2026/06/09/shu-xue/sui-ji-guo-cheng-dao-lun/02-markov-lian-de-ping-wen-fen-bu/" title="02-Markov 链的平稳分布">02-Markov 链的平稳分布</a></li>
+<li><a href="/2026/06/10/shu-xue/sui-ji-guo-cheng-dao-lun/03-markov-lian-de-shi-jian-fan-yan/" title="03-Markov 链的时间反演">03-Markov 链的时间反演</a></li>
+<li><a href="/2026/06/11/shu-xue/sui-ji-guo-cheng-dao-lun/04-markov-lian-hun-he-dao-lun/" title="04-Markov 链混合导论">04-Markov 链混合导论</a></li>
+<li><a href="/2026/06/12/shu-xue/sui-ji-guo-cheng-dao-lun/05-ping-wen-shi-ke/" title="05-平稳时刻">05-平稳时刻</a></li>
+<li><a href="/2026/06/13/shu-xue/sui-ji-guo-cheng-dao-lun/06-hun-he-shi-jian-de-xia-jie/" title="06-混合时间的下界">06-混合时间的下界</a></li>
+<li><a href="/2026/06/14/shu-xue/sui-ji-guo-cheng-dao-lun/07-hun-he-shi-jian-zong-jie/" title="07-混合时间总结">07-混合时间总结</a></li>
+<li><a href="/2026/06/15/shu-xue/sui-ji-guo-cheng-dao-lun/08-wang-luo-shang-de-sui-ji-you-zou-yi/" title="08-网络上的随机游走（一）">08-网络上的随机游走（一）</a></li>
+<li><a href="/2026/06/16/shu-xue/sui-ji-guo-cheng-dao-lun/09-wang-luo-shang-de-sui-ji-you-zou-er/" title="09-网络上的随机游走二">09-网络上的随机游走二</a></li>
+<li><a href="/2026/06/17/shu-xue/sui-ji-guo-cheng-dao-lun/10-shou-ci-dao-da-shi-jian/" title="10-首次到达时间">10-首次到达时间</a></li>
+<li><a href="/2026/06/18/shu-xue/sui-ji-guo-cheng-dao-lun/11-wang-luo-shang-de-sui-ji-you-zou-zong-jie/" title="11-网络上的随机游走总结">11-网络上的随机游走总结</a></li>
+<li><a href="/2026/06/19/shu-xue/sui-ji-guo-cheng-dao-lun/12-ke-shu-zhuang-tai-kong-jian-ma-er-ke-fu-lian-yi/" title="12-可数状态空间马尔可夫链一">12-可数状态空间马尔可夫链一</a></li>
+<li><a href="/2026/06/20/shu-xue/sui-ji-guo-cheng-dao-lun/13-ke-shu-zhuang-tai-kong-jian-ma-er-ke-fu-lian-er/" title="13-可数状态空间马尔可夫链二">13-可数状态空间马尔可夫链二</a></li>
+<li><a href="/2026/06/21/shu-xue/sui-ji-guo-cheng-dao-lun/14-fu-lu-yang-de-ji-hu-bi-ran-shou-lian-ding-li/" title="14-附录-鞅的几乎必然收敛定理">14-附录-鞅的几乎必然收敛定理</a></li>
+<li><a href="/2026/06/22/shu-xue/sui-ji-guo-cheng-dao-lun/15-yang-dao-lun/" title="15-鞅导论">15-鞅导论</a></li>
+<li><a href="/2026/06/23/shu-xue/sui-ji-guo-cheng-dao-lun/16-ke-xuan-ting-zhi-ding-li/" title="16-可选停止定理">16-可选停止定理</a></li>
+<li><a href="/2026/06/24/shu-xue/sui-ji-guo-cheng-dao-lun/17-yang-de-ji-hu-bi-ran-shou-lian-yu-lp-shou-lian/" title="17-鞅的几乎必然收敛与Lp收敛">17-鞅的几乎必然收敛与Lp收敛</a></li>
+<li><a href="/2026/06/25/shu-xue/sui-ji-guo-cheng-dao-lun/18-yang-yu-yi-zhi-ke-ji-xing/" title="18-鞅与一致可积性">18-鞅与一致可积性</a></li>
+<li><a href="/2026/06/26/shu-xue/sui-ji-guo-cheng-dao-lun/19-gao-er-dun-wo-sen-shu/" title="19-高尔顿-沃森树">19-高尔顿-沃森树</a></li>
+<li><a href="/2026/06/27/shu-xue/sui-ji-guo-cheng-dao-lun/20-poisson-guo-cheng/" title="20-Poisson 过程">20-Poisson 过程</a></li>
+<li><a href="/2026/06/28/shu-xue/sui-ji-guo-cheng-dao-lun/21-lian-xu-shi-jian-ma-er-ke-fu-lian/" title="21-连续时间马尔可夫链">21-连续时间马尔可夫链</a></li>
+<li><a href="/2026/06/29/shu-xue/sui-ji-guo-cheng-dao-lun/22-wu-qiong-xiao-sheng-cheng-yuan/" title="22-无穷小生成元">22-无穷小生成元</a></li>
+<li><a href="/2026/06/30/shu-xue/sui-ji-guo-cheng-dao-lun/23-bu-ke-yue-xing-yu-chang-fan-xing/" title="23-不可约性与常返性">23-不可约性与常返性</a></li>
+<li><a href="/2026/07/01/shu-xue/sui-ji-guo-cheng-dao-lun/24-ping-wen-fen-bu/" title="24-平稳分布">24-平稳分布</a></li>
+</ul>
+<h2 id="金融随机分析"><a href="#金融随机分析" class="headerlink" title="金融随机分析"></a>金融随机分析</h2><ul>
+<li><a href="/2026/07/02/shu-xue/jin-rong-sui-ji-fen-xi/01-shu-lie-ji-xian/" title="01-数列极限">01-数列极限</a></li>
+<li><a href="/2026/07/03/shu-xue/jin-rong-sui-ji-fen-xi/02-han-shu-lie-yu-sui-ji-guo-cheng-de-shou-lian-i/" title="02-函数列与随机过程的收敛 I">02-函数列与随机过程的收敛 I</a></li>
+<li><a href="/2026/07/04/shu-xue/jin-rong-sui-ji-fen-xi/03-fen-bu-han-shu/" title="03-分布函数">03-分布函数</a></li>
+<li><a href="/2026/07/05/shu-xue/jin-rong-sui-ji-fen-xi/04-han-shu-lie-sui-ji-guo-cheng-de-shou-lian-ii/" title="04-函数列／随机过程的收敛 II">04-函数列／随机过程的收敛 II</a></li>
+<li><a href="/2026/07/06/shu-xue/jin-rong-sui-ji-fen-xi/05-li-man-si-di-er-qie-si-ji-fen/" title="05-黎曼–斯蒂尔切斯积分">05-黎曼–斯蒂尔切斯积分</a></li>
+<li><a href="/2026/07/07/shu-xue/jin-rong-sui-ji-fen-xi/06-te-zheng-han-shu/" title="06-特征函数">06-特征函数</a></li>
+<li><a href="/2026/07/08/shu-xue/jin-rong-sui-ji-fen-xi/07-wei-fen-fang-cheng/" title="07-微分方程">07-微分方程</a></li>
+<li><a href="/2026/07/09/shu-xue/jin-rong-sui-ji-fen-xi/08-tu-fen-xi/" title="08-凸分析">08-凸分析</a></li>
+<li><a href="/2026/07/10/shu-xue/jin-rong-sui-ji-fen-xi/09-dao-lun/" title="09-导论">09-导论</a></li>
+<li><a href="/2026/07/11/shu-xue/jin-rong-sui-ji-fen-xi/10-gai-lu-lun/" title="10-概率论">10-概率论</a></li>
+<li><a href="/2026/07/12/shu-xue/jin-rong-sui-ji-fen-xi/11-chi-san-shi-jian-yang/" title="11-离散时间鞅">11-离散时间鞅</a></li>
+<li><a href="/2026/07/13/shu-xue/jin-rong-sui-ji-fen-xi/12-dan-qi-mo-xing/" title="12-单期模型">12-单期模型</a></li>
+<li><a href="/2026/07/14/shu-xue/jin-rong-sui-ji-fen-xi/13-duo-qi-mo-xing/" title="13-多期模型">13-多期模型</a></li>
+<li><a href="/2026/07/15/shu-xue/jin-rong-sui-ji-fen-xi/14-mei-shi-huo-you-suo-qu-quan/" title="14-美式或有索取权">14-美式或有索取权</a></li>
+<li><a href="/2026/07/16/shu-xue/jin-rong-sui-ji-fen-xi/15-feng-xian-du-liang/" title="15-风险度量">15-风险度量</a></li>
+<li><a href="/2026/07/17/shu-xue/jin-rong-sui-ji-fen-xi/16-lian-xu-shi-jian-yang/" title="16-连续时间鞅">16-连续时间鞅</a></li>
+<li><a href="/2026/07/18/shu-xue/jin-rong-sui-ji-fen-xi/17-bu-lang-yun-dong/" title="17-布朗运动">17-布朗运动</a></li>
+<li><a href="/2026/07/19/shu-xue/jin-rong-sui-ji-fen-xi/18-sui-ji-ji-fen/" title="18-随机积分">18-随机积分</a></li>
+<li><a href="/2026/08/02/shu-xue/shu-xue-zai-jin-rong-zhong-de-zhuan-ti/19-sui-ji-wei-fen-fang-cheng/" title="19-随机微分方程">19-随机微分方程</a></li>
+<li><a href="/2026/07/21/shu-xue/jin-rong-sui-ji-fen-xi/20-di-11-zhang-yi-xie-ji-ben-mo-xing/" title="20-第 11 章 一些基本模型">20-第 11 章 一些基本模型</a></li>
+<li><a href="/2026/07/22/shu-xue/jin-rong-sui-ji-fen-xi/21-dui-chong/" title="21-对冲">21-对冲</a></li>
+<li><a href="/2026/07/23/shu-xue/jin-rong-sui-ji-fen-xi/22-bo-dong-lu/" title="22-波动率">22-波动率</a></li>
+</ul>
+<h1 id="微观金融"><a href="#微观金融" class="headerlink" title="微观金融"></a>微观金融</h1><ul>
+<li><p>微观金融初级：</p>
+<ul>
+<li><a href="/2025/01/14/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-01-shi-da-jing-ji-xue-yuan-li/" title="微观金融初级01：十大经济学原理">微观金融初级01：十大经济学原理</a></li>
+<li><a href="/2025/01/15/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-02-mao-yi-yi-cun/" title="微观金融初级02：贸易依存">微观金融初级02：贸易依存</a></li>
+<li><a href="/2025/01/16/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-03-shi-chang-gong-gei-yu-xu-qiu/" title="微观金融初级03：市场供给与需求">微观金融初级03：市场供给与需求</a></li>
+<li><a href="/2025/01/16/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-04-xiao-fei-zhe-yu-sheng-chan-zhe-sheng-yu/" title="微观金融初级04：消费者与生产者剩余">微观金融初级04：消费者与生产者剩余</a></li>
+<li><a href="/2025/01/17/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-05-sheng-chan-zhe-yu-xiao-fei-zhe-yu-shi-chang-xiao-lu/" title="微观金融初级05：生产者与消费者与市场效率">微观金融初级05：生产者与消费者与市场效率</a></li>
+<li><a href="/2025/01/18/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-06-shui-shou/" title="微观金融初级06：税收">微观金融初级06：税收</a></li>
+<li><a href="/2025/01/18/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-07-guo-ji-mao-yi/" title="微观金融初级07：国际贸易">微观金融初级07：国际贸易</a></li>
+<li><a href="/2025/01/21/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-08-gong-gong-bu-men-jing-ji-xue/" title="微观金融初级08：公共部门经济学">微观金融初级08：公共部门经济学</a></li>
+<li><a href="/2025/02/08/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-09-qi-ye-xing-wei-yu-chan-ye-zu-zhi/" title="微观金融初级09：企业行为与产业组织">微观金融初级09：企业行为与产业组织</a></li>
+<li><a href="/2025/02/11/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-10-long-duan/" title="微观金融初级10：垄断">微观金融初级10：垄断</a></li>
+<li><a href="/2025/02/14/wei-guan-jin-rong/wei-guan-jin-rong-chu-ji/wei-guan-jin-rong-chu-ji-11-lao-dong-shi-chang-jing-ji-xue/" title="微观金融初级11：劳动市场经济学">微观金融初级11：劳动市场经济学</a></li>
+</ul>
+</li>
+<li><p>微观金融中级：</p>
+<ul>
+<li>微观金融中级01：数学与经济基础（待更新）</li>
+<li>微观金融中级02：资产定价理论概述（待更新）</li>
+<li>微观金融中级03：风险情景下的决策（待更新）</li>
+<li>微观金融中级04：度量风险和风险规避（待更新）</li>
+<li>微观金融中级05：风险规避与投资决策（待更新）</li>
+<li>微观金融中级06：现代投资组合理论（待更新）</li>
+<li>微观金融中级07：资本资产定价模型（待更新）</li>
+<li>微观金融中级08：套利定价理论（待更新）</li>
+<li>微观金融中级09：均衡阿罗-德布鲁定价（待更新）</li>
+<li>微观金融中级10：无套利阿罗-德布鲁定价（待更新）</li>
+<li>微观金融中级11：鞅定价（待更新）</li>
+<li>微观金融中级12：消费资本资产定价模型（待更新）</li>
+<li>微观金融M中级：从期望效用到套利定价（待更新）</li>
+</ul>
+</li>
+<li><p>微观金融高级</p>
+<ul>
+<li>金融中介01：金融中介的角色（待更新）</li>
+<li>金融中介02：银行贷款与信用风险（待更新）</li>
+<li>金融中介03：存款合同与银行挤兑（待更新）</li>
+<li>金融中介04：存款保险与银行资本结构（待更新）</li>
+<li>金融中介05：风险价值与预期损失（待更新）</li>
+<li>金融中介06：估计违约概率（待更新）</li>
+<li>金融中介07：银行监管（上）（待更新）</li>
+<li>金融中介08：银行监管（下）（待更新）</li>
+<li>Part 1：消费理论<ul>
+<li>高级微观01：偏好关系（1.B）（待更新）</li>
+<li>高级微观02：选择原则（1.C）（待更新）</li>
+<li>高级微观03：理性与弱公理（1.D）（待更新）</li>
+<li>高级微观04：需求函数与比较静态（2.B-2.E）（待更新）</li>
+<li>高级微观05：弱公理与需求法则（2.F）（待更新）</li>
+<li>高级微观06：偏好关系的基本性质（3.B）（待更新）</li>
+<li>高级微观07：偏好与效用（3.C）（待更新）</li>
+<li>高级微观08：效用最大化问题（3.D）（待更新）</li>
+<li>高级微观09：支出最小化问题（3.E）（待更新）</li>
+<li>高级微观10：间接效用和支出函数（3.G）（待更新）</li>
+</ul>
+</li>
+<li>Part 2：生产理论<ul>
+<li>高级微观11：生产集（5.B）（待更新）</li>
+<li>高级微观12：利润最大化和成本最小化（5.C）（待更新）</li>
+</ul>
+</li>
+<li>Part 3：不确定性<ul>
+<li>高级微观13：预期效用理论（6.B）（待更新）</li>
+<li>高级微观14：货币彩票与风险厌恶（6.C）（待更新）</li>
+<li>高级微观15：收益分配的风险回报比较（6.D）（待更新）</li>
+</ul>
+</li>
+<li>Part 4：均衡理论<ul>
+<li>高级微观16：竞争市场的局部均衡（10.B-10.E）（待更新）</li>
+<li>高级微观17：垄断市场的局部均衡（12.B）（待更新）</li>
+<li>高级微观18：寡头市场的局部均衡（12.C-12.G）（待更新）</li>
+<li>高级微观19：一般均衡与埃奇沃斯盒（15.B）（待更新）</li>
+</ul>
+</li>
+<li>高级微观F：UMP·EMP·PMP·CMP·彩票（待更新）</li>
+<li>Part 5：博弈论（待更新）<ul>
+<li>博弈理论01：标准形式博弈（待更新）</li>
+<li>博弈理论02：纳什均衡（待更新）</li>
+<li>博弈理论03：完全信息扩展式博弈（待更新）</li>
+<li>博弈理论04：议价博弈与蜈蚣博弈（待更新）</li>
+<li>博弈理论05：重复博弈的长期关系（待更新）</li>
+<li>博弈理论06：贝叶斯博弈及其应用（待更新）</li>
+<li>博弈理论07：不完全信息扩展式博弈（待更新）</li>
+<li>博弈论在微观经济学中有哪些基本应用？（待更新）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="宏观金融"><a href="#宏观金融" class="headerlink" title="宏观金融"></a>宏观金融</h1><ul>
+<li>Part 0-1：初级宏观经济学<ul>
+<li><a href="/2025/02/23/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-01-hong-guan-jing-ji-zhi-biao/" title="初级宏观01：宏观经济指标">初级宏观01：宏观经济指标</a></li>
+<li><a href="/2025/03/04/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-02-gu-dian-jing-ji-xue-li-lun/" title="初级宏观02：古典经济学理论">初级宏观02：古典经济学理论</a></li>
+<li><a href="/2025/03/06/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-03-yi-ban-jun-heng-mo-xing/" title="初级宏观03：一般均衡模型">初级宏观03：一般均衡模型</a></li>
+<li><a href="/2025/03/07/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-04-huo-bi-xi-tong/" title="初级宏观04：货币系统">初级宏观04：货币系统</a></li>
+<li><a href="/2025/03/12/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-05-tong-huo-peng-zhang/" title="初级宏观05：通货膨胀">初级宏观05：通货膨胀</a></li>
+<li><a href="/2025/03/16/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-06-suo-luo-zeng-chang-mo-xing/" title="初级宏观06：索洛增长模型">初级宏观06：索洛增长模型</a></li>
+<li><a href="/2025/03/20/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-07-jing-ji-zhou-qi-dao-lun/" title="初级宏观07：经济周期导论">初级宏观07：经济周期导论</a></li>
+<li><a href="/2025/03/22/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-08-ad-as-mo-xing/" title="初级宏观08：AD-AS模型">初级宏观08：AD-AS模型</a></li>
+<li><a href="/2025/03/22/hong-guan-jin-rong/hong-guan-jin-rong-chu-ji/chu-ji-hong-guan-09-is-lm-mo-xing/" title="初级宏观09：IS-LM模型">初级宏观09：IS-LM模型</a></li>
+<li>初级宏观10：蒙代尔-弗莱明模型（待更新）</li>
+<li>初级宏观11：菲利普斯曲线（待更新）</li>
+<li>初级宏观12：宏观经济政策（待更新）</li>
+<li>初级宏观13：经济增长（待更新）</li>
+<li>初级宏观14：新古典宏观+新凯恩斯（待更新）</li>
+</ul>
+</li>
+<li>Part 0-2：中级宏观经济学（待更新）<ul>
+<li>中级宏观01：导论（待更新）</li>
+<li>中级宏观02：国民收入核算（恒等式、GDP平减、CPI）（待更新）</li>
+<li>中级宏观03：增长与积累（增长核算、新古典、稳态）（待更新）</li>
+<li>中级宏观04：增长与政策（内生增长、增长陷阱、马尔萨斯）（待更新）</li>
+<li>中级宏观05：总供给与总需求（凯恩斯总供给、货币主义）（待更新）</li>
+<li>中级宏观06：工资、价格与失业（菲利普斯、粘性、滞涨）（待更新）</li>
+<li>中级宏观07：通货膨胀与失业（奥肯）（待更新）</li>
+<li>中级宏观09：收入与支出（乘数）（待更新）</li>
+<li>中级宏观10：货币、利息与收入（推导IS/LM/AD曲线）（待更新）</li>
+<li>中级宏观11：货币政策与财政政策（流动性陷阱、挤出）（待更新）</li>
+<li>中级宏观12：蒙代尔-弗莱明模型（国际问题）（待更新）</li>
+<li>中级宏观13：消费与储蓄（LC-PIH、霍尔随机、李嘉图等价）（待更新）</li>
+<li>中级宏观14：投资支出（企业固定、住宅、存货）（待更新）</li>
+<li>中级宏观15：货币需求（货币幻觉、三大动机）（待更新）</li>
+</ul>
+</li>
+<li>Part 1：动态最优化基础（待更新）<ul>
+<li>高级宏观01：最优化中的拉格朗日法（待更新）</li>
+<li>高级宏观02：最优化中的汉密尔顿法（待更新）</li>
+<li>高级宏观03：动态规划与值函数迭代（待更新）</li>
+</ul>
+</li>
+<li>Part 2：经典经济增长模型（待更新）<ul>
+<li>高级宏观04：索罗模型（待更新）</li>
+<li>高级宏观05：拉姆齐模型（RCK）（待更新）</li>
+<li>高级宏观06：内生增长模型（待更新）</li>
+<li>高级宏观07：扩展种类模型（待更新）</li>
+<li>高级宏观08：熊彼特增长模型（待更新）</li>
+<li>高级宏观M：从动态最优化到熊彼特（待更新）</li>
+</ul>
+</li>
+<li>Part 3：宏观模型专题选讲（待更新）<ul>
+<li>高级宏观09：理性预期模型（待更新）</li>
+<li>高级宏观10：资产定价模型（待更新）</li>
+<li>高级宏观11：世代交叠模型（OLG）（待更新）</li>
+<li>高级宏观12：最优税收模型（待更新）</li>
+<li>高级宏观13：李嘉图等价（待更新）</li>
+<li>高级宏观14：工作搜寻模型（待更新）</li>
+<li>高级宏观F：宏观模型串烧（待更新）</li>
+</ul>
+</li>
+<li>Part 4：动态随机一般均衡<ul>
+<li>结构宏观01：DSGE的规范形式（待更新）</li>
+<li>结构宏观02：DSGE与真实经济周期（待更新）</li>
+<li>结构宏观03：DSGE与垄断竞争模型（待更新）</li>
+<li>结构宏观04：DSGE与资产定价模型（待更新）</li>
+<li>结构宏观05：DSGE的线性解法</li>
+<li>结构宏观06：DSGE的非线性解法（待更新）</li>
+<li>Part 5：经典宏观论文选读</li>
+<li>宏观选读01：出口对创新的影响（待更新）</li>
+<li>宏观选读02：贸易自由化、出口和技术升级（待更新）</li>
+<li>宏观选读03：卢卡斯批判（待更新）</li>
+<li>宏观选读04：穆斯的理性预期假说（待更新）</li>
+<li>宏观选读05：股权溢价之谜（待更新）</li>
+<li>宏观选读06：长期风险与资产定价难题（待更新）</li>
+</ul>
+</li>
+</ul>
+<h1 id="国际金融"><a href="#国际金融" class="headerlink" title="国际金融"></a>国际金融</h1><ul>
+<li><p>国际收支和国际收支平衡表（待更新）</p>
+</li>
+<li><p>汇率基础（待更新）</p>
+</li>
+<li><p>内部均衡和外部平衡（待更新）</p>
+</li>
+<li><p>汇率管理（待更新）</p>
+</li>
+<li><p>全球化的冲击（待更新）</p>
+</li>
+<li><p>货币协调（待更新）</p>
+</li>
+</ul>
+<h1 id="政治金融"><a href="#政治金融" class="headerlink" title="政治金融"></a>政治金融</h1><ul>
+<li>生产（待更新）</li>
+<li>分配（待更新）</li>
+<li>交换（待更新）</li>
+<li>生产与交换的影响（待更新）</li>
+<li>商品与货币（待更新）</li>
+<li>赋税（待更新）</li>
+<li>地缘政治（待更新）</li>
+</ul>
+<h1 id="金融风险管理"><a href="#金融风险管理" class="headerlink" title="金融风险管理"></a>金融风险管理</h1><h2 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h2><ul>
+<li><p>模块01：引言</p>
+<ul>
+<li>FRM1级：C01 风险管理（待更新）</li>
+</ul>
+</li>
+<li><p>模块02：定量分析</p>
+<ul>
+<li>FRM1级：C02 概率基础（待更新）</li>
+<li>FRM1级：C03 统计基础（待更新）</li>
+<li>FRM1级：C04 蒙特卡罗（待更新）</li>
+<li>FRM1级：C05 风险因子建模（待更新）</li>
+</ul>
+</li>
+<li><p>模块03：金融市场与产品</p>
+<ul>
+<li>FRM1级：C06 债券基础（待更新）</li>
+<li>FRM1级：C07 衍生品导论（待更新）</li>
+<li>FRM1级：C08 期权市场（待更新）</li>
+<li>FRM1级：C09 固定收益证券（待更新）</li>
+<li>FRM1级：C10 固收衍生品（待更新）</li>
+<li>FRM1级：C11 权益等市场（待更新）</li>
+</ul>
+</li>
+<li><p>模块04：估值与风险模型</p>
+<ul>
+<li>FRM1级：C12 风险模型（待更新）</li>
+<li>FRM1级：C13 线性风险（待更新）</li>
+<li>FRM1级：C14 非线性风险（待更新）</li>
+</ul>
+</li>
+</ul>
+<h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><ul>
+<li><p>模块05：市场风险管理</p>
+<ul>
+<li>FRM2级：C15 单变量模型（待更新）</li>
+<li>FRM2级：C16 多变量模型（待更新）</li>
+<li>FRM2级：C17 波动率风险（待更新）</li>
+<li>FRM2级：C18 抵押担保证券风险（待更新）</li>
+</ul>
+</li>
+<li><p>模块06：信用风险管理</p>
+<ul>
+<li>FRM2级：C19 信用风险导论（待更新）</li>
+<li>FRM2级：C20 精算违约风险（待更新）</li>
+<li>FRM2级：C21 市场价格的违约风险（待更新）</li>
+<li>FRM2级：C22 信用敞口（待更新）</li>
+<li>FRM2级：C23 信用衍生品和结构性产品（待更新）</li>
+<li>FRM2级：C24 管理信用风险（待更新）</li>
+</ul>
+</li>
+<li><p>模块07：操作与整体风险管理</p>
+<ul>
+<li>FRM2级：C25 操作风险（待更新）</li>
+<li>FRM2级：C26 流动性风险（待更新）</li>
+<li>FRM2级：C27 全公司风险管理（待更新）</li>
+<li>FRM2级：C28 巴塞尔协议（待更新）</li>
+</ul>
+</li>
+<li><p>模块08：投资风险管理</p>
+<ul>
+<li>FRM2级：C29 投资组合风险管理（待更新）</li>
+<li>FRM2级：C30 对冲基金风险管理（待更新）</li>
+</ul>
+</li>
+</ul>
+<h1 id="银行与货币"><a href="#银行与货币" class="headerlink" title="银行与货币"></a>银行与货币</h1><ul>
+<li>银行与货币01：银行与金融市场导论（待更新）</li>
+<li>银行与货币02：金融市场与金融机构（待更新）</li>
+<li>银行与货币03：中央银行与货币政策（待更新）</li>
+<li>银行与货币04：国际金融与货币政策（待更新）</li>
+<li>银行与货币05：货币理论（待更新）</li>
+</ul>
+<h1 id="会计与财管"><a href="#会计与财管" class="headerlink" title="会计与财管"></a>会计与财管</h1><h2 id="会计"><a href="#会计" class="headerlink" title="会计"></a>会计</h2><ul>
+<li><a href="/2025/01/15/hui-ji-yu-cai-guan/hui-ji/hui-ji-01-cun-huo/" title="会计01-存货">会计01-存货</a></li>
+<li><a href="/2025/01/15/hui-ji-yu-cai-guan/hui-ji/hui-ji-02-gu-ding-zi-chan/" title="会计02-固定资产">会计02-固定资产</a></li>
+<li><a href="/2025/01/17/hui-ji-yu-cai-guan/hui-ji/hui-ji-03-wu-xing-zi-chan/" title="会计03-无形资产">会计03-无形资产</a></li>
+<li><a href="/2025/01/19/hui-ji-yu-cai-guan/hui-ji/hui-ji-04-tou-zi-xing-fang-di-chan/" title="会计04-投资性房地产">会计04-投资性房地产</a></li>
+<li><a href="/2025/01/21/hui-ji-yu-cai-guan/hui-ji/hui-ji-05-jin-rong-zi-chan-he-jin-rong-fu-zhai/" title="会计05-金融资产和金融负债">会计05-金融资产和金融负债</a></li>
+<li><a href="/2025/01/21/hui-ji-yu-cai-guan/hui-ji/hui-ji-06-chang-qi-gu-quan-tou-zi-yu-he-ying-an-pai/" title="会计06-长期股权投资与合营安排">会计06-长期股权投资与合营安排</a></li>
+<li><a href="/2025/01/21/hui-ji-yu-cai-guan/hui-ji/hui-ji-07-zi-chan-jian-zhi/" title="会计07-资产减值">会计07-资产减值</a></li>
+<li><a href="/2025/01/24/hui-ji-yu-cai-guan/hui-ji/hui-ji-08-zhi-gong-xin-chou/" title="会计08-职工薪酬">会计08-职工薪酬</a></li>
+<li><a href="/2025/01/25/hui-ji-yu-cai-guan/hui-ji/hui-ji-09-gu-fen-zhi-fu/" title="会计09-股份支付">会计09-股份支付</a></li>
+<li><a href="/2025/01/26/hui-ji-yu-cai-guan/hui-ji/hui-ji-10-jie-kuan-fei-yong/" title="会计10-借款费用">会计10-借款费用</a></li>
+<li><a href="/2025/01/26/hui-ji-yu-cai-guan/hui-ji/hui-ji-11-huo-you-shi-xiang/" title="会计11-或有事项">会计11-或有事项</a></li>
+<li><a href="/2025/01/27/hui-ji-yu-cai-guan/hui-ji/hui-ji-12-shou-ru/" title="会计12-收入">会计12-收入</a></li>
+<li><a href="/2025/01/27/hui-ji-yu-cai-guan/hui-ji/hui-ji-13-he-tong-cheng-ben/" title="会计13-合同成本">会计13-合同成本</a></li>
+<li><a href="/2025/01/27/hui-ji-yu-cai-guan/hui-ji/hui-ji-14-zheng-fu-bu-zhu/" title="会计14-政府补助">会计14-政府补助</a></li>
+<li><a href="/2025/01/29/hui-ji-yu-cai-guan/hui-ji/hui-ji-15-fei-huo-bi-xing-zi-chan-jiao-huan/" title="会计15-非货币性资产交换">会计15-非货币性资产交换</a></li>
+<li><a href="/2025/01/30/hui-ji-yu-cai-guan/hui-ji/hui-ji-16-zhai-wu-chong-zu/" title="会计16-债务重组">会计16-债务重组</a></li>
+<li><a href="/2025/01/31/hui-ji-yu-cai-guan/hui-ji/hui-ji-17-suo-de-shui/" title="会计17-所得税">会计17-所得税</a></li>
+<li><a href="/2025/02/01/hui-ji-yu-cai-guan/hui-ji/hui-ji-18-wai-bi-zhe-suan/" title="会计18-外币折算">会计18-外币折算</a></li>
+<li><a href="/2025/02/01/hui-ji-yu-cai-guan/hui-ji/hui-ji-19-zu-ren/" title="会计19-租赁">会计19-租赁</a></li>
+<li><a href="/2025/02/01/hui-ji-yu-cai-guan/hui-ji/hui-ji-20-chi-you-dai-shou-de-fei-liu-dong-zi-chan-chu-zhi-zu-he-zhong-zhi-jing-ying/" title="会计20-持有待售的非流动资产、处置组和终止经营">会计20-持有待售的非流动资产、处置组和终止经营</a></li>
+<li><a href="/2025/02/01/hui-ji-yu-cai-guan/hui-ji/hui-ji-21-qi-ye-he-bing-yu-he-bing-cai-wu-bao-biao/" title="会计21-企业合并与合并财务报表">会计21-企业合并与合并财务报表</a></li>
+<li><a href="/2025/02/02/hui-ji-yu-cai-guan/hui-ji/hui-ji-22-hui-ji-zheng-ce-hui-ji-gu-ji-bian-geng-he-chai-cuo-geng-zheng/" title="会计22-会计政策、会计估计变更和差错更正">会计22-会计政策、会计估计变更和差错更正</a></li>
+<li><a href="/2025/02/02/hui-ji-yu-cai-guan/hui-ji/hui-ji-23-zi-chan-fu-zhai-biao-ri-hou-shi-xiang/" title="会计23-资产负债表日后事项">会计23-资产负债表日后事项</a></li>
+<li><a href="/2025/02/02/hui-ji-yu-cai-guan/hui-ji/hui-ji-24-zheng-fu-hui-ji/" title="会计24-政府会计">会计24-政府会计</a></li>
+<li><a href="/2025/02/03/hui-ji-yu-cai-guan/hui-ji/hui-ji-25-zheng-fu-ji-min-jian-fei-ying-li-zu-zhi-hui-ji/" title="会计25-政府及民间非营利组织会计">会计25-政府及民间非营利组织会计</a></li>
+<li><a href="/2025/02/03/hui-ji-yu-cai-guan/hui-ji/hui-ji-26-qi-ye-zhan-lue-yu-cai-wu-zhan-lue/" title="会计26-企业战略与财务战略">会计26-企业战略与财务战略</a></li>
+<li><a href="/2025/02/04/hui-ji-yu-cai-guan/hui-ji/hui-ji-27-qi-ye-quan-mian-yu-suan-guan-li/" title="会计27-企业全面预算管理">会计27-企业全面预算管理</a></li>
+<li><a href="/2025/02/04/hui-ji-yu-cai-guan/hui-ji/hui-ji-28-qi-ye-feng-xian-guan-li-yu-nei-bu-kong-zhi/" title="会计28-企业风险管理与内部控制">会计28-企业风险管理与内部控制</a></li>
+<li><a href="/2025/02/05/hui-ji-yu-cai-guan/hui-ji/hui-ji-29-qi-ye-tou-zi-rong-zi-jue-ce-yu-ji-tuan-zi-jin/" title="会计29-企业投资、融资决策与集团资金">会计29-企业投资、融资决策与集团资金</a></li>
+<li><a href="/2025/02/05/hui-ji-yu-cai-guan/hui-ji/hui-ji-30-qi-ye-cheng-ben-guan-li/" title="会计30-企业成本管理">会计30-企业成本管理</a></li>
+<li><a href="/2025/02/06/hui-ji-yu-cai-guan/hui-ji/hui-ji-31-qi-ye-ji-xiao-guan-li/" title="会计31-企业绩效管理">会计31-企业绩效管理</a></li>
+<li><a href="/2025/02/06/hui-ji-yu-cai-guan/hui-ji/hui-ji-32-qi-ye-bing-gou/" title="会计32-企业并购">会计32-企业并购</a></li>
+<li><a href="/2025/02/07/hui-ji-yu-cai-guan/hui-ji/hui-ji-33-qi-ye-he-bing-cai-wu-bao-biao/" title="会计33-企业合并财务报表">会计33-企业合并财务报表</a></li>
+<li><a href="/2025/02/08/hui-ji-yu-cai-guan/hui-ji/hui-ji-34-jin-rong-gong-ju-hui-ji/" title="会计34-金融工具会计">会计34-金融工具会计</a></li>
+<li><a href="/2025/02/09/hui-ji-yu-cai-guan/hui-ji/hui-ji-35-xing-zheng-shi-ye-dan-wei-yu-suan-yu-cai-wu-guan-li/" title="会计35-行政事业单位预算与财务管理">会计35-行政事业单位预算与财务管理</a></li>
+<li><a href="/2025/02/09/hui-ji-yu-cai-guan/hui-ji/hui-ji-36-hui-ji-cai-wu-xiang-guan-wen-ti/" title="会计36-会计财务相关问题">会计36-会计财务相关问题</a></li>
+</ul>
+<h2 id="财管"><a href="#财管" class="headerlink" title="财管"></a>财管</h2><ul>
+<li><a href="/2024/12/28/hui-ji-yu-cai-guan/cai-guan/cai-guan-01-cai-wu-guan-li-gai-shu/" title="财管01-财务管理概述">财管01-财务管理概述</a>
+</li>
+<li><a href="/2024/12/28/hui-ji-yu-cai-guan/cai-guan/cai-guan-02-cai-wu-bao-biao-fen-xi-he-cai-wu-yu-ce/" title="财管02-财务报表分析和财务预测">财管02-财务报表分析和财务预测</a>
+</li>
+<li><a href="/2024/12/29/hui-ji-yu-cai-guan/cai-guan/cai-guan-03-jie-zhi-ping-gu-ji-chu/" title="财管03-价值评估基础">财管03-价值评估基础</a>
+</li>
+<li><a href="/2025/01/10/hui-ji-yu-cai-guan/cai-guan/cai-guan-04-zi-ben-cheng-ben/" title="财管04-资本成本">财管04-资本成本</a>
+</li>
+<li><a href="/2024/12/30/hui-ji-yu-cai-guan/cai-guan/cai-guan-05-tou-zi-xiang-mu-zi-ben-yu-suan/" title="财管05-投资项目资本预算">财管05-投资项目资本预算</a>
+</li>
+<li><a href="/2024/12/31/hui-ji-yu-cai-guan/cai-guan/cai-guan-06-qi-quan-jie-zhi-gu-jie/" title="财管06-期权价值估价">财管06-期权价值估价</a>
+</li>
+<li><a href="/2025/01/01/hui-ji-yu-cai-guan/cai-guan/cai-guan-07-qi-ye-jie-zhi-ping-gu/" title="财管07-企业价值评估">财管07-企业价值评估</a>
+</li>
+<li><a href="/2025/01/02/hui-ji-yu-cai-guan/cai-guan/cai-guan-08-zi-ben-jie-gou/" title="财管08-资本结构">财管08-资本结构</a>
+</li>
+<li><a href="/2025/01/03/hui-ji-yu-cai-guan/cai-guan/cai-guan-09-chang-qi-chou-zi/" title="财管09-长期筹资">财管09-长期筹资</a>
+</li>
+<li><a href="/2025/01/04/hui-ji-yu-cai-guan/cai-guan/cai-guan-10-gu-li-fen-pei-gu-piao-fen-ge-yu-gu-piao-hui-gou/" title="财管10-股利分配、股票分割与股票回购">财管10-股利分配、股票分割与股票回购</a>
+</li>
+<li><a href="/2025/01/05/hui-ji-yu-cai-guan/cai-guan/cai-guan-11-ying-yun-zi-ben-guan-li/" title="财管11-营运资本管理">财管11-营运资本管理</a>
+</li>
+<li><a href="/2025/01/06/hui-ji-yu-cai-guan/cai-guan/cai-guan-12-chan-pin-cheng-ben-ji-suan/" title="财管12-产品成本计算">财管12-产品成本计算</a>
+</li>
+<li><a href="/2025/01/07/hui-ji-yu-cai-guan/cai-guan/cai-guan-13-biao-zhun-cheng-ben-fa/" title="财管13-标准成本法">财管13-标准成本法</a>
+</li>
+<li><a href="/2025/01/08/hui-ji-yu-cai-guan/cai-guan/cai-guan-14-zuo-ye-cheng-ben-fa/" title="财管14-作业成本法">财管14-作业成本法</a>
+</li>
+<li><a href="/2025/01/09/hui-ji-yu-cai-guan/cai-guan/cai-guan-15-ben-liang-li-fen-xi/" title="财管15-本量利分析">财管15-本量利分析</a>
+</li>
+<li><a href="/2025/01/10/hui-ji-yu-cai-guan/cai-guan/cai-guan-16-duan-qi-jing-ying-jue-ce/" title="财管16-短期经营决策">财管16-短期经营决策</a>
+</li>
+<li><a href="/2025/01/11/hui-ji-yu-cai-guan/cai-guan/cai-guan-17-quan-mian-yu-suan/" title="财管17-全面预算">财管17-全面预算</a>
+</li>
+<li><a href="/2025/01/12/hui-ji-yu-cai-guan/cai-guan/cai-guan-18-ze-ren-hui-ji/" title="财管18-责任会计">财管18-责任会计</a>
+</li>
+<li><a href="/2025/01/13/hui-ji-yu-cai-guan/cai-guan/cai-guan-19-ye-ji-ping-jie/" title="财管19-业绩评价">财管19-业绩评价</a>
+</li>
+<li><h2 id="金融证券分析"><a href="#金融证券分析" class="headerlink" title="金融证券分析"></a>金融证券分析</h2></li>
+<li><p>财报（待更新）</p>
+</li>
+<li><p>公司金融（待更新）</p>
+</li>
+<li><p>经济学（待更新）</p>
+</li>
+<li><p>数量（待更新）</p>
+</li>
+<li><p>投资组合管理（待更新）</p>
+</li>
+<li><p>另类（待更新）</p>
+</li>
+<li><p>权益（待更新）</p>
+</li>
+<li><p>固收（待更新）</p>
+</li>
+<li><p>衍生（待更新）</p>
+</li>
+<li><p>行为金融学（待更新）</p>
+</li>
+<li><p>私人财富管理（待更新）</p>
+</li>
+<li><p>经济学分析应用（待更新）</p>
+</li>
+<li><p>权益组合管理（待更新）</p>
+</li>
+<li><p>资产配置（待更新）</p>
+</li>
+<li><p>固定收益组合管理（待更新）</p>
+</li>
+<li><p>另类投资组合管理（待更新）</p>
+</li>
+<li><p>机构投资者组合管理（待更新）</p>
+</li>
+<li><p>衍生品和货币管理（待更新）</p>
+</li>
+<li><p>交易、业绩评估（待更新）</p>
+</li>
+</ul>
+<h1 id="Quickly-Quetion-By-AI"><a href="#Quickly-Quetion-By-AI" class="headerlink" title="Quickly Quetion By AI"></a>Quickly Quetion By AI</h1><ul>
+<li><a href="/2025/01/24/qi-ta/shu-ju-yuan/source-data-analysis/" title="source-data-analysis">source-data-analysis</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io" rel="external nofollow noreferrer">Gustavo</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gustavo1841.github.io/2024/07/18/introduce/">https://gustavo1841.github.io/2024/07/18/introduce/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://gustavo1841.github.io" target="_blank">Gustavo</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AF%BC%E8%88%AA%E9%A1%B5/">
+                                    <span class="chip bg-color">导航页</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'Ov23liq75W6OMBRsILFM',
+        clientSecret: 'ed377d268bc9ef7ea8e847b6de012be660bd8e3e',
+        repo: 'gustavo1841.github.io',
+        owner: 'gustavo1841',
+        admin: "gustavo1841",
+        id: '2024-07-18T22-04-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/12/28/hui-ji-yu-cai-guan/cai-guan/cai-guan-01-cai-wu-guan-li-gai-shu/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="财管01-财务管理概述">
+                        
+                        <span class="card-title">财管01-财务管理概述</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-12-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BC%9A%E8%AE%A1%E4%B8%8E%E8%B4%A2%E7%AE%A1/" class="post-category">
+                                    会计与财管
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B4%A2%E7%AE%A1/">
+                        <span class="chip bg-color">财管</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/12/qi-ta/qa-ai/roadmapanalysis/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="RoadMapAnalysis">
+                        
+                        <span class="card-title">RoadMapAnalysis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Quickly-Question-By-AI/" class="post-category">
+                                    Quickly Question By AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DeepSeek/">
+                        <span class="chip bg-color">DeepSeek</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Gustavo<br />'
+            + '文章作者: Gustavo<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025-2026</span>
+            
+            <a href="/about" target="_blank">Gustavo</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2025";
+                        var startMonth = "1";
+                        var startDate = "13";
+                        var startHour = "18";
+                        var startMinute = "54";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/gustavo1841" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:huangwei0246@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1142488172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1142488172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "json",
+            success: function (datas) {
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content ? data.content.trim().replace(/<[^>]+>/g, "").toLowerCase() : "";
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content ? data.content.trim().replace(/<[^>]+>/g, "") : "";
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.json', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
